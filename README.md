@@ -1,4 +1,4 @@
-# 📰 Capas API
+# 📰 Capas
 
 > API simples e gratuita que disponibiliza diariamente as capas dos principais jornais portugueses em formato JSON.  
 > Construída com Rust + GitHub Actions + GitHub Pages (ou outro hosting estático).
