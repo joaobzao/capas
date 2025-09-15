@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinSerialization) // 👈 needed for kotlinx.serialization
 }
 
 kotlin {
@@ -11,7 +12,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosArm64(),
         iosSimulatorArm64()
@@ -21,13 +22,27 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
-        commonMain.dependencies {
-            // put your Multiplatform dependencies here
+        val commonMain by getting {
+            dependencies {
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.logging)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.kotlinx.serialization.json)
+            }
         }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.ktor.client.okhttp)
+            }
+        }
+        val iosMain by creating {
+            dependsOn(commonMain)
+            dependencies {
+                implementation(libs.ktor.client.darwin)
+            }
         }
     }
 }
