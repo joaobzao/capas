@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: capas-api  # 👈 muda o diretório base
 
     steps:
       - name: Checkout repo
@@ -26,6 +29,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./capas-api/public   # 👈 ajustado para apontar à pasta certa
           publish_branch: gh-pages
           commit_message: "🔄 Update capas ($(date -u +'%Y-%m-%d %H:%M:%S UTC'))"
