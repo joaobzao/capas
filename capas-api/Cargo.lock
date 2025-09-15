@@ -91,6 +91,7 @@ checksum = "d71b6127be86fdcfddb610f7182ac57211d4b18a3e9c82eb2d17662f2227ad6a"
 name = "capas-api"
 version = "0.1.0"
 dependencies = [
+ "indexmap",
  "reqwest",
  "scraper",
  "serde",
@@ -592,6 +593,7 @@ checksum = "206a8042aec68fa4a62e8d3f7aa4ceb508177d9324faf261e1959e495b7a1921"
 dependencies = [
  "equivalent",
  "hashbrown",
+ "serde",
 ]
 
 [[package]]
