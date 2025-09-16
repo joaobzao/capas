@@ -17,6 +17,7 @@ kotlinx-serialization = "1.9.0"
 koin = "4.1.1"
 koinCompose = "4.1.1"
 kermit = "2.0.8"
+coil = "2.7.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -46,6 +47,8 @@ koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = 
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 
 touchlab-kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+
+coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
