@@ -18,10 +18,19 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import capas.composeapp.generated.resources.Res
 import capas.composeapp.generated.resources.compose_multiplatform
+import co.touchlab.kermit.Logger
+import com.joaobzao.capas.capas.CapasViewModel
+import org.koin.compose.koinInject
 
 @Composable
 @Preview
-fun App() {
+fun App(
+    viewModel: CapasViewModel = koinInject()
+) {
+    LaunchedEffect(Unit) {
+        viewModel.getCapas()
+    }
+
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
         Column(

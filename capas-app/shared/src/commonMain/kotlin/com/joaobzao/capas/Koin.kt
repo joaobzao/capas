@@ -5,6 +5,10 @@ package com.joaobzao.capas
 import co.touchlab.kermit.Logger
 import co.touchlab.kermit.StaticConfig
 import co.touchlab.kermit.platformLogWriter
+import com.joaobzao.capas.capas.CapasRepository
+import com.joaobzao.capas.capas.CapasRepositoryImpl
+import com.joaobzao.capas.network.Api
+import com.joaobzao.capas.network.ApiImpl
 import com.joaobzao.capas.network.Environments
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpTimeout
@@ -27,7 +31,8 @@ fun initKoin(appModule: Module): KoinApplication {
     val koinApplication = startKoin {
         modules(
             appModule,
-            coreModule
+            coreModule,
+            platformModule
         )
     }
 
@@ -87,6 +92,23 @@ private val coreModule = module {
         }
     }
 
+    single {
+        Environments.PROD
+    }
+
+    single<Api> {
+        ApiImpl(
+            get(),
+            get()
+        )
+    }
+
+    single<CapasRepository> {
+        CapasRepositoryImpl(
+            get()
+        )
+    }
+
     // platformLogWriter() is a relatively simple config option, useful for local debugging. For production
     // uses you *may* want to have a more robust configuration from the native platform. In KaMP Kit,
     // that would likely go into platformModule expect/actual.
@@ -94,3 +116,5 @@ private val coreModule = module {
     val baseLogger = Logger(config = StaticConfig(logWriterList = listOf(platformLogWriter())), "Capas")
     factory { (tag: String?) -> if (tag != null) baseLogger.withTag(tag) else baseLogger }
 }
+
+expect val platformModule: Module

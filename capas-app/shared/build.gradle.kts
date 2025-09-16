@@ -38,6 +38,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.ktor.client.okhttp)
+                implementation(libs.androidx.lifecycle.viewmodel)
             }
         }
         val iosMain by creating {
