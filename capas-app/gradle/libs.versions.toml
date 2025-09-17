@@ -18,6 +18,7 @@ koin = "4.1.1"
 koinCompose = "4.1.1"
 kermit = "2.0.8"
 coil = "2.7.0"
+androidx-navigation-compose = "2.9.4"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -49,6 +50,8 @@ koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 touchlab-kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation-compose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
