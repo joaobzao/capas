@@ -1,5 +1,6 @@
 package com.joaobzao.capas.navigation
 
+import CapasScreen
 import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -9,7 +10,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.joaobzao.capas.CapaDetailScreen
-import com.joaobzao.capas.CapasScreen
 import com.joaobzao.capas.capas.Capa
 import com.joaobzao.capas.capas.CapasViewModel
 import org.koin.androidx.compose.koinViewModel
