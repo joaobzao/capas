@@ -55,6 +55,7 @@ fun CapasScreen(
     var startOffset by remember { mutableStateOf(Offset.Zero) }
     var previewSize by remember { mutableStateOf(DpSize.Zero) }
     var isOverTrash by remember { mutableStateOf(false) }
+    var isShrinking by remember { mutableStateOf(false) }
 
     // Posições e tamanhos dos itens
     val itemInfos = remember { mutableStateMapOf<String, ItemInfo>() }
@@ -97,8 +98,8 @@ fun CapasScreen(
                             .padding(horizontal = 12.dp, vertical = 8.dp),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        items(CapasCategory.values().size) { index ->
-                            val category = CapasCategory.values()[index]
+                        items(CapasCategory.entries.size) { index ->
+                            val category = CapasCategory.entries[index]
                             FilterChip(
                                 selected = category == selectedCategory,
                                 onClick = { selectedCategory = category },
@@ -126,11 +127,13 @@ fun CapasScreen(
                                     startOffset = info?.position ?: Offset.Zero
                                     previewSize = info?.size ?: DpSize.Zero
                                     dragOffset = Offset.Zero
+                                    isShrinking = false
                                 },
                                 onDrag = { offset -> dragOffset += offset },
                                 onDragEnd = {
                                     if (isOverTrash && draggingCapa != null) {
                                         val removed = draggingCapa!!
+                                        isShrinking = true // anima shrink
                                         viewModel.removeCapa(removed)
                                         scope.launch {
                                             val result = snackbarHostState.showSnackbar(
@@ -142,12 +145,15 @@ fun CapasScreen(
                                                 viewModel.restoreCapa(removed)
                                             }
                                         }
+                                    } else {
+                                        // reset se não foi apagada
+                                        draggingCapa = null
+                                        dragOffset = Offset.Zero
+                                        startOffset = Offset.Zero
+                                        previewSize = DpSize.Zero
+                                        isOverTrash = false
+                                        isShrinking = false
                                     }
-                                    draggingCapa = null
-                                    dragOffset = Offset.Zero
-                                    startOffset = Offset.Zero
-                                    previewSize = DpSize.Zero
-                                    isOverTrash = false
                                 },
                                 onPositioned = { coords ->
                                     val pos = coords.localToWindow(Offset.Zero)
@@ -169,6 +175,11 @@ fun CapasScreen(
 
             // Área de remover → só aparece quando existe capa a ser arrastada
             if (draggingCapa != null) {
+                val trashScale by animateFloatAsState(
+                    targetValue = if (isShrinking && isOverTrash) 1.3f else 1f,
+                    label = "trash-scale"
+                )
+
                 Box(
                     modifier = Modifier
                         .align(Alignment.BottomCenter)
@@ -185,16 +196,36 @@ fun CapasScreen(
                         contentDescription = "Remover",
                         tint = if (isOverTrash) MaterialTheme.colorScheme.onErrorContainer
                         else MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.size(if (isOverTrash) 40.dp else 32.dp)
+                        modifier = Modifier
+                            .size(32.dp)
+                            .graphicsLayer(
+                                scaleX = trashScale,
+                                scaleY = trashScale
+                            )
                     )
                 }
             }
 
-            // Preview da capa enquanto arrastas
+            // Preview da capa enquanto arrastas (com shrink ao apagar)
             draggingCapa?.let { capa ->
+                val targetScale = when {
+                    isShrinking -> 0f
+                    else -> 1.05f
+                }
+
                 val scale by animateFloatAsState(
-                    targetValue = 1.05f,
-                    label = "drag-scale"
+                    targetValue = targetScale,
+                    label = "drag-scale",
+                    finishedListener = {
+                        if (isShrinking) {
+                            // remove preview depois da animação de shrink
+                            draggingCapa = null
+                            dragOffset = Offset.Zero
+                            startOffset = Offset.Zero
+                            previewSize = DpSize.Zero
+                            isShrinking = false
+                        }
+                    }
                 )
 
                 AsyncImage(
@@ -213,9 +244,9 @@ fun CapasScreen(
                 )
                 // Atualiza estado do trash
                 LaunchedEffect(dragOffset) {
-                    val threshold = screenHeight - 160f
+                    val threshold = screenHeight * 1.6f
                     isOverTrash =
-                        (startOffset.y + dragOffset.y + with(density) { previewSize.height.toPx() }) > threshold
+                        (startOffset.y + dragOffset.y) > threshold
                 }
             }
         }
