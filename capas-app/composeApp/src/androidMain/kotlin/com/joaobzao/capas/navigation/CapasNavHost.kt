@@ -1,7 +1,6 @@
 package com.joaobzao.capas.navigation
 
 import CapasScreen
-import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -10,9 +9,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.joaobzao.capas.CapaDetailScreen
-import com.joaobzao.capas.capas.Capa
 import com.joaobzao.capas.capas.CapasViewModel
 import org.koin.androidx.compose.koinViewModel
+import androidx.compose.runtime.collectAsState
 
 @Composable
 fun CapasNavHost(
@@ -23,30 +22,37 @@ fun CapasNavHost(
         navController = navController,
         startDestination = "capas"
     ) {
+        // Lista de capas
         composable("capas") {
             CapasScreen(
                 viewModel = viewModel,
                 onCapaClick = { capa ->
-                    navController.navigate(
-                        "detail/${Uri.encode(capa.url)}/${Uri.encode(capa.nome)}"
-                    )
+                    navController.navigate("detail/${capa.id}")
                 }
             )
         }
 
+        // Detalhe
         composable(
-            route = "detail/{url}/{nome}",
+            route = "detail/{id}",
             arguments = listOf(
-                navArgument("url") { type = NavType.StringType },
-                navArgument("nome") { type = NavType.StringType }
+                navArgument("id") { type = NavType.StringType }
             )
         ) { backStackEntry ->
-            val url = backStackEntry.arguments?.getString("url")!!
-            val nome = backStackEntry.arguments?.getString("nome")!!
-            CapaDetailScreen(
-                capa = Capa(nome, url),
-                onBack = { navController.popBackStack() }
-            )
+            val id = backStackEntry.arguments?.getString("id")!!
+
+            // Procurar a capa no estado do ViewModel
+            val capa = viewModel.capasState.collectAsState().value.capas?.let { capas ->
+                (capas.mainNewspapers + capas.sportNewspapers + capas.economyNewspapers)
+                    .find { it.id == id }
+            }
+
+            capa?.let {
+                CapaDetailScreen(
+                    capa = it,
+                    onBack = { navController.popBackStack() }
+                )
+            }
         }
     }
 }

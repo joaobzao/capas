@@ -15,7 +15,7 @@ class CapasViewModel(
     private val mutableCapasViewState: MutableStateFlow<CapasViewState> =
         MutableStateFlow(CapasViewState())
 
-    val competitionsState: StateFlow<CapasViewState>
+    val capasState: StateFlow<CapasViewState>
         get() {
             return mutableCapasViewState
         }
@@ -26,6 +26,20 @@ class CapasViewModel(
                 mutableCapasViewState.value = CapasViewState(it.data)
                     .also { log.v { "🤩 Updating capas: ${it.capas}" } }
             }
+        }
+    }
+
+    fun removeCapa(capa: Capa) {
+        viewModelScope.launch {
+            capasRepository.removeId(capa.id)
+            getCapas()
+        }
+    }
+
+    fun restoreCapa(capa: Capa) {
+        viewModelScope.launch {
+            capasRepository.restoreId(capa.id)
+            getCapas()
         }
     }
 

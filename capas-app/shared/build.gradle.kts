@@ -32,6 +32,7 @@ kotlin {
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.koin.core)
+                implementation(libs.multiplatform.settings)
                 api(libs.touchlab.kermit)
             }
         }

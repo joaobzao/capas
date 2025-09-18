@@ -15,6 +15,7 @@ data class CapasResponse(
 
 @Serializable
 data class Capa(
+    val id: String,
     val nome: String,
     val url: String
 )
