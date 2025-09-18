@@ -1,250 +1,311 @@
 {
   "Jornais Nacionais": [
     {
+      "id": "correio-da-manha",
       "nome": "Correio da Manhã",
       "url": "https://imgs.vercapas.com/covers/correio-da-manha/2025/correio-da-manha-2025-09-18-c8d6edf2.jpg"
     },
     {
+      "id": "jornal-de-noticias",
       "nome": "Jornal de Notícias",
       "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2025/jornal-de-noticias-2025-09-18-7c30e42e.jpg"
     },
     {
+      "id": "publico",
       "nome": "Público",
       "url": "https://imgs.vercapas.com/covers/publico/2025/publico-2025-09-18-43aaf732.jpg"
     },
     {
+      "id": "diario-de-noticias",
       "nome": "Diário de Notícias",
       "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2025/diario-de-noticias-2025-09-18-3e7104f1.jpg"
     },
     {
+      "id": "jornal-i",
       "nome": "Jornal i",
       "url": "https://imgs.vercapas.com/covers/i/2025/i-2025-07-29-20c8ca65.jpg"
     },
     {
+      "id": "sol",
       "nome": "SOL",
       "url": "https://imgs.vercapas.com/covers/sol/2025/sol-2025-09-12-0cb19bbf.jpg"
     },
     {
+      "id": "destak",
       "nome": "Destak",
       "url": "https://imgs.vercapas.com/covers/destak/2025/destak-2025-08-08-532b7807.jpg"
     },
     {
+      "id": "expresso",
       "nome": "Expresso",
       "url": "https://imgs.vercapas.com/covers/expresso/2025/expresso-2025-09-12-b42102a2.jpg"
     },
     {
+      "id": "jornal-de-negocios",
       "nome": "Jornal de Negócios",
       "url": "https://imgs.vercapas.com/covers/jornal-de-negocios/2025/jornal-de-negocios-2025-09-18-ef8919b4.jpg"
     },
     {
+      "id": "jornal-economico",
       "nome": "Jornal Económico",
       "url": "https://imgs.vercapas.com/covers/jornal-economico/2025/jornal-economico-2025-09-18-77707e33.jpg"
     },
     {
+      "id": "o-diabo",
       "nome": "O Diabo",
       "url": "https://imgs.vercapas.com/covers/o-diabo/2025/o-diabo-2025-09-12-090a6511.jpg"
     },
     {
+      "id": "avante",
       "nome": "Avante!",
       "url": "https://imgs.vercapas.com/covers/avante/2025/avante-2025-09-17-6a9c0a22.jpg"
     },
     {
+      "id": "novo-semanario",
       "nome": "NOVO Semanário",
       "url": "https://imgs.vercapas.com/covers/novo-semanario/novo-semanario-2024-03-30-1a5659.jpg"
     },
     {
+      "id": "tal-qual",
       "nome": "Tal & Qual",
       "url": "https://imgs.vercapas.com/covers/tal-e-qual/2025/tal-e-qual-2025-09-17-9dfa95fe.jpg"
     }
   ],
   "Desporto": [
     {
+      "id": "a-bola",
       "nome": "A Bola",
       "url": "https://imgs.vercapas.com/covers/a-bola/2025/a-bola-2025-09-18-bcae8b16.jpg"
     },
     {
+      "id": "record",
       "nome": "Record",
       "url": "https://imgs.vercapas.com/covers/record/2025/record-2025-09-18-6af60d71.jpg"
     },
     {
+      "id": "o-jogo",
       "nome": "O Jogo",
       "url": "https://imgs.vercapas.com/covers/o-jogo/2025/o-jogo-2025-09-18-5b20ca19.jpg"
     },
     {
+      "id": "o-benfica",
       "nome": "O Benfica",
       "url": "https://imgs.vercapas.com/covers/o-benfica/2025/o-benfica-2025-09-12-3b4e34e8.jpg"
     },
     {
+      "id": "jornal-sporting",
       "nome": "Jornal Sporting",
       "url": "https://imgs.vercapas.com/covers/jornal-sporting/2025/jornal-sporting-2025-09-19-c68636c6.jpg"
     },
     {
+      "id": "jornal-1x2",
       "nome": "Jornal 1X2",
       "url": "https://imgs.vercapas.com/covers/jornal-1x2/2025/jornal-1x2-2025-09-16-acab3709.jpg"
     },
     {
+      "id": "jornal-as",
       "nome": "Jornal AS",
       "url": "https://imgs.vercapas.com/covers/jornal-as/2025/jornal-as-2025-09-18-74446c0e.jpg"
     },
     {
+      "id": "marca",
       "nome": "Marca",
-      "url": "https://imgs.vercapas.com/covers/jornal-marca/2025/jornal-marca-2025-09-18-cac93e7c-x.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-marca/2025/jornal-marca-2025-09-18-ae90e358.jpg"
     },
     {
+      "id": "mundo-deportivo",
       "nome": "Mundo Deportivo",
       "url": "https://imgs.vercapas.com/covers/mundo-deportivo/2025/mundo-deportivo-2025-09-18-30a55c4e.jpg"
     },
     {
+      "id": "tuttosport",
       "nome": "Tuttosport",
       "url": "https://imgs.vercapas.com/covers/tuttosport/2025/tuttosport-2025-09-18-211253cf.jpg"
     },
     {
+      "id": "l-equipe",
       "nome": "L'Équipe",
       "url": "https://imgs.vercapas.com/covers/lequipe/2025/lequipe-2025-09-18-182c5d57.jpg"
     },
     {
+      "id": "desportivo-de-guimaraes",
       "nome": "Desportivo de Guimarães",
       "url": "https://imgs.vercapas.com/covers/desportivo-de-guimaraes/2025/desportivo-de-guimaraes-2025-09-16-528349cd.jpg"
     },
     {
+      "id": "jornal-do-golfe",
       "nome": "Jornal do Golfe",
       "url": "https://imgs.vercapas.com/covers/jornal-do-golfe/jornal-do-golfe-2013-07-12-25fc0e.jpg"
     },
     {
+      "id": "dragoes",
       "nome": "Dragões",
       "url": "https://imgs.vercapas.com/covers/dragoes/2025/dragoes-2025-08-25-c600c890.jpg"
     },
     {
+      "id": "futebolista",
       "nome": "Futebolista",
       "url": "https://imgs.vercapas.com/covers/futebolista/futebolista-2015-03-27-aea921.jpg"
     },
     {
+      "id": "mistica",
       "nome": "Mística",
       "url": "https://imgs.vercapas.com/covers/mistica/mistica-2017-07-12-0b9189.jpg"
     },
     {
+      "id": "revista-atletismo",
       "nome": "Revista Atletismo",
       "url": "https://imgs.vercapas.com/covers/revista-atletismo/revista-atletismo-2016-11-03-73475c.jpg"
     },
     {
+      "id": "ciclismo-a-fundo",
       "nome": "Ciclismo a Fundo",
       "url": "https://imgs.vercapas.com/covers/ciclismo-a-fundo/ciclismo-a-fundo-2017-11-01-44cb73.jpg"
     },
     {
+      "id": "equitacao",
       "nome": "Equitação",
       "url": "https://imgs.vercapas.com/covers/equitacao/2025/equitacao-2025-07-05-b5e422d4.jpg"
     },
     {
+      "id": "o-praticante",
       "nome": "O Praticante",
       "url": "https://imgs.vercapas.com/covers/o-praticante/o-praticante-2014-06-20-811786.jpg"
     },
     {
+      "id": "golfe-no-centro",
       "nome": "Golfe no Centro",
       "url": "https://imgs.vercapas.com/covers/golfe-no-centro/golfe-no-centro-2014-03-25-314890.jpg"
     },
     {
+      "id": "bike-magazine",
       "nome": "BIKE Magazine",
       "url": "https://imgs.vercapas.com/covers/bike-magazine/bike-magazine-2024-12-01-8b496b-x.jpg"
     },
     {
+      "id": "freebike",
       "nome": "FREEBIKE",
       "url": "https://imgs.vercapas.com/covers/freebike/freebike-2018-05-01-f74787-x.jpg"
     },
     {
+      "id": "biking-aventura",
       "nome": "Biking Aventura",
       "url": "https://imgs.vercapas.com/covers/biking-aventura/biking-aventura-2013-03-07-2c4cf6.jpg"
     }
   ],
   "Economia e Gestão": [
     {
+      "id": "expresso-economia",
       "nome": "Expresso-Economia",
       "url": "https://imgs.vercapas.com/covers/expresso-economia/2025/expresso-economia-2025-09-12-6291bf24.jpg"
     },
     {
+      "id": "expresso-emprego",
       "nome": "Expresso-Emprego",
       "url": "https://imgs.vercapas.com/covers/expresso-emprego/expresso-emprego-2016-12-30-4ec959.jpg"
     },
     {
+      "id": "dinheiro-vivo-dn-jn",
       "nome": "Dinheiro Vivo-DN/JN",
       "url": "https://imgs.vercapas.com/covers/dinheiro-vivo-dn-jn/2025/dinheiro-vivo-dn-jn-2025-09-12-70fa656a-x.jpg"
     },
     {
+      "id": "exame",
       "nome": "Exame",
       "url": "https://imgs.vercapas.com/covers/exame/exame-2025-04-01-1a6562.jpg"
     },
     {
+      "id": "vida-economica",
       "nome": "Vida Económica",
       "url": "https://imgs.vercapas.com/covers/vida-economica/2025/vida-economica-2025-09-12-8c8e48ae.jpg"
     },
     {
+      "id": "meios-publicidade",
       "nome": "Meios & Publicidade",
       "url": "https://imgs.vercapas.com/covers/meios-e-publicidade/2025/meios-e-publicidade-2025-09-05-0507733a.jpg"
     },
     {
+      "id": "marketeer",
       "nome": "Marketeer",
       "url": "https://imgs.vercapas.com/covers/marketeer/2025/marketeer-2025-08-18-59dac69c-x.jpg"
     },
     {
+      "id": "executive-digest",
       "nome": "Executive Digest",
       "url": "https://imgs.vercapas.com/covers/executive-digest/2025/executive-digest-2025-08-18-1dba9a5b-x.jpg"
     },
     {
+      "id": "actualidade-economia-iberica",
       "nome": "Actualidade Economia Ibérica",
       "url": "https://imgs.vercapas.com/covers/actualidad-economiaiberica/2025/actualidad-economiaiberica-2025-09-01-447bd609.jpg"
     },
     {
+      "id": "revista-invest",
       "nome": "Revista Invest",
       "url": "https://imgs.vercapas.com/covers/revista-invest/revista-invest-2014-07-31-2fca34.jpg"
     },
     {
+      "id": "briefing",
       "nome": "Briefing",
       "url": "https://imgs.vercapas.com/covers/briefing/2025/briefing-2025-08-22-8b716e1a.jpg"
     },
     {
+      "id": "fibra",
       "nome": "FIBRA",
       "url": "https://imgs.vercapas.com/covers/fibra/fibra-2013-12-10-7688b6.jpg"
     },
     {
+      "id": "advocatus",
       "nome": "Advocatus",
       "url": "https://imgs.vercapas.com/covers/advocatus/2025/advocatus-2025-09-01-de07ab23.jpg"
     },
     {
+      "id": "o-advogado",
       "nome": "O Advogado",
       "url": "https://imgs.vercapas.com/covers/o-advogado/o-advogado-2012-07-05-6208ef.jpg"
     },
     {
+      "id": "diplomatica",
       "nome": "Diplomática",
       "url": "https://imgs.vercapas.com/covers/diplomatica/diplomatica-2021-09-13-3e1e96-x.jpg"
     },
     {
+      "id": "negocios-franchising",
       "nome": "Negócios & Franchising",
       "url": "https://imgs.vercapas.com/covers/negocios-e-franchising/negocios-e-franchising-2018-03-05-39fa9e.jpg"
     },
     {
+      "id": "construir",
       "nome": "Construir",
       "url": "https://imgs.vercapas.com/covers/construir/2025/construir-2025-09-12-81482cb8.jpg"
     },
     {
+      "id": "casas-negocios",
       "nome": "Casas & Negócios",
       "url": "https://imgs.vercapas.com/covers/casas-e-negocios/casas-e-negocios-2012-07-27-c75cb6.jpg"
     },
     {
+      "id": "publituris-hotelaria",
       "nome": "Publituris Hotelaria",
       "url": "https://imgs.vercapas.com/covers/publituris-hotelaria/2025/publituris-hotelaria-2025-07-28-53295477.jpg"
     },
     {
+      "id": "publituris",
       "nome": "Publituris",
       "url": "https://imgs.vercapas.com/covers/publituris/2025/publituris-2025-08-29-cdadd0df.jpg"
     },
     {
+      "id": "traco-arquitectura-e-design",
       "nome": "TRAÇO - Arquitectura e Design",
       "url": "https://imgs.vercapas.com/covers/traco-arquitectura-e-design/traco-arquitectura-e-design-2025-07-07-c75de2.jpg"
     },
     {
+      "id": "hipersuper",
       "nome": "Hipersuper",
       "url": "https://imgs.vercapas.com/covers/hipersuper/2025/hipersuper-2025-08-07-e66b1661.jpg"
     },
     {
+      "id": "forbes-portugal",
       "nome": "Forbes Portugal",
       "url": "https://imgs.vercapas.com/covers/forbes-portugal/2025/forbes-portugal-2025-09-08-fc6a992c.jpg"
     }
