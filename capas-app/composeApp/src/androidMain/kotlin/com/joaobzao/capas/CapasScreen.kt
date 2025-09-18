@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -27,7 +28,7 @@ fun CapasScreen(
     onCapaClick: (Capa) -> Unit
 ) {
     val state by viewModel.competitionsState.collectAsState()
-    var selectedCategory by remember { mutableStateOf(CapasCategory.NATIONAL) }
+    var selectedCategory by rememberSaveable { mutableStateOf(CapasCategory.NATIONAL) }
 
     LaunchedEffect(Unit) {
         viewModel.getCapas()
