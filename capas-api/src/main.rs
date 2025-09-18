@@ -6,11 +6,26 @@ use std::io::Write;
 use std::thread::sleep;
 use std::time::Duration;
 use indexmap::IndexMap; // mantém a ordem de inserção
+use unicode_normalization::UnicodeNormalization;
 
 #[derive(Serialize, Clone)]
 struct Capa {
+    id: String,
     nome: String,
     url: String,
+}
+
+/// Cria um slug estável a partir do nome do jornal
+fn slugify(name: &str) -> String {
+    name.nfkd() // normaliza Unicode (ex: "ú" -> "u")
+        .filter(|c| c.is_ascii()) // remove acentos e não ASCII
+        .collect::<String>()
+        .to_lowercase()
+        .replace(|c: char| !c.is_alphanumeric(), "-") // troca espaços/símbolos por "-"
+        .split('-')
+        .filter(|s| !s.is_empty())
+        .collect::<Vec<_>>()
+        .join("-")
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -34,11 +49,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut resultado_temp: IndexMap<String, Vec<Capa>> = IndexMap::new();
 
     // Secções de interesse
-    let secoes_permitidas = vec![
-        "Jornais Nacionais",
-        "Desporto",
-        "Economia e Gestão",
-    ];
+    let secoes_permitidas = vec!["Jornais Nacionais", "Desporto", "Economia e Gestão"];
     let mover_para_desporto = ["O Jogo", "A Bola", "Record"];
 
     // 2. Iterar pelas secções da homepage
@@ -92,6 +103,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                                 };
 
                                 capas_secao.push(Capa {
+                                    id: slugify(&nome),
                                     nome: nome.clone(),
                                     url,
                                 });
@@ -125,7 +137,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
-    // 4. Ordenar Desporto (A Bola → O Jogo → Record → restantes)
+    // 4. Ordenar Desporto (A Bola → Record → O Jogo → restantes)
     let ordem_preferida = ["A Bola", "Record", "O Jogo"];
     let mut prioridade = Vec::new();
     let mut resto = Vec::new();
