@@ -206,7 +206,7 @@ fun CapasScreen(
                 }
             }
 
-            // Preview da capa enquanto arrastas (com shrink ao apagar)
+            // Preview da capa enquanto arrastas (com shrink + transparência)
             draggingCapa?.let { capa ->
                 val targetScale = when {
                     isShrinking -> 0f
@@ -228,6 +228,11 @@ fun CapasScreen(
                     }
                 )
 
+                val alpha by animateFloatAsState(
+                    targetValue = if (isOverTrash) 0.5f else 1f,
+                    label = "drag-alpha"
+                )
+
                 AsyncImage(
                     model = capa.url,
                     contentDescription = capa.nome,
@@ -237,16 +242,16 @@ fun CapasScreen(
                             translationY = startOffset.y + dragOffset.y,
                             shadowElevation = 12.dp.value,
                             scaleX = scale,
-                            scaleY = scale
+                            scaleY = scale,
+                            alpha = alpha // 👈 transparência no preview
                         )
                         .size(previewSize),
                     contentScale = ContentScale.Crop
                 )
-                // Atualiza estado do trash
+
                 LaunchedEffect(dragOffset) {
                     val threshold = screenHeight * 1.6f
-                    isOverTrash =
-                        (startOffset.y + dragOffset.y) > threshold
+                    isOverTrash = (startOffset.y + dragOffset.y) > threshold
                 }
             }
         }
