@@ -45,6 +45,7 @@ fun CapasScreen(
 ) {
     val state by viewModel.capasState.collectAsState()
     var selectedCategory by rememberSaveable { mutableStateOf(CapasCategory.NATIONAL) }
+    var showRemoved by rememberSaveable { mutableStateOf(false) }
 
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -71,6 +72,11 @@ fun CapasScreen(
         topBar = {
             TopAppBar(
                 title = { Text("Capas", style = MaterialTheme.typography.titleLarge) },
+                actions = {
+                    IconButton(onClick = { showRemoved = true }) {
+                        Icon(Icons.Default.Delete, contentDescription = "Ver capas removidas")
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface
                 )
@@ -108,7 +114,7 @@ fun CapasScreen(
                         }
                     }
 
-                    // Grid
+                    // Grid principal
                     LazyVerticalGrid(
                         columns = GridCells.Adaptive(minSize = 160.dp),
                         modifier = Modifier.fillMaxSize(),
@@ -133,7 +139,7 @@ fun CapasScreen(
                                 onDragEnd = {
                                     if (isOverTrash && draggingCapa != null) {
                                         val removed = draggingCapa!!
-                                        isShrinking = true // anima shrink
+                                        isShrinking = true
                                         viewModel.removeCapa(removed)
                                         scope.launch {
                                             val result = snackbarHostState.showSnackbar(
@@ -146,7 +152,7 @@ fun CapasScreen(
                                             }
                                         }
                                     } else {
-                                        // reset se não foi apagada
+                                        // reset
                                         draggingCapa = null
                                         dragOffset = Offset.Zero
                                         startOffset = Offset.Zero
@@ -173,7 +179,7 @@ fun CapasScreen(
                 CircularProgressIndicator()
             }
 
-            // Área de remover → só aparece quando existe capa a ser arrastada
+            // Área de remover → só aparece durante drag
             if (draggingCapa != null) {
                 val trashScale by animateFloatAsState(
                     targetValue = if (isShrinking && isOverTrash) 1.3f else 1f,
@@ -206,28 +212,18 @@ fun CapasScreen(
                 }
             }
 
-            // Preview da capa enquanto arrastas (com shrink + transparência)
+            // Preview da capa enquanto arrastas
             draggingCapa?.let { capa ->
-                val targetScale = when {
-                    isShrinking -> 0f
-                    else -> 1.05f
-                }
-
-                val scale by animateFloatAsState(
-                    targetValue = targetScale,
-                    label = "drag-scale",
-                    finishedListener = {
-                        if (isShrinking) {
-                            // remove preview depois da animação de shrink
-                            draggingCapa = null
-                            dragOffset = Offset.Zero
-                            startOffset = Offset.Zero
-                            previewSize = DpSize.Zero
-                            isShrinking = false
-                        }
+                val targetScale = if (isShrinking) 0f else 1.05f
+                val scale by animateFloatAsState(targetValue = targetScale, label = "drag-scale") {
+                    if (isShrinking) {
+                        draggingCapa = null
+                        dragOffset = Offset.Zero
+                        startOffset = Offset.Zero
+                        previewSize = DpSize.Zero
+                        isShrinking = false
                     }
-                )
-
+                }
                 val alpha by animateFloatAsState(
                     targetValue = if (isOverTrash) 0.5f else 1f,
                     label = "drag-alpha"
@@ -243,7 +239,7 @@ fun CapasScreen(
                             shadowElevation = 12.dp.value,
                             scaleX = scale,
                             scaleY = scale,
-                            alpha = alpha // 👈 transparência no preview
+                            alpha = alpha
                         )
                         .size(previewSize),
                     contentScale = ContentScale.Crop
@@ -252,6 +248,63 @@ fun CapasScreen(
                 LaunchedEffect(dragOffset) {
                     val threshold = screenHeight * 1.6f
                     isOverTrash = (startOffset.y + dragOffset.y) > threshold
+                }
+            }
+        }
+    }
+
+    // Bottom sheet com capas removidas
+    if (showRemoved) {
+        ModalBottomSheet(
+            onDismissRequest = { showRemoved = false }
+        ) {
+            Text(
+                "Capas removidas",
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.padding(16.dp)
+            )
+            if (state.removed.isEmpty()) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(32.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text("Nenhuma capa removida")
+                }
+            } else {
+                LazyVerticalGrid(
+                    columns = GridCells.Adaptive(minSize = 120.dp),
+                    modifier = Modifier.fillMaxHeight(0.6f),
+                    contentPadding = PaddingValues(12.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    items(state.removed) { capa ->
+                        ElevatedCard(
+                            onClick = { viewModel.restoreCapa(capa) },
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            Column(
+                                modifier = Modifier.padding(8.dp),
+                                verticalArrangement = Arrangement.spacedBy(6.dp)
+                            ) {
+                                AsyncImage(
+                                    model = capa.url,
+                                    contentDescription = capa.nome,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .aspectRatio(0.75f),
+                                    contentScale = ContentScale.Crop
+                                )
+                                Text(
+                                    text = capa.nome,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    maxLines = 2
+                                )
+                            }
+                        }
+                    }
                 }
             }
         }

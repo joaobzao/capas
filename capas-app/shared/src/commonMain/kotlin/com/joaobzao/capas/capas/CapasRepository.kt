@@ -12,8 +12,8 @@ interface CapasRepository {
     suspend fun getCapas(): Flow<NetworkResult<CapasResponse>>
     fun removeId(id: String)
     fun restoreId(id: String)
+    fun getRemovedCapas(): List<Capa>
 }
-
 
 class CapasRepositoryImpl(
     private val api: Api,
@@ -21,10 +21,12 @@ class CapasRepositoryImpl(
 ) : CapasRepository {
 
     private val KEY = "allowed_capas"
+    private var lastCapas: CapasResponse? = null
 
     override suspend fun getCapas(): Flow<NetworkResult<CapasResponse>> = flow {
         api.fetchCapas().collect { result ->
             if (result is NetworkResult.Success && result.data != null) {
+                lastCapas = result.data
                 val capas = result.data
                 val allowedIds = getAllowedIds()
 
@@ -58,6 +60,13 @@ class CapasRepositoryImpl(
     override fun restoreId(id: String) {
         val current = getAllowedIds()
         setAllowedIds(current + id)
+    }
+
+    override fun getRemovedCapas(): List<Capa> {
+        val allowed = getAllowedIds()
+        val capas = lastCapas ?: return emptyList()
+        return (capas.mainNewspapers + capas.sportNewspapers + capas.economyNewspapers)
+            .filterNot { it.id in allowed }
     }
 
     private fun getAllowedIds(): Set<String> {
