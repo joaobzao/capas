@@ -92,6 +92,11 @@ fun CapasScreen(
                     CapasCategory.ECONOMY -> capasResponse.economyNewspapers
                 }
 
+                // 🔑 sempre que muda a lista → limpar coordenadas
+                LaunchedEffect(capasForCategory) {
+                    itemInfos.clear()
+                }
+
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -122,7 +127,7 @@ fun CapasScreen(
                         verticalArrangement = Arrangement.spacedBy(16.dp),
                         horizontalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
-                        items(capasForCategory) { capa ->
+                        items(capasForCategory, key = { it.id }) { capa ->
                             CapaGridItemDraggable(
                                 capa = capa,
                                 isDragging = draggingCapa?.id == capa.id,
@@ -140,6 +145,8 @@ fun CapasScreen(
                                     if (isOverTrash && draggingCapa != null) {
                                         val removed = draggingCapa!!
                                         isShrinking = true
+                                        // 🔑 remove coordenadas da capa eliminada
+                                        itemInfos.remove(removed.id)
                                         viewModel.removeCapa(removed)
                                         scope.launch {
                                             val result = snackbarHostState.showSnackbar(
@@ -179,7 +186,7 @@ fun CapasScreen(
                 CircularProgressIndicator()
             }
 
-            // Área de remover → só aparece durante drag
+            // Área de remover
             if (draggingCapa != null) {
                 val trashScale by animateFloatAsState(
                     targetValue = if (isShrinking && isOverTrash) 1.3f else 1f,
@@ -212,7 +219,7 @@ fun CapasScreen(
                 }
             }
 
-            // Preview da capa enquanto arrastas
+            // Preview enquanto arrastas
             draggingCapa?.let { capa ->
                 val targetScale = if (isShrinking) 0f else 1.05f
                 val scale by animateFloatAsState(targetValue = targetScale, label = "drag-scale") {
@@ -253,11 +260,9 @@ fun CapasScreen(
         }
     }
 
-    // Bottom sheet com capas removidas
+    // Bottom sheet removidas
     if (showRemoved) {
-        ModalBottomSheet(
-            onDismissRequest = { showRemoved = false }
-        ) {
+        ModalBottomSheet(onDismissRequest = { showRemoved = false }) {
             Text(
                 "Capas removidas",
                 style = MaterialTheme.typography.titleMedium,
@@ -280,7 +285,7 @@ fun CapasScreen(
                     verticalArrangement = Arrangement.spacedBy(12.dp),
                     horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    items(state.removed) { capa ->
+                    items(state.removed, key = { it.id }) { capa ->
                         ElevatedCard(
                             onClick = { viewModel.restoreCapa(capa) },
                             modifier = Modifier.fillMaxSize()
