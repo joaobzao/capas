@@ -26,46 +26,52 @@ struct CapasScreen: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                VStack {
+                Color(uiColor: .systemGroupedBackground)
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 0) {
                     // Category Picker
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
+                        HStack(spacing: 12) {
                             ForEach(CapasCategory.allCases, id: \.self) { category in
                                 Button(action: {
                                     selectedCategory = category
                                 }) {
                                     Text(category.rawValue)
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 8)
-                                        .background(selectedCategory == category ? Color.blue.opacity(0.2) : Color.gray.opacity(0.1))
-                                        .foregroundColor(selectedCategory == category ? .blue : .primary)
-                                        .cornerRadius(16)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .stroke(selectedCategory == category ? Color.blue : Color.clear, lineWidth: 1)
+                                        .font(.system(.subheadline, design: .rounded))
+                                        .fontWeight(.semibold)
+                                        .padding(.horizontal, 20)
+                                        .padding(.vertical, 10)
+                                        .background(
+                                            Capsule()
+                                                .fill(selectedCategory == category ? Color.blue : Color(uiColor: .secondarySystemFill))
                                         )
+                                        .foregroundColor(selectedCategory == category ? .white : .primary)
                                 }
                             }
                         }
                         .padding(.horizontal)
-                        .padding(.vertical, 8)
+                        .padding(.vertical, 16)
                     }
+                    .background(Color(uiColor: .systemBackground))
                     
                     // Grid
                     if let capasResponse = viewModelWrapper.state.capas {
                         let capas = getCapas(for: selectedCategory, from: capasResponse)
                         
                         ScrollView {
-                            LazyVGrid(columns: columns, spacing: 16) {
+                            LazyVGrid(columns: columns, spacing: 20) {
                                 ForEach(capas, id: \.id) { capa in
                                     ZStack {
                                         // Placeholder when dragging
                                         if draggingCapa?.id == capa.id {
-                                            Rectangle()
-                                                .fill(Color.gray.opacity(0.3))
-                                                .cornerRadius(12)
-                                                .aspectRatio(0.75, contentMode: .fit)
-                                                .matchedGeometryEffect(id: capa.id, in: animation)
+                                            ZStack {
+                                                CapaItem(capa: capa)
+                                                    .opacity(0)
+                                                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                                    .fill(Color.gray.opacity(0.1))
+                                            }
+                                            .matchedGeometryEffect(id: capa.id, in: animation)
                                         } else {
                                             NavigationLink(destination: CapasDetailsScreen(capa: capa)) {
                                                 CapaItem(capa: capa)
@@ -75,7 +81,7 @@ struct CapasScreen: View {
                                         }
                                     }
                                     .simultaneousGesture(
-                                        LongPressGesture(minimumDuration: 0.3)
+                                        LongPressGesture(minimumDuration: 0.15)
                                             .sequenced(before: DragGesture(coordinateSpace: .global))
                                             .onChanged { value in
                                                 switch value {
@@ -84,14 +90,18 @@ struct CapasScreen: View {
                                                         if draggingCapa == nil {
                                                             let generator = UIImpactFeedbackGenerator(style: .medium)
                                                             generator.impactOccurred()
-                                                            draggingCapa = capa
+                                                            withAnimation(.interactiveSpring()) {
+                                                                draggingCapa = capa
+                                                            }
                                                         }
                                                         dragOffset = dragValue.translation
                                                         
-                                                        // Check if over trash (approximate screen height check)
+                                                        // Check if over trash
                                                         let screenHeight = UIScreen.main.bounds.height
-                                                        let trashThreshold = screenHeight - 150 // Bottom area
-                                                        isOverTrash = dragValue.location.y > trashThreshold
+                                                        let trashThreshold = screenHeight - 150
+                                                        withAnimation(.spring()) {
+                                                            isOverTrash = dragValue.location.y > trashThreshold
+                                                        }
                                                     }
                                                 default:
                                                     break
@@ -99,11 +109,13 @@ struct CapasScreen: View {
                                             }
                                             .onEnded { value in
                                                 if isOverTrash, let capa = draggingCapa {
+                                                    let generator = UINotificationFeedbackGenerator()
+                                                    generator.notificationOccurred(.success)
                                                     viewModelWrapper.removeCapa(capa)
                                                 }
                                                 
                                                 // Reset state
-                                                withAnimation {
+                                                withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                                                     draggingCapa = nil
                                                     dragOffset = .zero
                                                     isOverTrash = false
@@ -113,6 +125,7 @@ struct CapasScreen: View {
                                 }
                             }
                             .padding()
+                            .padding(.bottom, 100) // Space for trash
                         }
                         .scrollDisabled(draggingCapa != nil)
                     } else {
@@ -126,19 +139,20 @@ struct CapasScreen: View {
                     VStack {
                         Spacer()
                         ZStack {
-                            Rectangle()
-                                .fill(isOverTrash ? Color.red.opacity(0.2) : Color.gray.opacity(0.2))
-                                .frame(height: 100)
+                            Circle()
+                                .fill(.ultraThinMaterial)
+                                .frame(width: 80, height: 80)
+                                .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
                             
-                            Image(systemName: "trash")
-                                .font(.system(size: 30))
-                                .foregroundColor(isOverTrash ? .red : .gray)
+                            Image(systemName: isOverTrash ? "trash.fill" : "trash")
+                                .font(.system(size: 32))
+                                .foregroundColor(isOverTrash ? .red : .secondary)
                                 .scaleEffect(isOverTrash ? 1.2 : 1.0)
-                                .animation(.spring(), value: isOverTrash)
                         }
+                        .padding(.bottom, 30)
                     }
                     .edgesIgnoringSafeArea(.bottom)
-                    .transition(.move(edge: .bottom))
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
                 
                 // Draggable Item Overlay
@@ -146,7 +160,9 @@ struct CapasScreen: View {
                     ZStack {
                         CapaItem(capa: capa)
                             .offset(dragOffset)
-                            .opacity(0.9)
+                            .scaleEffect(1.05)
+                            .shadow(color: Color.black.opacity(0.2), radius: 15, x: 0, y: 10)
+                            .opacity(isOverTrash ? 0.4 : 1.0)
                     }
                     .matchedGeometryEffect(id: capa.id, in: animation, properties: .frame, isSource: false)
                     .allowsHitTesting(false)
@@ -158,7 +174,8 @@ struct CapasScreen: View {
                     Button(action: {
                         showRemoved = true
                     }) {
-                        Image(systemName: "trash")
+                        Image(systemName: "arrow.counterclockwise.circle")
+                            .font(.system(size: 18, weight: .semibold))
                     }
                 }
             }
@@ -184,31 +201,45 @@ struct CapaItem: View {
     let capa: Capa
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 0) {
             RemoteImage(url: capa.url)
                 .aspectRatio(0.75, contentMode: .fit)
-                .cornerRadius(8)
+                .frame(maxWidth: .infinity)
+                .clipped()
             
             Text(capa.nome)
-                .font(.subheadline)
+                .font(.system(.caption, design: .rounded))
+                .fontWeight(.semibold)
+                .foregroundColor(.primary)
                 .lineLimit(2)
+                .padding(12)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color(uiColor: .secondarySystemGroupedBackground))
         }
-        .padding(8)
-        .background(Color.white)
-        .cornerRadius(12)
-        .shadow(radius: 2)
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 4)
     }
 }
 
 class ImageLoader: ObservableObject {
     @Published var image: Image?
+    private static var cache = NSCache<NSString, UIImage>()
+    
+    init(url: String) {
+        if let cachedImage = Self.cache.object(forKey: url as NSString) {
+            self.image = Image(uiImage: cachedImage)
+        }
+    }
     
     func load(from urlString: String) {
+        if image != nil { return }
+        
         guard let url = URL(string: urlString) else { return }
         Task {
             do {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 if let uiImage = UIImage(data: data) {
+                    Self.cache.setObject(uiImage, forKey: urlString as NSString)
                     DispatchQueue.main.async {
                         self.image = Image(uiImage: uiImage)
                     }
@@ -222,7 +253,12 @@ class ImageLoader: ObservableObject {
 
 struct RemoteImage: View {
     let url: String
-    @StateObject private var loader = ImageLoader()
+    @StateObject private var loader: ImageLoader
+    
+    init(url: String) {
+        self.url = url
+        _loader = StateObject(wrappedValue: ImageLoader(url: url))
+    }
     
     var body: some View {
         Group {
