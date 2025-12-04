@@ -1,5 +1,6 @@
 import SwiftUI
 import Shared
+import UIKit
 
 enum CapasCategory: String, CaseIterable {
     case national = "Jornais Nacionais"
@@ -184,26 +185,9 @@ struct CapaItem: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            AsyncImage(url: URL(string: capa.url)) { phase in
-                switch phase {
-                case .empty:
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.2))
-                        .aspectRatio(0.75, contentMode: .fit)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .aspectRatio(0.75, contentMode: .fit)
-                        .cornerRadius(8)
-                case .failure:
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.2))
-                        .aspectRatio(0.75, contentMode: .fit)
-                        .overlay(Image(systemName: "photo"))
-                @unknown default:
-                    EmptyView()
-                }
-            }
+            RemoteImage(url: capa.url)
+                .aspectRatio(0.75, contentMode: .fit)
+                .cornerRadius(8)
             
             Text(capa.nome)
                 .font(.subheadline)
@@ -213,6 +197,47 @@ struct CapaItem: View {
         .background(Color.white)
         .cornerRadius(12)
         .shadow(radius: 2)
+    }
+}
+
+class ImageLoader: ObservableObject {
+    @Published var image: Image?
+    
+    func load(from urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        Task {
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                if let uiImage = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.image = Image(uiImage: uiImage)
+                    }
+                }
+            } catch {
+                print("Error loading image: \(error)")
+            }
+        }
+    }
+}
+
+struct RemoteImage: View {
+    let url: String
+    @StateObject private var loader = ImageLoader()
+    
+    var body: some View {
+        Group {
+            if let image = loader.image {
+                image
+                    .resizable()
+            } else {
+                Rectangle()
+                    .fill(Color.gray.opacity(0.2))
+                    .overlay(ProgressView())
+                    .onAppear {
+                        loader.load(from: url)
+                    }
+            }
+        }
     }
 }
 
