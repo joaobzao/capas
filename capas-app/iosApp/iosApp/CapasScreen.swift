@@ -20,47 +20,87 @@ struct CapasScreen: View {
     @State private var isOverTrash = false
     
     let columns = [
-        GridItem(.adaptive(minimum: 160), spacing: 16)
+        GridItem(.adaptive(minimum: 160), spacing: 24)
     ]
     
     var body: some View {
         NavigationStack {
             ZStack {
+                // Premium Background
                 Color(uiColor: .systemGroupedBackground)
                     .ignoresSafeArea()
                 
                 VStack(spacing: 0) {
-                    // Category Picker
+                    // Custom Header
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(Date().formatted(.dateTime.weekday(.wide).month().day()))
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.secondary)
+                                .textCase(.uppercase)
+                            
+                            Text("Capas")
+                                .font(.system(size: 34, weight: .bold, design: .serif))
+                                .foregroundColor(.primary)
+                        }
+                        Spacer()
+                        
+                        Button(action: {
+                            showRemoved = true
+                        }) {
+                            Image(systemName: "clock.arrow.circlepath")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundColor(.primary)
+                                .padding(10)
+                                .background(Color(uiColor: .secondarySystemBackground))
+                                .clipShape(Circle())
+                        }
+                    }
+                    .padding(.horizontal, 24)
+                    .padding(.top, 16)
+                    .padding(.bottom, 24)
+                    .background(Color(uiColor: .systemBackground))
+                    
+                    // Minimalist Category Picker
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 12) {
+                        HStack(spacing: 32) {
                             ForEach(CapasCategory.allCases, id: \.self) { category in
                                 Button(action: {
                                     selectedCategory = category
                                 }) {
-                                    Text(category.rawValue)
-                                        .font(.system(.subheadline, design: .rounded))
-                                        .fontWeight(.semibold)
-                                        .padding(.horizontal, 20)
-                                        .padding(.vertical, 10)
-                                        .background(
-                                            Capsule()
-                                                .fill(selectedCategory == category ? Color.blue : Color(uiColor: .secondarySystemFill))
-                                        )
-                                        .foregroundColor(selectedCategory == category ? .white : .primary)
+                                    VStack(spacing: 8) {
+                                        Text(category.rawValue)
+                                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                                            .foregroundColor(selectedCategory == category ? .primary : .secondary)
+                                        
+                                        if selectedCategory == category {
+                                            Circle()
+                                                .fill(Color.primary)
+                                                .frame(width: 4, height: 4)
+                                                .matchedGeometryEffect(id: "indicator", in: animation)
+                                        } else {
+                                            Circle()
+                                                .fill(Color.clear)
+                                                .frame(width: 4, height: 4)
+                                        }
+                                    }
                                 }
                             }
                         }
-                        .padding(.horizontal)
-                        .padding(.vertical, 16)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 12)
                     }
                     .background(Color(uiColor: .systemBackground))
+                    .shadow(color: Color.black.opacity(0.03), radius: 10, x: 0, y: 5)
+                    .zIndex(1)
                     
                     // Grid
                     if let capasResponse = viewModelWrapper.state.capas {
                         let capas = getCapas(for: selectedCategory, from: capasResponse)
                         
                         ScrollView {
-                            LazyVGrid(columns: columns, spacing: 20) {
+                            LazyVGrid(columns: columns, spacing: 24) {
                                 ForEach(capas, id: \.id) { capa in
                                     ZStack {
                                         // Placeholder when dragging
@@ -68,7 +108,7 @@ struct CapasScreen: View {
                                             ZStack {
                                                 CapaItem(capa: capa)
                                                     .opacity(0)
-                                                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                                RoundedRectangle(cornerRadius: 20, style: .continuous)
                                                     .fill(Color.gray.opacity(0.1))
                                             }
                                             .matchedGeometryEffect(id: capa.id, in: animation)
@@ -90,7 +130,7 @@ struct CapasScreen: View {
                                                         if draggingCapa == nil {
                                                             let generator = UIImpactFeedbackGenerator(style: .medium)
                                                             generator.impactOccurred()
-                                                            withAnimation(.interactiveSpring()) {
+                                                            withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.7)) {
                                                                 draggingCapa = capa
                                                             }
                                                         }
@@ -124,8 +164,8 @@ struct CapasScreen: View {
                                     )
                                 }
                             }
-                            .padding()
-                            .padding(.bottom, 100) // Space for trash
+                            .padding(24)
+                            .padding(.bottom, 100)
                         }
                         .scrollDisabled(draggingCapa != nil)
                     } else {
@@ -142,7 +182,11 @@ struct CapasScreen: View {
                             Circle()
                                 .fill(.ultraThinMaterial)
                                 .frame(width: 80, height: 80)
-                                .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
+                                .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 10)
+                                .overlay(
+                                    Circle()
+                                        .stroke(Color.red.opacity(isOverTrash ? 0.5 : 0), lineWidth: 2)
+                                )
                             
                             Image(systemName: isOverTrash ? "trash.fill" : "trash")
                                 .font(.system(size: 32))
@@ -161,24 +205,14 @@ struct CapasScreen: View {
                         CapaItem(capa: capa)
                             .offset(dragOffset)
                             .scaleEffect(1.05)
-                            .shadow(color: Color.black.opacity(0.2), radius: 15, x: 0, y: 10)
+                            .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 15)
                             .opacity(isOverTrash ? 0.4 : 1.0)
                     }
                     .matchedGeometryEffect(id: capa.id, in: animation, properties: .frame, isSource: false)
                     .allowsHitTesting(false)
                 }
             }
-            .navigationTitle("Capas")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        showRemoved = true
-                    }) {
-                        Image(systemName: "arrow.counterclockwise.circle")
-                            .font(.system(size: 18, weight: .semibold))
-                    }
-                }
-            }
+            .navigationBarHidden(true)
             .sheet(isPresented: $showRemoved) {
                 RemovedCapasSheet(viewModelWrapper: viewModelWrapper)
             }
@@ -202,22 +236,29 @@ struct CapaItem: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            RemoteImage(url: capa.url)
-                .aspectRatio(0.75, contentMode: .fit)
-                .frame(maxWidth: .infinity)
-                .clipped()
-            
-            Text(capa.nome)
-                .font(.system(.caption, design: .rounded))
-                .fontWeight(.semibold)
-                .foregroundColor(.primary)
-                .lineLimit(2)
-                .padding(12)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color(uiColor: .secondarySystemGroupedBackground))
+            ZStack(alignment: .bottomLeading) {
+                RemoteImage(url: capa.url)
+                    .aspectRatio(0.75, contentMode: .fit)
+                    .frame(maxWidth: .infinity)
+                    .background(Color(uiColor: .secondarySystemBackground))
+                
+                // Gradient Overlay
+                LinearGradient(
+                    gradient: Gradient(colors: [.black.opacity(0.7), .clear]),
+                    startPoint: .bottom,
+                    endPoint: .center
+                )
+                
+                Text(capa.nome)
+                    .font(.system(.caption, design: .serif))
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .lineLimit(2)
+                    .padding(12)
+            }
         }
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 4)
+        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 5)
     }
 }
 
@@ -282,35 +323,61 @@ struct RemovedCapasSheet: View {
     @Environment(\.presentationMode) var presentationMode
     
     let columns = [
-        GridItem(.adaptive(minimum: 120), spacing: 12)
+        GridItem(.adaptive(minimum: 160), spacing: 24)
     ]
     
     var body: some View {
         NavigationView {
-            VStack {
+            ZStack {
+                Color(uiColor: .systemGroupedBackground)
+                    .ignoresSafeArea()
+                
                 if viewModelWrapper.state.removed.isEmpty {
-                    Text("Nenhuma capa removida")
-                        .foregroundColor(.gray)
+                    VStack(spacing: 16) {
+                        Image(systemName: "trash.slash")
+                            .font(.system(size: 48))
+                            .foregroundColor(.secondary)
+                        Text("Nenhuma capa removida")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                    }
                 } else {
                     ScrollView {
-                        LazyVGrid(columns: columns, spacing: 12) {
+                        LazyVGrid(columns: columns, spacing: 24) {
                             ForEach(viewModelWrapper.state.removed, id: \.id) { capa in
                                 Button(action: {
+                                    let generator = UINotificationFeedbackGenerator()
+                                    generator.notificationOccurred(.success)
                                     viewModelWrapper.restoreCapa(capa)
                                 }) {
                                     CapaItem(capa: capa)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                                .stroke(Color.blue, lineWidth: 0)
+                                        )
                                 }
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
-                        .padding()
+                        .padding(24)
                     }
                 }
             }
-            .navigationTitle("Capas removidas")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Recuperar Capas")
+                        .font(.system(.title3, design: .serif))
+                        .fontWeight(.bold)
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Fechar") {
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.system(size: 24))
+                            .foregroundColor(.secondary)
+                            .symbolRenderingMode(.hierarchical)
                     }
                 }
             }
