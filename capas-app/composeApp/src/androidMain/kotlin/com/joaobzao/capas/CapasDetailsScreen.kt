@@ -28,6 +28,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
 import com.joaobzao.capas.capas.Capa
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -41,7 +43,15 @@ fun CapaDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(capa.nome, style = MaterialTheme.typography.titleLarge) },
+                title = { 
+                    Text(
+                        capa.nome, 
+                        style = MaterialTheme.typography.titleLarge.copy(
+                            fontFamily = FontFamily.Serif,
+                            fontWeight = FontWeight.Bold
+                        )
+                    ) 
+                },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
