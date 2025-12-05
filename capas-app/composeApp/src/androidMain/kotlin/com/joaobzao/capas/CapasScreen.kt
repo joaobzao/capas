@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.*
@@ -44,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
 import coil.compose.AsyncImage
+import com.joaobzao.capas.AboutSheet
 import com.joaobzao.capas.capas.Capa
 import com.joaobzao.capas.capas.CapasViewModel
 import kotlinx.coroutines.launch
@@ -68,6 +70,7 @@ fun CapasScreen(
     val state by viewModel.capasState.collectAsState()
     var selectedCategory by rememberSaveable { mutableStateOf(CapasCategory.NATIONAL) }
     var showRemoved by rememberSaveable { mutableStateOf(false) }
+    var showAbout by rememberSaveable { mutableStateOf(false) }
 
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -127,17 +130,33 @@ fun CapasScreen(
                     )
                 }
                 
-                IconButton(
-                    onClick = { showRemoved = true },
-                    modifier = Modifier
-                        .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape)
-                        .size(40.dp)
-                ) {
-                    Icon(
-                        Icons.Default.Refresh,
-                        contentDescription = "Ver capas removidas",
-                        tint = MaterialTheme.colorScheme.onSurface
-                    )
+                // Header Actions
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    IconButton(
+                        onClick = { showAbout = true },
+                        modifier = Modifier
+                            .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape)
+                            .size(40.dp)
+                    ) {
+                        Icon(
+                            Icons.Default.Info,
+                            contentDescription = "Sobre",
+                            tint = MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+
+                    IconButton(
+                        onClick = { showRemoved = true },
+                        modifier = Modifier
+                            .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape)
+                            .size(40.dp)
+                    ) {
+                        Icon(
+                            Icons.Default.Refresh,
+                            contentDescription = "Ver capas removidas",
+                            tint = MaterialTheme.colorScheme.onSurface
+                        )
+                    }
                 }
             }
 
@@ -464,6 +483,10 @@ fun CapasScreen(
                 }
             }
         }
+    }
+
+    if (showAbout) {
+        AboutSheet(onDismiss = { showAbout = false })
     }
 }
 
