@@ -38,6 +38,7 @@ import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.DpSize
@@ -46,17 +47,19 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.toSize
 import coil.compose.AsyncImage
 import com.joaobzao.capas.AboutSheet
+import com.joaobzao.capas.R
 import com.joaobzao.capas.capas.Capa
 import com.joaobzao.capas.capas.CapasViewModel
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 import java.util.Locale
 
-enum class CapasCategory(val label: String) {
-    NATIONAL("Jornais Nacionais"),
-    SPORT("Desporto"),
-    ECONOMY("Economia e Gestão")
+enum class CapasCategory(val labelResId: Int) {
+    NATIONAL(R.string.category_national),
+    SPORT(R.string.category_sport),
+    ECONOMY(R.string.category_economy)
 }
 
 data class ItemInfo(val position: Offset, val size: DpSize)
@@ -112,7 +115,7 @@ fun CapasScreen(
             ) {
                 Column(modifier = Modifier.weight(1f)) {
                     val date = remember {
-                        LocalDate.now().format(DateTimeFormatter.ofPattern("EEEE, d MMMM", Locale("pt", "PT")))
+                        LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(Locale.getDefault()))
                     }
                     Text(
                         text = date.uppercase(),
@@ -121,7 +124,7 @@ fun CapasScreen(
                         fontWeight = FontWeight.SemiBold
                     )
                     Text(
-                        text = "Capas",
+                        text = stringResource(R.string.title_capas),
                         style = MaterialTheme.typography.displaySmall.copy(
                             fontFamily = FontFamily.Serif,
                             fontWeight = FontWeight.Bold
@@ -140,7 +143,7 @@ fun CapasScreen(
                     ) {
                         Icon(
                             Icons.Default.Info,
-                            contentDescription = "Sobre",
+                            contentDescription = stringResource(R.string.title_about),
                             tint = MaterialTheme.colorScheme.onSurface
                         )
                     }
@@ -153,7 +156,7 @@ fun CapasScreen(
                     ) {
                         Icon(
                             Icons.Default.Refresh,
-                            contentDescription = "Ver capas removidas",
+                            contentDescription = stringResource(R.string.action_view_removed),
                             tint = MaterialTheme.colorScheme.onSurface
                         )
                     }
@@ -182,7 +185,7 @@ fun CapasScreen(
                             ) { selectedCategory = category }
                     ) {
                         Text(
-                            text = category.label,
+                            text = stringResource(category.labelResId),
                             style = MaterialTheme.typography.titleMedium.copy(
                                 fontFamily = FontFamily.Default,
                                 fontWeight = FontWeight.Medium

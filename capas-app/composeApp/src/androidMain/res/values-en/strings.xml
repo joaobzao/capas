@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Capas</string>
+    <string name="category_national">National Newspapers</string>
+    <string name="category_sport">Sports</string>
+    <string name="category_economy">Economy &amp; Management</string>
+    <string name="title_capas">Capas</string>
+    <string name="action_view_removed">View removed covers</string>
+    <string name="msg_removed">%1$s removed</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_remove">Remove</string>
+    <string name="title_recover_capas">Recover Covers</string>
+    <string name="action_close">Close</string>
+    <string name="msg_no_removed_capas">No removed covers</string>
+    <string name="action_restore">Restore</string>
+    <string name="title_about">About</string>
+    <string name="version_label">Version %1$s</string>
+    <string name="title_contacts">Contacts</string>
+    <string name="label_support_email">Support Email</string>
+    <string name="label_privacy_policy">Privacy Policy</string>
+    <string name="subtitle_privacy_policy">Read terms and conditions</string>
+</resources>

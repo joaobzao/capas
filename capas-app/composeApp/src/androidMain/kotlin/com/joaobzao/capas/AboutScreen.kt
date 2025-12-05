@@ -1,5 +1,6 @@
 package com.joaobzao.capas
 
+import com.joaobzao.capas.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,6 +33,7 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -54,7 +56,7 @@ fun AboutSheet(
                     .padding(horizontal = 24.dp, vertical = 16.dp)
             ) {
                 Text(
-                    "Sobre",
+                    stringResource(R.string.title_about),
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontFamily = FontFamily.Serif,
                         fontWeight = FontWeight.Bold
@@ -66,7 +68,7 @@ fun AboutSheet(
                     onClick = onDismiss,
                     modifier = Modifier.align(Alignment.CenterEnd)
                 ) {
-                    Icon(Icons.Outlined.Close, contentDescription = "Fechar")
+                    Icon(Icons.Outlined.Close, contentDescription = stringResource(R.string.action_close))
                 }
             }
 
@@ -92,14 +94,14 @@ fun AboutSheet(
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            "Capas",
+                            stringResource(R.string.title_capas),
                             style = MaterialTheme.typography.headlineMedium.copy(
                                 fontFamily = FontFamily.Serif,
                                 fontWeight = FontWeight.Bold
                             )
                         )
                         Text(
-                            "Versão 1.0.1",
+                            stringResource(R.string.version_label, "1.0.1"),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.secondary
                         )
@@ -107,7 +109,7 @@ fun AboutSheet(
                 }
 
                 Text(
-                    "Contactos",
+                    stringResource(R.string.title_contacts),
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.padding(top = 8.dp, start = 8.dp)
                 )
@@ -115,15 +117,15 @@ fun AboutSheet(
                 // Contact Options
                 ContactItem(
                     icon = Icons.Default.Email,
-                    title = "Email de Suporte",
+                    title = stringResource(R.string.label_support_email),
                     subtitle = "joaozao.dev@gmail.com",
                     onClick = { uriHandler.openUri("mailto:joaozao.dev@gmail.com") }
                 )
 
                 ContactItem(
                     icon = Icons.Default.Lock,
-                    title = "Política de Privacidade",
-                    subtitle = "Ler termos e condições",
+                    title = stringResource(R.string.label_privacy_policy),
+                    subtitle = stringResource(R.string.subtitle_privacy_policy),
                     onClick = { uriHandler.openUri("https://github.com/joaobzao/capas/blob/main/PRIVACY_POLICY.md") }
                 )
             }

@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Capas</string>
+    <string name="category_national">Jornais Nacionais</string>
+    <string name="category_sport">Desporto</string>
+    <string name="category_economy">Economia e Gestão</string>
+    <string name="title_capas">Capas</string>
+    <string name="action_view_removed">Ver capas removidas</string>
+    <string name="msg_removed">%1$s removida</string>
+    <string name="action_undo">Anular</string>
+    <string name="action_remove">Remover</string>
+    <string name="title_recover_capas">Recuperar Capas</string>
+    <string name="action_close">Fechar</string>
+    <string name="msg_no_removed_capas">Nenhuma capa removida</string>
+    <string name="action_restore">Restaurar</string>
+    <string name="title_about">Sobre</string>
+    <string name="version_label">Versão %1$s</string>
+    <string name="title_contacts">Contactos</string>
+    <string name="label_support_email">Email de Suporte</string>
+    <string name="label_privacy_policy">Política de Privacidade</string>
+    <string name="subtitle_privacy_policy">Ler termos e condições</string>
 </resources>
