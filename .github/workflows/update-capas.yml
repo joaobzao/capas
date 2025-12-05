@@ -2,7 +2,7 @@ name: Update capas
 
 on:
   schedule:
-    - cron: '0 7 * * *'   # todos os dias às 07:00 UTC
+    - cron: '0 7,8 * * *'   # 07:00 e 08:00 UTC
   workflow_dispatch:
 
 jobs:
