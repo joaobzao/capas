@@ -2,16 +2,25 @@ import SwiftUI
 import Shared
 import UIKit
 
-enum CapasCategory: String, CaseIterable {
-    case national = "Jornais Nacionais"
-    case sport = "Desporto"
-    case economy = "Economia e Gestão"
+enum CapasCategory: CaseIterable {
+    case national
+    case sport
+    case economy
+    
+    var label: String {
+        switch self {
+        case .national: return Strings.categoryNational
+        case .sport: return Strings.categorySport
+        case .economy: return Strings.categoryEconomy
+        }
+    }
 }
 
 struct CapasScreen: View {
     @StateObject private var viewModelWrapper = CapasViewModelWrapper()
     @State private var selectedCategory: CapasCategory = .national
     @State private var showRemoved = false
+    @State private var showAbout = false
     @Namespace private var animation
     
     // Drag state
@@ -40,21 +49,34 @@ struct CapasScreen: View {
                                 .foregroundColor(.secondary)
                                 .textCase(.uppercase)
                             
-                            Text("Capas")
+                            Text(Strings.appName)
                                 .font(.system(size: 34, weight: .bold, design: .serif))
                                 .foregroundColor(.primary)
                         }
                         Spacer()
                         
-                        Button(action: {
-                            showRemoved = true
-                        }) {
-                            Image(systemName: "clock.arrow.circlepath")
-                                .font(.system(size: 20, weight: .medium))
-                                .foregroundColor(.primary)
-                                .padding(10)
-                                .background(Color(uiColor: .secondarySystemBackground))
-                                .clipShape(Circle())
+                        HStack(spacing: 8) {
+                            Button(action: {
+                                showRemoved = true
+                            }) {
+                                Image(systemName: "clock.arrow.circlepath")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundColor(.primary)
+                                    .padding(10)
+                                    .background(Color(uiColor: .secondarySystemBackground))
+                                    .clipShape(Circle())
+                            }
+                            
+                            Button(action: {
+                                showAbout = true
+                            }) {
+                                Image(systemName: "info.circle")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundColor(.primary)
+                                    .padding(10)
+                                    .background(Color(uiColor: .secondarySystemBackground))
+                                    .clipShape(Circle())
+                            }
                         }
                     }
                     .padding(.horizontal, 24)
@@ -70,7 +92,7 @@ struct CapasScreen: View {
                                     selectedCategory = category
                                 }) {
                                     VStack(spacing: 8) {
-                                        Text(category.rawValue)
+                                        Text(category.label)
                                             .font(.system(size: 16, weight: .medium, design: .rounded))
                                             .foregroundColor(selectedCategory == category ? .primary : .secondary)
                                         
@@ -216,6 +238,9 @@ struct CapasScreen: View {
             .sheet(isPresented: $showRemoved) {
                 RemovedCapasSheet(viewModelWrapper: viewModelWrapper)
             }
+            .sheet(isPresented: $showAbout) {
+                AboutSheet()
+            }
         }
     }
     
@@ -337,7 +362,7 @@ struct RemovedCapasSheet: View {
                         Image(systemName: "trash.slash")
                             .font(.system(size: 48))
                             .foregroundColor(.secondary)
-                        Text("Nenhuma capa removida")
+                        Text(Strings.msgNoRemovedCapas)
                             .font(.headline)
                             .foregroundColor(.secondary)
                     }
@@ -366,7 +391,7 @@ struct RemovedCapasSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("Recuperar Capas")
+                    Text(Strings.titleRecoverCapas)
                         .font(.system(.title3, design: .serif))
                         .fontWeight(.bold)
                 }
