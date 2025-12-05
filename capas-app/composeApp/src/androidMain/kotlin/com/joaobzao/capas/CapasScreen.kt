@@ -19,6 +19,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.*
@@ -74,6 +75,7 @@ fun CapasScreen(
     var selectedCategory by rememberSaveable { mutableStateOf(CapasCategory.NATIONAL) }
     var showRemoved by rememberSaveable { mutableStateOf(false) }
     var showAbout by rememberSaveable { mutableStateOf(false) }
+    var showMenu by remember { mutableStateOf(false) }
 
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -136,19 +138,6 @@ fun CapasScreen(
                 // Header Actions
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     IconButton(
-                        onClick = { showAbout = true },
-                        modifier = Modifier
-                            .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape)
-                            .size(40.dp)
-                    ) {
-                        Icon(
-                            Icons.Default.Info,
-                            contentDescription = stringResource(R.string.title_about),
-                            tint = MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-
-                    IconButton(
                         onClick = { showRemoved = true },
                         modifier = Modifier
                             .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape)
@@ -159,6 +148,40 @@ fun CapasScreen(
                             contentDescription = stringResource(R.string.action_view_removed),
                             tint = MaterialTheme.colorScheme.onSurface
                         )
+                    }
+
+                    Box {
+                        IconButton(
+                            onClick = { showMenu = true },
+                            modifier = Modifier
+                                .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape)
+                                .size(40.dp)
+                        ) {
+                            Icon(
+                                Icons.Default.MoreVert,
+                                contentDescription = "Mais opções",
+                                tint = MaterialTheme.colorScheme.onSurface
+                            )
+                        }
+
+                        DropdownMenu(
+                            expanded = showMenu,
+                            onDismissRequest = { showMenu = false }
+                        ) {
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.title_about)) },
+                                onClick = {
+                                    showMenu = false
+                                    showAbout = true
+                                },
+                                leadingIcon = {
+                                    Icon(
+                                        Icons.Default.Info,
+                                        contentDescription = null
+                                    )
+                                }
+                            )
+                        }
                     }
                 }
             }
