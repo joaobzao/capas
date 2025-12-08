@@ -45,8 +45,11 @@ android {
         applicationId = "com.joaobzao.capas"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 3
+        versionCode = 5
         versionName = "1.0.2"
+        ndk {
+            debugSymbolLevel = "FULL"
+        }
     }
     packaging {
         resources {
@@ -55,7 +58,9 @@ android {
     }
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
