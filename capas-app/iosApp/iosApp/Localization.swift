@@ -7,7 +7,7 @@ enum Strings {
     
     static var appName: String { "Capas" }
     
-    static var categoryNational: String { isPortuguese ? "Jornais Nacionais" : "National Newspapers" }
+    static var categoryNational: String { isPortuguese ? "Generalistas" : "General" }
     static var categorySport: String { isPortuguese ? "Desporto" : "Sports" }
     static var categoryEconomy: String { isPortuguese ? "Economia e Gestão" : "Economy & Management" }
     

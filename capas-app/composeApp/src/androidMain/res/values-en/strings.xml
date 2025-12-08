@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Capas</string>
-    <string name="category_national">National Newspapers</string>
+    <string name="category_national">General</string>
     <string name="category_sport">Sports</string>
     <string name="category_economy">Economy &amp; Management</string>
     <string name="title_capas">Capas</string>
