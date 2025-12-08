@@ -3,6 +3,7 @@ package com.joaobzao.capas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -69,12 +70,15 @@ fun CapaDetailScreen(
         },
         containerColor = Color.Black
     ) { innerPadding ->
-        Box(
+        BoxWithConstraints(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
                 .background(Color.Black)
         ) {
+            val viewportWidth = constraints.maxWidth.toFloat()
+            val viewportHeight = constraints.maxHeight.toFloat()
+
             AsyncImage(
                 model = capa.url,
                 contentDescription = capa.nome,
@@ -82,8 +86,17 @@ fun CapaDetailScreen(
                     .fillMaxSize()
                     .pointerInput(Unit) {
                         detectTransformGestures { _, pan, zoom, _ ->
-                            scale = (scale * zoom).coerceIn(1f, 5f)
-                            offset += pan
+                            val newScale = (scale * zoom).coerceIn(1f, 5f)
+                            scale = newScale
+                            
+                            val maxX = (viewportWidth * newScale - viewportWidth) / 2
+                            val maxY = (viewportHeight * newScale - viewportHeight) / 2
+                            
+                            val newOffset = offset + pan
+                            offset = Offset(
+                                x = newOffset.x.coerceIn(-maxX, maxX),
+                                y = newOffset.y.coerceIn(-maxY, maxY)
+                            )
                         }
                     }
                     .graphicsLayer(
