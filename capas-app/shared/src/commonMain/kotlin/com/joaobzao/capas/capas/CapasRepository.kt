@@ -13,6 +13,8 @@ interface CapasRepository {
     fun removeId(id: String)
     fun restoreId(id: String)
     fun getRemovedCapas(): List<Capa>
+    fun isOnboardingCompleted(): Boolean
+    fun setOnboardingCompleted()
 }
 
 class CapasRepositoryImpl(
@@ -21,7 +23,16 @@ class CapasRepositoryImpl(
 ) : CapasRepository {
 
     private val KEY = "allowed_capas"
+    private val ONBOARDING_KEY = "onboarding_completed"
     private var lastCapas: CapasResponse? = null
+
+    override fun isOnboardingCompleted(): Boolean {
+        return settings.getBoolean(ONBOARDING_KEY, false)
+    }
+
+    override fun setOnboardingCompleted() {
+        settings.putBoolean(ONBOARDING_KEY, true)
+    }
 
     override suspend fun getCapas(): Flow<NetworkResult<CapasResponse>> = flow {
         api.fetchCapas().collect { result ->

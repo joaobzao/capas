@@ -43,6 +43,14 @@ class CapasViewModel(
         }
     }
 
+    fun isOnboardingCompleted(): Boolean {
+        return capasRepository.isOnboardingCompleted()
+    }
+
+    fun completeOnboarding() {
+        capasRepository.setOnboardingCompleted()
+    }
+
     override fun onCleared() {
         log.v("Clearing CapasViewModel")
     }

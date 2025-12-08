@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.joaobzao.capas.CapaDetailScreen
+import com.joaobzao.capas.WelcomeScreen
 import com.joaobzao.capas.capas.CapasViewModel
 import org.koin.androidx.compose.koinViewModel
 import androidx.compose.runtime.collectAsState
@@ -18,10 +19,24 @@ fun CapasNavHost(
     navController: NavHostController = rememberNavController(),
     viewModel: CapasViewModel = koinViewModel()
 ) {
+    val startDestination = if (viewModel.isOnboardingCompleted()) "capas" else "welcome"
+
     NavHost(
         navController = navController,
-        startDestination = "capas"
+        startDestination = startDestination
     ) {
+        // Welcome
+        composable("welcome") {
+            WelcomeScreen(
+                onFinish = {
+                    viewModel.completeOnboarding()
+                    navController.navigate("capas") {
+                        popUpTo("welcome") { inclusive = true }
+                    }
+                }
+            )
+        }
+
         // Lista de capas
         composable("capas") {
             CapasScreen(
