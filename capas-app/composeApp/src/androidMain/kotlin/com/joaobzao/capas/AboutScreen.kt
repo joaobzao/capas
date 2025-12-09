@@ -14,7 +14,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.outlined.Close
@@ -25,6 +27,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -38,9 +42,15 @@ import androidx.compose.ui.res.stringResource
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AboutSheet(
+    viewModel: com.joaobzao.capas.capas.CapasViewModel,
     onDismiss: () -> Unit
 ) {
     val uriHandler = LocalUriHandler.current
+    val state by viewModel.capasState.collectAsState()
+
+    androidx.compose.runtime.LaunchedEffect(Unit) {
+        viewModel.getWorkflowStatus()
+    }
 
     ModalBottomSheet(
         onDismissRequest = onDismiss,
@@ -108,6 +118,21 @@ fun AboutSheet(
                     }
                 }
 
+                // System Status
+                state.workflowStatus?.let { run ->
+                    val isSuccess = run.conclusion == "success"
+                    val statusColor = if (isSuccess) androidx.compose.ui.graphics.Color(0xFF4CAF50) else androidx.compose.ui.graphics.Color(0xFFE57373)
+                    val icon = if (isSuccess) androidx.compose.material.icons.Icons.Default.CheckCircle else androidx.compose.material.icons.Icons.Default.Warning
+
+                    ContactItem(
+                        icon = icon,
+                        title = "Atualização das Capas",
+                        subtitle = if (isSuccess) "Atualizado: ${formatDate(run.updatedAt)}" else "Falha na atualização",
+                        iconTint = statusColor,
+                        onClick = null
+                    )
+                }
+
                 Text(
                     stringResource(R.string.title_contacts),
                     style = MaterialTheme.typography.titleMedium,
@@ -133,19 +158,33 @@ fun AboutSheet(
     }
 }
 
+private fun formatDate(dateString: String): String {
+    return try {
+        val instant = java.time.Instant.parse(dateString)
+        val zoneId = java.time.ZoneId.systemDefault()
+        val formatter = java.time.format.DateTimeFormatter.ofPattern("dd MMM HH:mm")
+            .withLocale(java.util.Locale.getDefault())
+            .withZone(zoneId)
+        formatter.format(instant)
+    } catch (e: Exception) {
+        dateString
+    }
+}
+
 @Composable
 private fun ContactItem(
     icon: ImageVector,
     title: String,
     subtitle: String,
-    onClick: () -> Unit
+    iconTint: androidx.compose.ui.graphics.Color = MaterialTheme.colorScheme.onPrimaryContainer,
+    onClick: (() -> Unit)? = null
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(20.dp))
             .background(MaterialTheme.colorScheme.surface)
-            .clickable(onClick = onClick)
+            .then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier)
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -159,7 +198,7 @@ private fun ContactItem(
             Icon(
                 icon,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                tint = iconTint,
                 modifier = Modifier.size(20.dp)
             )
         }

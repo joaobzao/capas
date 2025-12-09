@@ -512,7 +512,10 @@ fun CapasScreen(
     }
 
     if (showAbout) {
-        AboutSheet(onDismiss = { showAbout = false })
+        AboutSheet(
+            viewModel = viewModel,
+            onDismiss = { showAbout = false }
+        )
     }
 }
 

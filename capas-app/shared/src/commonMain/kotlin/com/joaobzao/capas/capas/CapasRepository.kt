@@ -1,6 +1,7 @@
 package com.joaobzao.capas.capas
 
 import com.joaobzao.capas.network.Api
+import com.joaobzao.capas.network.GitHubWorkflowResponse
 import com.joaobzao.capas.network.NetworkResult
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.get
@@ -15,6 +16,7 @@ interface CapasRepository {
     fun getRemovedCapas(): List<Capa>
     fun isOnboardingCompleted(): Boolean
     fun setOnboardingCompleted()
+    suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>>
 }
 
 class CapasRepositoryImpl(
@@ -32,6 +34,10 @@ class CapasRepositoryImpl(
 
     override fun setOnboardingCompleted() {
         settings.putBoolean(ONBOARDING_KEY, true)
+    }
+
+    override suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>> {
+        return api.fetchWorkflowStatus()
     }
 
     override suspend fun getCapas(): Flow<NetworkResult<CapasResponse>> = flow {

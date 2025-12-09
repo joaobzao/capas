@@ -2,6 +2,8 @@ package com.joaobzao.capas.capas
 
 import co.touchlab.kermit.Logger
 import com.joaobzao.capas.models.ViewModel
+import com.joaobzao.capas.network.GitHubWorkflowRun
+import com.joaobzao.capas.network.NetworkResult
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -51,6 +53,19 @@ class CapasViewModel(
         capasRepository.setOnboardingCompleted()
     }
 
+    fun getWorkflowStatus() {
+        viewModelScope.launch {
+            capasRepository.getWorkflowStatus().collect { result ->
+                if (result is NetworkResult.Success) {
+                    val run = result.data?.workflowRuns?.firstOrNull()
+                    mutableCapasViewState.value = mutableCapasViewState.value.copy(
+                        workflowStatus = run
+                    )
+                }
+            }
+        }
+    }
+
     override fun onCleared() {
         log.v("Clearing CapasViewModel")
     }
@@ -58,5 +73,6 @@ class CapasViewModel(
 
 data class CapasViewState(
     val capas: CapasResponse? = null,
-    val removed: List<Capa> = emptyList()
+    val removed: List<Capa> = emptyList(),
+    val workflowStatus: GitHubWorkflowRun? = null
 )
