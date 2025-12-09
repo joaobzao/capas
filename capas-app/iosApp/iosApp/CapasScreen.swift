@@ -239,7 +239,7 @@ struct CapasScreen: View {
                 RemovedCapasSheet(viewModelWrapper: viewModelWrapper)
             }
             .sheet(isPresented: $showAbout) {
-                AboutSheet()
+                AboutSheet(viewModel: viewModelWrapper)
             }
         }
     }

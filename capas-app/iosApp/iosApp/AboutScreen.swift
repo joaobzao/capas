@@ -1,6 +1,9 @@
 import SwiftUI
 
+import Shared
+
 struct AboutSheet: View {
+    @ObservedObject var viewModel: CapasViewModelWrapper
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.openURL) var openURL
     
@@ -31,6 +34,27 @@ struct AboutSheet: View {
                     .cornerRadius(20)
                     .padding(.horizontal, 24)
                     .padding(.top, 24)
+                    
+                    if let run = viewModel.state.workflowStatus {
+                        let isSuccess = run.conclusion == "success"
+                        let statusColor = isSuccess ? Color.green : Color.red
+                        let icon = isSuccess ? "checkmark.circle.fill" : "exclamationmark.triangle.fill"
+                        
+                        VStack(spacing: 16) {
+                            ContactItem(
+                                icon: icon,
+                                title: "Atualização das Capas",
+                                subtitle: isSuccess ? "Atualizado: \(formatDate(run.updatedAt))" : "Falha na atualização",
+                                iconColor: statusColor,
+                                action: nil
+                            )
+                        }
+                        .padding(16)
+                        .background(Color(uiColor: .secondarySystemGroupedBackground))
+                        .cornerRadius(20)
+                        .padding(.bottom, 8)
+                        .padding(.horizontal, 24)
+                    }
                     
                     VStack(alignment: .leading, spacing: 8) {
                         Text(Strings.titleContacts)
@@ -72,6 +96,9 @@ struct AboutSheet: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                viewModel.getWorkflowStatus()
+            }
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text(Strings.titleAbout)
@@ -97,16 +124,17 @@ struct ContactItem: View {
     let icon: String
     let title: String
     let subtitle: String
-    let action: () -> Void
+    var iconColor: Color = .blue
+    var action: (() -> Void)? = nil
     
     var body: some View {
-        Button(action: action) {
+        Button(action: { action?() }) {
             HStack(spacing: 16) {
                 Image(systemName: icon)
                     .font(.system(size: 20))
                     .foregroundColor(.white)
                     .frame(width: 40, height: 40)
-                    .background(Color.blue)
+                    .background(iconColor)
                     .cornerRadius(12)
                 
                 VStack(alignment: .leading, spacing: 2) {
@@ -120,14 +148,27 @@ struct ContactItem: View {
                 
                 Spacer()
                 
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.tertiaryLabel)
+                if action != nil {
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.tertiaryLabel)
+                }
             }
         }
+        .disabled(action == nil)
     }
 }
 
 extension Color {
     static let tertiaryLabel = Color(uiColor: .tertiaryLabel)
+}
+
+private func formatDate(_ dateString: String) -> String {
+    let isoFormatter = ISO8601DateFormatter()
+    if let date = isoFormatter.date(from: dateString) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM HH:mm"
+        return formatter.string(from: date)
+    }
+    return dateString
 }

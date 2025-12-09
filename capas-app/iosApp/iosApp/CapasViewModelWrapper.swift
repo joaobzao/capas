@@ -5,7 +5,7 @@ import SwiftUI
 @MainActor
 class CapasViewModelWrapper: ObservableObject {
     private let viewModel: CapasViewModel
-    @Published var state: CapasViewState = CapasViewState(capas: nil, removed: [])
+    @Published var state: CapasViewState = CapasViewState(capas: nil, removed: [], workflowStatus: nil)
     
     init() {
         self.viewModel = CapasViewModelHelper().viewModel
@@ -32,6 +32,10 @@ class CapasViewModelWrapper: ObservableObject {
     
     func restoreCapa(_ capa: Capa) {
         viewModel.restoreCapa(capa: capa)
+    }
+    
+    func getWorkflowStatus() {
+        viewModel.getWorkflowStatus()
     }
 }
 
