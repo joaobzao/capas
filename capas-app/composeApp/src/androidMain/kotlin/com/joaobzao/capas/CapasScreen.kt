@@ -244,7 +244,12 @@ fun CapasScreen(
                     CapasCategory.ECONOMY -> capasResponse.economyNewspapers
                 }
 
+                // Local state for optimistic reordering
+                var localCapas by remember { mutableStateOf(capasForCategory) }
+
+                // Sync local state when category or source data changes
                 LaunchedEffect(capasForCategory) {
+                    localCapas = capasForCategory
                     itemInfos.clear()
                 }
 
@@ -255,7 +260,7 @@ fun CapasScreen(
                     verticalArrangement = Arrangement.spacedBy(24.dp),
                     horizontalArrangement = Arrangement.spacedBy(24.dp)
                 ) {
-                    items(capasForCategory, key = { it.id }) { capa ->
+                    items(localCapas, key = { it.id }) { capa ->
                         CapaGridItemDraggable(
                             capa = capa,
                             isDragging = draggingCapa?.id == capa.id,
@@ -268,7 +273,40 @@ fun CapasScreen(
                                 dragOffset = Offset.Zero
                                 isShrinking = false
                             },
-                            onDrag = { offset -> dragOffset += offset },
+                            onDrag = { offset -> 
+                                dragOffset += offset
+                                
+                                // Reordering Logic
+                                val currentDragPosition = startOffset + dragOffset + Offset(previewSize.width.value / 2, previewSize.height.value / 2)
+                                
+                                // Find item under drag position
+                                val targetItem = itemInfos.entries.firstOrNull { (id, info) ->
+                                    id != draggingCapa?.id &&
+                                    currentDragPosition.x >= info.position.x &&
+                                    currentDragPosition.x <= info.position.x + info.size.width.value &&
+                                    currentDragPosition.y >= info.position.y &&
+                                    currentDragPosition.y <= info.position.y + info.size.height.value
+                                }?.key
+
+                                if (targetItem != null && draggingCapa != null) {
+                                    val fromIndex = localCapas.indexOfFirst { it.id == draggingCapa!!.id }
+                                    val toIndex = localCapas.indexOfFirst { it.id == targetItem }
+                                    
+                                    if (fromIndex != -1 && toIndex != -1 && fromIndex != toIndex) {
+                                        val mutableList = localCapas.toMutableList()
+                                        mutableList.add(toIndex, mutableList.removeAt(fromIndex))
+                                        localCapas = mutableList
+                                        
+                                        // Update startOffset to the new position to keep the drag relative
+                                        // Actually, if we swap, the item in the grid moves.
+                                        // But the drag ghost is separate.
+                                        // However, we rely on `onDragStart` setting `startOffset` from `itemInfos`.
+                                        // If grid re-composes, `itemInfos` updates?
+                                        // `onPositioned` will update `itemInfos`.
+                                        // But we assume the layout shift happens.
+                                    }
+                                }
+                            },
                             onDragEnd = {
                                 if (isOverTrash && draggingCapa != null) {
                                     val removed = draggingCapa!!
@@ -286,6 +324,11 @@ fun CapasScreen(
                                         }
                                     }
                                 } else {
+                                    // Save new order
+                                    if (draggingCapa != null) {
+                                        viewModel.updateCapaOrder(localCapas)
+                                    }
+                                    
                                     draggingCapa = null
                                     dragOffset = Offset.Zero
                                     startOffset = Offset.Zero

@@ -37,6 +37,10 @@ class CapasViewModelWrapper: ObservableObject {
     func getWorkflowStatus() {
         viewModel.getWorkflowStatus()
     }
+    
+    func updateCapaOrder(_ capas: [Capa]) {
+        viewModel.updateCapaOrder(capas: capas)
+    }
 }
 
 class Collector<T>: Kotlinx_coroutines_coreFlowCollector {

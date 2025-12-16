@@ -45,6 +45,20 @@ class CapasViewModel(
         }
     }
 
+    fun updateCapaOrder(capas: List<Capa>) {
+        val orderedIds = capas.map { it.id }
+        capasRepository.updateOrder(orderedIds)
+        // No need to refresh immediately as UI has the state, but robust to do so?
+        // UI uses local state for drag, but eventually needs to be consistent.
+        // Repository update doesn't emit new flow unless we trigger getCapas or separate store.
+        // Let's trigger getCapas() to ensure consistency.
+        // Actually, triggering getCapas might cause a jitter if the local state is ahead.
+        // But for persistence correctness it's safer.
+        // Maybe silent update is better for UX?
+        // User already has the list on screen.
+        // Let's NOT trigger getCapas, just update persistence.
+    }
+
     fun isOnboardingCompleted(): Boolean {
         return capasRepository.isOnboardingCompleted()
     }

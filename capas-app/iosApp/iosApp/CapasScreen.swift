@@ -27,11 +27,18 @@ struct CapasScreen: View {
     @State private var draggingCapa: Capa?
     @State private var dragOffset: CGSize = .zero
     @State private var isOverTrash = false
+    @State private var draggingInitialFrame: CGRect?
     
     let columns = [
         GridItem(.adaptive(minimum: 160), spacing: 24)
     ]
     
+    // Frame tracking for reordering
+    @State private var itemFrames: [String: CGRect] = [:]
+    
+    // Local state for optimistic reordering
+    @State private var localCapas: [Capa] = []
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -119,77 +126,40 @@ struct CapasScreen: View {
                     
                     // Grid
                     if let capasResponse = viewModelWrapper.state.capas {
-                        let capas = getCapas(for: selectedCategory, from: capasResponse)
+                        // Sync logic handled in .onChange or initial load
                         
                         ScrollView {
                             LazyVGrid(columns: columns, spacing: 24) {
-                                ForEach(capas, id: \.id) { capa in
-                                    ZStack {
-                                        // Placeholder when dragging
-                                        if draggingCapa?.id == capa.id {
-                                            ZStack {
-                                                CapaItem(capa: capa)
-                                                    .opacity(0)
-                                                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                                    .fill(Color.gray.opacity(0.1))
-                                            }
-                                            .matchedGeometryEffect(id: capa.id, in: animation)
-                                        } else {
-                                            NavigationLink(destination: CapasDetailsScreen(capa: capa)) {
-                                                CapaItem(capa: capa)
-                                            }
-                                            .buttonStyle(PlainButtonStyle())
-                                            .matchedGeometryEffect(id: capa.id, in: animation)
-                                        }
-                                    }
-                                    .simultaneousGesture(
-                                        LongPressGesture(minimumDuration: 0.15)
-                                            .sequenced(before: DragGesture(coordinateSpace: .global))
-                                            .onChanged { value in
-                                                switch value {
-                                                case .second(true, let drag):
-                                                    if let dragValue = drag {
-                                                        if draggingCapa == nil {
-                                                            let generator = UIImpactFeedbackGenerator(style: .medium)
-                                                            generator.impactOccurred()
-                                                            withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.7)) {
-                                                                draggingCapa = capa
-                                                            }
-                                                        }
-                                                        dragOffset = dragValue.translation
-                                                        
-                                                        // Check if over trash
-                                                        let screenHeight = UIScreen.main.bounds.height
-                                                        let trashThreshold = screenHeight - 150
-                                                        withAnimation(.spring()) {
-                                                            isOverTrash = dragValue.location.y > trashThreshold
-                                                        }
-                                                    }
-                                                default:
-                                                    break
-                                                }
-                                            }
-                                            .onEnded { value in
-                                                if isOverTrash, let capa = draggingCapa {
-                                                    let generator = UINotificationFeedbackGenerator()
-                                                    generator.notificationOccurred(.success)
-                                                    viewModelWrapper.removeCapa(capa)
-                                                }
-                                                
-                                                // Reset state
-                                                withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
-                                                    draggingCapa = nil
-                                                    dragOffset = .zero
-                                                    isOverTrash = false
-                                                }
-                                            }
-                                    )
+                                ForEach(localCapas, id: \.id) { capa in
+                                DraggableCapaGridItem(
+                                    capa: capa,
+                                    draggingCapa: $draggingCapa,
+                                    dragOffset: $dragOffset,
+                                    isOverTrash: $isOverTrash,
+                                    draggingInitialFrame: $draggingInitialFrame,
+                                    localCapas: $localCapas,
+                                    itemFrames: $itemFrames,
+                                    viewModelWrapper: viewModelWrapper,
+                                    animation: animation
+                                )
                                 }
                             }
                             .padding(24)
                             .padding(.bottom, 100)
                         }
                         .scrollDisabled(draggingCapa != nil)
+                        .onPreferenceChange(ItemFramePreferenceKey.self) { frames in
+                            self.itemFrames = frames
+                        }
+                        .onChange(of: selectedCategory) { newCategory in
+                            updateLocalCapas(from: capasResponse, category: newCategory)
+                        }
+                        .onChange(of: capasResponse) { newResponse in
+                            updateLocalCapas(from: newResponse, category: selectedCategory)
+                        }
+                        .onAppear {
+                            updateLocalCapas(from: capasResponse, category: selectedCategory)
+                        }
                     } else {
                         ProgressView()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -222,17 +192,20 @@ struct CapasScreen: View {
                 }
                 
                 // Draggable Item Overlay
-                if let capa = draggingCapa {
-                    ZStack {
+                // Draggable Item Overlay
+                ZStack {
+                    if let capa = draggingCapa, let frame = draggingInitialFrame {
                         CapaItem(capa: capa)
-                            .offset(dragOffset)
+                            .frame(width: frame.width, height: frame.height)
+                            .position(x: frame.midX + dragOffset.width, y: frame.midY + dragOffset.height)
                             .scaleEffect(1.05)
                             .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 15)
                             .opacity(isOverTrash ? 0.4 : 1.0)
+                            .allowsHitTesting(false)
                     }
-                    .matchedGeometryEffect(id: capa.id, in: animation, properties: .frame, isSource: false)
-                    .allowsHitTesting(false)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .ignoresSafeArea()
             }
             .navigationBarHidden(true)
             .sheet(isPresented: $showRemoved) {
@@ -244,6 +217,10 @@ struct CapasScreen: View {
         }
     }
     
+    func updateLocalCapas(from response: CapasResponse, category: CapasCategory) {
+        localCapas = getCapas(for: category, from: response)
+    }
+    
     func getCapas(for category: CapasCategory, from response: CapasResponse) -> [Capa] {
         switch category {
         case .national:
@@ -253,6 +230,14 @@ struct CapasScreen: View {
         case .economy:
             return response.economyNewspapers
         }
+    }
+}
+
+struct ItemFramePreferenceKey: PreferenceKey {
+    static var defaultValue: [String: CGRect] = [:]
+    
+    static func reduce(value: inout [String: CGRect], nextValue: () -> [String: CGRect]) {
+        value.merge(nextValue()) { $1 }
     }
 }
 
@@ -378,7 +363,7 @@ struct RemovedCapasSheet: View {
                                     CapaItem(capa: capa)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                                .stroke(Color.blue, lineWidth: 0)
+                                            .stroke(Color.blue, lineWidth: 0)
                                         )
                                 }
                                 .buttonStyle(PlainButtonStyle())
@@ -400,12 +385,123 @@ struct RemovedCapasSheet: View {
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "xmark.circle.fill")
-                            .font(.system(size: 24))
-                            .foregroundColor(.secondary)
-                            .symbolRenderingMode(.hierarchical)
+                        .font(.system(size: 24))
+                        .foregroundColor(.secondary)
+                        .symbolRenderingMode(.hierarchical)
                     }
                 }
             }
         }
+    }
+}
+
+struct DraggableCapaGridItem: View {
+    let capa: Capa
+    @Binding var draggingCapa: Capa?
+    @Binding var dragOffset: CGSize
+    @Binding var isOverTrash: Bool
+    @Binding var draggingInitialFrame: CGRect?
+    @Binding var localCapas: [Capa]
+    @Binding var itemFrames: [String: CGRect]
+    @ObservedObject var viewModelWrapper: CapasViewModelWrapper
+    var animation: Namespace.ID
+    
+    var body: some View {
+        ZStack {
+            // Placeholder when dragging
+            if draggingCapa?.id == capa.id {
+                ZStack {
+                    CapaItem(capa: capa)
+                        .opacity(0)
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .fill(Color.gray.opacity(0.1))
+                }
+            } else {
+                NavigationLink(destination: CapasDetailsScreen(capa: capa)) {
+                    CapaItem(capa: capa)
+                }
+                .buttonStyle(PlainButtonStyle())
+                .matchedGeometryEffect(id: capa.id, in: animation)
+            }
+        }
+        .background(
+            GeometryReader { geo in
+                Color.clear.preference(key: ItemFramePreferenceKey.self, value: [capa.id: geo.frame(in: .global)])
+            }
+        )
+        .simultaneousGesture(
+            LongPressGesture(minimumDuration: 0.15)
+                .sequenced(before: DragGesture(coordinateSpace: .global))
+                .onChanged { value in
+                    switch value {
+                    case .second(true, let drag):
+                        if let dragValue = drag {
+                            if draggingCapa == nil {
+                                let generator = UIImpactFeedbackGenerator(style: .medium)
+                                generator.impactOccurred()
+                                draggingInitialFrame = itemFrames[capa.id]
+                                withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.7)) {
+                                    draggingCapa = capa
+                                }
+                            }
+                            dragOffset = dragValue.translation
+                            
+                            // Reordering Logic
+                            let dragLocation = dragValue.location
+                            
+                            // Check if over another item
+                            if let targetId = itemFrames.first(where: { key, frame in
+                                key != draggingCapa?.id && frame.contains(dragLocation)
+                            })?.key {
+                                if let fromIndex = localCapas.firstIndex(where: { $0.id == draggingCapa?.id }),
+                                   let toIndex = localCapas.firstIndex(where: { $0.id == targetId }),
+                                   fromIndex != toIndex {
+                                    
+                                    withAnimation(.spring()) {
+                                        let movedCapa = localCapas.remove(at: fromIndex)
+                                        localCapas.insert(movedCapa, at: toIndex)
+                                    }
+                                    
+                                    let generator = UISelectionFeedbackGenerator()
+                                    generator.selectionChanged()
+                                }
+                            }
+                            
+                            // Check if over trash
+                            let screenHeight = UIScreen.main.bounds.height
+                            let trashThreshold = screenHeight - 150
+                            withAnimation(.spring()) {
+                                isOverTrash = dragValue.location.y > trashThreshold
+                            }
+                        }
+                    default:
+                        break
+                    }
+                }
+                .onEnded { value in
+                    if isOverTrash, let capa = draggingCapa {
+                        let generator = UINotificationFeedbackGenerator()
+                        generator.notificationOccurred(.success)
+                        viewModelWrapper.removeCapa(capa)
+                        // Also remove from local
+                        if let index = localCapas.firstIndex(where: { $0.id == capa.id }) {
+                             localCapas.remove(at: index)
+                        }
+                    } else {
+                        // Save Order
+                        if draggingCapa != nil {
+                            viewModelWrapper.updateCapaOrder(localCapas)
+                        }
+                    }
+                    
+                    // Reset state
+                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                        draggingCapa = nil
+                        dragOffset = .zero
+                        isOverTrash = false
+                        draggingInitialFrame = nil
+                    }
+                }
+        )
     }
 }
