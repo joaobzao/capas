@@ -262,6 +262,7 @@ fun CapasScreen(
                 ) {
                     items(localCapas, key = { it.id }) { capa ->
                         CapaGridItemDraggable(
+                            modifier = Modifier.animateItem(),
                             capa = capa,
                             isDragging = draggingCapa?.id == capa.id,
                             onClick = onCapaClick,
@@ -566,6 +567,7 @@ fun CapasScreen(
 fun CapaGridItemDraggable(
     capa: Capa,
     isDragging: Boolean,
+    modifier: Modifier = Modifier,
     onClick: (Capa) -> Unit,
     onDragStart: () -> Unit,
     onDrag: (Offset) -> Unit,
@@ -581,7 +583,7 @@ fun CapaGridItemDraggable(
         onClick = { onClick(capa) },
         shape = RoundedCornerShape(20.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .aspectRatio(0.75f)
             .graphicsLayer { this.alpha = alpha }
