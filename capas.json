@@ -309,5 +309,347 @@
       "nome": "Forbes Portugal",
       "url": "https://imgs.vercapas.com/covers/forbes-portugal/2025/forbes-portugal-2025-11-03-2a48c4ec.jpg"
     }
+  ],
+  "Regionais": [
+    {
+      "id": "a-verdade",
+      "nome": "A Verdade",
+      "url": "https://imgs.vercapas.com/covers/a-verdade/2025/a-verdade-2025-09-11-d546d913.jpg"
+    },
+    {
+      "id": "abarca",
+      "nome": "Abarca",
+      "url": "https://imgs.vercapas.com/covers/abarca/2025/abarca-2025-11-30-f2f071e9.jpg"
+    },
+    {
+      "id": "acoriano-oriental",
+      "nome": "Açoriano Oriental",
+      "url": "https://imgs.vercapas.com/covers/acoriano-oriental/2025/acoriano-oriental-2025-12-17-cac993d9.jpg"
+    },
+    {
+      "id": "barlavento",
+      "nome": "Barlavento",
+      "url": "https://imgs.vercapas.com/covers/barlavento/barlavento-2023-12-20-814fd2.jpg"
+    },
+    {
+      "id": "caminhense",
+      "nome": "Caminhense",
+      "url": "https://imgs.vercapas.com/covers/caminhense/2025/caminhense-2025-10-29-dacc9df6.jpg"
+    },
+    {
+      "id": "cidade-viva",
+      "nome": "Cidade Viva",
+      "url": "https://imgs.vercapas.com/covers/cidade-viva/cidade-viva-2014-07-18-0a1f12.jpg"
+    },
+    {
+      "id": "correio-do-minho",
+      "nome": "Correio do Minho",
+      "url": "https://imgs.vercapas.com/covers/correio-do-minho/2025/correio-do-minho-2025-12-17-5e3378db.jpg"
+    },
+    {
+      "id": "correio-dos-acores",
+      "nome": "Correio dos Açores",
+      "url": "https://imgs.vercapas.com/covers/correio-dos-acores/2025/correio-dos-acores-2025-12-17-0a1cd831.jpg"
+    },
+    {
+      "id": "desportivo-transmontano",
+      "nome": "Desportivo Transmontano",
+      "url": "https://imgs.vercapas.com/covers/desportivo-transmontano/desportivo-transmontano-2013-05-07-76ebdb.jpg"
+    },
+    {
+      "id": "dica-da-semana",
+      "nome": "Dica da Semana",
+      "url": "https://imgs.vercapas.com/covers/dica-da-semana/dica-da-semana-2017-11-20-f74efa.jpg"
+    },
+    {
+      "id": "diario-as-beiras",
+      "nome": "Diário As Beiras",
+      "url": "https://imgs.vercapas.com/covers/diario-as-beiras/2025/diario-as-beiras-2025-12-17-b561d5e4.jpg"
+    },
+    {
+      "id": "diario-insular",
+      "nome": "Diário Insular",
+      "url": "https://imgs.vercapas.com/covers/diario-insular/2025/diario-insular-2025-12-17-faa5aed8.jpg"
+    },
+    {
+      "id": "diario-da-regiao",
+      "nome": "Diário da Região",
+      "url": "https://imgs.vercapas.com/covers/diario-da-regiao/diario-da-regiao-2022-01-14-1f0980.jpg"
+    },
+    {
+      "id": "diario-de-aveiro",
+      "nome": "Diário de Aveiro",
+      "url": "https://imgs.vercapas.com/covers/diario-de-aveiro/2025/diario-de-aveiro-2025-12-17-0768f090.jpg"
+    },
+    {
+      "id": "diario-de-coimbra",
+      "nome": "Diário de Coimbra",
+      "url": "https://imgs.vercapas.com/covers/diario-de-coimbra/2025/diario-de-coimbra-2025-12-17-29546f4c.jpg"
+    },
+    {
+      "id": "diario-de-leiria",
+      "nome": "Diário de Leiria",
+      "url": "https://imgs.vercapas.com/covers/diario-de-leiria/2025/diario-de-leiria-2025-12-17-a60c740f.jpg"
+    },
+    {
+      "id": "diario-de-noticias-da-madeira",
+      "nome": "Diário de Notícias da Madeira",
+      "url": "https://imgs.vercapas.com/covers/diario-de-noticias-da-madeira/2025/diario-de-noticias-da-madeira-2025-12-17-5bf42941.jpg"
+    },
+    {
+      "id": "diario-de-viseu",
+      "nome": "Diário de Viseu",
+      "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2025/diario-de-viseu-2025-12-17-6ce22ba2.jpg"
+    },
+    {
+      "id": "diario-do-alentejo",
+      "nome": "Diário do Alentejo",
+      "url": "https://imgs.vercapas.com/covers/diario-do-alentejo/2025/diario-do-alentejo-2025-12-12-4b43446f.jpg"
+    },
+    {
+      "id": "diario-do-minho",
+      "nome": "Diário do Minho",
+      "url": "https://imgs.vercapas.com/covers/diario-do-minho/2025/diario-do-minho-2025-12-17-4526ff6f.jpg"
+    },
+    {
+      "id": "diario-do-sul",
+      "nome": "Diário do Sul",
+      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2025/diario-do-sul-2025-12-15-1c799a0b.jpg"
+    },
+    {
+      "id": "diario-dos-acores",
+      "nome": "Diário dos Açores",
+      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2025/diario-dos-acores-2025-12-17-14b58115.jpg"
+    },
+    {
+      "id": "foz-do-lima",
+      "nome": "Foz do Lima",
+      "url": "https://imgs.vercapas.com/covers/foz-do-lima/foz-do-lima-2016-05-05-7cb676-x.jpg"
+    },
+    {
+      "id": "gazeta-das-caldas",
+      "nome": "Gazeta das Caldas",
+      "url": "https://imgs.vercapas.com/covers/gazeta-das-caldas/2025/gazeta-das-caldas-2025-12-11-834a745e.jpg"
+    },
+    {
+      "id": "gazeta-do-interior",
+      "nome": "Gazeta do Interior",
+      "url": "https://imgs.vercapas.com/covers/gazeta-do-interior/2025/gazeta-do-interior-2025-12-17-4d6d2e6a.jpg"
+    },
+    {
+      "id": "grande-porto",
+      "nome": "Grande Porto",
+      "url": "https://imgs.vercapas.com/covers/grande-porto/grande-porto-2013-10-25-964429.jpg"
+    },
+    {
+      "id": "jornal-e-de-estremoz",
+      "nome": "Jornal E de Estremoz",
+      "url": "https://imgs.vercapas.com/covers/jornal-e-de-estremoz/2025/jornal-e-de-estremoz-2025-11-21-c262ea2a.jpg"
+    },
+    {
+      "id": "jornal-labor",
+      "nome": "Jornal Labor",
+      "url": "https://imgs.vercapas.com/covers/jornal-labor/2025/jornal-labor-2025-12-10-747db58d.jpg"
+    },
+    {
+      "id": "jornal-o-alcoa",
+      "nome": "Jornal O Alcoa",
+      "url": "https://imgs.vercapas.com/covers/jornal-o-alcoa/2025/jornal-o-alcoa-2025-12-04-c3390d1c.jpg"
+    },
+    {
+      "id": "jornal-o-carrilhao",
+      "nome": "Jornal O Carrilhão",
+      "url": "https://imgs.vercapas.com/covers/jornal-o-carrilhao/2025/jornal-o-carrilhao-2025-12-15-3570c0aa.jpg"
+    },
+    {
+      "id": "jornal-da-bairrada",
+      "nome": "Jornal da Bairrada",
+      "url": "https://imgs.vercapas.com/covers/jornal-da-bairrada/2025/jornal-da-bairrada-2025-12-17-00ab5df9.jpg"
+    },
+    {
+      "id": "jornal-da-beira",
+      "nome": "Jornal da Beira",
+      "url": "https://imgs.vercapas.com/covers/jornal-da-beira/2025/jornal-da-beira-2025-12-10-ce1b82d3.jpg"
+    },
+    {
+      "id": "jornal-da-madeira",
+      "nome": "Jornal da Madeira",
+      "url": "https://imgs.vercapas.com/covers/jornal-da-madeira/2025/jornal-da-madeira-2025-12-17-2057382f.jpg"
+    },
+    {
+      "id": "jornal-das-caldas",
+      "nome": "Jornal das Caldas",
+      "url": "https://imgs.vercapas.com/covers/jornal-das-caldas/2025/jornal-das-caldas-2025-12-11-ec935c92.jpg"
+    },
+    {
+      "id": "jornal-de-abrantes",
+      "nome": "Jornal de Abrantes",
+      "url": "https://imgs.vercapas.com/covers/jornal-de-abrantes/2025/jornal-de-abrantes-2025-12-02-6bfe8c4b.jpg"
+    },
+    {
+      "id": "jornal-de-barcelos",
+      "nome": "Jornal de Barcelos",
+      "url": "https://imgs.vercapas.com/covers/jornal-de-barcelos/jornal-de-barcelos-2022-07-06-335120.jpg"
+    },
+    {
+      "id": "jornal-de-leiria",
+      "nome": "Jornal de Leiria",
+      "url": "https://imgs.vercapas.com/covers/jornal-de-leiria/2025/jornal-de-leiria-2025-12-11-0fad4719.jpg"
+    },
+    {
+      "id": "jornal-de-proenca",
+      "nome": "Jornal de Proença",
+      "url": "https://imgs.vercapas.com/covers/jornal-proenca/2025/jornal-proenca-2025-12-10-80088a11.jpg"
+    },
+    {
+      "id": "jornal-de-sintra",
+      "nome": "Jornal de Sintra",
+      "url": "https://imgs.vercapas.com/covers/jornal-de-sintra/2025/jornal-de-sintra-2025-12-12-926a9c1b.jpg"
+    },
+    {
+      "id": "jornal-do-algarve",
+      "nome": "Jornal do Algarve",
+      "url": "https://imgs.vercapas.com/covers/jornal-do-algarve/2025/jornal-do-algarve-2025-11-20-9ce04134.jpg"
+    },
+    {
+      "id": "jornal-do-fundao",
+      "nome": "Jornal do Fundão",
+      "url": "https://imgs.vercapas.com/covers/jornal-do-fundao/2025/jornal-do-fundao-2025-12-11-0b16b8d6.jpg"
+    },
+    {
+      "id": "jornal-do-pico",
+      "nome": "Jornal do Pico",
+      "url": "https://imgs.vercapas.com/covers/jornal-do-pico/2025/jornal-do-pico-2025-10-14-d3ceb674.jpg"
+    },
+    {
+      "id": "jornal-o-interior",
+      "nome": "Jornal o Interior",
+      "url": "https://imgs.vercapas.com/covers/jornal-o-interior/2025/jornal-o-interior-2025-12-10-5fb9c981.jpg"
+    },
+    {
+      "id": "linhas-de-elvas",
+      "nome": "Linhas de Elvas",
+      "url": "https://imgs.vercapas.com/covers/linhas-de-elvas/2025/linhas-de-elvas-2025-12-11-f99c05da.jpg"
+    },
+    {
+      "id": "moscavide-portela",
+      "nome": "Moscavide Portela ",
+      "url": "https://imgs.vercapas.com/covers/moscavide-portela/moscavide-portela-2019-12-21-1bde41.jpg"
+    },
+    {
+      "id": "noticias-da-covilha",
+      "nome": "Notícias da Covilhã",
+      "url": "https://imgs.vercapas.com/covers/noticias-da-covilha/2025/noticias-da-covilha-2025-12-17-fc315e4c.jpg"
+    },
+    {
+      "id": "noticias-de-fatima",
+      "nome": "Notícias de Fátima",
+      "url": "https://imgs.vercapas.com/covers/noticias-de-fatima/2025/noticias-de-fatima-2025-11-10-2ab0883d.jpg"
+    },
+    {
+      "id": "noticias-de-loures",
+      "nome": "Notícias de Loures",
+      "url": "https://imgs.vercapas.com/covers/noticias-de-loures/noticias-de-loures-2025-07-06-eaa193.jpg"
+    },
+    {
+      "id": "noticias-de-oeiras",
+      "nome": "Notícias de Oeiras",
+      "url": "https://imgs.vercapas.com/covers/correio-de-oeiras/2025/correio-de-oeiras-2025-10-29-7f6f53a6.jpg"
+    },
+    {
+      "id": "o-almeirinense",
+      "nome": "O Almeirinense",
+      "url": "https://imgs.vercapas.com/covers/o-almeirinense/2025/o-almeirinense-2025-11-15-bdb0cf16.jpg"
+    },
+    {
+      "id": "o-basto",
+      "nome": "O Basto",
+      "url": "https://imgs.vercapas.com/covers/o-basto/2025/o-basto-2025-11-27-8deab0ff.jpg"
+    },
+    {
+      "id": "o-comercio-de-baiao",
+      "nome": "O Comércio de Baião",
+      "url": "https://imgs.vercapas.com/covers/o-comercio-de-baiao/2025/o-comercio-de-baiao-2025-12-16-056a1a20.jpg"
+    },
+    {
+      "id": "o-comercio-de-guimaraes",
+      "nome": "O Comércio de Guimarães",
+      "url": "https://imgs.vercapas.com/covers/o-comercio-de-guimaraes/2025/o-comercio-de-guimaraes-2025-12-17-03f6bf0a.jpg"
+    },
+    {
+      "id": "o-gaiense",
+      "nome": "O Gaiense",
+      "url": "https://imgs.vercapas.com/covers/o-gaiense/2025/o-gaiense-2025-12-13-1560ad02.jpg"
+    },
+    {
+      "id": "o-jornal-de-estarreja",
+      "nome": "O Jornal de Estarreja",
+      "url": "https://imgs.vercapas.com/covers/o-jornal-de-estarreja/o-jornal-de-estarreja-2021-01-22-03a3d9.jpg"
+    },
+    {
+      "id": "o-povo-famalicense",
+      "nome": "O Povo Famalicense",
+      "url": "https://imgs.vercapas.com/covers/o-povo-famalicense/2025/o-povo-famalicense-2025-12-17-f9bfd284.jpg"
+    },
+    {
+      "id": "o-ribatejo",
+      "nome": "O Ribatejo",
+      "url": "https://imgs.vercapas.com/covers/o-ribatejo/o-ribatejo-2018-07-13-06b2d8.jpg"
+    },
+    {
+      "id": "o-setubalense",
+      "nome": "O Setubalense",
+      "url": "https://imgs.vercapas.com/covers/o-setubalense/2025/o-setubalense-2025-12-17-47a2b6ff.jpg"
+    },
+    {
+      "id": "povo-da-beira",
+      "nome": "Povo da Beira",
+      "url": "https://imgs.vercapas.com/covers/povo-da-beira/povo-da-beira-2020-03-25-c4ed8e.jpg"
+    },
+    {
+      "id": "praca-publica",
+      "nome": "Praça Pública",
+      "url": "https://imgs.vercapas.com/covers/praca-publica/praca-publica-2013-11-14-a4e987.jpg"
+    },
+    {
+      "id": "reconquista",
+      "nome": "Reconquista",
+      "url": "https://imgs.vercapas.com/covers/reconquista/2025/reconquista-2025-12-11-8d85085f.jpg"
+    },
+    {
+      "id": "reflexo",
+      "nome": "Reflexo",
+      "url": "https://imgs.vercapas.com/covers/reflexo/2025/reflexo-2025-11-01-0b244663.jpg"
+    },
+    {
+      "id": "regiao-de-leiria",
+      "nome": "Região de Leiria",
+      "url": "https://imgs.vercapas.com/covers/regiao-de-leiria/2025/regiao-de-leiria-2025-12-11-cbc42a3d.jpg"
+    },
+    {
+      "id": "regiao-de-agueda",
+      "nome": "Região de Águeda",
+      "url": "https://imgs.vercapas.com/covers/regiao-de-agueda/regiao-de-agueda-2022-11-23-15a26c.jpg"
+    },
+    {
+      "id": "rostos",
+      "nome": "Rostos",
+      "url": "https://imgs.vercapas.com/covers/rostos/rostos-2023-12-21-2ab0ce-x.jpg"
+    },
+    {
+      "id": "sem-mais-jornal",
+      "nome": "Sem Mais Jornal",
+      "url": "https://imgs.vercapas.com/covers/sem-mais-jornal/sem-mais-jornal-2024-09-13-9197e4.jpg"
+    },
+    {
+      "id": "tribuna-desportiva",
+      "nome": "Tribuna Desportiva",
+      "url": "https://imgs.vercapas.com/covers/tribuna-desportiva/2025/tribuna-desportiva-2025-12-15-e6eae95f.jpg"
+    },
+    {
+      "id": "tribuna-da-madeira",
+      "nome": "Tribuna da Madeira",
+      "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2025/tribuna-da-madeira-2025-12-12-3d1baf7c.jpg"
+    }
   ]
 }
