@@ -49,7 +49,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut resultado_temp: IndexMap<String, Vec<Capa>> = IndexMap::new();
 
     // Secções de interesse
-    let secoes_permitidas = vec!["Jornais Nacionais", "Desporto", "Economia e Gestão"];
+    let secoes_permitidas = vec!["Jornais Nacionais", "Desporto", "Economia e Gestão", "Regionais"];
     let mover_para_desporto = ["O Jogo", "A Bola", "Record"];
 
     // 2. Iterar pelas secções da homepage
