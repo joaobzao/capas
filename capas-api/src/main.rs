@@ -5,7 +5,7 @@ use std::fs::{create_dir_all, File};
 use std::io::Write;
 use std::thread::sleep;
 use std::time::Duration;
-use indexmap::IndexMap; // mantém a ordem de inserção
+use indexmap::IndexMap; 
 use unicode_normalization::UnicodeNormalization;
 
 #[derive(Serialize, Clone)]
@@ -15,13 +15,12 @@ struct Capa {
     url: String,
 }
 
-/// Cria um slug estável a partir do nome do jornal
 fn slugify(name: &str) -> String {
-    name.nfkd() // normaliza Unicode (ex: "ú" -> "u")
-        .filter(|c| c.is_ascii()) // remove acentos e não ASCII
+    name.nfkd()
+        .filter(|c| c.is_ascii()) 
         .collect::<String>()
         .to_lowercase()
-        .replace(|c: char| !c.is_alphanumeric(), "-") // troca espaços/símbolos por "-"
+        .replace(|c: char| !c.is_alphanumeric(), "-") 
         .split('-')
         .filter(|s| !s.is_empty())
         .collect::<Vec<_>>()
@@ -48,8 +47,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut resultado_temp: IndexMap<String, Vec<Capa>> = IndexMap::new();
 
-    // Secções de interesse
-    let secoes_permitidas = vec!["Jornais Nacionais", "Desporto", "Economia e Gestão", "Regionais"];
+    // Adicionado "Jornais Regionais" caso o site mude o título ligeiramente
+    let secoes_permitidas = vec![
+        "Jornais Nacionais", 
+        "Desporto", 
+        "Economia e Gestão", 
+        "Regionais", 
+        "Jornais Regionais"
+    ];
     let mover_para_desporto = ["O Jogo", "A Bola", "Record"];
 
     // 2. Iterar pelas secções da homepage
@@ -82,32 +87,37 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         }
                     }
 
-                    // 💤 pequena pausa para não abusar
-                    sleep(Duration::from_millis(500));
+                    // 💤 pequena pausa
+                    sleep(Duration::from_millis(200)); 
 
                     let capa_body = client
                         .get(&capa_url)
                         .header("User-Agent", "Mozilla/5.0 (CapasBot/1.0)")
-                        .send()?
-                        .text()?;
-                    let capa_doc = Html::parse_document(&capa_body);
+                        .send();
 
-                    let big_img_selector = Selector::parse("img").unwrap();
-                    for img in capa_doc.select(&big_img_selector) {
-                        if let Some(src) = img.value().attr("src") {
-                            if src.contains("covers") {
-                                let url = if src.starts_with("http") {
-                                    src.to_string()
-                                } else {
-                                    format!("{}{}", base, src)
-                                };
+                    // Tratamento simples de erro na requisição individual
+                    if let Ok(resp) = capa_body {
+                        if let Ok(text) = resp.text() {
+                            let capa_doc = Html::parse_document(&text);
+                            let big_img_selector = Selector::parse("img").unwrap();
+                            
+                            for img in capa_doc.select(&big_img_selector) {
+                                if let Some(src) = img.value().attr("src") {
+                                    if src.contains("covers") {
+                                        let url = if src.starts_with("http") {
+                                            src.to_string()
+                                        } else {
+                                            format!("{}{}", base, src)
+                                        };
 
-                                capas_secao.push(Capa {
-                                    id: slugify(&nome),
-                                    nome: nome.clone(),
-                                    url,
-                                });
-                                break;
+                                        capas_secao.push(Capa {
+                                            id: slugify(&nome),
+                                            nome: nome.clone(),
+                                            url,
+                                        });
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
@@ -116,7 +126,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
 
         if !capas_secao.is_empty() {
-            resultado_temp.insert(secao, capas_secao);
+            // Normaliza a chave para garantir que encontramos depois
+            let chave = if secao.contains("Regionais") { "Regionais".to_string() } else { secao };
+            resultado_temp.insert(chave, capas_secao);
         }
     }
 
@@ -137,7 +149,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
-    // 4. Ordenar Desporto (A Bola → Record → O Jogo → restantes)
+    // 4. Ordenar Desporto
     let ordem_preferida = ["A Bola", "Record", "O Jogo"];
     let mut prioridade = Vec::new();
     let mut resto = Vec::new();
@@ -162,11 +174,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // 5. Construir resultado final em ordem fixa
     let mut resultado: IndexMap<String, Vec<Capa>> = IndexMap::new();
+    
     resultado.insert("Jornais Nacionais".to_string(), restantes);
     resultado.insert("Desporto".to_string(), final_desporto);
 
     if let Some(economia) = resultado_temp.shift_remove("Economia e Gestão") {
         resultado.insert("Economia e Gestão".to_string(), economia);
+    }
+
+    if let Some(mut regionais) = resultado_temp.shift_remove("Regionais") {
+        // Opcional: Ordenar regionais alfabeticamente pois costumam ser muitos
+        regionais.sort_by(|a, b| a.nome.cmp(&b.nome)); 
+        resultado.insert("Regionais".to_string(), regionais);
     }
 
     // 6. Guardar JSON
@@ -175,6 +194,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let json = serde_json::to_string_pretty(&resultado)?;
     file.write_all(json.as_bytes())?;
 
-    println!("✅ Gerado: public/capas.json ({} secções)", resultado.len());
+    println!("✅ Gerado: public/capas.json com sucesso!");
     Ok(())
 }
