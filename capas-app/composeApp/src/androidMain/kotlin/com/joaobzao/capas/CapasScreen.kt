@@ -42,6 +42,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -87,12 +89,15 @@ fun CapasScreen(
     var previewSize by remember { mutableStateOf(DpSize.Zero) }
     var isOverTrash by remember { mutableStateOf(false) }
     var isShrinking by remember { mutableStateOf(false) }
+    var lastSwapTime by remember { mutableLongStateOf(0L) }
 
     // Item positions and sizes
     val itemInfos = remember { mutableStateMapOf<String, ItemInfo>() }
 
     val density = LocalDensity.current
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp.value
+
+    val haptic = LocalHapticFeedback.current
 
     LaunchedEffect(Unit) {
         viewModel.getCapas()
@@ -262,7 +267,12 @@ fun CapasScreen(
                 ) {
                     items(localCapas, key = { it.id }) { capa ->
                         CapaGridItemDraggable(
-                            modifier = Modifier.animateItem(),
+                            modifier = Modifier.animateItem(
+                                placementSpec = spring(
+                                    dampingRatio = 0.75f,
+                                    stiffness = 600f
+                                )
+                            ),
                             capa = capa,
                             isDragging = draggingCapa?.id == capa.id,
                             onClick = onCapaClick,
@@ -290,13 +300,18 @@ fun CapasScreen(
                                 }?.key
 
                                 if (targetItem != null && draggingCapa != null) {
-                                    val fromIndex = localCapas.indexOfFirst { it.id == draggingCapa!!.id }
-                                    val toIndex = localCapas.indexOfFirst { it.id == targetItem }
+                                    val currentTime = System.currentTimeMillis()
+                                    if (currentTime - lastSwapTime > 250) {
+                                        val fromIndex = localCapas.indexOfFirst { it.id == draggingCapa!!.id }
+                                        val toIndex = localCapas.indexOfFirst { it.id == targetItem }
                                     
                                     if (fromIndex != -1 && toIndex != -1 && fromIndex != toIndex) {
                                         val mutableList = localCapas.toMutableList()
                                         mutableList.add(toIndex, mutableList.removeAt(fromIndex))
                                         localCapas = mutableList
+                                        lastSwapTime = currentTime
+
+                                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                                         
                                         // Update startOffset to the new position to keep the drag relative
                                         // Actually, if we swap, the item in the grid moves.
@@ -306,7 +321,9 @@ fun CapasScreen(
                                         // `onPositioned` will update `itemInfos`.
                                         // But we assume the layout shift happens.
                                     }
-                                }
+                                    }
+                                    }
+
                             },
                             onDragEnd = {
                                 if (isOverTrash && draggingCapa != null) {
@@ -429,8 +446,13 @@ fun CapasScreen(
             )
 
             LaunchedEffect(dragOffset) {
-                val threshold = screenHeight * 1.6f // Approximate threshold
-                isOverTrash = (startOffset.y + dragOffset.y) > threshold
+                // Calculate threshold based on screen height in pixels minus trash area
+                val screenHeightPx = with(density) { screenHeight.dp.toPx() }
+                val threshold = screenHeightPx - with(density) { 150.dp.toPx() }
+                
+                // Check if the bottom of the dragged item crosses the threshold
+                val itemBottom = startOffset.y + dragOffset.y + previewSize.height.value
+                isOverTrash = itemBottom > threshold
             }
         }
         
