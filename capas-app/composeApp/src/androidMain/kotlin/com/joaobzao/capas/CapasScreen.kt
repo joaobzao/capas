@@ -263,7 +263,8 @@ fun CapasScreen(
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(24.dp),
                     verticalArrangement = Arrangement.spacedBy(24.dp),
-                    horizontalArrangement = Arrangement.spacedBy(24.dp)
+                    horizontalArrangement = Arrangement.spacedBy(24.dp),
+                    userScrollEnabled = draggingCapa == null
                 ) {
                     items(localCapas, key = { it.id }) { capa ->
                         CapaGridItemDraggable(
