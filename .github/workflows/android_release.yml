@@ -65,7 +65,7 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
           packageName: com.joaobzao.capas
           releaseFiles: capas-app/composeApp/build/outputs/bundle/release/composeApp-release.aab
-          track: closed
+          track: alpha
           status: completed
           
       - name: Commit Version Bump
