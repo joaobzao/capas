@@ -10,6 +10,7 @@ enum Strings {
     static var categoryNational: String { isPortuguese ? "Generalistas" : "General" }
     static var categorySport: String { isPortuguese ? "Desporto" : "Sports" }
     static var categoryEconomy: String { isPortuguese ? "Economia e Gestão" : "Economy & Management" }
+    static var categoryRegional: String { isPortuguese ? "Regionais" : "Regional" }
     
     static var titleAbout: String { isPortuguese ? "Sobre" : "About" }
     static var titleRecoverCapas: String { isPortuguese ? "Recuperar Capas" : "Recover Covers" }

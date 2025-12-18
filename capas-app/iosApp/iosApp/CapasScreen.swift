@@ -6,12 +6,14 @@ enum CapasCategory: CaseIterable {
     case national
     case sport
     case economy
+    case regional
     
     var label: String {
         switch self {
         case .national: return Strings.categoryNational
         case .sport: return Strings.categorySport
         case .economy: return Strings.categoryEconomy
+        case .regional: return Strings.categoryRegional
         }
     }
 }
@@ -229,6 +231,8 @@ struct CapasScreen: View {
             return response.sportNewspapers
         case .economy:
             return response.economyNewspapers
+        case .regional:
+            return response.regionalNewspapers
         }
     }
 }
