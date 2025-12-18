@@ -3,6 +3,7 @@
     <string name="category_national">Generalistas</string>
     <string name="category_sport">Desporto</string>
     <string name="category_economy">Economia e Gestão</string>
+    <string name="category_regional">Regionais</string>
     <string name="title_capas">Capas</string>
     <string name="action_view_removed">Ver capas removidas</string>
     <string name="msg_removed">%1$s removida</string>

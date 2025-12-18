@@ -62,7 +62,8 @@ import java.util.Locale
 enum class CapasCategory(val labelResId: Int) {
     NATIONAL(R.string.category_national),
     SPORT(R.string.category_sport),
-    ECONOMY(R.string.category_economy)
+    ECONOMY(R.string.category_economy),
+    REGIONAL(R.string.category_regional)
 }
 
 data class ItemInfo(val position: Offset, val size: DpSize)
@@ -247,6 +248,7 @@ fun CapasScreen(
                     CapasCategory.NATIONAL -> capasResponse.mainNewspapers
                     CapasCategory.SPORT -> capasResponse.sportNewspapers
                     CapasCategory.ECONOMY -> capasResponse.economyNewspapers
+                    CapasCategory.REGIONAL -> capasResponse.regionalNewspapers
                 }
 
                 // Local state for optimistic reordering

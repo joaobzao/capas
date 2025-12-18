@@ -27,6 +27,7 @@ class CapasRepositoryImpl(
 
     private val KEY = "allowed_capas"
     private val ONBOARDING_KEY = "onboarding_completed"
+    private val REGIONAIS_INIT_KEY = "regionais_initialized"
     private var lastCapas: CapasResponse? = null
 
     override fun isOnboardingCompleted(): Boolean {
@@ -52,8 +53,20 @@ class CapasRepositoryImpl(
                 if (allowedIds.isEmpty()) {
                     val allIds = capas.mainNewspapers.map { it.id } +
                             capas.sportNewspapers.map { it.id } +
-                            capas.economyNewspapers.map { it.id }
+                            capas.economyNewspapers.map { it.id } +
+                            capas.regionalNewspapers.map { it.id }
                     setAllowedIds(allIds)
+                    settings.putBoolean(REGIONAIS_INIT_KEY, true)
+                } else {
+                    // Migração: Se regionais ainda não foi inicializado, adicionar novos IDs
+                    if (!settings.getBoolean(REGIONAIS_INIT_KEY, false)) {
+                        val regionalIds = capas.regionalNewspapers.map { it.id }
+                        val currentAllowed = getAllowedIds()
+                        // Adicionar apenas os que não estão lá (embora se não foi init, não devem estar)
+                        val newAllowed = currentAllowed + regionalIds.filter { it !in currentAllowed }
+                        setAllowedIds(newAllowed)
+                        settings.putBoolean(REGIONAIS_INIT_KEY, true)
+                    }
                 }
 
                 val currentAllowed = getAllowedIds() // Now a List
@@ -67,7 +80,8 @@ class CapasRepositoryImpl(
                 val filtered = capas.copy(
                     mainNewspapers = sortCapas(capas.mainNewspapers),
                     sportNewspapers = sortCapas(capas.sportNewspapers),
-                    economyNewspapers = sortCapas(capas.economyNewspapers)
+                    economyNewspapers = sortCapas(capas.economyNewspapers),
+                    regionalNewspapers = sortCapas(capas.regionalNewspapers)
                 )
 
                 emit(NetworkResult.Success(filtered))
@@ -143,7 +157,7 @@ class CapasRepositoryImpl(
     override fun getRemovedCapas(): List<Capa> {
         val allowed = getAllowedIds()
         val capas = lastCapas ?: return emptyList()
-        return (capas.mainNewspapers + capas.sportNewspapers + capas.economyNewspapers)
+        return (capas.mainNewspapers + capas.sportNewspapers + capas.economyNewspapers + capas.regionalNewspapers)
             .filterNot { it.id in allowed }
     }
 
