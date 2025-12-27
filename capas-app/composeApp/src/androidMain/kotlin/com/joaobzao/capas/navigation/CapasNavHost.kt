@@ -57,14 +57,16 @@ fun CapasNavHost(
             val id = backStackEntry.arguments?.getString("id")!!
 
             // Procurar a capa no estado do ViewModel
-            val capa = viewModel.capasState.collectAsState().value.capas?.let { capas ->
+            val allCapas = viewModel.capasState.collectAsState().value.capas?.let { capas ->
                 (capas.mainNewspapers + capas.sportNewspapers + capas.economyNewspapers + capas.regionalNewspapers)
-                    .find { it.id == id }
-            }
+            } ?: emptyList()
 
-            capa?.let {
+            val initialPage = allCapas.indexOfFirst { it.id == id }
+
+            if (initialPage != -1) {
                 CapaDetailScreen(
-                    capa = it,
+                    capas = allCapas,
+                    initialPage = initialPage,
                     onBack = { navController.popBackStack() }
                 )
             }
