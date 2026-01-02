@@ -5,10 +5,13 @@ import androidx.compose.foundation.background
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.VectorConverter
 import androidx.compose.animation.core.animate
-import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectDragGestures
-import androidx.compose.foundation.gestures.rememberTransformableState
-import androidx.compose.foundation.gestures.transformable
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.gestures.calculateCentroid
+import androidx.compose.foundation.gestures.calculatePan
+import androidx.compose.foundation.gestures.calculateZoom
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -205,20 +208,7 @@ fun ZoomableCapaImage(
         val viewportWidth = constraints.maxWidth.toFloat()
         val viewportHeight = constraints.maxHeight.toFloat()
 
-        val transformableState = rememberTransformableState { zoomChange, panChange, _ ->
-            // Synchronous update for smooth zoom/pan with 2 fingers
-            val newScale = (scale * zoomChange).coerceIn(1f, 5f)
-            scale = newScale
 
-            val maxX = (viewportWidth * newScale - viewportWidth) / 2
-            val maxY = (viewportHeight * newScale - viewportHeight) / 2
-            
-            val newOffset = offset + panChange
-            offset = Offset(
-                x = newOffset.x.coerceIn(-maxX, maxX),
-                y = newOffset.y.coerceIn(-maxY, maxY)
-            )
-        }
 
         AsyncImage(
             model = capa.url,
@@ -288,7 +278,36 @@ fun ZoomableCapaImage(
                         )
                     }
                 }
-                .transformable(state = transformableState)
+                .pointerInput(Unit) {
+                    awaitEachGesture {
+                        awaitFirstDown()
+                        do {
+                            val event = awaitPointerEvent()
+                            val pan = event.calculatePan()
+                            val zoom = event.calculateZoom()
+                            
+                            // Only consume and apply transformations if 2+ pointers used (zoom/pinch/two-finger pan)
+                            if (event.changes.size >= 2) {
+                                val newScale = (scale * zoom).coerceIn(1f, 5f)
+                                scale = newScale
+                    
+                                val maxX = (viewportWidth * newScale - viewportWidth) / 2
+                                val maxY = (viewportHeight * newScale - viewportHeight) / 2
+                                
+                                val newOffset = offset + pan
+                                offset = Offset(
+                                    x = newOffset.x.coerceIn(-maxX, maxX),
+                                    y = newOffset.y.coerceIn(-maxY, maxY)
+                                )
+                                // Consume events to prevent pager/other detectors from reacting to multi-touch
+                                event.changes.forEach { it.consume() }
+                            }
+                            // Single pointer events (size < 2) are NOT consumed here,
+                            // allowing Pager to see them for swipe navigation.
+                            
+                        } while (event.changes.any { it.pressed })
+                    }
+                }
                 .graphicsLayer(
                     scaleX = scale,
                     scaleY = scale,
