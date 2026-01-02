@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "189237426926",
+    "project_id": "capas-a51d1",
+    "storage_bucket": "capas-a51d1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189237426926:android:921c32b2f5aca1c87611ff",
+        "android_client_info": {
+          "package_name": "com.joaobzao.capas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfQKV3yNwFIi9SA4vjXrhDyGN49x8Swvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

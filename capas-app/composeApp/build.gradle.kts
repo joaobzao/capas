@@ -6,6 +6,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+
+    alias(libs.plugins.google.services)
 }
 
 kotlin {
@@ -87,6 +89,8 @@ dependencies {
     implementation(libs.koin.compose)
     implementation(libs.coil)
     implementation(libs.compose.navigation)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
     debugImplementation(compose.uiTooling)
 }
 
