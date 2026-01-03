@@ -32,3 +32,26 @@ jobs:
           publish_dir: ./capas-api/public   # 👈 ajustado para apontar à pasta certa
           publish_branch: gh-pages
           commit_message: "🔄 Update capas ($(date -u +'%Y-%m-%d %H:%M:%S UTC'))"
+          
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}'
+
+      - name: Send Push Notification
+        run: |
+          ACCESS_TOKEN=$(gcloud auth print-access-token)
+          PROJECT_ID=$(jq -r .project_id <<< '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}')
+          
+          curl -X POST -H "Authorization: Bearer $ACCESS_TOKEN" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "message": {
+              "topic": "updates",
+              "notification": {
+                "title": "Jornais Atualizados",
+                "body": "As capas de hoje já estão disponíveis!"
+              }
+            }
+          }' \
+          "https://fcm.googleapis.com/v1/projects/$PROJECT_ID/messages:send"
