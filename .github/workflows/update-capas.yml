@@ -39,6 +39,7 @@ jobs:
           credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}'
 
       - name: Send Push Notification
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 8 * * *'
         run: |
           ACCESS_TOKEN=$(gcloud auth print-access-token)
           PROJECT_ID=$(jq -r .project_id <<< '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}')
