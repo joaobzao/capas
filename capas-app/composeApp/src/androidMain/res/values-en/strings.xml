@@ -3,6 +3,7 @@
     <string name="category_national">General</string>
     <string name="category_sport">Sports</string>
     <string name="category_economy">Economy &amp; Management</string>
+    <string name="category_regional">Regional</string>
     <string name="title_capas">Capas</string>
     <string name="action_view_removed">View removed covers</string>
     <string name="msg_removed">%1$s removed</string>
