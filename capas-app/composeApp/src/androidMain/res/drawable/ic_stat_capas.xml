@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Wrapper drawable for notification small icon (keeps PNG centered with padding). -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="2dp"
+    android:insetTop="2dp"
+    android:insetRight="2dp"
+    android:insetBottom="2dp">
+    <bitmap
+        android:src="@drawable/ic_stat_capas"
+        android:gravity="center" />
+</inset>

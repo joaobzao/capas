@@ -25,8 +25,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         
-        subscribeToUpdates()
         askNotificationPermission()
+        logToken()
 
         setContent {
             val darkTheme = isSystemInDarkTheme()
@@ -81,6 +81,20 @@ class MainActivity : ComponentActivity() {
                 // Directly ask for the permission
                 requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
             }
+        }
+    }
+
+
+    private fun logToken() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("MainActivity", "Fetching FCM registration token failed", task.exception)
+                return@addOnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+            Log.d("MainActivity", "FCM Token: $token")
         }
     }
 }
