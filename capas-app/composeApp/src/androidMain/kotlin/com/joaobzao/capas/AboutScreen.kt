@@ -111,7 +111,7 @@ fun AboutSheet(
                             )
                         )
                         Text(
-                            stringResource(R.string.version_label, "1.0.1"),
+                            stringResource(R.string.version_label, BuildConfig.VERSION_NAME),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.secondary
                         )

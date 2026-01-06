@@ -58,6 +58,9 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    buildFeatures {
+        buildConfig = true
+    }
     signingConfigs {
         create("release") {
             val keystoreFile = System.getenv("ANDROID_KEYSTORE_FILE") ?: project.findProperty("RELEASE_STORE_FILE") as? String
