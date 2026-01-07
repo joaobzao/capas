@@ -1,4 +1,8 @@
+package com.joaobzao.capas
+
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.ui.layout.boundsInWindow
+
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.fadeIn
@@ -30,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
@@ -94,6 +99,10 @@ fun CapasScreen(
 
     // Item positions and sizes
     val itemInfos = remember { mutableStateMapOf<String, ItemInfo>() }
+    
+    // State for tips
+    var showTips by remember { mutableStateOf(!viewModel.areTipsShown()) }
+    var refreshIconBounds by remember { mutableStateOf<Rect?>(null) }
 
     val density = LocalDensity.current
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp.value
@@ -140,14 +149,17 @@ fun CapasScreen(
                         color = MaterialTheme.colorScheme.onSurface
                     )
                 }
-                
                 // Header Actions
+
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     IconButton(
                         onClick = { showRemoved = true },
                         modifier = Modifier
                             .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape)
                             .size(40.dp)
+                            .onGloballyPositioned { coords ->
+                                refreshIconBounds = coords.boundsInWindow()
+                            }
                     ) {
                         Icon(
                             Icons.Default.Refresh,
@@ -155,6 +167,9 @@ fun CapasScreen(
                             tint = MaterialTheme.colorScheme.onSurface
                         )
                     }
+
+
+
 
                     Box {
                         IconButton(
@@ -463,6 +478,28 @@ fun CapasScreen(
             hostState = snackbarHostState,
             modifier = Modifier.align(Alignment.BottomCenter)
         )
+        
+        // Onboarding Overlay
+        if (showTips && !state.capas?.mainNewspapers.isNullOrEmpty()) {
+             // Safe check to ensure we have items to point to
+             state.capas?.let { caps ->
+                 val activeCapas = when (selectedCategory) {
+                    CapasCategory.NATIONAL -> caps.mainNewspapers
+                    CapasCategory.SPORT -> caps.sportNewspapers
+                    CapasCategory.ECONOMY -> caps.economyNewspapers
+                    CapasCategory.REGIONAL -> caps.regionalNewspapers
+                }
+                 OnboardingOverlay(
+                    itemInfos = itemInfos,
+                    capas = activeCapas,
+                    refreshIconBounds = refreshIconBounds,
+                    onDismiss = {
+                        showTips = false
+                        viewModel.dismissTips()
+                    }
+                )
+             }
+        }
     }
 
     // Removed Capas Sheet

@@ -16,6 +16,8 @@ interface CapasRepository {
     fun getRemovedCapas(): List<Capa>
     fun isOnboardingCompleted(): Boolean
     fun setOnboardingCompleted()
+    fun areTipsShown(): Boolean
+    fun setTipsShown()
     suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>>
     fun updateOrder(orderedIds: List<String>)
 }
@@ -27,6 +29,7 @@ class CapasRepositoryImpl(
 
     private val KEY = "allowed_capas"
     private val ONBOARDING_KEY = "onboarding_completed"
+    private val TIPS_SHOWN_KEY = "tips_shown"
     private val REGIONAIS_INIT_KEY = "regionais_initialized"
     private var lastCapas: CapasResponse? = null
 
@@ -36,6 +39,14 @@ class CapasRepositoryImpl(
 
     override fun setOnboardingCompleted() {
         settings.putBoolean(ONBOARDING_KEY, true)
+    }
+    
+    override fun areTipsShown(): Boolean {
+        return settings.getBoolean(TIPS_SHOWN_KEY, false)
+    }
+    
+    override fun setTipsShown() {
+        settings.putBoolean(TIPS_SHOWN_KEY, true)
     }
 
     override suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>> {

@@ -67,6 +67,14 @@ class CapasViewModel(
         capasRepository.setOnboardingCompleted()
     }
 
+    fun areTipsShown(): Boolean {
+        return capasRepository.areTipsShown()
+    }
+
+    fun dismissTips() {
+        capasRepository.setTipsShown()
+    }
+
     fun getWorkflowStatus() {
         viewModelScope.launch {
             capasRepository.getWorkflowStatus().collect { result ->

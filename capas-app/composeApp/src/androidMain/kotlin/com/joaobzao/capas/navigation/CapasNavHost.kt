@@ -1,6 +1,6 @@
 package com.joaobzao.capas.navigation
 
-import CapasScreen
+import com.joaobzao.capas.CapasScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
