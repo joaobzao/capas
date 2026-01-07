@@ -29,6 +29,8 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.geometry.lerp
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
 import com.joaobzao.capas.capas.Capa
 import com.joaobzao.capas.ItemInfo
 import kotlinx.coroutines.delay
@@ -50,14 +52,14 @@ fun OnboardingOverlay(
     itemInfos: Map<String, ItemInfo>,
     capas: List<Capa>,
     refreshIconBounds: Rect?,
-    onDismiss: () -> Unit
+    onDismiss: () -> Unit,
+    onSortDemo: suspend () -> Unit,
+    onRemoveDemo: suspend () -> Unit,
+    onRestoreDemo: suspend () -> Unit
 ) {
     var currentStep by remember { mutableStateOf(OnboardingStep.SORT) }
-    
-    // Auto-advance logic could be timer-based or easy tap
-    // For "immersive", let's use a tap-anywhere to advance, but also animate automatically?
-    // User request: "drag an item to sort", "drag to bin", "restore"
-    // Best is to show the animation loop and let user tap to next.
+    var isDemonstrating by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
     
     val density = LocalDensity.current 
     
@@ -68,12 +70,24 @@ fun OnboardingOverlay(
             .padding(16.dp)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
-                indication = null
+                indication = null,
+                enabled = !isDemonstrating
             ) {
                 if (currentStep != OnboardingStep.COMPLETED) {
-                    currentStep = OnboardingStep.entries[currentStep.ordinal + 1]
-                    if (currentStep == OnboardingStep.COMPLETED) {
-                        onDismiss()
+                    scope.launch {
+                        isDemonstrating = true
+                        when (currentStep) {
+                            OnboardingStep.SORT -> onSortDemo()
+                            OnboardingStep.REMOVE -> onRemoveDemo()
+                            OnboardingStep.RESTORE -> onRestoreDemo()
+                            else -> {}
+                        }
+                        // Advance after demo
+                        currentStep = OnboardingStep.entries[currentStep.ordinal + 1]
+                        if (currentStep == OnboardingStep.COMPLETED) {
+                            onDismiss()
+                        }
+                        isDemonstrating = false
                     }
                 }
             }
@@ -194,7 +208,7 @@ fun RemoveTip(itemInfos: Map<String, ItemInfo>, capas: List<Capa>) {
             initialValue = 0f,
             targetValue = 1f,
             animationSpec = infiniteRepeatable(
-                animation = tween(2000, easing = LinearEasing),
+                animation = tween(4000, easing = LinearEasing),
                 repeatMode = RepeatMode.Restart
             ),
             label = "remove-progress"
@@ -203,6 +217,22 @@ fun RemoveTip(itemInfos: Map<String, ItemInfo>, capas: List<Capa>) {
         Canvas(modifier = Modifier.fillMaxSize()) {
             val bottomCenter = Offset(size.width / 2f, size.height - 100.dp.toPx())
             val currentPos = lerp(centerPos, bottomCenter, progress)
+            
+            // Draw moving item moving to bin
+            val itemSize = androidx.compose.ui.geometry.Size(itemWidthPx, itemHeightPx)
+            val itemTopLeft = currentPos - Offset(itemWidthPx / 2f, itemHeightPx / 2f)
+            
+            drawRect(
+                color = Color.White.copy(alpha = 0.5f),
+                topLeft = itemTopLeft,
+                size = itemSize,
+                style = Stroke(width = 2.dp.toPx())
+            )
+             drawRect(
+                color = Color.White.copy(alpha = 0.2f),
+                topLeft = itemTopLeft,
+                size = itemSize
+            )
             
             drawCircle(
                 color = Color.White,

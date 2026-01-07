@@ -48,7 +48,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import kotlinx.coroutines.delay
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -103,6 +105,23 @@ fun CapasScreen(
     // State for tips
     var showTips by remember { mutableStateOf(!viewModel.areTipsShown()) }
     var refreshIconBounds by remember { mutableStateOf<Rect?>(null) }
+    
+    // Hoisted local state for drag and drop & demo
+    var localCapas by remember { mutableStateOf<List<Capa>>(emptyList()) }
+    var demoRemovedItem by remember { mutableStateOf<Capa?>(null) }
+
+    LaunchedEffect(state.capas, selectedCategory) {
+        state.capas?.let { capasResponse ->
+             val capasForCategory = when (selectedCategory) {
+                CapasCategory.NATIONAL -> capasResponse.mainNewspapers
+                CapasCategory.SPORT -> capasResponse.sportNewspapers
+                CapasCategory.ECONOMY -> capasResponse.economyNewspapers
+                CapasCategory.REGIONAL -> capasResponse.regionalNewspapers
+            }
+            localCapas = capasForCategory
+            itemInfos.clear()
+        }
+    }
 
     val density = LocalDensity.current
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp.value
@@ -259,22 +278,8 @@ fun CapasScreen(
 
             // Grid
             state.capas?.let { capasResponse ->
-                val capasForCategory = when (selectedCategory) {
-                    CapasCategory.NATIONAL -> capasResponse.mainNewspapers
-                    CapasCategory.SPORT -> capasResponse.sportNewspapers
-                    CapasCategory.ECONOMY -> capasResponse.economyNewspapers
-                    CapasCategory.REGIONAL -> capasResponse.regionalNewspapers
-                }
-
-                // Local state for optimistic reordering
-                var localCapas by remember { mutableStateOf(capasForCategory) }
-
-                // Sync local state when category or source data changes
-                LaunchedEffect(capasForCategory) {
-                    localCapas = capasForCategory
-                    itemInfos.clear()
-                }
-
+                // Uses hoisted localCapas
+                
                 LazyVerticalGrid(
                     columns = GridCells.Adaptive(minSize = 160.dp),
                     modifier = Modifier.fillMaxSize(),
@@ -496,6 +501,43 @@ fun CapasScreen(
                     onDismiss = {
                         showTips = false
                         viewModel.dismissTips()
+                    },
+                    onSortDemo = {
+                        if (localCapas.size >= 2) {
+                            val originalOrder = localCapas.toList()
+                            val mutable = localCapas.toMutableList()
+                            // Swap first two
+                            val temp = mutable[0]
+                            mutable[0] = mutable[1]
+                            mutable[1] = temp
+                            localCapas = mutable
+                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                            kotlinx.coroutines.delay(1000)
+                            localCapas = originalOrder
+                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                        }
+                    },
+                    onRemoveDemo = {
+                        if (localCapas.isNotEmpty()) {
+                            val itemToRemove = localCapas.first()
+                            viewModel.removeCapa(itemToRemove)
+                            demoRemovedItem = itemToRemove
+                            // Wait for user to see the item is gone
+                            kotlinx.coroutines.delay(2000)
+                        }
+                    },
+                    onRestoreDemo = {
+                        showRemoved = true
+                        kotlinx.coroutines.delay(1000)
+                        
+                        // Restore the item
+                        demoRemovedItem?.let {
+                            viewModel.restoreCapa(it)
+                            demoRemovedItem = null
+                        }
+                        
+                        kotlinx.coroutines.delay(2000)
+                        showRemoved = false
                     }
                 )
              }
