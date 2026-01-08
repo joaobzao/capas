@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
         
         askNotificationPermission()
         logToken()
+        subscribeToUpdates()
 
         setContent {
             val darkTheme = isSystemInDarkTheme()
