@@ -1,0 +1,38 @@
+name: Notify Capas Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 'Notification Title'
+        required: true
+        default: 'Jornais Atualizados'
+      body:
+        description: 'Notification Body'
+        required: true
+        default: 'As capas de hoje já estão disponíveis!'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}'
+
+      - name: Send Push Notification
+        run: |
+          ACCESS_TOKEN=$(gcloud auth print-access-token)
+          PROJECT_ID=$(jq -r .project_id <<< '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}')
+          
+          # Create JSON payload safely
+          jq -n \
+            --arg title "${{ inputs.title }}" \
+            --arg body "${{ inputs.body }}" \
+            '{message: {topic: "updates", notification: {title: $title, body: $body}}}' > notification.json
+          
+          curl -X POST -H "Authorization: Bearer $ACCESS_TOKEN" \
+          -H "Content-Type: application/json" \
+          -d @notification.json \
+          "https://fcm.googleapis.com/v1/projects/$PROJECT_ID/messages:send"
