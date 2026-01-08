@@ -3,22 +3,22 @@
     {
       "id": "correio-da-manha",
       "nome": "Correio da Manhã",
-      "url": "https://imgs.vercapas.com/covers/correio-da-manha/2026/correio-da-manha-2026-01-07-a25a0c30.jpg"
+      "url": "https://imgs.vercapas.com/covers/correio-da-manha/2026/correio-da-manha-2026-01-08-ed5d4abb.jpg"
     },
     {
       "id": "jornal-de-noticias",
       "nome": "Jornal de Notícias",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2026/jornal-de-noticias-2026-01-07-380a1661.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2026/jornal-de-noticias-2026-01-08-288b7f77.jpg"
     },
     {
       "id": "publico",
       "nome": "Público",
-      "url": "https://imgs.vercapas.com/covers/publico/2026/publico-2026-01-07-a3c057e3.jpg"
+      "url": "https://imgs.vercapas.com/covers/publico/2026/publico-2026-01-08-4e8022da.jpg"
     },
     {
       "id": "diario-de-noticias",
       "nome": "Diário de Notícias",
-      "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2026/diario-de-noticias-2026-01-07-423a6500.jpg"
+      "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2026/diario-de-noticias-2026-01-08-7e73fab1.jpg"
     },
     {
       "id": "jornal-i",
@@ -43,12 +43,12 @@
     {
       "id": "jornal-de-negocios",
       "nome": "Jornal de Negócios",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-negocios/2026/jornal-de-negocios-2026-01-07-8d612235.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-de-negocios/2026/jornal-de-negocios-2026-01-08-97a044b1.jpg"
     },
     {
       "id": "jornal-economico",
       "nome": "Jornal Económico",
-      "url": "https://imgs.vercapas.com/covers/jornal-economico/2026/jornal-economico-2026-01-07-7f1371fa.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-economico/2026/jornal-economico-2026-01-08-e3dded8c.jpg"
     },
     {
       "id": "o-diabo",
@@ -68,24 +68,24 @@
     {
       "id": "tal-qual",
       "nome": "Tal & Qual",
-      "url": "https://imgs.vercapas.com/covers/tal-e-qual/2025/tal-e-qual-2025-12-30-e44e932c.jpg"
+      "url": "https://imgs.vercapas.com/covers/tal-e-qual/2026/tal-e-qual-2026-01-07-57ebbb89.jpg"
     }
   ],
   "Desporto": [
     {
       "id": "a-bola",
       "nome": "A Bola",
-      "url": "https://imgs.vercapas.com/covers/a-bola/2026/a-bola-2026-01-07-7f88c060.jpg"
+      "url": "https://imgs.vercapas.com/covers/a-bola/2026/a-bola-2026-01-08-b4e3787e.jpg"
     },
     {
       "id": "record",
       "nome": "Record",
-      "url": "https://imgs.vercapas.com/covers/record/2026/record-2026-01-07-c72eede6.jpg"
+      "url": "https://imgs.vercapas.com/covers/record/2026/record-2026-01-08-a0f257d4.jpg"
     },
     {
       "id": "o-jogo",
       "nome": "O Jogo",
-      "url": "https://imgs.vercapas.com/covers/o-jogo/2026/o-jogo-2026-01-07-70efedec.jpg"
+      "url": "https://imgs.vercapas.com/covers/o-jogo/2026/o-jogo-2026-01-08-0ce2a131.jpg"
     },
     {
       "id": "o-benfica",
@@ -105,27 +105,27 @@
     {
       "id": "jornal-as",
       "nome": "Jornal AS",
-      "url": "https://imgs.vercapas.com/covers/jornal-as/2026/jornal-as-2026-01-07-e471c1e1.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-as/2026/jornal-as-2026-01-08-f4f0a57c.jpg"
     },
     {
       "id": "marca",
       "nome": "Marca",
-      "url": "https://imgs.vercapas.com/covers/jornal-marca/2026/jornal-marca-2026-01-07-2bee9672.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-marca/2026/jornal-marca-2026-01-08-b45640b5.jpg"
     },
     {
       "id": "mundo-deportivo",
       "nome": "Mundo Deportivo",
-      "url": "https://imgs.vercapas.com/covers/mundo-deportivo/2026/mundo-deportivo-2026-01-07-6a771862.jpg"
+      "url": "https://imgs.vercapas.com/covers/mundo-deportivo/2026/mundo-deportivo-2026-01-08-7e6175d3.jpg"
     },
     {
       "id": "tuttosport",
       "nome": "Tuttosport",
-      "url": "https://imgs.vercapas.com/covers/tuttosport/2026/tuttosport-2026-01-07-425f8082.jpg"
+      "url": "https://imgs.vercapas.com/covers/tuttosport/2026/tuttosport-2026-01-08-97b45c66.jpg"
     },
     {
       "id": "l-equipe",
       "nome": "L'Équipe",
-      "url": "https://imgs.vercapas.com/covers/lequipe/2026/lequipe-2026-01-07-0a6fe335.jpg"
+      "url": "https://imgs.vercapas.com/covers/lequipe/2026/lequipe-2026-01-08-7ff432f1.jpg"
     },
     {
       "id": "desportivo-de-guimaraes",
@@ -237,7 +237,7 @@
     {
       "id": "actualidade-economia-iberica",
       "nome": "Actualidade Economia Ibérica",
-      "url": "https://imgs.vercapas.com/covers/actualidad-economiaiberica/2025/actualidad-economiaiberica-2025-11-01-ce0cc24e.jpg"
+      "url": "https://imgs.vercapas.com/covers/actualidad-economiaiberica/2026/actualidad-economiaiberica-2026-01-01-5ef45e8a.jpg"
     },
     {
       "id": "revista-invest",
@@ -307,7 +307,7 @@
     {
       "id": "forbes-portugal",
       "nome": "Forbes Portugal",
-      "url": "https://imgs.vercapas.com/covers/forbes-portugal/2025/forbes-portugal-2025-11-03-2a48c4ec.jpg"
+      "url": "https://imgs.vercapas.com/covers/forbes-portugal/2026/forbes-portugal-2026-01-07-e135f818.jpg"
     }
   ],
   "Regionais": [
@@ -324,7 +324,7 @@
     {
       "id": "acoriano-oriental",
       "nome": "Açoriano Oriental",
-      "url": "https://imgs.vercapas.com/covers/acoriano-oriental/2026/acoriano-oriental-2026-01-07-2f45f19c.jpg"
+      "url": "https://imgs.vercapas.com/covers/acoriano-oriental/2026/acoriano-oriental-2026-01-08-68feabba.jpg"
     },
     {
       "id": "barlavento",
@@ -344,12 +344,12 @@
     {
       "id": "correio-do-minho",
       "nome": "Correio do Minho",
-      "url": "https://imgs.vercapas.com/covers/correio-do-minho/2026/correio-do-minho-2026-01-07-8175460e.jpg"
+      "url": "https://imgs.vercapas.com/covers/correio-do-minho/2026/correio-do-minho-2026-01-08-49cbf5a9.jpg"
     },
     {
       "id": "correio-dos-acores",
       "nome": "Correio dos Açores",
-      "url": "https://imgs.vercapas.com/covers/correio-dos-acores/2026/correio-dos-acores-2026-01-07-f4bb1b6d.jpg"
+      "url": "https://imgs.vercapas.com/covers/correio-dos-acores/2026/correio-dos-acores-2026-01-08-8e4d6cac.jpg"
     },
     {
       "id": "desportivo-transmontano",
@@ -364,12 +364,12 @@
     {
       "id": "diario-as-beiras",
       "nome": "Diário As Beiras",
-      "url": "https://imgs.vercapas.com/covers/diario-as-beiras/2026/diario-as-beiras-2026-01-07-73504b72.jpg"
+      "url": "https://imgs.vercapas.com/covers/diario-as-beiras/2026/diario-as-beiras-2026-01-08-07c0938f.jpg"
     },
     {
       "id": "diario-insular",
       "nome": "Diário Insular",
-      "url": "https://imgs.vercapas.com/covers/diario-insular/2026/diario-insular-2026-01-07-995116cc.jpg"
+      "url": "https://imgs.vercapas.com/covers/diario-insular/2026/diario-insular-2026-01-08-0db2ab62.jpg"
     },
     {
       "id": "diario-da-regiao",
@@ -379,12 +379,12 @@
     {
       "id": "diario-de-aveiro",
       "nome": "Diário de Aveiro",
-      "url": "https://imgs.vercapas.com/covers/diario-de-aveiro/2026/diario-de-aveiro-2026-01-07-ee0a31df.jpg"
+      "url": "https://imgs.vercapas.com/covers/diario-de-aveiro/2026/diario-de-aveiro-2026-01-08-11a1f60b.jpg"
     },
     {
       "id": "diario-de-coimbra",
       "nome": "Diário de Coimbra",
-      "url": "https://imgs.vercapas.com/covers/diario-de-coimbra/2026/diario-de-coimbra-2026-01-07-36c43801.jpg"
+      "url": "https://imgs.vercapas.com/covers/diario-de-coimbra/2026/diario-de-coimbra-2026-01-08-7256f328.jpg"
     },
     {
       "id": "diario-de-leiria",
@@ -394,12 +394,12 @@
     {
       "id": "diario-de-noticias-da-madeira",
       "nome": "Diário de Notícias da Madeira",
-      "url": "https://imgs.vercapas.com/covers/diario-de-noticias-da-madeira/2026/diario-de-noticias-da-madeira-2026-01-07-bc2a57a2.jpg"
+      "url": "https://imgs.vercapas.com/covers/diario-de-noticias-da-madeira/2026/diario-de-noticias-da-madeira-2026-01-08-4ee3f039.jpg"
     },
     {
       "id": "diario-de-viseu",
       "nome": "Diário de Viseu",
-      "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2026/diario-de-viseu-2026-01-07-3f14f3a4.jpg"
+      "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2026/diario-de-viseu-2026-01-08-47c07e59.jpg"
     },
     {
       "id": "diario-do-alentejo",
@@ -409,17 +409,17 @@
     {
       "id": "diario-do-minho",
       "nome": "Diário do Minho",
-      "url": "https://imgs.vercapas.com/covers/diario-do-minho/2026/diario-do-minho-2026-01-07-1928079c.jpg"
+      "url": "https://imgs.vercapas.com/covers/diario-do-minho/2026/diario-do-minho-2026-01-08-5534d2a4.jpg"
     },
     {
       "id": "diario-do-sul",
       "nome": "Diário do Sul",
-      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-01-06-035d94c1.jpg"
+      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-01-07-4f1e4d56.jpg"
     },
     {
       "id": "diario-dos-acores",
       "nome": "Diário dos Açores",
-      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-01-07-bd682b47.jpg"
+      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-01-08-c5845f5d.jpg"
     },
     {
       "id": "foz-do-lima",
@@ -429,12 +429,12 @@
     {
       "id": "gazeta-das-caldas",
       "nome": "Gazeta das Caldas",
-      "url": "https://imgs.vercapas.com/covers/gazeta-das-caldas/2026/gazeta-das-caldas-2026-01-01-d85b5886.jpg"
+      "url": "https://imgs.vercapas.com/covers/gazeta-das-caldas/2026/gazeta-das-caldas-2026-01-08-90b3f83a.jpg"
     },
     {
       "id": "gazeta-do-interior",
       "nome": "Gazeta do Interior",
-      "url": "https://imgs.vercapas.com/covers/gazeta-do-interior/2025/gazeta-do-interior-2025-12-30-ebecf0b6.jpg"
+      "url": "https://imgs.vercapas.com/covers/gazeta-do-interior/2026/gazeta-do-interior-2026-01-07-4e21368f.jpg"
     },
     {
       "id": "grande-porto",
@@ -449,7 +449,7 @@
     {
       "id": "jornal-labor",
       "nome": "Jornal Labor",
-      "url": "https://imgs.vercapas.com/covers/jornal-labor/2025/jornal-labor-2025-12-30-e233b433.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-labor/2026/jornal-labor-2026-01-08-9fab3e78.jpg"
     },
     {
       "id": "jornal-o-alcoa",
@@ -464,7 +464,7 @@
     {
       "id": "jornal-da-bairrada",
       "nome": "Jornal da Bairrada",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-bairrada/2025/jornal-da-bairrada-2025-12-31-6d107218.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-da-bairrada/2026/jornal-da-bairrada-2026-01-07-38e33b85.jpg"
     },
     {
       "id": "jornal-da-beira",
@@ -474,12 +474,12 @@
     {
       "id": "jornal-da-madeira",
       "nome": "Jornal da Madeira",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-madeira/2026/jornal-da-madeira-2026-01-07-c36db276.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-da-madeira/2026/jornal-da-madeira-2026-01-08-eb09239a.jpg"
     },
     {
       "id": "jornal-das-caldas",
       "nome": "Jornal das Caldas",
-      "url": "https://imgs.vercapas.com/covers/jornal-das-caldas/2026/jornal-das-caldas-2026-01-01-26a6163e.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-das-caldas/2026/jornal-das-caldas-2026-01-08-223af9dc.jpg"
     },
     {
       "id": "jornal-de-abrantes",
@@ -494,7 +494,7 @@
     {
       "id": "jornal-de-leiria",
       "nome": "Jornal de Leiria",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-leiria/2026/jornal-de-leiria-2026-01-01-da8ff0b5.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-de-leiria/2026/jornal-de-leiria-2026-01-08-c6eeb6b3.jpg"
     },
     {
       "id": "jornal-de-proenca",
@@ -514,7 +514,7 @@
     {
       "id": "jornal-do-fundao",
       "nome": "Jornal do Fundão",
-      "url": "https://imgs.vercapas.com/covers/jornal-do-fundao/2026/jornal-do-fundao-2026-01-01-541eb836.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-do-fundao/2026/jornal-do-fundao-2026-01-08-98ecde42.jpg"
     },
     {
       "id": "jornal-do-pico",
@@ -524,7 +524,7 @@
     {
       "id": "jornal-o-interior",
       "nome": "Jornal o Interior",
-      "url": "https://imgs.vercapas.com/covers/jornal-o-interior/2025/jornal-o-interior-2025-12-31-d0198ff7.jpg"
+      "url": "https://imgs.vercapas.com/covers/jornal-o-interior/2026/jornal-o-interior-2026-01-07-d340a86f.jpg"
     },
     {
       "id": "linhas-de-elvas",
@@ -599,7 +599,7 @@
     {
       "id": "o-setubalense",
       "nome": "O Setubalense",
-      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-01-07-0b978707-x.jpg"
+      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-01-08-b475262a-x.jpg"
     },
     {
       "id": "povo-da-beira",
@@ -624,7 +624,7 @@
     {
       "id": "regiao-de-leiria",
       "nome": "Região de Leiria",
-      "url": "https://imgs.vercapas.com/covers/regiao-de-leiria/2026/regiao-de-leiria-2026-01-01-d302eb10.jpg"
+      "url": "https://imgs.vercapas.com/covers/regiao-de-leiria/2026/regiao-de-leiria-2026-01-08-12533481.jpg"
     },
     {
       "id": "regiao-de-agueda",
