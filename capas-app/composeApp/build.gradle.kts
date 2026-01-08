@@ -47,7 +47,7 @@ android {
         applicationId = "com.joaobzao.capas"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 15
+        versionCode = 16
         versionName = "1.0.7"
         ndk {
             debugSymbolLevel = "FULL"
