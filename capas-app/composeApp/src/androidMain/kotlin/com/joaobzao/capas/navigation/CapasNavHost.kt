@@ -13,6 +13,10 @@ import com.joaobzao.capas.WelcomeScreen
 import com.joaobzao.capas.capas.CapasViewModel
 import org.koin.androidx.compose.koinViewModel
 import androidx.compose.runtime.collectAsState
+import com.google.firebase.Firebase
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.analytics
+import com.google.firebase.analytics.logEvent
 
 @Composable
 fun CapasNavHost(
@@ -42,6 +46,11 @@ fun CapasNavHost(
             CapasScreen(
                 viewModel = viewModel,
                 onCapaClick = { capa ->
+                    Firebase.analytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT) {
+                        param(FirebaseAnalytics.Param.ITEM_ID, capa.id)
+                        param(FirebaseAnalytics.Param.ITEM_NAME, capa.nome)
+                        param(FirebaseAnalytics.Param.CONTENT_TYPE, "capa")
+                    }
                     navController.navigate("detail/${capa.id}")
                 }
             )
