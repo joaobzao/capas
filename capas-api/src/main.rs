@@ -1,42 +1,63 @@
-use reqwest::blocking::Client;
+use indexmap::IndexMap;
+use reqwest::Client;
 use scraper::{Html, Selector};
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::fs::{create_dir_all, File};
 use std::io::Write;
-use std::thread::sleep;
 use std::time::Duration;
-use indexmap::IndexMap; 
+use tokio::time::sleep;
 use unicode_normalization::UnicodeNormalization;
 
-#[derive(Serialize, Clone)]
+mod gemini;
+use gemini::GeminiClient;
+
+#[derive(Serialize, Deserialize, Clone, Debug)]
+pub struct NewsItem {
+    pub headline: String,
+    pub summary: Option<String>,
+    pub category: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
 struct Capa {
     id: String,
     nome: String,
     url: String,
+    news: Option<Vec<NewsItem>>,
 }
 
 fn slugify(name: &str) -> String {
     name.nfkd()
-        .filter(|c| c.is_ascii()) 
+        .filter(|c| c.is_ascii())
         .collect::<String>()
         .to_lowercase()
-        .replace(|c: char| !c.is_alphanumeric(), "-") 
+        .replace(|c: char| !c.is_alphanumeric(), "-")
         .split('-')
         .filter(|s| !s.is_empty())
         .collect::<Vec<_>>()
         .join("-")
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let base = "https://www.vercapas.com";
     let client = Client::new();
+    let gemini = GeminiClient::new().ok(); // Optional Gemini client
+
+    if gemini.is_none() {
+        println!("⚠️ GEMINI_API_KEY not set. News catalog generation will be skipped.");
+    } else {
+        println!("✨ Gemini Client initialized. News catalog will be generated.");
+    }
 
     // 1. Página principal
     let body = client
         .get(base)
         .header("User-Agent", "Mozilla/5.0 (CapasBot/1.0)")
-        .send()?
-        .text()?;
+        .send()
+        .await?
+        .text()
+        .await?;
     let document = Html::parse_document(&body);
 
     // Seletores
@@ -47,13 +68,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut resultado_temp: IndexMap<String, Vec<Capa>> = IndexMap::new();
 
-    // Adicionado "Jornais Regionais" caso o site mude o título ligeiramente
     let secoes_permitidas = vec![
-        "Jornais Nacionais", 
-        "Desporto", 
-        "Economia e Gestão", 
-        "Regionais", 
-        "Jornais Regionais"
+        "Jornais Nacionais",
+        "Desporto",
+        "Economia e Gestão",
+        "Regionais",
+        "Jornais Regionais",
     ];
     let mover_para_desporto = ["O Jogo", "A Bola", "Record"];
 
@@ -71,6 +91,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         let mut capas_secao = Vec::new();
 
+        // Collect links to visit for this section
+        let mut links_to_visit = Vec::new();
         for link in section.select(&link_selector) {
             if let Some(href) = link.value().attr("href") {
                 if href.contains("/capa/") || href.contains("/covers/") {
@@ -86,48 +108,91 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                             nome = alt.to_string();
                         }
                     }
-
-                    // 💤 pequena pausa
-                    sleep(Duration::from_millis(200)); 
-
-                    let capa_body = client
-                        .get(&capa_url)
-                        .header("User-Agent", "Mozilla/5.0 (CapasBot/1.0)")
-                        .send();
-
-                    // Tratamento simples de erro na requisição individual
-                    if let Ok(resp) = capa_body {
-                        if let Ok(text) = resp.text() {
-                            let capa_doc = Html::parse_document(&text);
-                            let big_img_selector = Selector::parse("img").unwrap();
-                            
-                            for img in capa_doc.select(&big_img_selector) {
-                                if let Some(src) = img.value().attr("src") {
-                                    if src.contains("covers") {
-                                        let url = if src.starts_with("http") {
-                                            src.to_string()
-                                        } else {
-                                            format!("{}{}", base, src)
-                                        };
-
-                                        capas_secao.push(Capa {
-                                            id: slugify(&nome),
-                                            nome: nome.clone(),
-                                            url,
-                                        });
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    links_to_visit.push((capa_url, nome));
                 }
             }
         }
 
+        // Process in batches (e.g., 5 at a time) to respect free tier and optimize
+        for batch in links_to_visit.chunks(5) {
+             // 1. Resolve actual image URLs for the batch
+             let mut cover_images = Vec::new();
+             
+             for (capa_url, nome) in batch {
+                 let resp = client
+                    .get(capa_url)
+                    .header("User-Agent", "Mozilla/5.0 (CapasBot/1.0)")
+                    .send()
+                    .await;
+                
+                 if let Ok(resp) = resp {
+                    if let Ok(text) = resp.text().await {
+                        let capa_doc = Html::parse_document(&text);
+                        let big_img_selector = Selector::parse("img").unwrap();
+
+                        for img in capa_doc.select(&big_img_selector) {
+                            if let Some(src) = img.value().attr("src") {
+                                if src.contains("covers") {
+                                    let url = if src.starts_with("http") {
+                                        src.to_string()
+                                    } else {
+                                        format!("{}{}", base, src)
+                                    };
+                                    println!("Found cover: {} ({})", nome, url);
+                                    cover_images.push((url, nome.clone()));
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                 }
+             }
+
+             // 2. Batch Analyze with AI
+             let mut batch_results = std::collections::HashMap::new();
+             
+             // ENABLE AI ONLY FOR SPECIFIC SECTIONS
+             let ai_sections = ["Jornais Nacionais", "Desporto"];
+             let should_analyze = ai_sections.contains(&secao.as_str());
+
+             if !cover_images.is_empty() && should_analyze {
+                 if let Some(g_client) = &gemini {
+                    println!("   ⏳ Waiting 4s (Free Tier Rate Limit)...");
+                    sleep(Duration::from_secs(4)).await;
+
+                    println!("   Analyzing batch of {} covers...", cover_images.len());
+                    match g_client.analyze_covers_batch(&cover_images).await {
+                         Ok(json_data) => {
+                             if let Ok(map) = serde_json::from_value::<std::collections::HashMap<String, Vec<NewsItem>>>(json_data) {
+                                 batch_results = map;
+                                 println!("   ✅ Batch analysis complete.");
+                             } else {
+                                 println!("   ⚠️ Failed to parse AI batch response.");
+                             }
+                         },
+                         Err(e) => println!("   ❌ AI Batch Analysis failed: {}", e),
+                    }
+                 }
+             }
+
+             // 3. Create Capa objects
+             for (url, nome) in cover_images {
+                 let news = batch_results.remove(&nome);
+                 capas_secao.push(Capa {
+                    id: slugify(&nome),
+                    nome,
+                    url,
+                    news,
+                 });
+             }
+        }
+
         if !capas_secao.is_empty() {
-            // Normaliza a chave para garantir que encontramos depois
-            let chave = if secao.contains("Regionais") { "Regionais".to_string() } else { secao };
+            let chave = if secao.contains("Regionais") {
+                "Regionais".to_string()
+            } else {
+                secao
+            };
             resultado_temp.insert(chave, capas_secao);
         }
     }
@@ -136,7 +201,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let nacionais = resultado_temp
         .shift_remove("Jornais Nacionais")
         .unwrap_or_default();
-    let desporto = resultado_temp.shift_remove("Desporto").unwrap_or_default();
+    let desporto = resultado_temp
+        .shift_remove("Desporto")
+        .unwrap_or_default();
 
     let mut restantes = Vec::new();
     let mut desporto_full = desporto;
@@ -174,7 +241,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // 5. Construir resultado final em ordem fixa
     let mut resultado: IndexMap<String, Vec<Capa>> = IndexMap::new();
-    
+
     resultado.insert("Jornais Nacionais".to_string(), restantes);
     resultado.insert("Desporto".to_string(), final_desporto);
 
@@ -183,8 +250,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     if let Some(mut regionais) = resultado_temp.shift_remove("Regionais") {
-        // Opcional: Ordenar regionais alfabeticamente pois costumam ser muitos
-        regionais.sort_by(|a, b| a.nome.cmp(&b.nome)); 
+        regionais.sort_by(|a, b| a.nome.cmp(&b.nome));
         resultado.insert("Regionais".to_string(), regionais);
     }
 

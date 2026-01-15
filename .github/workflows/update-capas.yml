@@ -24,6 +24,8 @@ jobs:
         run: cargo build --release
 
       - name: Executar scraper
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: ./target/release/capas-api
 
       - name: Deploy para gh-pages
