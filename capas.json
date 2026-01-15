@@ -4,106 +4,31 @@
       "id": "correio-da-manha",
       "nome": "Correio da Manhã",
       "url": "https://imgs.vercapas.com/covers/correio-da-manha/2026/correio-da-manha-2026-01-15-d6fcce33.jpg",
-      "news": [
-        {
-          "headline": "VENTURA LIDERA CORRIDA A CINCO",
-          "summary": "Uma sondagem aponta André Ventura como líder das intenções de voto entre os cinco principais candidatos às presidenciais.",
-          "category": "Política"
-        },
-        {
-          "headline": "FC PORTO VENCE DUELO DA TAÇA",
-          "summary": "O FC Porto derrotou o Benfica por 1-0, eliminando o rival e avançando na Taça de Portugal.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "INSPETOR DA ASAE DISPARA SOBRE AMANTE DA MULHER",
-          "summary": "Um inspetor baleou um homem que suspeitava ser amante da sua esposa, utilizando a sua arma de serviço.",
-          "category": "Sociedade"
-        }
-      ]
+      "news": null
     },
     {
       "id": "jornal-de-noticias",
       "nome": "Jornal de Notícias",
       "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2026/jornal-de-noticias-2026-01-15-0354d72d.jpg",
-      "news": [
-        {
-          "headline": "COM PÉS E CABEÇA",
-          "summary": "O golo de Bednarek garantiu a vitória do FC Porto sobre o Benfica e o apuramento para as meias-finais da Taça.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "Polícias 'crucificam' detida na esquadra e partilham vídeos no WhatsApp",
-          "summary": "Dois agentes da PSP são acusados de tortura, agressões e violência sexual contra uma mulher detida.",
-          "category": "Sociedade"
-        },
-        {
-          "headline": "Escolas: Cerca de 23 mil alunos ainda não têm todos os professores",
-          "summary": "Milhares de estudantes iniciam o período letivo com falta de docentes e horários por ocupar.",
-          "category": "Educação"
-        }
-      ]
+      "news": null
     },
     {
       "id": "publico",
       "nome": "Público",
       "url": "https://imgs.vercapas.com/covers/publico/2026/publico-2026-01-15-d0445d15.jpg",
-      "news": [
-        {
-          "headline": "Mais de um terço dos médicos com horas extras ultrapassa limite anual",
-          "summary": "No SNS, mais de 8 mil médicos já excederam o limite legal de trabalho suplementar, gerando críticas dos sindicatos.",
-          "category": "Sociedade"
-        },
-        {
-          "headline": "Nova ordem mundial: A América de Trump está a aproximar o mundo da China",
-          "summary": "Análise editorial sobre como a postura externa de Donald Trump está a alterar os equilíbrios geopolíticos globais.",
-          "category": "Mundo"
-        },
-        {
-          "headline": "Gouveia e Melo: O apelo ao voto útil e a hipótese de um movimento cívico",
-          "summary": "O candidato às presidenciais discute a sua estratégia eleitoral e a mobilização da sociedade civil.",
-          "category": "Política"
-        }
-      ]
+      "news": null
     },
     {
       "id": "diario-de-noticias",
       "nome": "Diário de Notícias",
       "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2026/diario-de-noticias-2026-01-15-f1ff2663.jpg",
-      "news": [
-        {
-          "headline": "Ventura e Seguro vão destacados a caminho da segunda volta",
-          "summary": "Barómetro DN/Aximagem indica que André Ventura e António José Seguro lideram a corrida presidencial.",
-          "category": "Política"
-        },
-        {
-          "headline": "NASCIMENTOS: Mais 3077 bebés em 2025",
-          "summary": "O aumento da natalidade em 2025 pode representar um sinal de inversão na tendência de descida demográfica.",
-          "category": "Sociedade"
-        },
-        {
-          "headline": "GNR/SEPNA Ambiente: Mais de sete mil crimes em 2025 e 60 milhões em coimas",
-          "summary": "Relatório revela um crescimento acentuado de infrações ambientais e o montante recorde de multas aplicadas.",
-          "category": "Ambiente"
-        }
-      ]
+      "news": null
     },
     {
       "id": "jornal-i",
       "nome": "Jornal i",
       "url": "https://imgs.vercapas.com/covers/i/2025/i-2025-07-29-20c8ca65.jpg",
-      "news": [
-        {
-          "headline": "inesquecível",
-          "summary": "Edição histórica de despedida que celebra os 16 anos do jornal através de uma galeria das suas capas mais emblemáticas.",
-          "category": "Media"
-        },
-        {
-          "headline": "i NUM INSTANTE TUDO MUDA",
-          "summary": "A última edição do jornal i recorda o percurso da publicação com testemunhos dos seus antigos diretores.",
-          "category": "Sociedade"
-        }
-      ]
+      "news": null
     },
     {
       "id": "sol",
@@ -112,23 +37,18 @@
       "news": [
         {
           "headline": "Novo código dá poder às minorias para censurarem Museus",
-          "summary": "Novo Código Deontológico internacional prevê que museus respondam a minorias que exijam a retirada de peças.",
+          "summary": "Novo código deontológico internacional prevê que museus respondam a exigências de minorias para a retirada de peças.",
           "category": "Sociedade"
         },
         {
-          "headline": "A sociedade precisa de Passos Coelho, que vai reaparecer",
-          "summary": "Em entrevista, André Ventura afirma que o país necessita do regresso do antigo primeiro-ministro à vida política.",
-          "category": "Política"
-        },
-        {
           "headline": "PRESIDENCIAIS ENTRAM NA RETA FINAL COM MAIS DÚVIDAS QUE CERTEZAS",
-          "summary": "Sondagens mostram cenários abertos e campanhas intensificam-se na reta final das eleições para a Presidência.",
+          "summary": "Sondagens mostram cenários abertos para as eleições presidenciais numa fase decisiva da campanha.",
           "category": "Política"
         },
         {
-          "headline": "VENEZUELA E DEPOIS DE MADURO?",
-          "summary": "Análise sobre o futuro político da Venezuela e a continuidade ou fim da era de Nicolás Maduro.",
-          "category": "Internacional"
+          "headline": "A sociedade precisa de Passos Coelho, que vai reaparecer",
+          "summary": "André Ventura afirma em entrevista que o país necessita do regresso do antigo primeiro-ministro à vida política ativa.",
+          "category": "Política"
         }
       ]
     },
@@ -139,18 +59,18 @@
       "news": [
         {
           "headline": "Algarve prepara festa de arromba",
-          "summary": "Região algarvia investe em iluminação, concertos e fogo de artifício para a época natalícia e de fim de ano.",
-          "category": "Sociedade"
+          "summary": "Municípios algarvios investem milhões em animação, iluminação e concertos para as festividades de Natal e Passagem de Ano.",
+          "category": "Turismo"
         },
         {
           "headline": "Portugal em busca de título inédito",
-          "summary": "Seleção nacional de futebol parte para o seu sétimo Mundial consecutivo com o objetivo de vencer.",
-          "category": "Desporto"
+          "summary": "A seleção nacional foca-se na conquista do Mundial após garantir a sua sétima presença consecutiva.",
+          "category": "Futebol"
         },
         {
           "headline": "Autoridades tentam salvar fundos da UE",
-          "summary": "Municípios do Algarve correm contra o tempo para executar 10 milhões de euros em fundos europeus até ao final do mês.",
-          "category": "Atualidade"
+          "summary": "Entidades públicas e municípios do Algarve têm pouco tempo para executar 10 milhões de euros em fundos comunitários.",
+          "category": "Economia"
         }
       ]
     },
@@ -161,17 +81,17 @@
       "news": [
         {
           "headline": "“Não pedi nem pedirei para sair”",
-          "summary": "Ana Paula Martins, Ministra da Saúde, afasta os rumores de demissão perante a crise no setor e no INEM.",
+          "summary": "A Ministra da Saúde, Ana Paula Martins, afasta rumores de demissão e garante continuidade no cargo apesar da crise no INEM.",
           "category": "Política"
         },
         {
-          "headline": "IA - Impacto pode chegar aos €20 mil milhões",
-          "summary": "O Governo antecipa um forte investimento e criação de valor económico através da Inteligência Artificial nos próximos anos.",
-          "category": "Economia"
+          "headline": "IA Inteligência Artificial: Impacto pode chegar aos €20 mil milhões",
+          "summary": "O Governo espera um forte investimento e criação de valor económico para Portugal através da inteligência artificial nos próximos anos.",
+          "category": "Tecnologia / Economia"
         },
         {
           "headline": "Trump mudou a América, segue-se o mundo",
-          "summary": "Uma análise sobre o impacto global da estratégia de segurança nacional de Donald Trump e a nova ordem mundial.",
+          "summary": "Análise sobre a nova estratégia de segurança nacional dos EUA e o impacto da presidência de Trump na ordem global e na Europa.",
           "category": "Internacional"
         }
       ]
@@ -183,18 +103,18 @@
       "news": [
         {
           "headline": "Ventura lidera, mas indecisos ameaçam baralhar as contas",
-          "summary": "Sondagem para as presidenciais mostra André Ventura na frente, com quase 20% dos eleitores ainda sem decisão tomada.",
+          "summary": "Sondagem para as eleições presidenciais coloca André Ventura na frente, mas aponta para quase 20% de eleitores indecisos.",
           "category": "Política"
         },
         {
           "headline": "CTT preparam entrada “numa nova geografia até 2028”",
-          "summary": "O CEO dos CTT, João Bento, revela planos de expansão internacional e a transição do serviço postal para o banco.",
+          "summary": "O CEO João Bento revela planos estratégicos de expansão e foco em novos serviços para os correios até ao final da década.",
           "category": "Economia"
         },
         {
-          "headline": "Habitação: Governo vai dar mais dinheiro para a garantia pública no crédito jovem",
-          "summary": "Executivo reforça os apoios financeiros para facilitar o acesso de jovens ao crédito para compra de casa.",
-          "category": "Economia"
+          "headline": "Governo vai dar mais dinheiro para a garantia pública no crédito jovem",
+          "summary": "O executivo pretende reforçar o apoio financeiro destinado a facilitar o acesso dos jovens à habitação através de crédito bancário.",
+          "category": "Economia / Sociedade"
         }
       ]
     },
@@ -205,18 +125,18 @@
       "news": [
         {
           "headline": "PSP abre porta a manifestação por Governo não cumprir acordo",
-          "summary": "O maior sindicato da PSP acusa o Executivo de não honrar o acordo de 2024 relativo à atualização de salários.",
-          "category": "Política"
+          "summary": "O maior sindicato da polícia acusa o Governo de não atualizar salários conforme acordado e planeia protestos nacionais.",
+          "category": "Sociedade / Política"
         },
         {
           "headline": "Cotrim, Gouveia e Melo e Marques Mendes lutam por votos à direita",
-          "summary": "Candidatos presidenciais intensificam a campanha para atrair o eleitorado da ala direita a poucos dias das eleições.",
+          "summary": "Candidatos presidenciais intensificam a campanha para conquistar o eleitorado de direita na reta final para as eleições.",
           "category": "Política"
         },
         {
-          "headline": "Encontro sobre Gronelândia nos EUA acaba sem acordo",
-          "summary": "Reunião entre representantes da Dinamarca e a administração Trump termina num impasse sobre o território da Gronelândia.",
-          "category": "Internacional"
+          "headline": "Portugal tem 2.100 empresas gazela",
+          "summary": "Um estudo identifica milhares de empresas de elevado crescimento em Portugal, que são motores de emprego e volume de negócios.",
+          "category": "Economia"
         }
       ]
     },
@@ -226,18 +146,18 @@
       "url": "https://imgs.vercapas.com/covers/o-diabo/2026/o-diabo-2026-01-09-fa5dcc0d.jpg",
       "news": [
         {
-          "headline": "Arranjinho à portuguesa",
-          "summary": "Crítica ao processo de eleição das CCDR, alegadamente decididas entre as cúpulas do PS e PSD sem consulta aos autarcas.",
+          "headline": "Arranjinho à Portuguesa",
+          "summary": "Crítica ao processo de decisão entre as cúpulas do PS e PSD sobre as eleições para as CCDR, realizado sem consultar os autarcas.",
           "category": "Política"
         },
         {
           "headline": "Venezuela e Irão: tempestades que testam Moscovo e Pequim",
-          "summary": "Análise geopolítica sobre como a instabilidade nestes países desafia as influências da Rússia e da China.",
+          "summary": "Análise geopolítica sobre como as crises nestes países desafiam as estratégias e alianças da Rússia e da China.",
           "category": "Internacional"
         },
         {
-          "headline": "Forças & Fraquezas de André Claro Amaral Ventura",
-          "summary": "Um perfil e análise detalhada sobre o candidato presidencial do Chega.",
+          "headline": "Forças & Fraquezas de André Ventura",
+          "summary": "Uma análise detalhada sobre o perfil político e o desempenho eleitoral do candidato André Ventura.",
           "category": "Política"
         }
       ]
@@ -249,13 +169,13 @@
       "news": [
         {
           "headline": "Vota António Filipe",
-          "summary": "Campanha do candidato do PCP às eleições presidenciais, focada na defesa da Constituição e do progresso social.",
+          "summary": "Apelo ao voto no candidato apoiado pelo PCP para as eleições presidenciais, destacando a defesa dos direitos constitucionais.",
           "category": "Política"
         },
         {
-          "headline": "Trabalhadores unidos e mobilizados exigem ao Governo: «O pacote laboral é para cair»",
-          "summary": "Manifestações e reivindicações de trabalhadores contra as alterações à lei laboral propostas pelo Governo.",
-          "category": "Sociedade"
+          "headline": "Trabalhadores exigem ao Governo: «O pacote laboral é para cair»",
+          "summary": "Mobilizações sindicais contra as novas medidas laborais, exigindo a revogação do pacote legislativo e melhores salários.",
+          "category": "Sociedade / Política"
         }
       ]
     },
@@ -263,13 +183,80 @@
       "id": "novo-semanario",
       "nome": "NOVO Semanário",
       "url": "https://imgs.vercapas.com/covers/novo-semanario/novo-semanario-2024-03-30-1a5659.jpg",
-      "news": null
+      "news": [
+        {
+          "headline": "José Miguel Júdice: 'Governo não tem quatro anos, tem de fazer já'",
+          "summary": "José Miguel Júdice afirma que o novo executivo não dispõe de muito tempo e precisa de apresentar resultados imediatos.",
+          "category": "Política"
+        },
+        {
+          "headline": "Montenegro aposta num elenco político que tem dois meses para dar provas",
+          "summary": "Luís Montenegro escolheu uma equipa política que terá um curto período de tempo para demonstrar a sua eficácia.",
+          "category": "Política"
+        },
+        {
+          "headline": "Redes criminosas internacionais aterrorizam prisões portuguesas",
+          "summary": "Grandes organizações criminosas da América Latina, como o PCC e o Comando Vermelho, já operam dentro do sistema prisional de Portugal.",
+          "category": "Justiça"
+        },
+        {
+          "headline": "Manuel Fernandes, o madeirense mais famoso de Lisboa",
+          "summary": "Um perfil dedicado a Manuel Fernandes, destacando a sua influência e presença na capital portuguesa.",
+          "category": "Sociedade"
+        },
+        {
+          "headline": "Via Sénior: Rede portuguesa de residências assistidas avança para Espanha",
+          "summary": "A rede portuguesa especializada em residências para idosos inicia a sua expansão para o mercado espanhol.",
+          "category": "Economia"
+        },
+        {
+          "headline": "Praça do Luxemburgo leva blind dates políticos às autarquias do país",
+          "summary": "Uma iniciativa que promove encontros e diálogos políticos está a ser alargada ao nível das autarquias locais.",
+          "category": "Política"
+        },
+        {
+          "headline": "Futebol: As estrelas que prometem rechear cofres dos três grandes",
+          "summary": "Análise sobre os jogadores dos principais clubes portugueses que podem render grandes somas em transferências.",
+          "category": "Futebol"
+        },
+        {
+          "headline": "Guerra na Ucrânia faz disparar compras de armas na Europa",
+          "summary": "O prolongamento do conflito na Ucrânia está a levar os países europeus a aumentar significativamente o investimento em defesa e armamento.",
+          "category": "Internacional"
+        }
+      ]
     },
     {
       "id": "tal-qual",
       "nome": "Tal & Qual",
       "url": "https://imgs.vercapas.com/covers/tal-e-qual/2026/tal-e-qual-2026-01-14-98aeceda.jpg",
-      "news": null
+      "news": [
+        {
+          "headline": "Hospital Militar de Belém ao abandono",
+          "summary": "Apesar do investimento de milhões de euros, o edifício do Hospital Militar de Belém encontra-se fechado e sem utilização.",
+          "category": "Sociedade"
+        },
+        {
+          "headline": "CGD paga por assalto 'à vontadinha'",
+          "summary": "A Caixa Geral de Depósitos foi responsabilizada pelo pagamento relativo a um assalto ocorrido sem grandes dificuldades.",
+          "category": "Economia"
+        },
+        {
+          "headline": "EUA prontos para comprar Gronelândia",
+          "summary": "Os Estados Unidos demonstram interesse e prontidão para adquirir o território da Gronelândia à Dinamarca.",
+          "category": "Internacional"
+        },
+        {
+          "headline": "Sucessor de Marcelo já custa 7,5 milhões de euros",
+          "summary": "Os custos relacionados com a preparação e logística para o próximo Presidente da República já atingem valores elevados.",
+          "category": "Política"
+        },
+        {
+          "headline": "Jardim de Infância no Entroncamento só não resistiu ao dinheiro do PRR",
+          "summary": "As verbas do Plano de Recuperação e Resiliência estão a provocar mudanças num jardim de infância no Entroncamento.",
+          "category": "Economia"
+        }
+      ]
     }
   ],
   "Desporto": [
@@ -280,23 +267,18 @@
       "news": [
         {
           "headline": "NO DETALHE",
-          "summary": "FC Porto vence o Benfica por 1-0 nos quartos de final da Taça de Portugal num jogo intenso e de poucas oportunidades.",
+          "summary": "O FC Porto venceu o Benfica por 1-0 nos quartos de final da Taça de Portugal, num jogo decidido por quem aproveitou a oportunidade.",
           "category": "Futebol"
         },
         {
           "headline": "O DAVID DA TAÇA CONTINUA A DERRUBAR GOLIAS",
-          "summary": "O Fafe, da Liga 3, elimina o SC Braga da Taça de Portugal com uma vitória por 2-1.",
+          "summary": "O Fafe, da Liga 3, protagonizou mais uma surpresa ao eliminar o SC Braga da Taça de Portugal.",
           "category": "Futebol"
         },
         {
           "headline": "ALVALADE DE PORTA ABERTA EM JANEIRO",
-          "summary": "Sporting prepara movimentações no mercado de transferências, com possíveis entradas e saídas no plantel.",
+          "summary": "Sporting prepara movimentações no mercado de transferências, com a saída de Rodrigo Ribeiro e possíveis entradas.",
           "category": "Futebol"
-        },
-        {
-          "headline": "PORTUGAL NO EURO A OLHAR PARA O 'TOP 5'",
-          "summary": "Seleção nacional de andebol inicia a participação no Campeonato da Europa com ambições elevadas.",
-          "category": "Andebol"
         }
       ]
     },
@@ -307,23 +289,18 @@
       "news": [
         {
           "headline": "À CABEÇADA",
-          "summary": "Bednarek marca de cabeça e coloca o FC Porto nas meias-finais da Taça de Portugal, eliminando o Benfica.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "GRANDE SURPRESA",
-          "summary": "Fafe, equipa da Liga 3, protagoniza a surpresa da eliminatória ao vencer o SC Braga por 2-1.",
+          "summary": "Golo de Bednarek garante a vitória do FC Porto sobre o Benfica e coloca os dragões nas meias-finais da Taça de Portugal.",
           "category": "Futebol"
         },
         {
           "headline": "RODRIGO RIBEIRO PODE RENDER 6 M€",
-          "summary": "Avançado do Sporting é emprestado ao Augsburgo com cláusulas de compra acessíveis.",
+          "summary": "O empréstimo do jovem avançado do Sporting ao Augsburgo inclui metas que podem elevar o valor do negócio.",
           "category": "Futebol"
         },
         {
-          "headline": "EUROPEU COMEÇA HOJE",
-          "summary": "Início do Campeonato da Europa de Andebol com Portugal a ambicionar uma boa prestação.",
-          "category": "Andebol"
+          "headline": "GRANDE SURPRESA",
+          "summary": "O Fafe, equipa da Liga 3, volta a surpreender ao eliminar o SC Braga da Taça de Portugal.",
+          "category": "Futebol"
         }
       ]
     },
@@ -334,22 +311,17 @@
       "news": [
         {
           "headline": "MEIAS NA CABEÇA",
-          "summary": "Golo de Bednarek garante a passagem do FC Porto às meias-finais da Taça de Portugal frente ao Benfica.",
+          "summary": "FC Porto elimina o Benfica da Taça de Portugal com um golo de Bednarek e segue para as meias-finais.",
           "category": "Futebol"
         },
         {
           "headline": "COM FAFE NINGUÉM FANFE",
-          "summary": "Vitória histórica do Fafe sobre o SC Braga garante a passagem da equipa da Liga 3 na Taça de Portugal.",
+          "summary": "Histórico: o Fafe da Liga 3 elimina o detentor do troféu SC Braga nos quartos de final da Taça de Portugal.",
           "category": "Futebol"
         },
         {
-          "headline": "RODRIGO RIBEIRO NO AUGSBURGO",
-          "summary": "O jovem avançado leonino segue para a Alemanha por empréstimo do Sporting.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "EUROPEU ARRANCA HOJE",
-          "summary": "Arranque da competição europeia de andebol; Portugal estreia-se contra a Roménia.",
+          "headline": "Europeu arranca hoje",
+          "summary": "Início do Campeonato da Europa de Andebol com Portugal focado em atingir o top 5 da competição.",
           "category": "Andebol"
         }
       ]
@@ -361,13 +333,13 @@
       "news": [
         {
           "headline": "HISTÓRIA VIVA",
-          "summary": "O Sport Lisboa e Benfica inaugurou o 1904 Benfica Hotel, um projeto de revitalização de um espaço histórico do clube em parceria com a FLH Hotels.",
-          "category": "Futebol"
+          "summary": "Inauguração do 1904 Benfica Hotel, um projeto que revitaliza um espaço histórico ligado ao clube e reforça a dimensão da Fundação Benfica.",
+          "category": "Clube"
         },
         {
           "headline": "BENFICA DISTRICT APROVADO PELOS SÓCIOS",
-          "summary": "Os sócios do Benfica aprovaram o projeto Benfica District durante uma Assembleia Geral Extraordinária.",
-          "category": "Futebol"
+          "summary": "O projeto Benfica District foi aprovado pelos sócios em Assembleia Geral Extraordinária.",
+          "category": "Institucional"
         }
       ]
     },
@@ -378,7 +350,7 @@
       "news": [
         {
           "headline": "MEETING DE ATLETISMO PROF. MONIZ PEREIRA",
-          "summary": "Anúncio da realização do evento de atletismo em homenagem ao Prof. Moniz Pereira, agendado para 25 de janeiro de 2026.",
+          "summary": "Anúncio do evento de atletismo em homenagem ao Professor Moniz Pereira, agendado para 25 de janeiro de 2026.",
           "category": "Atletismo"
         }
       ]
@@ -389,9 +361,14 @@
       "url": "https://imgs.vercapas.com/covers/jornal-1x2/2026/jornal-1x2-2026-01-13-6c87975d.jpg",
       "news": [
         {
-          "headline": "JACKPOT NO TOTOBOLA",
-          "summary": "O jornal destaca jackpots de 70 mil euros no concurso extra e 115 mil euros no concurso normal do Totobola, além de informações sobre o Euromilhões e Totoloto.",
+          "headline": "JACKPOT",
+          "summary": "Destaque para os prémios elevados no Totobola (70 e 115 mil euros), Euromilhões (64 milhões) e Totoloto (3,2 milhões).",
           "category": "Apostas"
+        },
+        {
+          "headline": "Cotas dos jogos",
+          "summary": "Informações sobre as probabilidades de aposta para as principais ligas de futebol europeias e a Taça de Portugal.",
+          "category": "Futebol"
         }
       ]
     },
@@ -402,12 +379,17 @@
       "news": [
         {
           "headline": "LA VIDA SIGUE IGUAL... O PEOR",
-          "summary": "O Real Madrid, sob o comando de Arbeloa, sofreu uma eliminação desastrosa na Copa do Rei contra o Albacete (3-2), que jogou com suplentes.",
+          "summary": "O Real Madrid é eliminado da Copa do Rei pelo Albacete (3-2) após uma rotação extrema de jogadores decidida por Arbeloa.",
           "category": "Futebol"
         },
         {
-          "headline": "EL ATLÉTICO TRASPASA A GALLAGHER AL TOTTENHAM",
-          "summary": "O Atlético de Madrid fechou a transferência de Conor Gallagher para o Tottenham por 40 milhões de euros e busca um substituto.",
+          "headline": "EL MADRID SE ACERCA A LA NBA",
+          "summary": "O clube madrileno está decidido a aceitar uma oferta para abandonar a Euroliga e aproximar-se da NBA.",
+          "category": "Basquetebol"
+        },
+        {
+          "headline": "EL ATLÉTICO TRASPASA A GALLAGHER",
+          "summary": "Atlético de Madrid concretiza a venda de Gallagher ao Tottenham por 40 milhões de euros.",
           "category": "Futebol"
         }
       ]
@@ -419,12 +401,12 @@
       "news": [
         {
           "headline": "DEBACLE TOTAL",
-          "summary": "Crítica severa à derrota e eliminação do Real Madrid da Copa do Rei frente ao Albacete por 3-2, marcando um início difícil para Arbeloa.",
+          "summary": "Real Madrid sofre uma derrota pesada contra o Albacete, ficando fora da Copa do Rei e perdendo dois títulos em três dias.",
           "category": "Futebol"
         },
         {
-          "headline": "VENDE A GALLAGHER Y SE FIJA EN JOAO GOMES",
-          "summary": "Após vender Gallagher ao Tottenham, o Atlético de Madrid volta as atenções para Joao Gomes, do Wolverhampton, como reforço.",
+          "headline": "Vende a Gallagher y se fija en Joao Gomes",
+          "summary": "O Atlético de Madrid vendeu Gallagher ao Tottenham e agora procura a contratação de João Gomes para o meio-campo.",
           "category": "Futebol"
         }
       ]
@@ -436,22 +418,17 @@
       "news": [
         {
           "headline": "A LA CALLE",
-          "summary": "Real Madrid é eliminado da Copa do Rei após perder por 3-2 para o Albacete, marcando o segundo título perdido em quatro dias.",
+          "summary": "O Real Madrid foi eliminado da Taça do Rei após uma derrota por 3-2 frente ao Albacete.",
           "category": "Futebol"
         },
         {
           "headline": "Duelo de líderes",
-          "summary": "Racing e Barça, líderes da Primeira e Segunda divisões, enfrentam-se na Copa do Rei no estádio El Sardinero.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "LIGA F / BARÇA-ATLÉTICO 5-0",
-          "summary": "A equipa feminina do Barcelona goleia o Atlético de Madrid e abre 10 pontos de vantagem sobre o Real Madrid.",
+          "summary": "Antevisão do confronto entre Racing e Barça para a Taça do Rei.",
           "category": "Futebol"
         },
         {
           "headline": "Senegal y Marruecos jugarán la final",
-          "summary": "Senegal e Marrocos garantem o seu lugar na final da Taça das Nações Africanas (Copa África).",
+          "summary": "Senegal e Marrocos garantiram o seu lugar na final da Taça das Nações Africanas (CAN).",
           "category": "Futebol"
         }
       ]
@@ -462,23 +439,18 @@
       "url": "https://imgs.vercapas.com/covers/tuttosport/2026/tuttosport-2026-01-15-5ad84d9e.jpg",
       "news": [
         {
-          "headline": "Pio, è un Golden gol Chivu a +6 su Conte",
-          "summary": "Inter vence o Lecce com golo de Esposito e a equipa de Chivu aumenta a vantagem para 6 pontos sobre a de Conte.",
+          "headline": "Pio, è un Golden gol - Chivu a +6 su Conte",
+          "summary": "O Inter de Milão venceu o Lecce por 1-0 e aumentou a sua vantagem na liderança do campeonato.",
           "category": "Futebol"
         },
         {
           "headline": "JUVE Mingueza c'è",
-          "summary": "Juventus demonstra interesse em contratar Mingueza; o clube espanhol pede mais de 3 milhões de euros.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "Giorni Toro Obrador sì Prati vicino",
-          "summary": "Torino avança no mercado de transferências com Obrador confirmado e Prati muito próximo de assinar.",
+          "summary": "A Juventus está interessada na contratação do defesa espanhol Mingueza.",
           "category": "Futebol"
         },
         {
           "headline": "«È fantatennis: godiamocelo»",
-          "summary": "Entrevista com Bertolucci sobre o excelente momento do ténis, destacando Sinner e Alcaraz.",
+          "summary": "Entrevista a Bertolucci sobre o excelente momento do ténis mundial com figuras como Sinner e Alcaraz.",
           "category": "Ténis"
         }
       ]
@@ -489,24 +461,19 @@
       "url": "https://imgs.vercapas.com/covers/lequipe/2026/lequipe-2026-01-15-da0afd55.jpg",
       "news": [
         {
-          "headline": "PIERRE SAGE «QUAND TU GAGNES, ON NE T'EMBÊTE PAS»",
-          "summary": "Treinador do RC Lens, líder do campeonato francês a meio da época, fala sobre o seu início de percurso idílico.",
+          "headline": "PIERRE SAGE « QUAND TU GAGNES, ON NE T'EMBÊTE PAS »",
+          "summary": "O treinador do RC Lens, atual líder da liga francesa, analisa o seu percurso e princípios de jogo.",
           "category": "Futebol"
         },
         {
           "headline": "AU BOUNOU DE LA NUIT",
-          "summary": "Marrocos qualifica-se para a final da CAN após vencer a Nigéria nas grandes penalidades.",
+          "summary": "Marrocos venceu a Nigéria nas grandes penalidades e qualificou-se para a final da CAN.",
           "category": "Futebol"
         },
         {
           "headline": "La France mise son Euro",
-          "summary": "Seleção francesa de andebol inicia a sua participação no Campeonato Europeu frente à Chéquia.",
+          "summary": "Destaque para a participação da seleção francesa no Campeonato da Europa de Andebol.",
           "category": "Andebol"
-        },
-        {
-          "headline": "Une ouverture pour Jalibert",
-          "summary": "Análise sobre as oportunidades na equipa de râguebi da França para o jogador Jalibert.",
-          "category": "Râguebi"
         }
       ]
     },
@@ -517,7 +484,7 @@
       "news": [
         {
           "headline": "ETERNOS",
-          "summary": "O Vitória de Guimarães conquistou a Taça da Liga e a cidade saiu à rua em festejos memoráveis.",
+          "summary": "O Vitória de Guimarães conquistou a Taça da Liga, provocando festejos memoráveis por toda a cidade.",
           "category": "Futebol"
         }
       ]
@@ -529,17 +496,12 @@
       "news": [
         {
           "headline": "Justin Rose: A vida começa aos 32",
-          "summary": "Justin Rose faz história ao tornar-se no primeiro britânico a vencer o US Open em 40 anos.",
+          "summary": "Justin Rose tornou-se o primeiro britânico em 40 anos a vencer o prestigiado torneio US Open.",
           "category": "Golfe"
         },
         {
-          "headline": "“O futebol ainda é o desporto predominante”",
-          "summary": "Manuel Gama aborda a hegemonia do futebol no panorama desportivo atual.",
-          "category": "Desporto"
-        },
-        {
           "headline": "Rangel reúne empresários de todo o País",
-          "summary": "O evento FedEx Golf Challenge junta diversos empresários portugueses para a prática da modalidade.",
+          "summary": "O FedEx Golf Challenge reuniu diversos empresários para uma competição de golfe em Portugal.",
           "category": "Golfe"
         }
       ]
@@ -551,7 +513,7 @@
       "news": [
         {
           "headline": "A paixão segundo Francesco",
-          "summary": "Uma análise de como Francesco Farioli conquistou o balneário e os adeptos através do rigor e do sonho.",
+          "summary": "Entre o rigor e o sonho, Farioli já conquistou o balneário e os adeptos.",
           "category": "Futebol"
         }
       ]
@@ -562,23 +524,23 @@
       "url": "https://imgs.vercapas.com/covers/futebolista/futebolista-2015-03-27-aea921.jpg",
       "news": [
         {
-          "headline": "HAZARD VS. ISCO: DUELO MÁGICO DOS 'MIÚDOS MARAVILHA'",
-          "summary": "Um comparativo entre as duas estrelas em ascensão do futebol europeu, Eden Hazard e Isco.",
+          "headline": "HAZARD vs ISCO: DUELO MÁGICO DOS 'MIÚDOS MARAVILHA'",
+          "summary": "Um comparativo entre os talentos de Eden Hazard do Chelsea e Isco do Real Madrid.",
           "category": "Futebol"
         },
         {
           "headline": "MARCO REUS: O NOVO 'KAISER' DA ALEMANHA",
-          "summary": "O destaque para a influência e o talento de Marco Reus no futebol alemão.",
+          "summary": "Destaque sobre o jogador alemão Marco Reus.",
           "category": "Futebol"
         },
         {
           "headline": "HARRY KANE: A REVELAÇÃO DA PREMIER LEAGUE",
-          "summary": "A história da ascensão surpreendente do avançado inglês no campeonato mais competitivo do mundo.",
+          "summary": "A ascensão do avançado inglês no campeonato principal de Inglaterra.",
           "category": "Futebol"
         },
         {
           "headline": "SUCESSORES PARA JACKSON",
-          "summary": "Reportagem sobre os possíveis nomes para substituir Jackson Martínez no ataque do FC Porto.",
+          "summary": "Análise de possíveis substitutos para Jackson Martínez no FC Porto, como Zapata, Córdoba, Bueno e Coutinho.",
           "category": "Futebol"
         }
       ]
@@ -590,7 +552,7 @@
       "news": [
         {
           "headline": "HISTÓRICO! 36 TETRA",
-          "summary": "Edição especial dedicada à conquista histórica do 36º título de campeão nacional do Benfica e o feito do tetracampeonato.",
+          "summary": "Edição especial celebrando o 36º título e o tetracampeonato do Benfica com imagens da festa e resumo dos jogos.",
           "category": "Futebol"
         }
       ]
@@ -602,12 +564,12 @@
       "news": [
         {
           "headline": "Maratona de Lisboa: Paragem no crescimento",
-          "summary": "Uma análise profunda sobre a evolução e os desafios da Maratona de Lisboa na época de 2016.",
+          "summary": "Reportagem sobre a situação atual e o desenvolvimento da Maratona de Lisboa.",
           "category": "Atletismo"
         },
         {
           "headline": "Global Energy Race entra no Guiness Book of Records",
-          "summary": "A corrida Global Energy Race atinge um marco histórico ao entrar no livro dos recordes mundiais.",
+          "summary": "A corrida alcança um marco histórico ao entrar para o livro dos recordes mundiais.",
           "category": "Atletismo"
         }
       ]
@@ -618,18 +580,18 @@
       "url": "https://imgs.vercapas.com/covers/ciclismo-a-fundo/ciclismo-a-fundo-2017-11-01-44cb73.jpg",
       "news": [
         {
-          "headline": "CANNONDALE: Synapse Hi Mod Disc Dura Ace Di2",
-          "summary": "Teste detalhado à nova bicicleta da Cannondale equipada com componentes de alta performance.",
+          "headline": "CANNONDALE Synapse Hi Mod Disc Dura Ace Di2",
+          "summary": "Teste e análise detalhada da nova bicicleta equipada com tecnologia Dura Ace Di2.",
           "category": "Ciclismo"
         },
         {
-          "headline": "Entrevista MANUEL ZEFERINO",
-          "summary": "Uma conversa exclusiva com a figura do ciclismo Manuel Zeferino sobre a sua carreira e o desporto.",
+          "headline": "Entrevista Manuel Zeferino",
+          "summary": "Uma entrevista exclusiva com o antigo ciclista e diretor desportivo Manuel Zeferino.",
           "category": "Ciclismo"
         },
         {
           "headline": "MECÂNICA: APRENDA A REPARAR AVARIAS GRAVES",
-          "summary": "Um guia técnico para ciclistas sobre como solucionar problemas mecânicos complexos.",
+          "summary": "Guia prático para os ciclistas aprenderem a lidar com problemas mecânicos complexos.",
           "category": "Ciclismo"
         }
       ]
@@ -638,67 +600,58 @@
       "id": "equitacao",
       "nome": "Equitação",
       "url": "https://imgs.vercapas.com/covers/equitacao/2025/equitacao-2025-12-09-a6f88a2f.jpg",
-      "news": [
-        {
-          "headline": "DRESSAGE PLUS NO TOPO DO MUNDO",
-          "summary": "Destaque para a modalidade de Dressage e a sua excelência no panorama equestre mundial.",
-          "category": "Equitação"
-        }
-      ]
+      "news": null
     },
     {
       "id": "o-praticante",
       "nome": "O Praticante",
       "url": "https://imgs.vercapas.com/covers/o-praticante/o-praticante-2014-06-20-811786.jpg",
-      "news": [
-        {
-          "headline": "Trilhos de Almourol",
-          "summary": "Cobertura do evento de trail running Trilhos de Almourol, acompanhado de notícias sobre Atletismo, Ciclismo e Culturismo.",
-          "category": "Desporto"
-        }
-      ]
+      "news": null
     },
     {
       "id": "golfe-no-centro",
       "nome": "Golfe no Centro",
       "url": "https://imgs.vercapas.com/covers/golfe-no-centro/golfe-no-centro-2014-03-25-314890.jpg",
-      "news": [
-        {
-          "headline": "TORNEIOS | SOCIAL | ARTIGOS | NOVIDADES",
-          "summary": "Revista dedicada às novidades do golfe, cobrindo torneios regionais, eventos sociais e artigos técnicos.",
-          "category": "Golfe"
-        }
-      ]
+      "news": null
     },
     {
       "id": "bike-magazine",
       "nome": "BIKE Magazine",
       "url": "https://imgs.vercapas.com/covers/bike-magazine/bike-magazine-2024-12-01-8b496b-x.jpg",
-      "news": [
-        {
-          "headline": "ORBEA OIZ M-LTD FLIGHT ATTENDANT",
-          "summary": "Teste exclusivo à nova bicicleta Orbea Oiz e um guia completo de GPS e acessórios para BTT.",
-          "category": "Ciclismo"
-        }
-      ]
+      "news": null
     },
     {
       "id": "freebike",
       "nome": "FREEBIKE",
       "url": "https://imgs.vercapas.com/covers/freebike/freebike-2018-05-01-f74787-x.jpg",
-      "news": [
-        {
-          "headline": "ENTREVISTA Andre Greipel - Lotto Soudal",
-          "summary": "Uma entrevista exclusiva com o ciclista profissional Andre Greipel, acompanhada de testes de novos modelos e reportagens de provas internacionais.",
-          "category": "Ciclismo"
-        }
-      ]
+      "news": null
     },
     {
       "id": "biking-aventura",
       "nome": "Biking Aventura",
       "url": "https://imgs.vercapas.com/covers/biking-aventura/biking-aventura-2013-03-07-2c4cf6.jpg",
-      "news": null
+      "news": [
+        {
+          "headline": "Teste Canyon Yellowstone AL 29 6.9 \"Low cost com instinto racing\"",
+          "summary": "Uma análise detalhada à bicicleta Canyon Yellowstone AL 29 6.9, focando na sua performance de competição aliada a um preço acessível.",
+          "category": "Equipamento"
+        },
+        {
+          "headline": "Apresentações: Andalucia Bike Race, Volcat Ara Lleida, ABSA Cape Epic, Estremoz Bike e Transportugal",
+          "summary": "Apresentação de várias provas e eventos de BTT de renome, destacando percursos e expectativas.",
+          "category": "Ciclismo"
+        },
+        {
+          "headline": "39ª Volta ao Algarve",
+          "summary": "Reportagem completa sobre a trigésima nona edição de uma das mais prestigiadas provas de ciclismo de estrada em Portugal.",
+          "category": "Competição"
+        },
+        {
+          "headline": "Hernâni Broco \"Em busca de um sonho\"",
+          "summary": "Entrevista com o ciclista Hernâni Broco sobre a sua carreira, objetivos e as suas ambições no mundo do ciclismo.",
+          "category": "Entrevista"
+        }
+      ]
     }
   ],
   "Economia e Gestão": [
@@ -712,12 +665,6 @@
       "id": "expresso-emprego",
       "nome": "Expresso-Emprego",
       "url": "https://imgs.vercapas.com/covers/expresso-emprego/expresso-emprego-2016-12-30-4ec959.jpg",
-      "news": null
-    },
-    {
-      "id": "dinheiro-vivo-dn-jn",
-      "nome": "Dinheiro Vivo-DN/JN",
-      "url": "https://imgs.vercapas.com/covers/dinheiro-vivo-dn-jn/2026/dinheiro-vivo-dn-jn-2026-01-09-d0ab864a-x.jpg",
       "news": null
     },
     {
