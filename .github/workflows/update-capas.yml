@@ -5,6 +5,12 @@ on:
     - cron: '0 7 * * *'
     - cron: '0 8 * * *'
   workflow_dispatch:
+    inputs:
+      send_notification:
+        description: 'Send Push Notification'
+        required: true
+        default: true
+        type: boolean
 
 jobs:
   build:
@@ -42,7 +48,7 @@ jobs:
           credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}'
 
       - name: Send Push Notification
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 8 * * *'
+        if: (github.event_name == 'workflow_dispatch' && inputs.send_notification) || github.event.schedule == '0 7 * * *'
         run: |
           ACCESS_TOKEN=$(gcloud auth print-access-token)
           PROJECT_ID=$(jq -r .project_id <<< '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}')
