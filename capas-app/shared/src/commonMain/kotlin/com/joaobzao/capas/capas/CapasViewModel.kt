@@ -23,10 +23,22 @@ class CapasViewModel(
     fun getCapas() {
         viewModelScope.launch {
             capasRepository.getCapas().collect { result ->
-                mutableCapasViewState.value = CapasViewState(
+                mutableCapasViewState.value = mutableCapasViewState.value.copy(
                     capas = result.data,
                     removed = capasRepository.getRemovedCapas()
                 ).also { log.v { "🤩 Updating capas: ${it.capas}" } }
+            }
+        }
+    }
+
+    fun getFilters() {
+        viewModelScope.launch {
+            capasRepository.getFilters().collect { result ->
+                if (result is NetworkResult.Success && result.data != null) {
+                    mutableCapasViewState.value = mutableCapasViewState.value.copy(
+                        filters = result.data
+                    )
+                }
             }
         }
     }
@@ -88,5 +100,6 @@ class CapasViewModel(
 data class CapasViewState(
     val capas: CapasResponse? = null,
     val removed: List<Capa> = emptyList(),
-    val workflowStatus: GitHubWorkflowRun? = null
+    val workflowStatus: GitHubWorkflowRun? = null,
+    val filters: List<String> = emptyList()
 )

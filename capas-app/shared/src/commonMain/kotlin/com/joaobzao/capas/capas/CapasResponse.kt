@@ -19,5 +19,13 @@ data class CapasResponse(
 data class Capa(
     val id: String,
     val nome: String,
-    val url: String
+    val url: String,
+    val news: List<NewsItem>? = null
+)
+
+@Serializable
+data class NewsItem(
+    val headline: String,
+    val summary: String? = null,
+    val category: String? = null
 )

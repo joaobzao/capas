@@ -1,4 +1,5 @@
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.fadeIn
@@ -10,15 +11,19 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.outlined.Close
@@ -33,6 +38,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LayoutCoordinates
@@ -66,6 +72,11 @@ enum class CapasCategory(val labelResId: Int) {
     REGIONAL(R.string.category_regional)
 }
 
+enum class BottomTab(val label: String, val icon: ImageVector) {
+    COVERS("Capas", Icons.Default.Home),
+    NEWS("Notícias", Icons.Default.List)
+}
+
 data class ItemInfo(val position: Offset, val size: DpSize)
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -75,9 +86,71 @@ fun CapasScreen(
     onCapaClick: (Capa) -> Unit
 ) {
     val state by viewModel.capasState.collectAsState()
+    var selectedTab by rememberSaveable { mutableStateOf(BottomTab.COVERS) }
+    var showAbout by rememberSaveable { mutableStateOf(false) }
+    
+    // Global Header State
+    var showMenu by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        viewModel.getCapas()
+        viewModel.getFilters()
+    }
+
+    Scaffold(
+        bottomBar = {
+            NavigationBar(
+                containerColor = MaterialTheme.colorScheme.surface,
+                tonalElevation = 8.dp
+            ) {
+                BottomTab.entries.forEach { tab ->
+                    NavigationBarItem(
+                        selected = selectedTab == tab,
+                        onClick = { selectedTab = tab },
+                        icon = { Icon(tab.icon, contentDescription = null) },
+                        label = { Text(tab.label) }
+                    )
+                }
+            }
+        },
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow
+    ) { paddingValues ->
+        Box(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
+            Crossfade(targetState = selectedTab, label = "tab-switch") { tab ->
+                when (tab) {
+                    BottomTab.COVERS -> CoversTab(
+                        viewModel = viewModel, 
+                        onCapaClick = onCapaClick,
+                        onShowAbout = { showAbout = true },
+                        state = state
+                    )
+                    BottomTab.NEWS -> NewsTab(
+                        state = state,
+                        onShowAbout = { showAbout = true }
+                    )
+                }
+            }
+        }
+    }
+
+    if (showAbout) {
+        AboutSheet(
+            viewModel = viewModel,
+            onDismiss = { showAbout = false }
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun CoversTab(
+    viewModel: CapasViewModel,
+    onCapaClick: (Capa) -> Unit,
+    onShowAbout: () -> Unit,
+    state: com.joaobzao.capas.capas.CapasViewState
+) {
     var selectedCategory by rememberSaveable { mutableStateOf(CapasCategory.NATIONAL) }
     var showRemoved by rememberSaveable { mutableStateOf(false) }
-    var showAbout by rememberSaveable { mutableStateOf(false) }
     var showMenu by remember { mutableStateOf(false) }
 
     val snackbarHostState = remember { SnackbarHostState() }
@@ -97,21 +170,10 @@ fun CapasScreen(
 
     val density = LocalDensity.current
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp.value
-
     val haptic = LocalHapticFeedback.current
 
-    LaunchedEffect(Unit) {
-        viewModel.getCapas()
-    }
-
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.surfaceContainerLow) // Premium background
-    ) {
-        Column(
-            modifier = Modifier.fillMaxSize()
-        ) {
+    Box(Modifier.fillMaxSize()) {
+        Column(Modifier.fillMaxSize()) {
             // Custom Header
             Row(
                 modifier = Modifier
@@ -178,7 +240,7 @@ fun CapasScreen(
                                 text = { Text(stringResource(R.string.title_about)) },
                                 onClick = {
                                     showMenu = false
-                                    showAbout = true
+                                    onShowAbout()
                                 },
                                 leadingIcon = {
                                     Icon(
@@ -250,7 +312,7 @@ fun CapasScreen(
                     CapasCategory.ECONOMY -> capasResponse.economyNewspapers
                     CapasCategory.REGIONAL -> capasResponse.regionalNewspapers
                 }
-
+                
                 // Local state for optimistic reordering
                 var localCapas by remember { mutableStateOf(capasForCategory) }
 
@@ -308,24 +370,16 @@ fun CapasScreen(
                                         val fromIndex = localCapas.indexOfFirst { it.id == draggingCapa!!.id }
                                         val toIndex = localCapas.indexOfFirst { it.id == targetItem }
                                     
-                                    if (fromIndex != -1 && toIndex != -1 && fromIndex != toIndex) {
-                                        val mutableList = localCapas.toMutableList()
-                                        mutableList.add(toIndex, mutableList.removeAt(fromIndex))
-                                        localCapas = mutableList
-                                        lastSwapTime = currentTime
+                                        if (fromIndex != -1 && toIndex != -1 && fromIndex != toIndex) {
+                                            val mutableList = localCapas.toMutableList()
+                                            mutableList.add(toIndex, mutableList.removeAt(fromIndex))
+                                            localCapas = mutableList
+                                            lastSwapTime = currentTime
 
-                                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                                        
-                                        // Update startOffset to the new position to keep the drag relative
-                                        // Actually, if we swap, the item in the grid moves.
-                                        // But the drag ghost is separate.
-                                        // However, we rely on `onDragStart` setting `startOffset` from `itemInfos`.
-                                        // If grid re-composes, `itemInfos` updates?
-                                        // `onPositioned` will update `itemInfos`.
-                                        // But we assume the layout shift happens.
+                                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                                        }
                                     }
-                                    }
-                                    }
+                                }
 
                             },
                             onDragEnd = {
@@ -463,115 +517,115 @@ fun CapasScreen(
             hostState = snackbarHostState,
             modifier = Modifier.align(Alignment.BottomCenter)
         )
-    }
 
-    // Removed Capas Sheet
-    if (showRemoved) {
-        ModalBottomSheet(
-            onDismissRequest = { showRemoved = false },
-            containerColor = MaterialTheme.colorScheme.surfaceContainerLow
-        ) {
-            Column(
-                modifier = Modifier.padding(bottom = 32.dp)
+        // Removed Capas Sheet
+        if (showRemoved) {
+            ModalBottomSheet(
+                onDismissRequest = { showRemoved = false },
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow
             ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 24.dp, vertical = 16.dp)
+                Column(
+                    modifier = Modifier.padding(bottom = 32.dp)
                 ) {
-                    Text(
-                        "Recuperar Capas",
-                        style = MaterialTheme.typography.titleLarge.copy(
-                            fontFamily = FontFamily.Serif,
-                            fontWeight = FontWeight.Bold
-                        ),
-                        modifier = Modifier.align(Alignment.Center)
-                    )
-                    
-                    IconButton(
-                        onClick = { showRemoved = false },
-                        modifier = Modifier.align(Alignment.CenterEnd)
-                    ) {
-                        Icon(Icons.Outlined.Close, contentDescription = "Fechar")
-                    }
-                }
-                
-                if (state.removed.isEmpty()) {
-                    Column(
+                    Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(48.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center
+                            .padding(horizontal = 24.dp, vertical = 16.dp)
                     ) {
-                        Icon(
-                            Icons.Default.Delete,
-                            contentDescription = null,
-                            modifier = Modifier.size(48.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
-                        )
-                        Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            "Nenhuma capa removida",
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            "Recuperar Capas",
+                            style = MaterialTheme.typography.titleLarge.copy(
+                                fontFamily = FontFamily.Serif,
+                                fontWeight = FontWeight.Bold
+                            ),
+                            modifier = Modifier.align(Alignment.Center)
                         )
+                        
+                        IconButton(
+                            onClick = { showRemoved = false },
+                            modifier = Modifier.align(Alignment.CenterEnd)
+                        ) {
+                            Icon(Icons.Outlined.Close, contentDescription = "Fechar")
+                        }
                     }
-                } else {
-                    LazyVerticalGrid(
-                        columns = GridCells.Adaptive(minSize = 160.dp),
-                        contentPadding = PaddingValues(24.dp),
-                        verticalArrangement = Arrangement.spacedBy(24.dp),
-                        horizontalArrangement = Arrangement.spacedBy(24.dp)
-                    ) {
-                        items(state.removed, key = { it.id }) { capa ->
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .aspectRatio(0.75f)
-                                    .clip(RoundedCornerShape(20.dp))
-                                    .clickable { viewModel.restoreCapa(capa) }
-                            ) {
-                                AsyncImage(
-                                    model = capa.url,
-                                    contentDescription = capa.nome,
-                                    modifier = Modifier.fillMaxSize(),
-                                    contentScale = ContentScale.Crop
-                                )
+                    
+                    if (state.removed.isEmpty()) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(48.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            Icon(
+                                Icons.Default.Delete,
+                                contentDescription = null,
+                                modifier = Modifier.size(48.dp),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Text(
+                                "Nenhuma capa removida",
+                                style = MaterialTheme.typography.titleMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    } else {
+                        LazyVerticalGrid(
+                            columns = GridCells.Adaptive(minSize = 160.dp),
+                            contentPadding = PaddingValues(24.dp),
+                            verticalArrangement = Arrangement.spacedBy(24.dp),
+                            horizontalArrangement = Arrangement.spacedBy(24.dp)
+                        ) {
+                            items(state.removed, key = { it.id }) { capa ->
                                 Box(
                                     modifier = Modifier
-                                        .fillMaxSize()
-                                        .background(
-                                            Brush.verticalGradient(
-                                                colors = listOf(Color.Transparent, Color.Black.copy(alpha = 0.7f)),
-                                                startY = 300f
+                                        .fillMaxWidth()
+                                        .aspectRatio(0.75f)
+                                        .clip(RoundedCornerShape(20.dp))
+                                        .clickable { viewModel.restoreCapa(capa) }
+                                ) {
+                                    AsyncImage(
+                                        model = capa.url,
+                                        contentDescription = capa.nome,
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxSize()
+                                            .background(
+                                                Brush.verticalGradient(
+                                                    colors = listOf(Color.Transparent, Color.Black.copy(alpha = 0.7f)),
+                                                    startY = 300f
+                                                )
                                             )
-                                        )
-                                )
-                                Text(
-                                    text = capa.nome,
-                                    style = MaterialTheme.typography.labelLarge.copy(
-                                        fontFamily = FontFamily.Serif,
-                                        fontWeight = FontWeight.Bold
-                                    ),
-                                    color = Color.White,
-                                    maxLines = 2,
-                                    modifier = Modifier
-                                        .align(Alignment.BottomStart)
-                                        .padding(16.dp)
-                                )
-                                
-                                Icon(
-                                    Icons.Default.Refresh, // Was Restore
-                                    contentDescription = "Restaurar",
-                                    tint = Color.White,
-                                    modifier = Modifier
-                                        .align(Alignment.TopEnd)
-                                        .padding(12.dp)
-                                        .background(Color.Black.copy(alpha = 0.3f), CircleShape)
-                                        .padding(8.dp)
-                                        .size(20.dp)
-                                )
+                                    )
+                                    Text(
+                                        text = capa.nome,
+                                        style = MaterialTheme.typography.labelLarge.copy(
+                                            fontFamily = FontFamily.Serif,
+                                            fontWeight = FontWeight.Bold
+                                        ),
+                                        color = Color.White,
+                                        maxLines = 2,
+                                        modifier = Modifier
+                                            .align(Alignment.BottomStart)
+                                            .padding(16.dp)
+                                    )
+                                    
+                                    Icon(
+                                        Icons.Default.Refresh, // Was Restore
+                                        contentDescription = "Restaurar",
+                                        tint = Color.White,
+                                        modifier = Modifier
+                                            .align(Alignment.TopEnd)
+                                            .padding(12.dp)
+                                            .background(Color.Black.copy(alpha = 0.3f), CircleShape)
+                                            .padding(8.dp)
+                                            .size(20.dp)
+                                    )
+                                }
                             }
                         }
                     }
@@ -579,12 +633,187 @@ fun CapasScreen(
             }
         }
     }
+}
 
-    if (showAbout) {
-        AboutSheet(
-            viewModel = viewModel,
-            onDismiss = { showAbout = false }
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun NewsTab(
+    state: com.joaobzao.capas.capas.CapasViewState,
+    onShowAbout: () -> Unit
+) {
+    val filtersState by rememberUpdatedState(state.filters)
+    var selectedFilter by rememberSaveable { mutableStateOf<String?>(null) }
+    var showMenu by remember { mutableStateOf(false) }
+
+    Column(Modifier.fillMaxSize()) {
+        // News Header
+         Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.surface)
+                .statusBarsPadding()
+                .padding(horizontal = 24.dp, vertical = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = "NOTÍCIAS",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.secondary,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Text(
+                    text = "Destaques",
+                    style = MaterialTheme.typography.displaySmall.copy(
+                        fontFamily = FontFamily.Serif,
+                        fontWeight = FontWeight.Bold
+                    ),
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            }
+             // Header Actions
+            Box {
+                IconButton(
+                    onClick = { showMenu = true },
+                    modifier = Modifier
+                        .background(MaterialTheme.colorScheme.surfaceContainerHigh, CircleShape)
+                        .size(40.dp)
+                ) {
+                    Icon(
+                        Icons.Default.MoreVert,
+                        contentDescription = "Mais opções",
+                        tint = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+
+                DropdownMenu(
+                    expanded = showMenu,
+                    onDismissRequest = { showMenu = false }
+                ) {
+                    DropdownMenuItem(
+                        text = { Text(stringResource(R.string.title_about)) },
+                        onClick = {
+                            showMenu = false
+                            onShowAbout()
+                        },
+                        leadingIcon = {
+                             Icon(
+                                Icons.Default.Info,
+                                contentDescription = null
+                            )
+                        }
+                    )
+                }
+            }
+        }
+
+        // Filters (Always visible here)
+        if (filtersState.isNotEmpty()) {
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(MaterialTheme.colorScheme.surface)
+                    .padding(bottom = 16.dp),
+                contentPadding = PaddingValues(horizontal = 24.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                items(filtersState.size) { index ->
+                    val tag = filtersState[index]
+                    val isSelected = tag == selectedFilter
+                    
+                    FilterChip(
+                        selected = isSelected,
+                        onClick = { selectedFilter = if (isSelected) null else tag },
+                        label = { Text(tag) },
+                        leadingIcon = if (isSelected) {
+                            { Icon(Icons.Outlined.Close, contentDescription = null, modifier = Modifier.size(16.dp)) }
+                        } else null
+                    )
+                }
+            }
+        }
+        
+         // Shadow separator
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(1.dp)
+                .shadow(elevation = 4.dp)
         )
+
+        // News Feed List
+        val allNews = remember(state.capas) {
+             val news = mutableListOf<Pair<com.joaobzao.capas.capas.NewsItem, Capa>>()
+             state.capas?.let { caps ->
+                 (caps.mainNewspapers + caps.sportNewspapers + caps.economyNewspapers + caps.regionalNewspapers).forEach { capa ->
+                     capa.news?.forEach { item ->
+                         news.add(item to capa)
+                     }
+                 }
+             }
+             news
+        }
+        
+        val filteredNews = if (selectedFilter != null) {
+            allNews.filter { (item, _) ->
+                item.headline.contains(selectedFilter!!, ignoreCase = true) ||
+                item.summary?.contains(selectedFilter!!, ignoreCase = true) == true
+            }
+        } else {
+             allNews
+        }
+
+        if (allNews.isEmpty()) {
+             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Text("Sem notícias disponíveis")
+            }
+        } else {
+            LazyColumn(
+                contentPadding = PaddingValues(24.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                items(filteredNews) { (newsItem, capa) ->
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surface
+                        )
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp)
+                        ) {
+                             Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text(
+                                    text = newsItem.category?.uppercase() ?: "GERAL",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.primary
+                                )
+                                Spacer(Modifier.width(8.dp))
+                                Text(
+                                    text = "• ${capa.nome}",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.secondary
+                                )
+                            }
+                            Spacer(Modifier.height(8.dp))
+                            Text(
+                                text = newsItem.headline,
+                                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+                            )
+                            newsItem.summary?.let { summary ->
+                                Spacer(Modifier.height(4.dp))
+                                Text(
+                                    text = summary,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

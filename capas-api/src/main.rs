@@ -254,7 +254,33 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         resultado.insert("Regionais".to_string(), regionais);
     }
 
-    // 6. Guardar JSON
+    // 6. Generate Filters (Tags) if Gemini is available
+    if let Some(g_client) = &gemini {
+        // Aggregate all news
+        let mut all_news = Vec::new();
+        for capas in resultado.values() {
+            for capa in capas {
+                if let Some(news_items) = &capa.news {
+                   all_news.extend(news_items.clone());
+                }
+            }
+        }
+        
+        if !all_news.is_empty() {
+             println!("🔍 Generating Smart Filters from {} news items...", all_news.len());
+             match g_client.generate_filters(&all_news).await {
+                 Ok(filters) => {
+                     println!("✅ Filters generated: {:?}", filters);
+                     let mut filter_file = File::create("public/filters.json")?;
+                     let json = serde_json::to_string_pretty(&filters)?;
+                     filter_file.write_all(json.as_bytes())?;
+                 },
+                 Err(e) => println!("❌ Failed to generate filters: {}", e),
+             }
+        }
+    }
+
+    // 7. Guardar capas.json
     create_dir_all("public")?;
     let mut file = File::create("public/capas.json")?;
     let json = serde_json::to_string_pretty(&resultado)?;

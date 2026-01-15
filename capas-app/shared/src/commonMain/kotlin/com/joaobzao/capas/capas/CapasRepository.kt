@@ -17,6 +17,7 @@ interface CapasRepository {
     fun isOnboardingCompleted(): Boolean
     fun setOnboardingCompleted()
     suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>>
+    suspend fun getFilters(): Flow<NetworkResult<List<String>>>
     fun updateOrder(orderedIds: List<String>)
 }
 
@@ -36,6 +37,10 @@ class CapasRepositoryImpl(
 
     override fun setOnboardingCompleted() {
         settings.putBoolean(ONBOARDING_KEY, true)
+    }
+
+    override suspend fun getFilters(): Flow<NetworkResult<List<String>>> {
+        return api.fetchFilters()
     }
 
     override suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>> {

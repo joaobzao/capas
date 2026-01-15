@@ -92,4 +92,55 @@ impl GeminiClient {
 
         Ok(json!({}))
     }
+
+    pub async fn generate_filters(&self, news: &[crate::NewsItem]) -> Result<Vec<String>, Box<dyn Error>> {
+        let mut prompt_text = String::from(
+            "Analyze these news headlines and summaries. Generate a list of 10-15 trending tags (topics, entities, categories) that best represent the content. \
+             Each tag should be short (1-3 words) and relevant for filtering. \
+             Return ONLY a JSON array of strings: [\"Tag1\", \"Tag2\", ...]\n\n"
+        );
+
+        for item in news {
+            prompt_text.push_str(&format!("- {} ({})\n", item.headline, item.category.as_deref().unwrap_or("Geral")));
+        }
+
+        let request_body = json!({
+            "contents": [{
+                "parts": [{ "text": prompt_text }]
+            }]
+        });
+
+        let url = format!(
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key={}",
+            self.api_key
+        );
+
+        let response = self.client.post(&url)
+            .json(&request_body)
+            .send()
+            .await?;
+
+        if !response.status().is_success() {
+             let error_text = response.text().await?;
+             return Err(format!("Gemini API Error (Filters): {}", error_text).into());
+        }
+
+        let response_json: serde_json::Value = response.json().await?;
+        
+        if let Some(candidates) = response_json.get("candidates").and_then(|c| c.as_array()) {
+            if let Some(first) = candidates.first() {
+                if let Some(parts) = first.get("content").and_then(|c| c.get("parts")).and_then(|p| p.as_array()) {
+                     if let Some(text_part) = parts.first() {
+                         if let Some(text) = text_part.get("text").and_then(|t| t.as_str()) {
+                             let clean_text = text.replace("```json", "").replace("```", "").trim().to_string();
+                             let parsed: Vec<String> = serde_json::from_str(&clean_text)?;
+                             return Ok(parsed);
+                         }
+                     }
+                }
+            }
+        }
+
+        Ok(Vec::new())
+    }
 }

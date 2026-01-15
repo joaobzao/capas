@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.flowOf
 interface Api {
     suspend fun fetchCapas(): Flow<NetworkResult<CapasResponse>>
     suspend fun fetchWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>>
+    suspend fun fetchFilters(): Flow<NetworkResult<List<String>>>
 }
 
 class ApiImpl(
@@ -19,6 +20,13 @@ class ApiImpl(
     override suspend fun fetchCapas(): Flow<NetworkResult<CapasResponse>> {
         val networkResult = apiCall {
             httpClient.get("${environment.host}/capas/capas.json").body<CapasResponse>()
+        }
+        return flowOf(networkResult)
+    }
+
+    override suspend fun fetchFilters(): Flow<NetworkResult<List<String>>> {
+        val networkResult = apiCall {
+            httpClient.get("${environment.host}/capas/filters.json").body<List<String>>()
         }
         return flowOf(networkResult)
     }
