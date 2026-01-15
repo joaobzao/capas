@@ -59,7 +59,7 @@ impl GeminiClient {
         });
 
         let url = format!(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.0-flash:generateContent?key={}",
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash:generateContent?key={}",
             self.api_key
         );
 
