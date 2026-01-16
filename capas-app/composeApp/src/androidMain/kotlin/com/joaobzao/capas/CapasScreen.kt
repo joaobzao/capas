@@ -95,6 +95,7 @@ fun CapasScreen(
     LaunchedEffect(Unit) {
         viewModel.getCapas()
         viewModel.getFilters()
+        viewModel.getDigest()
     }
 
     Scaffold(
@@ -641,8 +642,6 @@ fun NewsTab(
     state: com.joaobzao.capas.capas.CapasViewState,
     onShowAbout: () -> Unit
 ) {
-    val filtersState by rememberUpdatedState(state.filters)
-    var selectedFilter by rememberSaveable { mutableStateOf<String?>(null) }
     var showMenu by remember { mutableStateOf(false) }
 
     Column(Modifier.fillMaxSize()) {
@@ -656,14 +655,17 @@ fun NewsTab(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(modifier = Modifier.weight(1f)) {
+                val date = remember {
+                    LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(Locale.getDefault()))
+                }
                 Text(
-                    text = "NOTÍCIAS",
+                    text = date.uppercase(),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.secondary,
                     fontWeight = FontWeight.SemiBold
                 )
                 Text(
-                    text = "Destaques",
+                    text = "Daily Digest",
                     style = MaterialTheme.typography.displaySmall.copy(
                         fontFamily = FontFamily.Serif,
                         fontWeight = FontWeight.Bold
@@ -706,32 +708,6 @@ fun NewsTab(
                 }
             }
         }
-
-        // Filters (Always visible here)
-        if (filtersState.isNotEmpty()) {
-            LazyRow(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.surface)
-                    .padding(bottom = 16.dp),
-                contentPadding = PaddingValues(horizontal = 24.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                items(filtersState.size) { index ->
-                    val tag = filtersState[index]
-                    val isSelected = tag == selectedFilter
-                    
-                    FilterChip(
-                        selected = isSelected,
-                        onClick = { selectedFilter = if (isSelected) null else tag },
-                        label = { Text(tag) },
-                        leadingIcon = if (isSelected) {
-                            { Icon(Icons.Outlined.Close, contentDescription = null, modifier = Modifier.size(16.dp)) }
-                        } else null
-                    )
-                }
-            }
-        }
         
          // Shadow separator
         Box(
@@ -741,75 +717,97 @@ fun NewsTab(
                 .shadow(elevation = 4.dp)
         )
 
-        // News Feed List
-        val allNews = remember(state.capas) {
-             val news = mutableListOf<Pair<com.joaobzao.capas.capas.NewsItem, Capa>>()
-             state.capas?.let { caps ->
-                 (caps.mainNewspapers + caps.sportNewspapers + caps.economyNewspapers + caps.regionalNewspapers).forEach { capa ->
-                     capa.news?.forEach { item ->
-                         news.add(item to capa)
-                     }
-                 }
-             }
-             news
-        }
-        
-        val filteredNews = if (selectedFilter != null) {
-            allNews.filter { (item, _) ->
-                item.headline.contains(selectedFilter!!, ignoreCase = true) ||
-                item.summary?.contains(selectedFilter!!, ignoreCase = true) == true
-            }
-        } else {
-             allNews
-        }
-
-        if (allNews.isEmpty()) {
+        if (state.digest.isEmpty()) {
              Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("Sem notícias disponíveis")
+                CircularProgressIndicator()
             }
         } else {
             LazyColumn(
                 contentPadding = PaddingValues(24.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                items(filteredNews) { (newsItem, capa) ->
+                items(state.digest) { item ->
                     Card(
                         colors = CardDefaults.cardColors(
                             containerColor = MaterialTheme.colorScheme.surface
-                        )
+                        ),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
                     ) {
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(16.dp)
+                                .padding(20.dp)
                         ) {
                              Row(verticalAlignment = Alignment.CenterVertically) {
                                 Text(
-                                    text = newsItem.category?.uppercase() ?: "GERAL",
+                                    text = item.category.uppercase(),
                                     style = MaterialTheme.typography.labelSmall,
-                                    color = MaterialTheme.colorScheme.primary
-                                )
-                                Spacer(Modifier.width(8.dp))
-                                Text(
-                                    text = "• ${capa.nome}",
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = MaterialTheme.colorScheme.secondary
+                                    color = if (item.category.lowercase() == "desporto") 
+                                        MaterialTheme.colorScheme.primary 
+                                    else 
+                                        MaterialTheme.colorScheme.tertiary,
+                                    fontWeight = FontWeight.Bold
                                 )
                             }
                             Spacer(Modifier.height(8.dp))
                             Text(
-                                text = newsItem.headline,
-                                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+                                text = item.title,
+                                style = MaterialTheme.typography.titleLarge.copy(
+                                    fontFamily = FontFamily.Serif,
+                                    fontWeight = FontWeight.Bold
+                                ),
+                                color = MaterialTheme.colorScheme.onSurface
                             )
-                            newsItem.summary?.let { summary ->
-                                Spacer(Modifier.height(4.dp))
-                                Text(
-                                    text = summary,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
+                            Spacer(Modifier.height(8.dp))
+                            Text(
+                                text = item.summary,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                lineHeight = 20.sp
+                            )
+                            Spacer(Modifier.height(16.dp))
+                            
+                            // Source Pills
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                item.sources.take(3).forEach { source ->
+                                     Surface(
+                                         shape = CircleShape,
+                                         color = MaterialTheme.colorScheme.surfaceContainerHighest,
+                                         modifier = Modifier.height(24.dp)
+                                     ) {
+                                         Box(contentAlignment = Alignment.Center, modifier = Modifier.padding(horizontal = 10.dp)) {
+                                             Text(
+                                                 text = source,
+                                                 style = MaterialTheme.typography.labelSmall,
+                                                 color = MaterialTheme.colorScheme.onSurfaceVariant
+                                             )
+                                         }
+                                     }
+                                }
+                                if (item.sources.size > 3) {
+                                    Text(
+                                        text = "+${item.sources.size - 3}",
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        modifier = Modifier.align(Alignment.CenterVertically)
+                                    )
+                                }
                             }
                         }
+                    }
+                }
+                
+                item {
+                    Spacer(Modifier.height(32.dp))
+                    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                         Text(
+                             text = "Gerado por Gemini 2.0 Flash",
+                             style = MaterialTheme.typography.labelSmall,
+                             color = MaterialTheme.colorScheme.outline
+                         )
                     }
                 }
             }

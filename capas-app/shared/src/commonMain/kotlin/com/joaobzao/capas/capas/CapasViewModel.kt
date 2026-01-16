@@ -92,6 +92,18 @@ class CapasViewModel(
         }
     }
 
+    fun getDigest() {
+        viewModelScope.launch {
+            capasRepository.getDigest().collect { result ->
+                if (result is NetworkResult.Success && result.data != null) {
+                    mutableCapasViewState.value = mutableCapasViewState.value.copy(
+                        digest = result.data.digest
+                    )
+                }
+            }
+        }
+    }
+
     override fun onCleared() {
         log.v("Clearing CapasViewModel")
     }
@@ -101,5 +113,6 @@ data class CapasViewState(
     val capas: CapasResponse? = null,
     val removed: List<Capa> = emptyList(),
     val workflowStatus: GitHubWorkflowRun? = null,
-    val filters: List<String> = emptyList()
+    val filters: List<String> = emptyList(),
+    val digest: List<DigestItem> = emptyList()
 )

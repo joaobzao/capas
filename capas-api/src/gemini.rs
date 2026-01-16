@@ -17,30 +17,35 @@ impl GeminiClient {
         })
     }
 
-    pub async fn analyze_covers_batch(&self, covers: &[(String, String)]) -> Result<serde_json::Value, Box<dyn Error>> {
+    pub async fn generate_digest(&self, covers: &[(String, String)]) -> Result<serde_json::Value, Box<dyn Error>> {
         let mut parts = Vec::new();
         
         // 1. Prepare Prompt
         let mut prompt_text = String::from(
-            "Analyze these newspaper covers. Extract the main news stories into a JSON Object where the key is the Newspaper Name and the value is a list of news items.\n\
-             For each story, provide:\n\
-             - 'headline': The main title.\n\
-             - 'summary': A brief summary.\n\
-             - 'category': A category (e.g., 'Futebol', 'Política', 'Economia').\n\
-             \n\
-             The input images correspond to the following newspapers in order:\n"
+            "Act as a professional news editor. Analyze these newspaper covers (from Portugal) and create a 'Daily News Digest'.\n\
+             Your goal is to identify the most important and common stories across these covers.\n\n\
+             Instructions:\n\
+             1. Aggregate the main stories. If multiple newspapers talk about the same topic, combine them into one entry.\n\
+             2. Separate stories into two main categories based on the source and content: 'Nacional' (General News) and 'Desporto' (Sports).\n\
+             3. For each story, provide:\n\
+             - 'title': A concise, engaging headline in Portuguese.\n\
+             - 'summary': A brief summary of the event (max 2 sentences) in Portuguese.\n\
+             - 'sources': A list of the Newspaper Names that feature this story.\n\
+             - 'category': Either 'Nacional' or 'Desporto'.\n\n\
+             The input images correspond to the following newspapers:\n"
         );
 
         for (i, (_, name)) in covers.iter().enumerate() {
             prompt_text.push_str(&format!("{}. {}\n", i + 1, name));
         }
 
-        prompt_text.push_str("\nReturn ONLY the JSON object format: {\"Newspaper Name\": [{\"headline\":..., ...}]}");
+        prompt_text.push_str("\nReturn ONLY a JSON object with this structure: { \"digest\": [ { \"title\": \"...\", \"summary\": \"...\", \"sources\": [\"...\"], \"category\": \"...\" } ] }");
 
         parts.push(json!({ "text": prompt_text }));
 
         // 2. Download and Add Images
         for (url, _) in covers {
+            // Download image
             let image_data = self.client.get(url).send().await?.bytes().await?;
             let base64_image = base64::encode(&image_data);
             
@@ -59,7 +64,7 @@ impl GeminiClient {
         });
 
         let url = format!(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key={}",
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key={}",
             self.api_key
         );
 
@@ -90,57 +95,6 @@ impl GeminiClient {
             }
         }
 
-        Ok(json!({}))
-    }
-
-    pub async fn generate_filters(&self, news: &[crate::NewsItem]) -> Result<Vec<String>, Box<dyn Error>> {
-        let mut prompt_text = String::from(
-            "Analyze these news headlines and summaries. Generate a list of 10-15 trending tags (topics, entities, categories) that best represent the content. \
-             Each tag should be short (1-3 words) and relevant for filtering. \
-             Return ONLY a JSON array of strings: [\"Tag1\", \"Tag2\", ...]\n\n"
-        );
-
-        for item in news {
-            prompt_text.push_str(&format!("- {} ({})\n", item.headline, item.category.as_deref().unwrap_or("Geral")));
-        }
-
-        let request_body = json!({
-            "contents": [{
-                "parts": [{ "text": prompt_text }]
-            }]
-        });
-
-        let url = format!(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key={}",
-            self.api_key
-        );
-
-        let response = self.client.post(&url)
-            .json(&request_body)
-            .send()
-            .await?;
-
-        if !response.status().is_success() {
-             let error_text = response.text().await?;
-             return Err(format!("Gemini API Error (Filters): {}", error_text).into());
-        }
-
-        let response_json: serde_json::Value = response.json().await?;
-        
-        if let Some(candidates) = response_json.get("candidates").and_then(|c| c.as_array()) {
-            if let Some(first) = candidates.first() {
-                if let Some(parts) = first.get("content").and_then(|c| c.get("parts")).and_then(|p| p.as_array()) {
-                     if let Some(text_part) = parts.first() {
-                         if let Some(text) = text_part.get("text").and_then(|t| t.as_str()) {
-                             let clean_text = text.replace("```json", "").replace("```", "").trim().to_string();
-                             let parsed: Vec<String> = serde_json::from_str(&clean_text)?;
-                             return Ok(parsed);
-                         }
-                     }
-                }
-            }
-        }
-
-        Ok(Vec::new())
+        Ok(json!({ "digest": [] }))
     }
 }

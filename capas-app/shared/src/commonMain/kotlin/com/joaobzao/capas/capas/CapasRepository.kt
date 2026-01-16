@@ -18,6 +18,7 @@ interface CapasRepository {
     fun setOnboardingCompleted()
     suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>>
     suspend fun getFilters(): Flow<NetworkResult<List<String>>>
+    suspend fun getDigest(): Flow<NetworkResult<DigestResponse>>
     fun updateOrder(orderedIds: List<String>)
 }
 
@@ -45,6 +46,10 @@ class CapasRepositoryImpl(
 
     override suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>> {
         return api.fetchWorkflowStatus()
+    }
+
+    override suspend fun getDigest(): Flow<NetworkResult<DigestResponse>> {
+        return api.fetchDigest()
     }
 
     override suspend fun getCapas(): Flow<NetworkResult<CapasResponse>> = flow {

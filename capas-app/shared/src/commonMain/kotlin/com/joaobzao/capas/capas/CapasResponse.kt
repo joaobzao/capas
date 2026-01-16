@@ -29,3 +29,16 @@ data class NewsItem(
     val summary: String? = null,
     val category: String? = null
 )
+
+@Serializable
+data class DigestResponse(
+    val digest: List<DigestItem>
+)
+
+@Serializable
+data class DigestItem(
+    val title: String,
+    val summary: String,
+    val sources: List<String>,
+    val category: String
+)

@@ -11,6 +11,7 @@ interface Api {
     suspend fun fetchCapas(): Flow<NetworkResult<CapasResponse>>
     suspend fun fetchWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>>
     suspend fun fetchFilters(): Flow<NetworkResult<List<String>>>
+    suspend fun fetchDigest(): Flow<NetworkResult<DigestResponse>>
 }
 
 class ApiImpl(
@@ -34,6 +35,13 @@ class ApiImpl(
     override suspend fun fetchWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>> {
         val networkResult = apiCall {
             httpClient.get("https://api.github.com/repos/joaobzao/capas/actions/workflows/update-capas.yml/runs?per_page=1").body<GitHubWorkflowResponse>()
+        }
+        return flowOf(networkResult)
+    }
+
+    override suspend fun fetchDigest(): Flow<NetworkResult<DigestResponse>> {
+        val networkResult = apiCall {
+            httpClient.get("${environment.host}/capas/digest.json").body<DigestResponse>()
         }
         return flowOf(networkResult)
     }
