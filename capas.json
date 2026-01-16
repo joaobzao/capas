@@ -3,1199 +3,653 @@
     {
       "id": "correio-da-manha",
       "nome": "Correio da Manhã",
-      "url": "https://imgs.vercapas.com/covers/correio-da-manha/2026/correio-da-manha-2026-01-15-d6fcce33.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/correio-da-manha/2026/correio-da-manha-2026-01-16-1184e578.jpg"
     },
     {
       "id": "jornal-de-noticias",
       "nome": "Jornal de Notícias",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2026/jornal-de-noticias-2026-01-15-0354d72d.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2026/jornal-de-noticias-2026-01-16-dadf7f22.jpg"
     },
     {
       "id": "publico",
       "nome": "Público",
-      "url": "https://imgs.vercapas.com/covers/publico/2026/publico-2026-01-15-d0445d15.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/publico/2026/publico-2026-01-16-31be3edf.jpg"
     },
     {
       "id": "diario-de-noticias",
       "nome": "Diário de Notícias",
-      "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2026/diario-de-noticias-2026-01-15-f1ff2663.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2026/diario-de-noticias-2026-01-16-2a36a640.jpg"
     },
     {
       "id": "jornal-i",
       "nome": "Jornal i",
-      "url": "https://imgs.vercapas.com/covers/i/2025/i-2025-07-29-20c8ca65.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/i/2025/i-2025-07-29-20c8ca65.jpg"
     },
     {
       "id": "sol",
       "nome": "SOL",
-      "url": "https://imgs.vercapas.com/covers/sol/2026/sol-2026-01-09-7068db59.jpg",
-      "news": [
-        {
-          "headline": "Novo código dá poder às minorias para censurarem Museus",
-          "summary": "Novo código deontológico internacional prevê que museus respondam a exigências de minorias para a retirada de peças.",
-          "category": "Sociedade"
-        },
-        {
-          "headline": "PRESIDENCIAIS ENTRAM NA RETA FINAL COM MAIS DÚVIDAS QUE CERTEZAS",
-          "summary": "Sondagens mostram cenários abertos para as eleições presidenciais numa fase decisiva da campanha.",
-          "category": "Política"
-        },
-        {
-          "headline": "A sociedade precisa de Passos Coelho, que vai reaparecer",
-          "summary": "André Ventura afirma em entrevista que o país necessita do regresso do antigo primeiro-ministro à vida política ativa.",
-          "category": "Política"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/sol/2026/sol-2026-01-16-9cb89487.jpg"
     },
     {
       "id": "destak",
       "nome": "Destak",
-      "url": "https://imgs.vercapas.com/covers/destak/2025/destak-2025-11-28-39f049fc.jpg",
-      "news": [
-        {
-          "headline": "Algarve prepara festa de arromba",
-          "summary": "Municípios algarvios investem milhões em animação, iluminação e concertos para as festividades de Natal e Passagem de Ano.",
-          "category": "Turismo"
-        },
-        {
-          "headline": "Portugal em busca de título inédito",
-          "summary": "A seleção nacional foca-se na conquista do Mundial após garantir a sua sétima presença consecutiva.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "Autoridades tentam salvar fundos da UE",
-          "summary": "Entidades públicas e municípios do Algarve têm pouco tempo para executar 10 milhões de euros em fundos comunitários.",
-          "category": "Economia"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/destak/2025/destak-2025-11-28-39f049fc.jpg"
     },
     {
       "id": "expresso",
       "nome": "Expresso",
-      "url": "https://imgs.vercapas.com/covers/expresso/2026/expresso-2026-01-09-57a0f39f.jpg",
-      "news": [
-        {
-          "headline": "“Não pedi nem pedirei para sair”",
-          "summary": "A Ministra da Saúde, Ana Paula Martins, afasta rumores de demissão e garante continuidade no cargo apesar da crise no INEM.",
-          "category": "Política"
-        },
-        {
-          "headline": "IA Inteligência Artificial: Impacto pode chegar aos €20 mil milhões",
-          "summary": "O Governo espera um forte investimento e criação de valor económico para Portugal através da inteligência artificial nos próximos anos.",
-          "category": "Tecnologia / Economia"
-        },
-        {
-          "headline": "Trump mudou a América, segue-se o mundo",
-          "summary": "Análise sobre a nova estratégia de segurança nacional dos EUA e o impacto da presidência de Trump na ordem global e na Europa.",
-          "category": "Internacional"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/expresso/2026/expresso-2026-01-16-c6dc9825.jpg"
     },
     {
       "id": "jornal-de-negocios",
       "nome": "Jornal de Negócios",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-negocios/2026/jornal-de-negocios-2026-01-15-092005e5.jpg",
-      "news": [
-        {
-          "headline": "Ventura lidera, mas indecisos ameaçam baralhar as contas",
-          "summary": "Sondagem para as eleições presidenciais coloca André Ventura na frente, mas aponta para quase 20% de eleitores indecisos.",
-          "category": "Política"
-        },
-        {
-          "headline": "CTT preparam entrada “numa nova geografia até 2028”",
-          "summary": "O CEO João Bento revela planos estratégicos de expansão e foco em novos serviços para os correios até ao final da década.",
-          "category": "Economia"
-        },
-        {
-          "headline": "Governo vai dar mais dinheiro para a garantia pública no crédito jovem",
-          "summary": "O executivo pretende reforçar o apoio financeiro destinado a facilitar o acesso dos jovens à habitação através de crédito bancário.",
-          "category": "Economia / Sociedade"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/jornal-de-negocios/2026/jornal-de-negocios-2026-01-16-0a3f00ba.jpg"
     },
     {
       "id": "jornal-economico",
       "nome": "Jornal Económico",
-      "url": "https://imgs.vercapas.com/covers/jornal-economico/2026/jornal-economico-2026-01-15-9a8ae7a6.jpg",
-      "news": [
-        {
-          "headline": "PSP abre porta a manifestação por Governo não cumprir acordo",
-          "summary": "O maior sindicato da polícia acusa o Governo de não atualizar salários conforme acordado e planeia protestos nacionais.",
-          "category": "Sociedade / Política"
-        },
-        {
-          "headline": "Cotrim, Gouveia e Melo e Marques Mendes lutam por votos à direita",
-          "summary": "Candidatos presidenciais intensificam a campanha para conquistar o eleitorado de direita na reta final para as eleições.",
-          "category": "Política"
-        },
-        {
-          "headline": "Portugal tem 2.100 empresas gazela",
-          "summary": "Um estudo identifica milhares de empresas de elevado crescimento em Portugal, que são motores de emprego e volume de negócios.",
-          "category": "Economia"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/jornal-economico/2026/jornal-economico-2026-01-16-f7589975.jpg"
     },
     {
       "id": "o-diabo",
       "nome": "O Diabo",
-      "url": "https://imgs.vercapas.com/covers/o-diabo/2026/o-diabo-2026-01-09-fa5dcc0d.jpg",
-      "news": [
-        {
-          "headline": "Arranjinho à Portuguesa",
-          "summary": "Crítica ao processo de decisão entre as cúpulas do PS e PSD sobre as eleições para as CCDR, realizado sem consultar os autarcas.",
-          "category": "Política"
-        },
-        {
-          "headline": "Venezuela e Irão: tempestades que testam Moscovo e Pequim",
-          "summary": "Análise geopolítica sobre como as crises nestes países desafiam as estratégias e alianças da Rússia e da China.",
-          "category": "Internacional"
-        },
-        {
-          "headline": "Forças & Fraquezas de André Ventura",
-          "summary": "Uma análise detalhada sobre o perfil político e o desempenho eleitoral do candidato André Ventura.",
-          "category": "Política"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/o-diabo/2026/o-diabo-2026-01-16-6e564d28.jpg"
     },
     {
       "id": "avante",
       "nome": "Avante!",
-      "url": "https://imgs.vercapas.com/covers/avante/2026/avante-2026-01-14-95a9e9ff.jpg",
-      "news": [
-        {
-          "headline": "Vota António Filipe",
-          "summary": "Apelo ao voto no candidato apoiado pelo PCP para as eleições presidenciais, destacando a defesa dos direitos constitucionais.",
-          "category": "Política"
-        },
-        {
-          "headline": "Trabalhadores exigem ao Governo: «O pacote laboral é para cair»",
-          "summary": "Mobilizações sindicais contra as novas medidas laborais, exigindo a revogação do pacote legislativo e melhores salários.",
-          "category": "Sociedade / Política"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/avante/2026/avante-2026-01-14-95a9e9ff.jpg"
     },
     {
       "id": "novo-semanario",
       "nome": "NOVO Semanário",
-      "url": "https://imgs.vercapas.com/covers/novo-semanario/novo-semanario-2024-03-30-1a5659.jpg",
-      "news": [
-        {
-          "headline": "José Miguel Júdice: 'Governo não tem quatro anos, tem de fazer já'",
-          "summary": "José Miguel Júdice afirma que o novo executivo não dispõe de muito tempo e precisa de apresentar resultados imediatos.",
-          "category": "Política"
-        },
-        {
-          "headline": "Montenegro aposta num elenco político que tem dois meses para dar provas",
-          "summary": "Luís Montenegro escolheu uma equipa política que terá um curto período de tempo para demonstrar a sua eficácia.",
-          "category": "Política"
-        },
-        {
-          "headline": "Redes criminosas internacionais aterrorizam prisões portuguesas",
-          "summary": "Grandes organizações criminosas da América Latina, como o PCC e o Comando Vermelho, já operam dentro do sistema prisional de Portugal.",
-          "category": "Justiça"
-        },
-        {
-          "headline": "Manuel Fernandes, o madeirense mais famoso de Lisboa",
-          "summary": "Um perfil dedicado a Manuel Fernandes, destacando a sua influência e presença na capital portuguesa.",
-          "category": "Sociedade"
-        },
-        {
-          "headline": "Via Sénior: Rede portuguesa de residências assistidas avança para Espanha",
-          "summary": "A rede portuguesa especializada em residências para idosos inicia a sua expansão para o mercado espanhol.",
-          "category": "Economia"
-        },
-        {
-          "headline": "Praça do Luxemburgo leva blind dates políticos às autarquias do país",
-          "summary": "Uma iniciativa que promove encontros e diálogos políticos está a ser alargada ao nível das autarquias locais.",
-          "category": "Política"
-        },
-        {
-          "headline": "Futebol: As estrelas que prometem rechear cofres dos três grandes",
-          "summary": "Análise sobre os jogadores dos principais clubes portugueses que podem render grandes somas em transferências.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "Guerra na Ucrânia faz disparar compras de armas na Europa",
-          "summary": "O prolongamento do conflito na Ucrânia está a levar os países europeus a aumentar significativamente o investimento em defesa e armamento.",
-          "category": "Internacional"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/novo-semanario/novo-semanario-2024-03-30-1a5659.jpg"
     },
     {
       "id": "tal-qual",
       "nome": "Tal & Qual",
-      "url": "https://imgs.vercapas.com/covers/tal-e-qual/2026/tal-e-qual-2026-01-14-98aeceda.jpg",
-      "news": [
-        {
-          "headline": "Hospital Militar de Belém ao abandono",
-          "summary": "Apesar do investimento de milhões de euros, o edifício do Hospital Militar de Belém encontra-se fechado e sem utilização.",
-          "category": "Sociedade"
-        },
-        {
-          "headline": "CGD paga por assalto 'à vontadinha'",
-          "summary": "A Caixa Geral de Depósitos foi responsabilizada pelo pagamento relativo a um assalto ocorrido sem grandes dificuldades.",
-          "category": "Economia"
-        },
-        {
-          "headline": "EUA prontos para comprar Gronelândia",
-          "summary": "Os Estados Unidos demonstram interesse e prontidão para adquirir o território da Gronelândia à Dinamarca.",
-          "category": "Internacional"
-        },
-        {
-          "headline": "Sucessor de Marcelo já custa 7,5 milhões de euros",
-          "summary": "Os custos relacionados com a preparação e logística para o próximo Presidente da República já atingem valores elevados.",
-          "category": "Política"
-        },
-        {
-          "headline": "Jardim de Infância no Entroncamento só não resistiu ao dinheiro do PRR",
-          "summary": "As verbas do Plano de Recuperação e Resiliência estão a provocar mudanças num jardim de infância no Entroncamento.",
-          "category": "Economia"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/tal-e-qual/2026/tal-e-qual-2026-01-14-98aeceda.jpg"
     }
   ],
   "Desporto": [
     {
       "id": "a-bola",
       "nome": "A Bola",
-      "url": "https://imgs.vercapas.com/covers/a-bola/2026/a-bola-2026-01-15-f3dde8f4.jpg",
-      "news": [
-        {
-          "headline": "NO DETALHE",
-          "summary": "O FC Porto venceu o Benfica por 1-0 nos quartos de final da Taça de Portugal, num jogo decidido por quem aproveitou a oportunidade.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "O DAVID DA TAÇA CONTINUA A DERRUBAR GOLIAS",
-          "summary": "O Fafe, da Liga 3, protagonizou mais uma surpresa ao eliminar o SC Braga da Taça de Portugal.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "ALVALADE DE PORTA ABERTA EM JANEIRO",
-          "summary": "Sporting prepara movimentações no mercado de transferências, com a saída de Rodrigo Ribeiro e possíveis entradas.",
-          "category": "Futebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/a-bola/2026/a-bola-2026-01-16-9cb5599d.jpg"
     },
     {
       "id": "record",
       "nome": "Record",
-      "url": "https://imgs.vercapas.com/covers/record/2026/record-2026-01-15-e14cbce0.jpg",
-      "news": [
-        {
-          "headline": "À CABEÇADA",
-          "summary": "Golo de Bednarek garante a vitória do FC Porto sobre o Benfica e coloca os dragões nas meias-finais da Taça de Portugal.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "RODRIGO RIBEIRO PODE RENDER 6 M€",
-          "summary": "O empréstimo do jovem avançado do Sporting ao Augsburgo inclui metas que podem elevar o valor do negócio.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "GRANDE SURPRESA",
-          "summary": "O Fafe, equipa da Liga 3, volta a surpreender ao eliminar o SC Braga da Taça de Portugal.",
-          "category": "Futebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/record/2026/record-2026-01-16-febc96f2.jpg"
     },
     {
       "id": "o-jogo",
       "nome": "O Jogo",
-      "url": "https://imgs.vercapas.com/covers/o-jogo/2026/o-jogo-2026-01-15-4dd1b220.jpg",
-      "news": [
-        {
-          "headline": "MEIAS NA CABEÇA",
-          "summary": "FC Porto elimina o Benfica da Taça de Portugal com um golo de Bednarek e segue para as meias-finais.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "COM FAFE NINGUÉM FANFE",
-          "summary": "Histórico: o Fafe da Liga 3 elimina o detentor do troféu SC Braga nos quartos de final da Taça de Portugal.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "Europeu arranca hoje",
-          "summary": "Início do Campeonato da Europa de Andebol com Portugal focado em atingir o top 5 da competição.",
-          "category": "Andebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/o-jogo/2026/o-jogo-2026-01-16-722dca3c.jpg"
     },
     {
       "id": "o-benfica",
       "nome": "O Benfica",
-      "url": "https://imgs.vercapas.com/covers/o-benfica/2026/o-benfica-2026-01-09-a9300426.jpg",
-      "news": [
-        {
-          "headline": "HISTÓRIA VIVA",
-          "summary": "Inauguração do 1904 Benfica Hotel, um projeto que revitaliza um espaço histórico ligado ao clube e reforça a dimensão da Fundação Benfica.",
-          "category": "Clube"
-        },
-        {
-          "headline": "BENFICA DISTRICT APROVADO PELOS SÓCIOS",
-          "summary": "O projeto Benfica District foi aprovado pelos sócios em Assembleia Geral Extraordinária.",
-          "category": "Institucional"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/o-benfica/2026/o-benfica-2026-01-16-e72fdeb3.jpg"
     },
     {
       "id": "jornal-sporting",
       "nome": "Jornal Sporting",
-      "url": "https://imgs.vercapas.com/covers/jornal-sporting/2026/jornal-sporting-2026-01-15-6b478be0.jpg",
-      "news": [
-        {
-          "headline": "MEETING DE ATLETISMO PROF. MONIZ PEREIRA",
-          "summary": "Anúncio do evento de atletismo em homenagem ao Professor Moniz Pereira, agendado para 25 de janeiro de 2026.",
-          "category": "Atletismo"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/jornal-sporting/2026/jornal-sporting-2026-01-15-6b478be0.jpg"
     },
     {
       "id": "jornal-1x2",
       "nome": "Jornal 1X2",
-      "url": "https://imgs.vercapas.com/covers/jornal-1x2/2026/jornal-1x2-2026-01-13-6c87975d.jpg",
-      "news": [
-        {
-          "headline": "JACKPOT",
-          "summary": "Destaque para os prémios elevados no Totobola (70 e 115 mil euros), Euromilhões (64 milhões) e Totoloto (3,2 milhões).",
-          "category": "Apostas"
-        },
-        {
-          "headline": "Cotas dos jogos",
-          "summary": "Informações sobre as probabilidades de aposta para as principais ligas de futebol europeias e a Taça de Portugal.",
-          "category": "Futebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/jornal-1x2/2026/jornal-1x2-2026-01-13-6c87975d.jpg"
     },
     {
       "id": "jornal-as",
       "nome": "Jornal AS",
-      "url": "https://imgs.vercapas.com/covers/jornal-as/2026/jornal-as-2026-01-15-44db7306.jpg",
-      "news": [
-        {
-          "headline": "LA VIDA SIGUE IGUAL... O PEOR",
-          "summary": "O Real Madrid é eliminado da Copa do Rei pelo Albacete (3-2) após uma rotação extrema de jogadores decidida por Arbeloa.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "EL MADRID SE ACERCA A LA NBA",
-          "summary": "O clube madrileno está decidido a aceitar uma oferta para abandonar a Euroliga e aproximar-se da NBA.",
-          "category": "Basquetebol"
-        },
-        {
-          "headline": "EL ATLÉTICO TRASPASA A GALLAGHER",
-          "summary": "Atlético de Madrid concretiza a venda de Gallagher ao Tottenham por 40 milhões de euros.",
-          "category": "Futebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/jornal-as/2026/jornal-as-2026-01-16-c0fc4e23.jpg"
     },
     {
       "id": "marca",
       "nome": "Marca",
-      "url": "https://imgs.vercapas.com/covers/jornal-marca/2026/jornal-marca-2026-01-15-8775a6de.jpg",
-      "news": [
-        {
-          "headline": "DEBACLE TOTAL",
-          "summary": "Real Madrid sofre uma derrota pesada contra o Albacete, ficando fora da Copa do Rei e perdendo dois títulos em três dias.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "Vende a Gallagher y se fija en Joao Gomes",
-          "summary": "O Atlético de Madrid vendeu Gallagher ao Tottenham e agora procura a contratação de João Gomes para o meio-campo.",
-          "category": "Futebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/jornal-marca/2026/jornal-marca-2026-01-16-df566570.jpg"
     },
     {
       "id": "mundo-deportivo",
       "nome": "Mundo Deportivo",
-      "url": "https://imgs.vercapas.com/covers/mundo-deportivo/2026/mundo-deportivo-2026-01-15-4a75a969.jpg",
-      "news": [
-        {
-          "headline": "A LA CALLE",
-          "summary": "O Real Madrid foi eliminado da Taça do Rei após uma derrota por 3-2 frente ao Albacete.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "Duelo de líderes",
-          "summary": "Antevisão do confronto entre Racing e Barça para a Taça do Rei.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "Senegal y Marruecos jugarán la final",
-          "summary": "Senegal e Marrocos garantiram o seu lugar na final da Taça das Nações Africanas (CAN).",
-          "category": "Futebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/mundo-deportivo/2026/mundo-deportivo-2026-01-16-2d42c6ad.jpg"
     },
     {
       "id": "tuttosport",
       "nome": "Tuttosport",
-      "url": "https://imgs.vercapas.com/covers/tuttosport/2026/tuttosport-2026-01-15-5ad84d9e.jpg",
-      "news": [
-        {
-          "headline": "Pio, è un Golden gol - Chivu a +6 su Conte",
-          "summary": "O Inter de Milão venceu o Lecce por 1-0 e aumentou a sua vantagem na liderança do campeonato.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "JUVE Mingueza c'è",
-          "summary": "A Juventus está interessada na contratação do defesa espanhol Mingueza.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "«È fantatennis: godiamocelo»",
-          "summary": "Entrevista a Bertolucci sobre o excelente momento do ténis mundial com figuras como Sinner e Alcaraz.",
-          "category": "Ténis"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/tuttosport/2026/tuttosport-2026-01-16-eb6da1d3.jpg"
     },
     {
       "id": "l-equipe",
       "nome": "L'Équipe",
-      "url": "https://imgs.vercapas.com/covers/lequipe/2026/lequipe-2026-01-15-da0afd55.jpg",
-      "news": [
-        {
-          "headline": "PIERRE SAGE « QUAND TU GAGNES, ON NE T'EMBÊTE PAS »",
-          "summary": "O treinador do RC Lens, atual líder da liga francesa, analisa o seu percurso e princípios de jogo.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "AU BOUNOU DE LA NUIT",
-          "summary": "Marrocos venceu a Nigéria nas grandes penalidades e qualificou-se para a final da CAN.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "La France mise son Euro",
-          "summary": "Destaque para a participação da seleção francesa no Campeonato da Europa de Andebol.",
-          "category": "Andebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/lequipe/2026/lequipe-2026-01-16-1c39795a.jpg"
     },
     {
       "id": "desportivo-de-guimaraes",
       "nome": "Desportivo de Guimarães",
-      "url": "https://imgs.vercapas.com/covers/desportivo-de-guimaraes/2026/desportivo-de-guimaraes-2026-01-13-fa3ab085.jpg",
-      "news": [
-        {
-          "headline": "ETERNOS",
-          "summary": "O Vitória de Guimarães conquistou a Taça da Liga, provocando festejos memoráveis por toda a cidade.",
-          "category": "Futebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/desportivo-de-guimaraes/2026/desportivo-de-guimaraes-2026-01-13-fa3ab085.jpg"
     },
     {
       "id": "jornal-do-golfe",
       "nome": "Jornal do Golfe",
-      "url": "https://imgs.vercapas.com/covers/jornal-do-golfe/jornal-do-golfe-2013-07-12-25fc0e.jpg",
-      "news": [
-        {
-          "headline": "Justin Rose: A vida começa aos 32",
-          "summary": "Justin Rose tornou-se o primeiro britânico em 40 anos a vencer o prestigiado torneio US Open.",
-          "category": "Golfe"
-        },
-        {
-          "headline": "Rangel reúne empresários de todo o País",
-          "summary": "O FedEx Golf Challenge reuniu diversos empresários para uma competição de golfe em Portugal.",
-          "category": "Golfe"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/jornal-do-golfe/jornal-do-golfe-2013-07-12-25fc0e.jpg"
     },
     {
       "id": "dragoes",
       "nome": "Dragões",
-      "url": "https://imgs.vercapas.com/covers/dragoes/2025/dragoes-2025-08-25-c600c890.jpg",
-      "news": [
-        {
-          "headline": "A paixão segundo Francesco",
-          "summary": "Entre o rigor e o sonho, Farioli já conquistou o balneário e os adeptos.",
-          "category": "Futebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/dragoes/2025/dragoes-2025-08-25-c600c890.jpg"
     },
     {
       "id": "futebolista",
       "nome": "Futebolista",
-      "url": "https://imgs.vercapas.com/covers/futebolista/futebolista-2015-03-27-aea921.jpg",
-      "news": [
-        {
-          "headline": "HAZARD vs ISCO: DUELO MÁGICO DOS 'MIÚDOS MARAVILHA'",
-          "summary": "Um comparativo entre os talentos de Eden Hazard do Chelsea e Isco do Real Madrid.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "MARCO REUS: O NOVO 'KAISER' DA ALEMANHA",
-          "summary": "Destaque sobre o jogador alemão Marco Reus.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "HARRY KANE: A REVELAÇÃO DA PREMIER LEAGUE",
-          "summary": "A ascensão do avançado inglês no campeonato principal de Inglaterra.",
-          "category": "Futebol"
-        },
-        {
-          "headline": "SUCESSORES PARA JACKSON",
-          "summary": "Análise de possíveis substitutos para Jackson Martínez no FC Porto, como Zapata, Córdoba, Bueno e Coutinho.",
-          "category": "Futebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/futebolista/futebolista-2015-03-27-aea921.jpg"
     },
     {
       "id": "mistica",
       "nome": "Mística",
-      "url": "https://imgs.vercapas.com/covers/mistica/mistica-2017-07-12-0b9189.jpg",
-      "news": [
-        {
-          "headline": "HISTÓRICO! 36 TETRA",
-          "summary": "Edição especial celebrando o 36º título e o tetracampeonato do Benfica com imagens da festa e resumo dos jogos.",
-          "category": "Futebol"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/mistica/mistica-2017-07-12-0b9189.jpg"
     },
     {
       "id": "revista-atletismo",
       "nome": "Revista Atletismo",
-      "url": "https://imgs.vercapas.com/covers/revista-atletismo/revista-atletismo-2016-11-03-73475c.jpg",
-      "news": [
-        {
-          "headline": "Maratona de Lisboa: Paragem no crescimento",
-          "summary": "Reportagem sobre a situação atual e o desenvolvimento da Maratona de Lisboa.",
-          "category": "Atletismo"
-        },
-        {
-          "headline": "Global Energy Race entra no Guiness Book of Records",
-          "summary": "A corrida alcança um marco histórico ao entrar para o livro dos recordes mundiais.",
-          "category": "Atletismo"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/revista-atletismo/revista-atletismo-2016-11-03-73475c.jpg"
     },
     {
       "id": "ciclismo-a-fundo",
       "nome": "Ciclismo a Fundo",
-      "url": "https://imgs.vercapas.com/covers/ciclismo-a-fundo/ciclismo-a-fundo-2017-11-01-44cb73.jpg",
-      "news": [
-        {
-          "headline": "CANNONDALE Synapse Hi Mod Disc Dura Ace Di2",
-          "summary": "Teste e análise detalhada da nova bicicleta equipada com tecnologia Dura Ace Di2.",
-          "category": "Ciclismo"
-        },
-        {
-          "headline": "Entrevista Manuel Zeferino",
-          "summary": "Uma entrevista exclusiva com o antigo ciclista e diretor desportivo Manuel Zeferino.",
-          "category": "Ciclismo"
-        },
-        {
-          "headline": "MECÂNICA: APRENDA A REPARAR AVARIAS GRAVES",
-          "summary": "Guia prático para os ciclistas aprenderem a lidar com problemas mecânicos complexos.",
-          "category": "Ciclismo"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/ciclismo-a-fundo/ciclismo-a-fundo-2017-11-01-44cb73.jpg"
     },
     {
       "id": "equitacao",
       "nome": "Equitação",
-      "url": "https://imgs.vercapas.com/covers/equitacao/2025/equitacao-2025-12-09-a6f88a2f.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/equitacao/2025/equitacao-2025-12-09-a6f88a2f.jpg"
     },
     {
       "id": "o-praticante",
       "nome": "O Praticante",
-      "url": "https://imgs.vercapas.com/covers/o-praticante/o-praticante-2014-06-20-811786.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-praticante/o-praticante-2014-06-20-811786.jpg"
     },
     {
       "id": "golfe-no-centro",
       "nome": "Golfe no Centro",
-      "url": "https://imgs.vercapas.com/covers/golfe-no-centro/golfe-no-centro-2014-03-25-314890.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/golfe-no-centro/golfe-no-centro-2014-03-25-314890.jpg"
     },
     {
       "id": "bike-magazine",
       "nome": "BIKE Magazine",
-      "url": "https://imgs.vercapas.com/covers/bike-magazine/bike-magazine-2024-12-01-8b496b-x.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/bike-magazine/bike-magazine-2024-12-01-8b496b-x.jpg"
     },
     {
       "id": "freebike",
       "nome": "FREEBIKE",
-      "url": "https://imgs.vercapas.com/covers/freebike/freebike-2018-05-01-f74787-x.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/freebike/freebike-2018-05-01-f74787-x.jpg"
     },
     {
       "id": "biking-aventura",
       "nome": "Biking Aventura",
-      "url": "https://imgs.vercapas.com/covers/biking-aventura/biking-aventura-2013-03-07-2c4cf6.jpg",
-      "news": [
-        {
-          "headline": "Teste Canyon Yellowstone AL 29 6.9 \"Low cost com instinto racing\"",
-          "summary": "Uma análise detalhada à bicicleta Canyon Yellowstone AL 29 6.9, focando na sua performance de competição aliada a um preço acessível.",
-          "category": "Equipamento"
-        },
-        {
-          "headline": "Apresentações: Andalucia Bike Race, Volcat Ara Lleida, ABSA Cape Epic, Estremoz Bike e Transportugal",
-          "summary": "Apresentação de várias provas e eventos de BTT de renome, destacando percursos e expectativas.",
-          "category": "Ciclismo"
-        },
-        {
-          "headline": "39ª Volta ao Algarve",
-          "summary": "Reportagem completa sobre a trigésima nona edição de uma das mais prestigiadas provas de ciclismo de estrada em Portugal.",
-          "category": "Competição"
-        },
-        {
-          "headline": "Hernâni Broco \"Em busca de um sonho\"",
-          "summary": "Entrevista com o ciclista Hernâni Broco sobre a sua carreira, objetivos e as suas ambições no mundo do ciclismo.",
-          "category": "Entrevista"
-        }
-      ]
+      "url": "https://imgs.vercapas.com/covers/biking-aventura/biking-aventura-2013-03-07-2c4cf6.jpg"
     }
   ],
   "Economia e Gestão": [
     {
       "id": "expresso-economia",
       "nome": "Expresso-Economia",
-      "url": "https://imgs.vercapas.com/covers/expresso-economia/2026/expresso-economia-2026-01-09-929055be.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/expresso-economia/2026/expresso-economia-2026-01-16-ec5ceb63.jpg"
     },
     {
       "id": "expresso-emprego",
       "nome": "Expresso-Emprego",
-      "url": "https://imgs.vercapas.com/covers/expresso-emprego/expresso-emprego-2016-12-30-4ec959.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/expresso-emprego/expresso-emprego-2016-12-30-4ec959.jpg"
+    },
+    {
+      "id": "dinheiro-vivo-dn-jn",
+      "nome": "Dinheiro Vivo-DN/JN",
+      "url": "https://imgs.vercapas.com/covers/dinheiro-vivo-dn-jn/2026/dinheiro-vivo-dn-jn-2026-01-09-d0ab864a-x.jpg"
     },
     {
       "id": "exame",
       "nome": "Exame",
-      "url": "https://imgs.vercapas.com/covers/exame/exame-2025-04-01-1a6562.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/exame/exame-2025-04-01-1a6562.jpg"
     },
     {
       "id": "vida-economica",
       "nome": "Vida Económica",
-      "url": "https://imgs.vercapas.com/covers/vida-economica/2026/vida-economica-2026-01-09-5888b45c.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/vida-economica/2026/vida-economica-2026-01-16-df9d4656-x.jpg"
     },
     {
       "id": "meios-publicidade",
       "nome": "Meios & Publicidade",
-      "url": "https://imgs.vercapas.com/covers/meios-e-publicidade/2026/meios-e-publicidade-2026-01-09-a9fd4135.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/meios-e-publicidade/2026/meios-e-publicidade-2026-01-09-a9fd4135.jpg"
     },
     {
       "id": "marketeer",
       "nome": "Marketeer",
-      "url": "https://imgs.vercapas.com/covers/marketeer/2025/marketeer-2025-12-22-b20af8fc.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/marketeer/2025/marketeer-2025-12-22-b20af8fc.jpg"
     },
     {
       "id": "executive-digest",
       "nome": "Executive Digest",
-      "url": "https://imgs.vercapas.com/covers/executive-digest/2025/executive-digest-2025-12-19-ef7256ca.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/executive-digest/2025/executive-digest-2025-12-19-ef7256ca.jpg"
     },
     {
       "id": "actualidade-economia-iberica",
       "nome": "Actualidade Economia Ibérica",
-      "url": "https://imgs.vercapas.com/covers/actualidad-economiaiberica/2026/actualidad-economiaiberica-2026-01-01-5ef45e8a.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/actualidad-economiaiberica/2026/actualidad-economiaiberica-2026-01-01-5ef45e8a.jpg"
     },
     {
       "id": "revista-invest",
       "nome": "Revista Invest",
-      "url": "https://imgs.vercapas.com/covers/revista-invest/revista-invest-2014-07-31-2fca34.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/revista-invest/revista-invest-2014-07-31-2fca34.jpg"
     },
     {
       "id": "briefing",
       "nome": "Briefing",
-      "url": "https://imgs.vercapas.com/covers/briefing/2026/briefing-2026-01-01-837892cf.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/briefing/2026/briefing-2026-01-01-837892cf.jpg"
     },
     {
       "id": "fibra",
       "nome": "FIBRA",
-      "url": "https://imgs.vercapas.com/covers/fibra/fibra-2013-12-10-7688b6.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/fibra/fibra-2013-12-10-7688b6.jpg"
     },
     {
       "id": "advocatus",
       "nome": "Advocatus",
-      "url": "https://imgs.vercapas.com/covers/advocatus/2026/advocatus-2026-01-01-6805253e.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/advocatus/2026/advocatus-2026-01-01-6805253e.jpg"
     },
     {
       "id": "o-advogado",
       "nome": "O Advogado",
-      "url": "https://imgs.vercapas.com/covers/o-advogado/o-advogado-2012-07-05-6208ef.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-advogado/o-advogado-2012-07-05-6208ef.jpg"
     },
     {
       "id": "diplomatica",
       "nome": "Diplomática",
-      "url": "https://imgs.vercapas.com/covers/diplomatica/diplomatica-2021-09-13-3e1e96-x.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diplomatica/diplomatica-2021-09-13-3e1e96-x.jpg"
     },
     {
       "id": "negocios-franchising",
       "nome": "Negócios & Franchising",
-      "url": "https://imgs.vercapas.com/covers/negocios-e-franchising/negocios-e-franchising-2018-03-05-39fa9e.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/negocios-e-franchising/negocios-e-franchising-2018-03-05-39fa9e.jpg"
     },
     {
       "id": "construir",
       "nome": "Construir",
-      "url": "https://imgs.vercapas.com/covers/construir/2026/construir-2026-01-09-39b95a1f.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/construir/2026/construir-2026-01-09-39b95a1f.jpg"
     },
     {
       "id": "casas-negocios",
       "nome": "Casas & Negócios",
-      "url": "https://imgs.vercapas.com/covers/casas-e-negocios/casas-e-negocios-2012-07-27-c75cb6.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/casas-e-negocios/casas-e-negocios-2012-07-27-c75cb6.jpg"
     },
     {
       "id": "publituris-hotelaria",
       "nome": "Publituris Hotelaria",
-      "url": "https://imgs.vercapas.com/covers/publituris-hotelaria/2025/publituris-hotelaria-2025-12-22-e64ca889.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/publituris-hotelaria/2025/publituris-hotelaria-2025-12-22-e64ca889.jpg"
     },
     {
       "id": "publituris",
       "nome": "Publituris",
-      "url": "https://imgs.vercapas.com/covers/publituris/2026/publituris-2026-01-14-c8ab64ca.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/publituris/2026/publituris-2026-01-14-c8ab64ca.jpg"
     },
     {
       "id": "traco-arquitectura-e-design",
       "nome": "TRAÇO - Arquitectura e Design",
-      "url": "https://imgs.vercapas.com/covers/traco-arquitectura-e-design/2025/traco-arquitectura-e-design-2025-11-28-703840e8.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/traco-arquitectura-e-design/2025/traco-arquitectura-e-design-2025-11-28-703840e8.jpg"
     },
     {
       "id": "hipersuper",
       "nome": "Hipersuper",
-      "url": "https://imgs.vercapas.com/covers/hipersuper/2025/hipersuper-2025-12-19-076c36a3.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/hipersuper/2025/hipersuper-2025-12-19-076c36a3.jpg"
     },
     {
       "id": "forbes-portugal",
       "nome": "Forbes Portugal",
-      "url": "https://imgs.vercapas.com/covers/forbes-portugal/2026/forbes-portugal-2026-01-07-e135f818.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/forbes-portugal/2026/forbes-portugal-2026-01-07-e135f818.jpg"
     }
   ],
   "Regionais": [
     {
       "id": "a-verdade",
       "nome": "A Verdade",
-      "url": "https://imgs.vercapas.com/covers/a-verdade/2025/a-verdade-2025-09-11-d546d913.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/a-verdade/2025/a-verdade-2025-09-11-d546d913.jpg"
     },
     {
       "id": "abarca",
       "nome": "Abarca",
-      "url": "https://imgs.vercapas.com/covers/abarca/2025/abarca-2025-11-30-f2f071e9.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/abarca/2025/abarca-2025-11-30-f2f071e9.jpg"
     },
     {
       "id": "acoriano-oriental",
       "nome": "Açoriano Oriental",
-      "url": "https://imgs.vercapas.com/covers/acoriano-oriental/2026/acoriano-oriental-2026-01-15-beb355cf.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/acoriano-oriental/2026/acoriano-oriental-2026-01-16-d3949f18.jpg"
     },
     {
       "id": "barlavento",
       "nome": "Barlavento",
-      "url": "https://imgs.vercapas.com/covers/barlavento/barlavento-2023-12-20-814fd2.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/barlavento/barlavento-2023-12-20-814fd2.jpg"
     },
     {
       "id": "caminhense",
       "nome": "Caminhense",
-      "url": "https://imgs.vercapas.com/covers/caminhense/2025/caminhense-2025-12-18-7d9a0684.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/caminhense/2025/caminhense-2025-12-18-7d9a0684.jpg"
     },
     {
       "id": "cidade-viva",
       "nome": "Cidade Viva",
-      "url": "https://imgs.vercapas.com/covers/cidade-viva/cidade-viva-2014-07-18-0a1f12.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/cidade-viva/cidade-viva-2014-07-18-0a1f12.jpg"
     },
     {
       "id": "correio-do-minho",
       "nome": "Correio do Minho",
-      "url": "https://imgs.vercapas.com/covers/correio-do-minho/2026/correio-do-minho-2026-01-15-dd3d726f.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/correio-do-minho/2026/correio-do-minho-2026-01-16-182f8b76.jpg"
     },
     {
       "id": "correio-dos-acores",
       "nome": "Correio dos Açores",
-      "url": "https://imgs.vercapas.com/covers/correio-dos-acores/2026/correio-dos-acores-2026-01-15-cdd53b1d.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/correio-dos-acores/2026/correio-dos-acores-2026-01-16-5097084b.jpg"
     },
     {
       "id": "desportivo-transmontano",
       "nome": "Desportivo Transmontano",
-      "url": "https://imgs.vercapas.com/covers/desportivo-transmontano/desportivo-transmontano-2013-05-07-76ebdb.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/desportivo-transmontano/desportivo-transmontano-2013-05-07-76ebdb.jpg"
     },
     {
       "id": "dica-da-semana",
       "nome": "Dica da Semana",
-      "url": "https://imgs.vercapas.com/covers/dica-da-semana/dica-da-semana-2017-11-20-f74efa.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/dica-da-semana/dica-da-semana-2017-11-20-f74efa.jpg"
     },
     {
       "id": "diario-as-beiras",
       "nome": "Diário As Beiras",
-      "url": "https://imgs.vercapas.com/covers/diario-as-beiras/2026/diario-as-beiras-2026-01-15-14b73551.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-as-beiras/2026/diario-as-beiras-2026-01-16-7eca609c.jpg"
     },
     {
       "id": "diario-insular",
       "nome": "Diário Insular",
-      "url": "https://imgs.vercapas.com/covers/diario-insular/2026/diario-insular-2026-01-15-6f1d1c19.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-insular/2026/diario-insular-2026-01-16-74f9d311.jpg"
     },
     {
       "id": "diario-da-regiao",
       "nome": "Diário da Região",
-      "url": "https://imgs.vercapas.com/covers/diario-da-regiao/diario-da-regiao-2022-01-14-1f0980.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-da-regiao/diario-da-regiao-2022-01-14-1f0980.jpg"
     },
     {
       "id": "diario-de-aveiro",
       "nome": "Diário de Aveiro",
-      "url": "https://imgs.vercapas.com/covers/diario-de-aveiro/2026/diario-de-aveiro-2026-01-15-d3f888f7.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-de-aveiro/2026/diario-de-aveiro-2026-01-16-e1517a36.jpg"
     },
     {
       "id": "diario-de-coimbra",
       "nome": "Diário de Coimbra",
-      "url": "https://imgs.vercapas.com/covers/diario-de-coimbra/2026/diario-de-coimbra-2026-01-15-baf56f5b.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-de-coimbra/2026/diario-de-coimbra-2026-01-16-78823964.jpg"
     },
     {
       "id": "diario-de-leiria",
       "nome": "Diário de Leiria",
-      "url": "https://imgs.vercapas.com/covers/diario-de-leiria/2026/diario-de-leiria-2026-01-14-fc02169f.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-de-leiria/2026/diario-de-leiria-2026-01-16-6936b370.jpg"
     },
     {
       "id": "diario-de-noticias-da-madeira",
       "nome": "Diário de Notícias da Madeira",
-      "url": "https://imgs.vercapas.com/covers/diario-de-noticias-da-madeira/2026/diario-de-noticias-da-madeira-2026-01-15-c560c2c2.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-de-noticias-da-madeira/2026/diario-de-noticias-da-madeira-2026-01-16-5d8eddff.jpg"
     },
     {
       "id": "diario-de-viseu",
       "nome": "Diário de Viseu",
-      "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2026/diario-de-viseu-2026-01-15-a370d237.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2026/diario-de-viseu-2026-01-16-43e5e056.jpg"
     },
     {
       "id": "diario-do-alentejo",
       "nome": "Diário do Alentejo",
-      "url": "https://imgs.vercapas.com/covers/diario-do-alentejo/2026/diario-do-alentejo-2026-01-09-e18862cd.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-do-alentejo/2026/diario-do-alentejo-2026-01-16-6dea0fb6.jpg"
     },
     {
       "id": "diario-do-minho",
       "nome": "Diário do Minho",
-      "url": "https://imgs.vercapas.com/covers/diario-do-minho/2026/diario-do-minho-2026-01-15-ed2b1704.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-do-minho/2026/diario-do-minho-2026-01-16-b6e906d0.jpg"
     },
     {
       "id": "diario-do-sul",
       "nome": "Diário do Sul",
-      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-01-15-d40046fb.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-01-15-d40046fb.jpg"
     },
     {
       "id": "diario-dos-acores",
       "nome": "Diário dos Açores",
-      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-01-15-01ac5c38.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-01-16-88d232c1.jpg"
     },
     {
       "id": "foz-do-lima",
       "nome": "Foz do Lima",
-      "url": "https://imgs.vercapas.com/covers/foz-do-lima/foz-do-lima-2016-05-05-7cb676-x.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/foz-do-lima/foz-do-lima-2016-05-05-7cb676-x.jpg"
     },
     {
       "id": "gazeta-das-caldas",
       "nome": "Gazeta das Caldas",
-      "url": "https://imgs.vercapas.com/covers/gazeta-das-caldas/2026/gazeta-das-caldas-2026-01-15-4c71cec9.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/gazeta-das-caldas/2026/gazeta-das-caldas-2026-01-15-4c71cec9.jpg"
     },
     {
       "id": "gazeta-do-interior",
       "nome": "Gazeta do Interior",
-      "url": "https://imgs.vercapas.com/covers/gazeta-do-interior/2026/gazeta-do-interior-2026-01-14-a095d289.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/gazeta-do-interior/2026/gazeta-do-interior-2026-01-14-a095d289.jpg"
     },
     {
       "id": "grande-porto",
       "nome": "Grande Porto",
-      "url": "https://imgs.vercapas.com/covers/grande-porto/grande-porto-2013-10-25-964429.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/grande-porto/grande-porto-2013-10-25-964429.jpg"
     },
     {
       "id": "jornal-e-de-estremoz",
       "nome": "Jornal E de Estremoz",
-      "url": "https://imgs.vercapas.com/covers/jornal-e-de-estremoz/2025/jornal-e-de-estremoz-2025-11-21-c262ea2a.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-e-de-estremoz/2025/jornal-e-de-estremoz-2025-11-21-c262ea2a.jpg"
     },
     {
       "id": "jornal-labor",
       "nome": "Jornal Labor",
-      "url": "https://imgs.vercapas.com/covers/jornal-labor/2026/jornal-labor-2026-01-15-0aac3a32.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-labor/2026/jornal-labor-2026-01-15-0aac3a32.jpg"
     },
     {
       "id": "jornal-o-alcoa",
       "nome": "Jornal O Alcoa",
-      "url": "https://imgs.vercapas.com/covers/jornal-o-alcoa/2026/jornal-o-alcoa-2026-01-02-d75b18d1.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-o-alcoa/2026/jornal-o-alcoa-2026-01-15-0789dfa0.jpg"
     },
     {
       "id": "jornal-o-carrilhao",
       "nome": "Jornal O Carrilhão",
-      "url": "https://imgs.vercapas.com/covers/jornal-o-carrilhao/2026/jornal-o-carrilhao-2026-01-15-7bdfeb04.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-o-carrilhao/2026/jornal-o-carrilhao-2026-01-15-7bdfeb04.jpg"
     },
     {
       "id": "jornal-da-bairrada",
       "nome": "Jornal da Bairrada",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-bairrada/2026/jornal-da-bairrada-2026-01-14-4cd349a3.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-da-bairrada/2026/jornal-da-bairrada-2026-01-14-4cd349a3.jpg"
     },
     {
       "id": "jornal-da-beira",
       "nome": "Jornal da Beira",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-beira/2026/jornal-da-beira-2026-01-08-040e83e9.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-da-beira/2026/jornal-da-beira-2026-01-14-d8a7bda3.jpg"
     },
     {
       "id": "jornal-da-madeira",
       "nome": "Jornal da Madeira",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-madeira/2026/jornal-da-madeira-2026-01-15-0c287be2.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-da-madeira/2026/jornal-da-madeira-2026-01-16-7b6a6be5.jpg"
     },
     {
       "id": "jornal-das-caldas",
       "nome": "Jornal das Caldas",
-      "url": "https://imgs.vercapas.com/covers/jornal-das-caldas/2026/jornal-das-caldas-2026-01-15-b6512ce0.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-das-caldas/2026/jornal-das-caldas-2026-01-15-b6512ce0.jpg"
     },
     {
       "id": "jornal-de-abrantes",
       "nome": "Jornal de Abrantes",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-abrantes/2026/jornal-de-abrantes-2026-01-05-746b6902.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-de-abrantes/2026/jornal-de-abrantes-2026-01-05-746b6902.jpg"
     },
     {
       "id": "jornal-de-barcelos",
       "nome": "Jornal de Barcelos",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-barcelos/jornal-de-barcelos-2022-07-06-335120.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-de-barcelos/jornal-de-barcelos-2022-07-06-335120.jpg"
     },
     {
       "id": "jornal-de-leiria",
       "nome": "Jornal de Leiria",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-leiria/2026/jornal-de-leiria-2026-01-15-b75fd976.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-de-leiria/2026/jornal-de-leiria-2026-01-15-b75fd976.jpg"
     },
     {
       "id": "jornal-de-proenca",
       "nome": "Jornal de Proença",
-      "url": "https://imgs.vercapas.com/covers/jornal-proenca/2025/jornal-proenca-2025-12-17-37a5f25a.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-proenca/2026/jornal-proenca-2026-01-14-6026dd6f.jpg"
     },
     {
       "id": "jornal-de-sintra",
       "nome": "Jornal de Sintra",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-sintra/2026/jornal-de-sintra-2026-01-09-df0da998.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-de-sintra/2026/jornal-de-sintra-2026-01-15-ad7f3d15.jpg"
     },
     {
       "id": "jornal-do-algarve",
       "nome": "Jornal do Algarve",
-      "url": "https://imgs.vercapas.com/covers/jornal-do-algarve/2026/jornal-do-algarve-2026-01-01-7dd44ee1.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-do-algarve/2026/jornal-do-algarve-2026-01-15-d2f85485.jpg"
     },
     {
       "id": "jornal-do-fundao",
       "nome": "Jornal do Fundão",
-      "url": "https://imgs.vercapas.com/covers/jornal-do-fundao/2026/jornal-do-fundao-2026-01-15-d6f8d5ab.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-do-fundao/2026/jornal-do-fundao-2026-01-15-d6f8d5ab.jpg"
     },
     {
       "id": "jornal-do-pico",
       "nome": "Jornal do Pico",
-      "url": "https://imgs.vercapas.com/covers/jornal-do-pico/2025/jornal-do-pico-2025-10-14-d3ceb674.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-do-pico/2025/jornal-do-pico-2025-10-14-d3ceb674.jpg"
     },
     {
       "id": "jornal-o-interior",
       "nome": "Jornal o Interior",
-      "url": "https://imgs.vercapas.com/covers/jornal-o-interior/2026/jornal-o-interior-2026-01-14-d08ce000.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/jornal-o-interior/2026/jornal-o-interior-2026-01-14-d08ce000.jpg"
     },
     {
       "id": "linhas-de-elvas",
       "nome": "Linhas de Elvas",
-      "url": "https://imgs.vercapas.com/covers/linhas-de-elvas/2026/linhas-de-elvas-2026-01-15-45a7c2a9.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/linhas-de-elvas/2026/linhas-de-elvas-2026-01-15-45a7c2a9.jpg"
     },
     {
       "id": "moscavide-portela",
       "nome": "Moscavide Portela ",
-      "url": "https://imgs.vercapas.com/covers/moscavide-portela/moscavide-portela-2019-12-21-1bde41.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/moscavide-portela/moscavide-portela-2019-12-21-1bde41.jpg"
     },
     {
       "id": "noticias-da-covilha",
       "nome": "Notícias da Covilhã",
-      "url": "https://imgs.vercapas.com/covers/noticias-da-covilha/2025/noticias-da-covilha-2025-12-17-fc315e4c.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/noticias-da-covilha/2025/noticias-da-covilha-2025-12-17-fc315e4c.jpg"
     },
     {
       "id": "noticias-de-fatima",
       "nome": "Notícias de Fátima",
-      "url": "https://imgs.vercapas.com/covers/noticias-de-fatima/2025/noticias-de-fatima-2025-12-22-c33279b2.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/noticias-de-fatima/2026/noticias-de-fatima-2026-01-09-020e57ab.jpg"
     },
     {
       "id": "noticias-de-loures",
       "nome": "Notícias de Loures",
-      "url": "https://imgs.vercapas.com/covers/noticias-de-loures/noticias-de-loures-2025-07-06-eaa193.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/noticias-de-loures/noticias-de-loures-2025-07-06-eaa193.jpg"
     },
     {
       "id": "noticias-de-oeiras",
       "nome": "Notícias de Oeiras",
-      "url": "https://imgs.vercapas.com/covers/correio-de-oeiras/2025/correio-de-oeiras-2025-10-29-7f6f53a6.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/correio-de-oeiras/2025/correio-de-oeiras-2025-10-29-7f6f53a6.jpg"
     },
     {
       "id": "o-almeirinense",
       "nome": "O Almeirinense",
-      "url": "https://imgs.vercapas.com/covers/o-almeirinense/2025/o-almeirinense-2025-11-15-bdb0cf16.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-almeirinense/2025/o-almeirinense-2025-11-15-bdb0cf16.jpg"
     },
     {
       "id": "o-basto",
       "nome": "O Basto",
-      "url": "https://imgs.vercapas.com/covers/o-basto/2025/o-basto-2025-12-23-a25aa118.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-basto/2025/o-basto-2025-12-23-a25aa118.jpg"
     },
     {
       "id": "o-comercio-de-baiao",
       "nome": "O Comércio de Baião",
-      "url": "https://imgs.vercapas.com/covers/o-comercio-de-baiao/2026/o-comercio-de-baiao-2026-01-13-fb24bd37.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-comercio-de-baiao/2026/o-comercio-de-baiao-2026-01-13-fb24bd37.jpg"
     },
     {
       "id": "o-comercio-de-guimaraes",
       "nome": "O Comércio de Guimarães",
-      "url": "https://imgs.vercapas.com/covers/o-comercio-de-guimaraes/2026/o-comercio-de-guimaraes-2026-01-14-be336900.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-comercio-de-guimaraes/2026/o-comercio-de-guimaraes-2026-01-14-be336900.jpg"
     },
     {
       "id": "o-gaiense",
       "nome": "O Gaiense",
-      "url": "https://imgs.vercapas.com/covers/o-gaiense/2026/o-gaiense-2026-01-10-6daca1de.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-gaiense/2026/o-gaiense-2026-01-10-6daca1de.jpg"
     },
     {
       "id": "o-jornal-de-estarreja",
       "nome": "O Jornal de Estarreja",
-      "url": "https://imgs.vercapas.com/covers/o-jornal-de-estarreja/o-jornal-de-estarreja-2021-01-22-03a3d9.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-jornal-de-estarreja/o-jornal-de-estarreja-2021-01-22-03a3d9.jpg"
     },
     {
       "id": "o-povo-famalicense",
       "nome": "O Povo Famalicense",
-      "url": "https://imgs.vercapas.com/covers/o-povo-famalicense/2026/o-povo-famalicense-2026-01-14-eba4d731.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-povo-famalicense/2026/o-povo-famalicense-2026-01-14-eba4d731.jpg"
     },
     {
       "id": "o-ribatejo",
       "nome": "O Ribatejo",
-      "url": "https://imgs.vercapas.com/covers/o-ribatejo/o-ribatejo-2018-07-13-06b2d8.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-ribatejo/o-ribatejo-2018-07-13-06b2d8.jpg"
     },
     {
       "id": "o-setubalense",
       "nome": "O Setubalense",
-      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-01-15-337c7723-x.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-01-16-ba456c73-x.jpg"
     },
     {
       "id": "povo-da-beira",
       "nome": "Povo da Beira",
-      "url": "https://imgs.vercapas.com/covers/povo-da-beira/povo-da-beira-2020-03-25-c4ed8e.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/povo-da-beira/povo-da-beira-2020-03-25-c4ed8e.jpg"
     },
     {
       "id": "praca-publica",
       "nome": "Praça Pública",
-      "url": "https://imgs.vercapas.com/covers/praca-publica/praca-publica-2013-11-14-a4e987.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/praca-publica/praca-publica-2013-11-14-a4e987.jpg"
     },
     {
       "id": "reconquista",
       "nome": "Reconquista",
-      "url": "https://imgs.vercapas.com/covers/reconquista/2026/reconquista-2026-01-15-41f0dc30.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/reconquista/2026/reconquista-2026-01-15-41f0dc30.jpg"
     },
     {
       "id": "reflexo",
       "nome": "Reflexo",
-      "url": "https://imgs.vercapas.com/covers/reflexo/2025/reflexo-2025-11-01-0b244663.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/reflexo/2025/reflexo-2025-11-01-0b244663.jpg"
     },
     {
       "id": "regiao-de-leiria",
       "nome": "Região de Leiria",
-      "url": "https://imgs.vercapas.com/covers/regiao-de-leiria/2026/regiao-de-leiria-2026-01-15-27d425fc.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/regiao-de-leiria/2026/regiao-de-leiria-2026-01-15-27d425fc.jpg"
     },
     {
       "id": "regiao-de-agueda",
       "nome": "Região de Águeda",
-      "url": "https://imgs.vercapas.com/covers/regiao-de-agueda/regiao-de-agueda-2022-11-23-15a26c.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/regiao-de-agueda/regiao-de-agueda-2022-11-23-15a26c.jpg"
     },
     {
       "id": "rostos",
       "nome": "Rostos",
-      "url": "https://imgs.vercapas.com/covers/rostos/rostos-2023-12-21-2ab0ce-x.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/rostos/rostos-2023-12-21-2ab0ce-x.jpg"
     },
     {
       "id": "sem-mais-jornal",
       "nome": "Sem Mais Jornal",
-      "url": "https://imgs.vercapas.com/covers/sem-mais-jornal/sem-mais-jornal-2024-09-13-9197e4.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/sem-mais-jornal/sem-mais-jornal-2024-09-13-9197e4.jpg"
     },
     {
       "id": "tribuna-desportiva",
       "nome": "Tribuna Desportiva",
-      "url": "https://imgs.vercapas.com/covers/tribuna-desportiva/2026/tribuna-desportiva-2026-01-12-2ec911f0.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/tribuna-desportiva/2026/tribuna-desportiva-2026-01-12-2ec911f0.jpg"
     },
     {
       "id": "tribuna-da-madeira",
       "nome": "Tribuna da Madeira",
-      "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-01-09-9ee11377.jpg",
-      "news": null
+      "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-01-09-9ee11377.jpg"
     }
   ]
 }
