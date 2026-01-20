@@ -1,6 +1,7 @@
 package com.joaobzao.capas.network
 
 import com.joaobzao.capas.capas.CapasResponse
+import com.joaobzao.capas.capas.DigestResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
