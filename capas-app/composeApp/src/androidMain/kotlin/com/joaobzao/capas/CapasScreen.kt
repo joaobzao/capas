@@ -260,7 +260,14 @@ fun CapasScreen(
                     itemInfos.clear()
                 }
 
+                val gridState = androidx.compose.foundation.lazy.grid.rememberLazyGridState()
+
+                LaunchedEffect(selectedCategory) {
+                    gridState.scrollToItem(0)
+                }
+
                 LazyVerticalGrid(
+                    state = gridState,
                     columns = GridCells.Adaptive(minSize = 160.dp),
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = PaddingValues(24.dp),
