@@ -1,3 +1,5 @@
+package com.joaobzao.capas
+
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
@@ -14,6 +16,8 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -93,7 +97,9 @@ fun CapasScreen(
     var lastSwapTime by remember { mutableLongStateOf(0L) }
 
     // Item positions and sizes
-    val itemInfos = remember { mutableStateMapOf<String, ItemInfo>() }
+    // Item positions and sizes
+    // Scoped per page now
+
 
     val density = LocalDensity.current
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp.value
@@ -192,6 +198,17 @@ fun CapasScreen(
                 }
             }
 
+            // Sync Pager <-> Tabs
+            val pagerState = rememberPagerState(pageCount = { CapasCategory.entries.size })
+            
+            LaunchedEffect(selectedCategory) {
+               pagerState.animateScrollToPage(selectedCategory.ordinal)
+            }
+            
+            LaunchedEffect(pagerState.currentPage) {
+                selectedCategory = CapasCategory.entries[pagerState.currentPage]
+            }
+
             // Minimalist Category Picker
             LazyRow(
                 modifier = Modifier
@@ -211,7 +228,10 @@ fun CapasScreen(
                             .clickable(
                                 interactionSource = remember { MutableInteractionSource() },
                                 indication = null
-                            ) { selectedCategory = category }
+                            ) { 
+                                selectedCategory = category 
+                                scope.launch { pagerState.animateScrollToPage(index) }
+                            }
                     ) {
                         Text(
                             text = stringResource(category.labelResId),
@@ -242,138 +262,127 @@ fun CapasScreen(
                     .shadow(elevation = 4.dp)
             )
 
-            // Grid
+            // Horizontal Pager
             state.capas?.let { capasResponse ->
-                val capasForCategory = when (selectedCategory) {
-                    CapasCategory.NATIONAL -> capasResponse.mainNewspapers
-                    CapasCategory.SPORT -> capasResponse.sportNewspapers
-                    CapasCategory.ECONOMY -> capasResponse.economyNewspapers
-                    CapasCategory.REGIONAL -> capasResponse.regionalNewspapers
-                }
-
-                // Local state for optimistic reordering
-                var localCapas by remember { mutableStateOf(capasForCategory) }
-
-                // Sync local state when category or source data changes
-                LaunchedEffect(capasForCategory) {
-                    localCapas = capasForCategory
-                    itemInfos.clear()
-                }
-
-                val gridState = androidx.compose.foundation.lazy.grid.rememberLazyGridState()
-
-                LaunchedEffect(selectedCategory) {
-                    gridState.scrollToItem(0)
-                }
-
-                LazyVerticalGrid(
-                    state = gridState,
-                    columns = GridCells.Adaptive(minSize = 160.dp),
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(24.dp),
-                    verticalArrangement = Arrangement.spacedBy(24.dp),
-                    horizontalArrangement = Arrangement.spacedBy(24.dp),
-                    userScrollEnabled = draggingCapa == null
-                ) {
-                    items(localCapas, key = { it.id }) { capa ->
-                        CapaGridItemDraggable(
-                            modifier = Modifier.animateItem(
-                                placementSpec = spring(
-                                    dampingRatio = 0.75f,
-                                    stiffness = 600f
-                                )
-                            ),
-                            capa = capa,
-                            isDragging = draggingCapa?.id == capa.id,
-                            onClick = onCapaClick,
-                            onDragStart = {
-                                draggingCapa = capa
-                                val info = itemInfos[capa.id]
-                                startOffset = info?.position ?: Offset.Zero
-                                previewSize = info?.size ?: DpSize.Zero
-                                dragOffset = Offset.Zero
-                                isShrinking = false
-                            },
-                            onDrag = { offset -> 
-                                dragOffset += offset
-                                
-                                // Reordering Logic
-                                val currentDragPosition = startOffset + dragOffset + Offset(previewSize.width.value / 2, previewSize.height.value / 2)
-                                
-                                // Find item under drag position
-                                val targetItem = itemInfos.entries.firstOrNull { (id, info) ->
-                                    id != draggingCapa?.id &&
-                                    currentDragPosition.x >= info.position.x &&
-                                    currentDragPosition.x <= info.position.x + info.size.width.value &&
-                                    currentDragPosition.y >= info.position.y &&
-                                    currentDragPosition.y <= info.position.y + info.size.height.value
-                                }?.key
-
-                                if (targetItem != null && draggingCapa != null) {
-                                    val currentTime = System.currentTimeMillis()
-                                    if (currentTime - lastSwapTime > 250) {
-                                        val fromIndex = localCapas.indexOfFirst { it.id == draggingCapa!!.id }
-                                        val toIndex = localCapas.indexOfFirst { it.id == targetItem }
+                HorizontalPager(
+                    state = pagerState,
+                    modifier = Modifier.fillMaxSize()
+                ) { page ->
+                    val category = CapasCategory.entries[page]
+                    val capasForCategory = when (category) {
+                        CapasCategory.NATIONAL -> capasResponse.mainNewspapers
+                        CapasCategory.SPORT -> capasResponse.sportNewspapers
+                        CapasCategory.ECONOMY -> capasResponse.economyNewspapers
+                        CapasCategory.REGIONAL -> capasResponse.regionalNewspapers
+                    }
+    
+                    // Local state for optimistic reordering (Scoped to Page)
+                    var localCapas by remember(capasForCategory) { mutableStateOf(capasForCategory) }
+                    val itemInfos = remember { mutableStateMapOf<String, ItemInfo>() }
+    
+                    val gridState = androidx.compose.foundation.lazy.grid.rememberLazyGridState()
+    
+                    LazyVerticalGrid(
+                        state = gridState,
+                        columns = GridCells.Adaptive(minSize = 160.dp),
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(24.dp),
+                        verticalArrangement = Arrangement.spacedBy(24.dp),
+                        horizontalArrangement = Arrangement.spacedBy(24.dp),
+                        userScrollEnabled = draggingCapa == null
+                    ) {
+                        items(localCapas, key = { it.id }) { capa ->
+                            CapaGridItemDraggable(
+                                modifier = Modifier.animateItem(
+                                    placementSpec = spring(
+                                        dampingRatio = 0.75f,
+                                        stiffness = 600f
+                                    )
+                                ),
+                                capa = capa,
+                                isDragging = draggingCapa?.id == capa.id,
+                                onClick = onCapaClick,
+                                onDragStart = {
+                                    draggingCapa = capa
+                                    val info = itemInfos[capa.id]
+                                    startOffset = info?.position ?: Offset.Zero
+                                    previewSize = info?.size ?: DpSize.Zero
+                                    dragOffset = Offset.Zero
+                                    isShrinking = false
+                                },
+                                onDrag = { offset -> 
+                                    dragOffset += offset
                                     
-                                    if (fromIndex != -1 && toIndex != -1 && fromIndex != toIndex) {
-                                        val mutableList = localCapas.toMutableList()
-                                        mutableList.add(toIndex, mutableList.removeAt(fromIndex))
-                                        localCapas = mutableList
-                                        lastSwapTime = currentTime
-
-                                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                                    // Reordering Logic
+                                    val currentDragPosition = startOffset + dragOffset + Offset(previewSize.width.value / 2, previewSize.height.value / 2)
+                                    
+                                    // Find item under drag position
+                                    val targetItem = itemInfos.entries.firstOrNull { (id, info) ->
+                                        id != draggingCapa?.id &&
+                                        currentDragPosition.x >= info.position.x &&
+                                        currentDragPosition.x <= info.position.x + info.size.width.value &&
+                                        currentDragPosition.y >= info.position.y &&
+                                        currentDragPosition.y <= info.position.y + info.size.height.value
+                                    }?.key
+    
+                                    if (targetItem != null && draggingCapa != null) {
+                                        val currentTime = System.currentTimeMillis()
+                                        if (currentTime - lastSwapTime > 250) {
+                                            val fromIndex = localCapas.indexOfFirst { it.id == draggingCapa!!.id }
+                                            val toIndex = localCapas.indexOfFirst { it.id == targetItem }
                                         
-                                        // Update startOffset to the new position to keep the drag relative
-                                        // Actually, if we swap, the item in the grid moves.
-                                        // But the drag ghost is separate.
-                                        // However, we rely on `onDragStart` setting `startOffset` from `itemInfos`.
-                                        // If grid re-composes, `itemInfos` updates?
-                                        // `onPositioned` will update `itemInfos`.
-                                        // But we assume the layout shift happens.
-                                    }
-                                    }
-                                    }
-
-                            },
-                            onDragEnd = {
-                                if (isOverTrash && draggingCapa != null) {
-                                    val removed = draggingCapa!!
-                                    isShrinking = true
-                                    itemInfos.remove(removed.id)
-                                    viewModel.removeCapa(removed)
-                                    scope.launch {
-                                        val result = snackbarHostState.showSnackbar(
-                                            message = "${removed.nome} removida",
-                                            actionLabel = "Anular",
-                                            duration = SnackbarDuration.Short
-                                        )
-                                        if (result == SnackbarResult.ActionPerformed) {
-                                            viewModel.restoreCapa(removed)
+                                            if (fromIndex != -1 && toIndex != -1 && fromIndex != toIndex) {
+                                                val mutableList = localCapas.toMutableList()
+                                                mutableList.add(toIndex, mutableList.removeAt(fromIndex))
+                                                localCapas = mutableList
+                                                lastSwapTime = currentTime
+    
+                                                haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                                            }
                                         }
                                     }
-                                } else {
-                                    // Save new order
-                                    if (draggingCapa != null) {
-                                        viewModel.updateCapaOrder(localCapas)
+    
+                                },
+                                onDragEnd = {
+                                    if (isOverTrash && draggingCapa != null) {
+                                        val removed = draggingCapa!!
+                                        isShrinking = true
+                                        itemInfos.remove(removed.id)
+                                        viewModel.removeCapa(removed)
+                                        scope.launch {
+                                            val result = snackbarHostState.showSnackbar(
+                                                message = "${removed.nome} removida",
+                                                actionLabel = "Anular",
+                                                duration = SnackbarDuration.Short
+                                            )
+                                            if (result == SnackbarResult.ActionPerformed) {
+                                                viewModel.restoreCapa(removed)
+                                            }
+                                        }
+                                    } else {
+                                        // Save new order
+                                        if (draggingCapa != null) {
+                                            viewModel.updateCapaOrder(localCapas)
+                                        }
+                                        
+                                        draggingCapa = null
+                                        dragOffset = Offset.Zero
+                                        startOffset = Offset.Zero
+                                        previewSize = DpSize.Zero
+                                        isOverTrash = false
+                                        isShrinking = false
                                     }
-                                    
-                                    draggingCapa = null
-                                    dragOffset = Offset.Zero
-                                    startOffset = Offset.Zero
-                                    previewSize = DpSize.Zero
-                                    isOverTrash = false
-                                    isShrinking = false
+                                },
+                                onPositioned = { coords ->
+                                    val pos = coords.localToWindow(Offset.Zero)
+                                    val size = with(density) { coords.size.toSize().toDpSize() }
+                                    itemInfos[capa.id] = ItemInfo(pos, size)
                                 }
-                            },
-                            onPositioned = { coords ->
-                                val pos = coords.localToWindow(Offset.Zero)
-                                val size = with(density) { coords.size.toSize().toDpSize() }
-                                itemInfos[capa.id] = ItemInfo(pos, size)
-                            }
-                        )
+                            )
+                        }
+                        
+                        item { Spacer(modifier = Modifier.height(80.dp)) } // Space for trash
                     }
-                    
-                    item { Spacer(modifier = Modifier.height(80.dp)) } // Space for trash
                 }
             } ?: Box(
                 modifier = Modifier.fillMaxSize(),
@@ -595,78 +604,4 @@ fun CapasScreen(
     }
 }
 
-@Composable
-fun CapaGridItemDraggable(
-    capa: Capa,
-    isDragging: Boolean,
-    modifier: Modifier = Modifier,
-    onClick: (Capa) -> Unit,
-    onDragStart: () -> Unit,
-    onDrag: (Offset) -> Unit,
-    onDragEnd: () -> Unit,
-    onPositioned: (LayoutCoordinates) -> Unit
-) {
-    val alpha by animateFloatAsState(
-        targetValue = if (isDragging) 0f else 1f,
-        label = "item-alpha"
-    )
 
-    Card(
-        onClick = { onClick(capa) },
-        shape = RoundedCornerShape(20.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        modifier = modifier
-            .fillMaxWidth()
-            .aspectRatio(0.75f)
-            .graphicsLayer { this.alpha = alpha }
-            .onGloballyPositioned { coords -> onPositioned(coords) }
-            .pointerInput(Unit) {
-                detectDragGesturesAfterLongPress(
-                    onDragStart = { onDragStart() },
-                    onDragEnd = { onDragEnd() },
-                    onDragCancel = { onDragEnd() },
-                    onDrag = { change, dragAmount ->
-                        change.consume()
-                        onDrag(dragAmount)
-                    }
-                )
-            }
-    ) {
-        Box(modifier = Modifier.fillMaxSize()) {
-            AsyncImage(
-                model = capa.url,
-                contentDescription = capa.nome,
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop
-            )
-            
-            // Gradient Overlay
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(
-                        Brush.verticalGradient(
-                            colors = listOf(
-                                Color.Transparent,
-                                Color.Black.copy(alpha = 0.8f)
-                            ),
-                            startY = 200f
-                        )
-                    )
-            )
-            
-            Text(
-                text = capa.nome,
-                style = MaterialTheme.typography.labelLarge.copy(
-                    fontFamily = FontFamily.Serif,
-                    fontWeight = FontWeight.Bold
-                ),
-                color = Color.White,
-                maxLines = 2,
-                modifier = Modifier
-                    .align(Alignment.BottomStart)
-                    .padding(16.dp)
-            )
-        }
-    }
-}

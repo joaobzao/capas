@@ -1,6 +1,5 @@
 package com.joaobzao.capas.navigation
 
-import CapasScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -17,6 +16,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.analytics
 import com.google.firebase.analytics.logEvent
+import com.joaobzao.capas.CapasScreen
 
 @Composable
 fun CapasNavHost(
