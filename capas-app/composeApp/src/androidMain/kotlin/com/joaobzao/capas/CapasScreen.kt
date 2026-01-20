@@ -200,9 +200,11 @@ fun CapasScreen(
 
             // Sync Pager <-> Tabs
             val pagerState = rememberPagerState(pageCount = { CapasCategory.entries.size })
+            val tabRowState = androidx.compose.foundation.lazy.rememberLazyListState()
             
             LaunchedEffect(selectedCategory) {
                pagerState.animateScrollToPage(selectedCategory.ordinal)
+               tabRowState.animateScrollToItem(selectedCategory.ordinal)
             }
             
             LaunchedEffect(pagerState.currentPage) {
@@ -211,6 +213,7 @@ fun CapasScreen(
 
             // Minimalist Category Picker
             LazyRow(
+                state = tabRowState,
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(MaterialTheme.colorScheme.surface)
