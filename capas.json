@@ -73,11 +73,6 @@
   ],
   "Desporto": [
     {
-      "id": "a-bola",
-      "nome": "A Bola",
-      "url": "https://imgs.vercapas.com/covers/a-bola/2026/a-bola-2026-02-20-5a65abbf.jpg"
-    },
-    {
       "id": "record",
       "nome": "Record",
       "url": "https://imgs.vercapas.com/covers/record/2026/record-2026-02-20-cba054b3.jpg"
