@@ -30,6 +30,7 @@ struct CapasScreen: View {
     @State private var isDragging = false
     @State private var isOverTrash = false
     @State private var activeDropTargetCount = 0
+    @State private var draggedCapaId: String? = nil
     
     let columns = [
         GridItem(.adaptive(minimum: 160), spacing: 24)
@@ -135,6 +136,7 @@ struct CapasScreen: View {
                                     capa: capa,
                                     isDragging: $isDragging,
                                     activeDropTargetCount: $activeDropTargetCount,
+                                    draggedCapaId: $draggedCapaId,
                                     isOverTrash: $isOverTrash,
                                     localCapas: $localCapas,
                                     viewModelWrapper: viewModelWrapper,
@@ -194,6 +196,7 @@ struct CapasScreen: View {
                         
                         isDragging = false
                         activeDropTargetCount = 0
+                        draggedCapaId = nil
                         
                         let generator = UINotificationFeedbackGenerator()
                         generator.notificationOccurred(.success)
@@ -405,6 +408,7 @@ struct DraggableCapaGridItem: View {
     let capa: Capa
     @Binding var isDragging: Bool
     @Binding var activeDropTargetCount: Int
+    @Binding var draggedCapaId: String?
     @Binding var isOverTrash: Bool
     @Binding var localCapas: [Capa]
     @ObservedObject var viewModelWrapper: CapasViewModelWrapper
@@ -416,29 +420,20 @@ struct DraggableCapaGridItem: View {
         }
         .buttonStyle(PlainButtonStyle())
         .matchedGeometryEffect(id: capa.id, in: animation)
+        .opacity(draggedCapaId == capa.id ? 0.5 : 1.0)
         .onDrag {
             // Don't set isDragging here — it fires spuriously on view recreation.
             // isDragging is set via isTargeted on drop destinations instead.
+            draggedCapaId = capa.id
             return NSItemProvider(object: capa.id as NSString)
         }
         .dropDestination(for: String.self) { droppedIds, location in
-            guard let draggedId = droppedIds.first,
-                  let fromIndex = localCapas.firstIndex(where: { $0.id == draggedId }),
-                  let toIndex = localCapas.firstIndex(where: { $0.id == capa.id }),
-                  fromIndex != toIndex else {
-                return false
-            }
-            
+            // Drop completed — save the final order (swaps already happened live)
             isDragging = false
             activeDropTargetCount = 0
-            
-            withAnimation(.spring()) {
-                let movedCapa = localCapas.remove(at: fromIndex)
-                localCapas.insert(movedCapa, at: toIndex)
-            }
-            
-            // Save the new order to the ViewModel
+            draggedCapaId = nil
             viewModelWrapper.updateCapaOrder(localCapas)
+            
             let generator = UISelectionFeedbackGenerator()
             generator.selectionChanged()
             
@@ -447,6 +442,19 @@ struct DraggableCapaGridItem: View {
             activeDropTargetCount += targeted ? 1 : -1
             if activeDropTargetCount > 0 {
                 isDragging = true
+            }
+            
+            // Live reorder: swap items as the drag moves over them
+            if targeted,
+               let draggedId = draggedCapaId,
+               draggedId != capa.id,
+               let fromIndex = localCapas.firstIndex(where: { $0.id == draggedId }),
+               let toIndex = localCapas.firstIndex(where: { $0.id == capa.id }) {
+                withAnimation(.spring()) {
+                    localCapas.move(fromOffsets: IndexSet(integer: fromIndex), toOffset: toIndex > fromIndex ? toIndex + 1 : toIndex)
+                }
+                let generator = UISelectionFeedbackGenerator()
+                generator.selectionChanged()
             }
         }
         
