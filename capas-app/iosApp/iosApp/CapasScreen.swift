@@ -1,6 +1,7 @@
 import SwiftUI
 import Shared
 import UIKit
+import UniformTypeIdentifiers
 
 enum CapasCategory: CaseIterable {
     case national
@@ -26,6 +27,7 @@ struct CapasScreen: View {
     @Namespace private var animation
     
     // Drag state
+    @State private var isDragging = false
     @State private var isOverTrash = false
     
     let columns = [
@@ -41,6 +43,7 @@ struct CapasScreen: View {
                 // Premium Background
                 Color(uiColor: .systemGroupedBackground)
                     .ignoresSafeArea()
+                    .onDrop(of: [.text], delegate: DragEndDetector(isDragging: $isDragging))
                 
                 VStack(spacing: 0) {
                     // Custom Header
@@ -129,6 +132,7 @@ struct CapasScreen: View {
                                 ForEach(localCapas, id: \.id) { capa in
                                 DraggableCapaGridItem(
                                     capa: capa,
+                                    isDragging: $isDragging,
                                     isOverTrash: $isOverTrash,
                                     localCapas: $localCapas,
                                     viewModelWrapper: viewModelWrapper,
@@ -154,9 +158,7 @@ struct CapasScreen: View {
                     }
                 }
                 
-                // Trash Drop Zone
-                // Show trash icon conditionally based on whether dragging is happening, or always show.
-                // Using DropDestination directly on the trash zone makes it visible/highlighted when dropped over
+                // Trash Drop Zone — visible only while dragging (uses opacity to stay in view tree)
                 VStack {
                     Spacer()
                     ZStack {
@@ -188,6 +190,8 @@ struct CapasScreen: View {
                             }
                         }
                         
+                        isDragging = false
+                        
                         let generator = UINotificationFeedbackGenerator()
                         generator.notificationOccurred(.success)
                         
@@ -199,6 +203,9 @@ struct CapasScreen: View {
                     }
                 }
                 .edgesIgnoringSafeArea(.bottom)
+                .opacity(isDragging ? 1 : 0)
+                .offset(y: isDragging ? 0 : 100)
+                .animation(.spring(), value: isDragging)
 
                 
                 // Native Draggable Overlay is handled automatically by SwiftUI
@@ -389,6 +396,7 @@ struct RemovedCapasSheet: View {
 
 struct DraggableCapaGridItem: View {
     let capa: Capa
+    @Binding var isDragging: Bool
     @Binding var isOverTrash: Bool
     @Binding var localCapas: [Capa]
     @ObservedObject var viewModelWrapper: CapasViewModelWrapper
@@ -400,10 +408,9 @@ struct DraggableCapaGridItem: View {
         }
         .buttonStyle(PlainButtonStyle())
         .matchedGeometryEffect(id: capa.id, in: animation)
-        .draggable(capa.id) {
-            CapaItem(capa: capa)
-                .frame(width: 160, height: 240) // Approximate CapaItem size for preview
-                .opacity(0.8)
+        .onDrag {
+            isDragging = true
+            return NSItemProvider(object: capa.id as NSString)
         }
         .dropDestination(for: String.self) { droppedIds, location in
             guard let draggedId = droppedIds.first,
@@ -418,6 +425,8 @@ struct DraggableCapaGridItem: View {
                 localCapas.insert(movedCapa, at: toIndex)
             }
             
+            isDragging = false
+            
             // Save the new order to the ViewModel
             viewModelWrapper.updateCapaOrder(localCapas)
             let generator = UISelectionFeedbackGenerator()
@@ -428,5 +437,28 @@ struct DraggableCapaGridItem: View {
             // Optional: visual feedback when reordering
         }
         
+    }
+}
+
+/// Catches any drag that ends without landing on a specific drop target (e.g. cancelled drags)
+struct DragEndDetector: DropDelegate {
+    @Binding var isDragging: Bool
+    
+    func performDrop(info: DropInfo) -> Bool {
+        withAnimation(.spring()) {
+            isDragging = false
+        }
+        return false
+    }
+    
+    func dropUpdated(info: DropInfo) -> DropProposal? {
+        // Return .cancel so this background zone doesn't interfere with child drop targets
+        return DropProposal(operation: .cancel)
+    }
+    
+    func dropExited(info: DropInfo) {
+        withAnimation(.spring()) {
+            isDragging = false
+        }
     }
 }
