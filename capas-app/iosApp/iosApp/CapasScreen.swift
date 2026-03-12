@@ -220,6 +220,11 @@ struct CapasScreen: View {
                 
                 // Native Draggable Overlay is handled automatically by SwiftUI
             }
+            .onChange(of: isDragging) { newValue in
+                if !newValue {
+                    draggedCapaId = nil
+                }
+            }
             .navigationBarHidden(true)
             .sheet(isPresented: $showRemoved) {
                 RemovedCapasSheet(viewModelWrapper: viewModelWrapper)
@@ -420,7 +425,7 @@ struct DraggableCapaGridItem: View {
         }
         .buttonStyle(PlainButtonStyle())
         .matchedGeometryEffect(id: capa.id, in: animation)
-        .opacity(draggedCapaId == capa.id ? 0.5 : 1.0)
+        .opacity(draggedCapaId == capa.id && isDragging ? 0.5 : 1.0)
         .onDrag {
             // Don't set isDragging here — it fires spuriously on view recreation.
             // isDragging is set via isTargeted on drop destinations instead.
