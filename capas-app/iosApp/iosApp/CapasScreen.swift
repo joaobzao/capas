@@ -29,6 +29,7 @@ struct CapasScreen: View {
     // Drag state
     @State private var isDragging = false
     @State private var isOverTrash = false
+    @State private var activeDropTargetCount = 0
     
     let columns = [
         GridItem(.adaptive(minimum: 160), spacing: 24)
@@ -133,6 +134,7 @@ struct CapasScreen: View {
                                 DraggableCapaGridItem(
                                     capa: capa,
                                     isDragging: $isDragging,
+                                    activeDropTargetCount: $activeDropTargetCount,
                                     isOverTrash: $isOverTrash,
                                     localCapas: $localCapas,
                                     viewModelWrapper: viewModelWrapper,
@@ -191,6 +193,7 @@ struct CapasScreen: View {
                         }
                         
                         isDragging = false
+                        activeDropTargetCount = 0
                         
                         let generator = UINotificationFeedbackGenerator()
                         generator.notificationOccurred(.success)
@@ -199,6 +202,10 @@ struct CapasScreen: View {
                     } isTargeted: { targeted in
                         withAnimation(.spring()) {
                             isOverTrash = targeted
+                        }
+                        activeDropTargetCount += targeted ? 1 : -1
+                        if activeDropTargetCount > 0 {
+                            isDragging = true
                         }
                     }
                 }
@@ -397,6 +404,7 @@ struct RemovedCapasSheet: View {
 struct DraggableCapaGridItem: View {
     let capa: Capa
     @Binding var isDragging: Bool
+    @Binding var activeDropTargetCount: Int
     @Binding var isOverTrash: Bool
     @Binding var localCapas: [Capa]
     @ObservedObject var viewModelWrapper: CapasViewModelWrapper
@@ -409,7 +417,8 @@ struct DraggableCapaGridItem: View {
         .buttonStyle(PlainButtonStyle())
         .matchedGeometryEffect(id: capa.id, in: animation)
         .onDrag {
-            isDragging = true
+            // Don't set isDragging here — it fires spuriously on view recreation.
+            // isDragging is set via isTargeted on drop destinations instead.
             return NSItemProvider(object: capa.id as NSString)
         }
         .dropDestination(for: String.self) { droppedIds, location in
@@ -420,12 +429,13 @@ struct DraggableCapaGridItem: View {
                 return false
             }
             
+            isDragging = false
+            activeDropTargetCount = 0
+            
             withAnimation(.spring()) {
                 let movedCapa = localCapas.remove(at: fromIndex)
                 localCapas.insert(movedCapa, at: toIndex)
             }
-            
-            isDragging = false
             
             // Save the new order to the ViewModel
             viewModelWrapper.updateCapaOrder(localCapas)
@@ -434,7 +444,10 @@ struct DraggableCapaGridItem: View {
             
             return true
         } isTargeted: { targeted in
-            // Optional: visual feedback when reordering
+            activeDropTargetCount += targeted ? 1 : -1
+            if activeDropTargetCount > 0 {
+                isDragging = true
+            }
         }
         
     }
