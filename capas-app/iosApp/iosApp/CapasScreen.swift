@@ -33,7 +33,7 @@ struct CapasScreen: View {
     @State private var draggedCapaId: String? = nil
     
     let columns = [
-        GridItem(.adaptive(minimum: 160), spacing: 24)
+        GridItem(.adaptive(minimum: 130), spacing: 24)
     ]
     
     // Local state for optimistic reordering
