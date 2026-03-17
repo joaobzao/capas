@@ -1,0 +1,33 @@
+/* App */
+"app_name" = "Capas";
+
+/* Categories */
+"category_national" = "Generalistas";
+"category_sport" = "Desporto";
+"category_economy" = "Economia e Gestão";
+"category_regional" = "Regionais";
+
+/* Titles */
+"title_about" = "Sobre";
+"title_recover_capas" = "Recuperar Capas";
+"title_contacts" = "Contactos";
+"title_capas_update" = "Atualização das Capas";
+
+/* Actions */
+"action_view_removed" = "Ver capas removidas";
+"action_close" = "Fechar";
+"action_undo" = "Anular";
+"action_remove" = "Remover";
+"action_restore" = "Restaurar";
+
+/* Messages */
+"msg_removed" = "removida";
+"msg_no_removed_capas" = "Nenhuma capa removida";
+"msg_updated_at" = "Atualizado: %@";
+"msg_update_failed" = "Falha na atualização";
+
+/* Labels */
+"label_support_email" = "Email de Suporte";
+"label_privacy_policy" = "Política de Privacidade";
+"subtitle_privacy_policy" = "Ler termos e condições";
+"version_label" = "Versão %@";

@@ -43,8 +43,8 @@ struct AboutSheet: View {
                         VStack(spacing: 16) {
                             ContactItem(
                                 icon: icon,
-                                title: "Atualização das Capas",
-                                subtitle: isSuccess ? "Atualizado: \(formatDate(run.updatedAt))" : "Falha na atualização",
+                                title: Strings.titleCapasUpdate,
+                                subtitle: isSuccess ? Strings.msgUpdatedAt(formatDate(run.updatedAt)) : Strings.msgUpdateFailed,
                                 iconColor: statusColor,
                                 action: nil
                             )

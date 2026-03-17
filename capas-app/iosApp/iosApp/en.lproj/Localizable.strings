@@ -1,0 +1,33 @@
+/* App */
+"app_name" = "Capas";
+
+/* Categories */
+"category_national" = "General";
+"category_sport" = "Sports";
+"category_economy" = "Economy & Management";
+"category_regional" = "Regional";
+
+/* Titles */
+"title_about" = "About";
+"title_recover_capas" = "Recover Covers";
+"title_contacts" = "Contacts";
+"title_capas_update" = "Covers Update";
+
+/* Actions */
+"action_view_removed" = "View removed covers";
+"action_close" = "Close";
+"action_undo" = "Undo";
+"action_remove" = "Remove";
+"action_restore" = "Restore";
+
+/* Messages */
+"msg_removed" = "removed";
+"msg_no_removed_capas" = "No removed covers";
+"msg_updated_at" = "Updated: %@";
+"msg_update_failed" = "Update failed";
+
+/* Labels */
+"label_support_email" = "Support Email";
+"label_privacy_policy" = "Privacy Policy";
+"subtitle_privacy_policy" = "Read terms and conditions";
+"version_label" = "Version %@";
