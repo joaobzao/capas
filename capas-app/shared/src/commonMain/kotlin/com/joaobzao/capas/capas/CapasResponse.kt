@@ -19,5 +19,6 @@ data class CapasResponse(
 data class Capa(
     val id: String,
     val nome: String,
-    val url: String
+    val url: String,
+    val lastUpdated: String? = null
 )

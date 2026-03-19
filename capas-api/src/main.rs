@@ -13,6 +13,15 @@ struct Capa {
     id: String,
     nome: String,
     url: String,
+    #[serde(rename = "lastUpdated")]
+    last_updated: String,
+}
+
+fn extract_date_from_url(url: &str) -> String {
+    let re = regex::Regex::new(r"(\d{4}-\d{2}-\d{2})").unwrap();
+    re.find(url)
+        .map(|m| m.as_str().to_string())
+        .unwrap_or_default()
 }
 
 fn slugify(name: &str) -> String {
@@ -110,10 +119,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                                             format!("{}{}", base, src)
                                         };
 
+                                        let last_updated = extract_date_from_url(&url);
                                         capas_secao.push(Capa {
                                             id: slugify(&nome),
                                             nome: nome.clone(),
                                             url,
+                                            last_updated,
                                         });
                                         break;
                                     }
