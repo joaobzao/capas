@@ -30,6 +30,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.joaobzao.capas.capas.Capa
+import com.joaobzao.capas.capas.RelativeDateFormatter
+import androidx.compose.foundation.layout.Column
+import java.util.Locale
 
 @Composable
 fun CapaGridItemDraggable(
@@ -91,18 +94,36 @@ fun CapaGridItemDraggable(
                     )
             )
             
-            Text(
-                text = capa.nome,
-                style = MaterialTheme.typography.labelLarge.copy(
-                    fontFamily = FontFamily.Serif,
-                    fontWeight = FontWeight.Bold
-                ),
-                color = Color.White,
-                maxLines = 2,
+            Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
                     .padding(16.dp)
-            )
+            ) {
+                Text(
+                    text = capa.nome,
+                    style = MaterialTheme.typography.labelLarge.copy(
+                        fontFamily = FontFamily.Serif,
+                        fontWeight = FontWeight.Bold
+                    ),
+                    color = Color.White,
+                    maxLines = 2,
+                )
+                val relativeDate = RelativeDateFormatter.formatRelativeDate(
+                    dateString = capa.lastUpdated,
+                    todayString = java.time.LocalDate.now().toString(),
+                    language = Locale.getDefault().language
+                )
+                if (relativeDate != null) {
+                    Text(
+                        text = relativeDate,
+                        style = MaterialTheme.typography.labelSmall.copy(
+                            fontFamily = FontFamily.Serif
+                        ),
+                        color = Color.White.copy(alpha = 0.7f),
+                        maxLines = 1,
+                    )
+                }
+            }
         }
     }
 }

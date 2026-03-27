@@ -53,8 +53,11 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.foundation.layout.Column
 import coil.compose.AsyncImage
 import com.joaobzao.capas.capas.Capa
+import com.joaobzao.capas.capas.RelativeDateFormatter
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
@@ -72,14 +75,30 @@ fun CapaDetailScreen(
         topBar = {
             if (!isZoomed) {
                 TopAppBar(
-                title = { 
-                    Text(
-                        capas.getOrNull(pagerState.currentPage)?.nome ?: "", 
-                        style = MaterialTheme.typography.titleLarge.copy(
-                            fontFamily = FontFamily.Serif,
-                            fontWeight = FontWeight.Bold
+                title = {
+                    val currentCapa = capas.getOrNull(pagerState.currentPage)
+                    Column {
+                        Text(
+                            currentCapa?.nome ?: "",
+                            style = MaterialTheme.typography.titleLarge.copy(
+                                fontFamily = FontFamily.Serif,
+                                fontWeight = FontWeight.Bold
+                            )
                         )
-                    ) 
+                        val relativeDate = RelativeDateFormatter.formatRelativeDate(
+                            dateString = currentCapa?.lastUpdated,
+                            todayString = java.time.LocalDate.now().toString(),
+                            language = Locale.getDefault().language,
+                            includeYear = true
+                        )
+                        if (relativeDate != null) {
+                            Text(
+                                text = relativeDate,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = Color.White.copy(alpha = 0.7f)
+                            )
+                        }
+                    }
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {

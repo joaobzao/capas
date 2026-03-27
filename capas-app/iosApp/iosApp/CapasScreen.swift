@@ -257,7 +257,18 @@ struct CapasScreen: View {
 
 struct CapaItem: View {
     let capa: Capa
-    
+
+    private static func todayString() -> String {
+        let formatter = Foundation.DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: Date())
+    }
+
+    private static func currentLanguage() -> String {
+        let lang = Locale.current.language.languageCode?.identifier ?? "en"
+        return ["pt", "en", "es"].contains(lang) ? lang : "en"
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             ZStack(alignment: .bottomLeading) {
@@ -273,12 +284,25 @@ struct CapaItem: View {
                     endPoint: .center
                 )
                 
-                Text(capa.nome)
-                    .font(.system(.caption, design: .serif))
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .lineLimit(2)
-                    .padding(12)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(capa.nome)
+                        .font(.system(.caption, design: .serif))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .lineLimit(2)
+
+                    if let dateText = RelativeDateFormatter.formatRelativeDate(
+                        dateString: capa.lastUpdated,
+                        todayString: Self.todayString(),
+                        language: Self.currentLanguage()
+                    ) {
+                        Text(dateText)
+                            .font(.system(.caption2))
+                            .foregroundColor(.white.opacity(0.7))
+                            .lineLimit(1)
+                    }
+                }
+                .padding(12)
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
