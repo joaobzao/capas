@@ -56,6 +56,31 @@ struct AboutSheet: View {
                         .padding(.horizontal, 24)
                     }
                     
+                    // Support
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(Strings.titleSupport)
+                            .font(.headline)
+                            .padding(.leading, 8)
+
+                        VStack(spacing: 16) {
+                            ContactItem(
+                                icon: "heart.fill",
+                                title: Strings.labelBuyCoffee,
+                                subtitle: Strings.subtitleBuyCoffee,
+                                iconColor: Color(red: 0.91, green: 0.12, blue: 0.39),
+                                action: {
+                                    if let url = URL(string: "https://revolut.me/joaoqprk") {
+                                        openURL(url)
+                                    }
+                                }
+                            )
+                        }
+                        .padding(16)
+                        .background(Color(uiColor: .secondarySystemGroupedBackground))
+                        .cornerRadius(20)
+                    }
+                    .padding(.horizontal, 24)
+
                     VStack(alignment: .leading, spacing: 8) {
                         Text(Strings.titleContacts)
                             .font(.headline)

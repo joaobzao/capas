@@ -19,4 +19,7 @@
     <string name="label_support_email">Email de Suporte</string>
     <string name="label_privacy_policy">Política de Privacidade</string>
     <string name="subtitle_privacy_policy">Ler termos e condições</string>
+    <string name="title_support">Apoiar</string>
+    <string name="label_buy_coffee">Ofereça-me um café</string>
+    <string name="subtitle_buy_coffee">A app é gratuita e sem publicidade. Apoie o seu desenvolvimento!</string>
 </resources>

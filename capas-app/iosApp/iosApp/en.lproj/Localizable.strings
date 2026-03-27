@@ -31,3 +31,8 @@
 "label_privacy_policy" = "Privacy Policy";
 "subtitle_privacy_policy" = "Read terms and conditions";
 "version_label" = "Version %@";
+
+/* Support */
+"title_support" = "Support";
+"label_buy_coffee" = "Buy me a coffee";
+"subtitle_buy_coffee" = "The app is free and ad-free. Support its development!";

@@ -31,6 +31,10 @@ enum Strings {
         String(format: NSLocalizedString("version_label", comment: ""), version)
     }
     
+    static var titleSupport: String { NSLocalizedString("title_support", comment: "") }
+    static var labelBuyCoffee: String { NSLocalizedString("label_buy_coffee", comment: "") }
+    static var subtitleBuyCoffee: String { NSLocalizedString("subtitle_buy_coffee", comment: "") }
+
     static func msgUpdatedAt(_ date: String) -> String {
         String(format: NSLocalizedString("msg_updated_at", comment: ""), date)
     }

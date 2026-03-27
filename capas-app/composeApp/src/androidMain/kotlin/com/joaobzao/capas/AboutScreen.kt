@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -132,6 +133,21 @@ fun AboutSheet(
                         onClick = null
                     )
                 }
+
+                // Support
+                Text(
+                    stringResource(R.string.title_support),
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.padding(top = 8.dp, start = 8.dp)
+                )
+
+                ContactItem(
+                    icon = Icons.Default.Favorite,
+                    title = stringResource(R.string.label_buy_coffee),
+                    subtitle = stringResource(R.string.subtitle_buy_coffee),
+                    iconTint = androidx.compose.ui.graphics.Color(0xFFE91E63),
+                    onClick = { uriHandler.openUri("https://revolut.me/joaoqprk") }
+                )
 
                 Text(
                     stringResource(R.string.title_contacts),
