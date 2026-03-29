@@ -780,5 +780,61 @@
       "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-03-27-486727ab.jpg",
       "lastUpdated": "2026-03-27"
     }
+  ],
+  "Internacional": [
+    {
+      "id": "el-pais",
+      "nome": "El País",
+      "url": "https://img.kiosko.net/2026/03/29/es/elpais.750.jpg",
+      "lastUpdated": "2026-03-29"
+    },
+    {
+      "id": "the-times",
+      "nome": "The Times",
+      "url": "https://img.kiosko.net/2026/03/29/uk/the_times.750.jpg",
+      "lastUpdated": "2026-03-29"
+    },
+    {
+      "id": "the-guardian",
+      "nome": "The Guardian",
+      "url": "https://img.kiosko.net/2026/03/28/uk/guardian.750.jpg",
+      "lastUpdated": "2026-03-28"
+    },
+    {
+      "id": "corriere-della-sera",
+      "nome": "Corriere della Sera",
+      "url": "https://img.kiosko.net/2026/03/29/it/corriere_della_sera.750.jpg",
+      "lastUpdated": "2026-03-29"
+    },
+    {
+      "id": "la-gazzetta-dello-sport",
+      "nome": "La Gazzetta dello Sport",
+      "url": "https://img.kiosko.net/2026/03/29/it/gazzetta_sport.750.jpg",
+      "lastUpdated": "2026-03-29"
+    },
+    {
+      "id": "the-new-york-times",
+      "nome": "The New York Times",
+      "url": "https://img.kiosko.net/2026/03/29/us/newyork_times.750.jpg",
+      "lastUpdated": "2026-03-29"
+    },
+    {
+      "id": "washington-post",
+      "nome": "Washington Post",
+      "url": "https://img.kiosko.net/2026/03/29/us/washington_post.750.jpg",
+      "lastUpdated": "2026-03-29"
+    },
+    {
+      "id": "the-wall-street-journal",
+      "nome": "The Wall Street Journal",
+      "url": "https://img.kiosko.net/2026/03/28/us/wsj.750.jpg",
+      "lastUpdated": "2026-03-28"
+    },
+    {
+      "id": "folha-de-s-paulo",
+      "nome": "Folha de S.Paulo",
+      "url": "https://img.kiosko.net/2026/03/29/br/br_folha_spaulo.750.jpg",
+      "lastUpdated": "2026-03-29"
+    }
   ]
 }
