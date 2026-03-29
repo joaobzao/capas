@@ -244,14 +244,16 @@ fn fetch_international_covers(client: &Client) -> Vec<Capa> {
                 paper_id
             );
 
-            sleep(Duration::from_millis(100));
+            sleep(Duration::from_millis(300));
 
             if let Ok(resp) = client
-                .head(&url)
-                .header("User-Agent", "Mozilla/5.0 (CapasBot/1.0)")
+                .get(&url)
+                .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+                .header("Range", "bytes=0-0")
                 .send()
             {
-                if resp.status().is_success() {
+                let status = resp.status();
+                if status.is_success() || status.as_u16() == 206 {
                     covers.push(Capa {
                         id: slugify(display_name),
                         nome: display_name.to_string(),
