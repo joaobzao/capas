@@ -9,14 +9,14 @@
     {
       "id": "jornal-de-noticias",
       "nome": "Jornal de Notícias",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2026/jornal-de-noticias-2026-03-28-b17c40f1.jpg",
-      "lastUpdated": "2026-03-28"
+      "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2026/jornal-de-noticias-2026-03-29-3635a91e-x.jpg",
+      "lastUpdated": "2026-03-29"
     },
     {
       "id": "publico",
       "nome": "Público",
-      "url": "https://imgs.vercapas.com/covers/publico/2026/publico-2026-03-28-b7b2ea6f.jpg",
-      "lastUpdated": "2026-03-28"
+      "url": "https://imgs.vercapas.com/covers/publico/2026/publico-2026-03-29-9644294a-x.jpg",
+      "lastUpdated": "2026-03-29"
     },
     {
       "id": "diario-de-noticias",
@@ -101,8 +101,8 @@
     {
       "id": "o-jogo",
       "nome": "O Jogo",
-      "url": "https://imgs.vercapas.com/covers/o-jogo/2026/o-jogo-2026-03-28-64f70ae0.jpg",
-      "lastUpdated": "2026-03-28"
+      "url": "https://imgs.vercapas.com/covers/o-jogo/2026/o-jogo-2026-03-29-2c29bd82-x.jpg",
+      "lastUpdated": "2026-03-29"
     },
     {
       "id": "o-benfica",
@@ -125,8 +125,8 @@
     {
       "id": "jornal-as",
       "nome": "Jornal AS",
-      "url": "https://imgs.vercapas.com/covers/jornal-as/2026/jornal-as-2026-03-28-7d977b5c.jpg",
-      "lastUpdated": "2026-03-28"
+      "url": "https://imgs.vercapas.com/covers/jornal-as/2026/jornal-as-2026-03-29-a725539b-x.jpg",
+      "lastUpdated": "2026-03-29"
     },
     {
       "id": "marca",
@@ -501,8 +501,8 @@
     {
       "id": "diario-dos-acores",
       "nome": "Diário dos Açores",
-      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-03-27-b7194eb7-x.jpg",
-      "lastUpdated": "2026-03-27"
+      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-03-28-07ae40b4-x.jpg",
+      "lastUpdated": "2026-03-28"
     },
     {
       "id": "foz-do-lima",
@@ -779,6 +779,50 @@
       "nome": "Tribuna da Madeira",
       "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-03-27-486727ab.jpg",
       "lastUpdated": "2026-03-27"
+    }
+  ],
+  "Internacional": [
+    {
+      "id": "el-pais",
+      "nome": "El País",
+      "url": "https://img.kiosko.net/2026/03/28/es/elpais.750.jpg",
+      "lastUpdated": "2026-03-28"
+    },
+    {
+      "id": "the-guardian",
+      "nome": "The Guardian",
+      "url": "https://img.kiosko.net/2026/03/28/uk/guardian.750.jpg",
+      "lastUpdated": "2026-03-28"
+    },
+    {
+      "id": "la-gazzetta-dello-sport",
+      "nome": "La Gazzetta dello Sport",
+      "url": "https://img.kiosko.net/2026/03/28/it/gazzetta_sport.750.jpg",
+      "lastUpdated": "2026-03-28"
+    },
+    {
+      "id": "the-new-york-times",
+      "nome": "The New York Times",
+      "url": "https://img.kiosko.net/2026/03/28/us/newyork_times.750.jpg",
+      "lastUpdated": "2026-03-28"
+    },
+    {
+      "id": "washington-post",
+      "nome": "Washington Post",
+      "url": "https://img.kiosko.net/2026/03/28/us/washington_post.750.jpg",
+      "lastUpdated": "2026-03-28"
+    },
+    {
+      "id": "the-wall-street-journal",
+      "nome": "The Wall Street Journal",
+      "url": "https://img.kiosko.net/2026/03/28/us/wsj.750.jpg",
+      "lastUpdated": "2026-03-28"
+    },
+    {
+      "id": "folha-de-s-paulo",
+      "nome": "Folha de S.Paulo",
+      "url": "https://img.kiosko.net/2026/03/28/br/br_folha_spaulo.750.jpg",
+      "lastUpdated": "2026-03-28"
     }
   ]
 }
