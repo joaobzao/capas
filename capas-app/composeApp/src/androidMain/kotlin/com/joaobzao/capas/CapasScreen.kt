@@ -60,7 +60,8 @@ enum class CapasCategory(val labelResId: Int) {
     NATIONAL(R.string.category_national),
     SPORT(R.string.category_sport),
     ECONOMY(R.string.category_economy),
-    REGIONAL(R.string.category_regional)
+    REGIONAL(R.string.category_regional),
+    INTERNATIONAL(R.string.category_international)
 }
 
 data class ItemInfo(val position: Offset, val size: DpSize)
@@ -269,6 +270,7 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
                                 CapasCategory.SPORT -> capasResponse.sportNewspapers
                                 CapasCategory.ECONOMY -> capasResponse.economyNewspapers
                                 CapasCategory.REGIONAL -> capasResponse.regionalNewspapers
+                                CapasCategory.INTERNATIONAL -> capasResponse.internationalNewspapers
                             }
 
                     // Local state for optimistic reordering (Scoped to Page)

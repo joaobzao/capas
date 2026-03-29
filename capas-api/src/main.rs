@@ -199,7 +199,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         resultado.insert("Regionais".to_string(), regionais);
     }
 
-    // 6. Guardar JSON
+    // 6. Buscar capas internacionais do kiosko.net
+    let internacional = fetch_international_covers(&client);
+    if !internacional.is_empty() {
+        resultado.insert("Internacional".to_string(), internacional);
+    }
+
+    // 7. Guardar JSON
     create_dir_all("public")?;
     let mut file = File::create("public/capas.json")?;
     let json = serde_json::to_string_pretty(&resultado)?;
@@ -207,4 +213,57 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     println!("✅ Gerado: public/capas.json com sucesso!");
     Ok(())
+}
+
+fn fetch_international_covers(client: &Client) -> Vec<Capa> {
+    let papers = vec![
+        ("es", "elpais", "El País"),
+        ("uk", "the_times", "The Times"),
+        ("uk", "guardian", "The Guardian"),
+        ("uk", "ft_uk", "Financial Times"),
+        ("it", "corriere_della_sera", "Corriere della Sera"),
+        ("it", "gazzetta_sport", "La Gazzetta dello Sport"),
+        ("us", "newyork_times", "The New York Times"),
+        ("us", "washington_post", "Washington Post"),
+        ("us", "wsj", "The Wall Street Journal"),
+        ("br", "br_folha_spaulo", "Folha de S.Paulo"),
+    ];
+
+    let today = chrono::Local::now().date_naive();
+    let yesterday = today - chrono::Duration::days(1);
+
+    let mut covers = Vec::new();
+
+    for (country, paper_id, display_name) in &papers {
+        // Try today first, then yesterday as fallback
+        for date in &[today, yesterday] {
+            let url = format!(
+                "https://img.kiosko.net/{}/{}/{}.750.jpg",
+                date.format("%Y/%m/%d"),
+                country,
+                paper_id
+            );
+
+            sleep(Duration::from_millis(100));
+
+            if let Ok(resp) = client
+                .head(&url)
+                .header("User-Agent", "Mozilla/5.0 (CapasBot/1.0)")
+                .send()
+            {
+                if resp.status().is_success() {
+                    covers.push(Capa {
+                        id: slugify(display_name),
+                        nome: display_name.to_string(),
+                        url,
+                        last_updated: date.format("%Y-%m-%d").to_string(),
+                    });
+                    break;
+                }
+            }
+        }
+    }
+
+    println!("🌍 Internacional: {} de {} capas encontradas", covers.len(), papers.len());
+    covers
 }

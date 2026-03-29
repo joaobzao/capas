@@ -12,7 +12,9 @@ data class CapasResponse(
     @SerialName("Economia e Gestão")
     val economyNewspapers: List<Capa>,
     @SerialName("Regionais")
-    val regionalNewspapers: List<Capa> = emptyList()
+    val regionalNewspapers: List<Capa> = emptyList(),
+    @SerialName("Internacional")
+    val internationalNewspapers: List<Capa> = emptyList()
 )
 
 @Serializable

@@ -6,6 +6,7 @@
 "category_sport" = "Deportes";
 "category_economy" = "Economía y Gestión";
 "category_regional" = "Regionales";
+"category_international" = "Internacional";
 
 /* Titles */
 "title_about" = "Acerca de";
