@@ -67,7 +67,7 @@ fun CapasNavHost(
 
             // Procurar a capa no estado do ViewModel
             val allCapas = viewModel.capasState.collectAsState().value.capas?.let { capas ->
-                (capas.mainNewspapers + capas.sportNewspapers + capas.economyNewspapers + capas.regionalNewspapers)
+                (capas.mainNewspapers + capas.sportNewspapers + capas.economyNewspapers + capas.regionalNewspapers + capas.internationalNewspapers)
             } ?: emptyList()
 
             val initialPage = allCapas.indexOfFirst { it.id == id }

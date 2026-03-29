@@ -69,12 +69,14 @@ class CapasRepositoryImpl(
                         setAllowedIds(newAllowed)
                         settings.putBoolean(REGIONAIS_INIT_KEY, true)
                     }
-                    // Migração: Se internacional ainda não foi inicializado, adicionar novos IDs
-                    if (!settings.getBoolean(INTERNACIONAL_INIT_KEY, false)) {
+                    // Migração: adicionar IDs internacionais que ainda não estejam em allowedIds
+                    if (capas.internationalNewspapers.isNotEmpty()) {
                         val internationalIds = capas.internationalNewspapers.map { it.id }
                         val currentAllowed = getAllowedIds()
-                        val newAllowed = currentAllowed + internationalIds.filter { it !in currentAllowed }
-                        setAllowedIds(newAllowed)
+                        val missingIds = internationalIds.filter { it !in currentAllowed }
+                        if (missingIds.isNotEmpty()) {
+                            setAllowedIds(currentAllowed + missingIds)
+                        }
                         settings.putBoolean(INTERNACIONAL_INIT_KEY, true)
                     }
                 }
