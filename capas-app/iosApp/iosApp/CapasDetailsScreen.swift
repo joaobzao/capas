@@ -84,7 +84,7 @@ struct CapasDetailsScreen: View {
                     Text(capa.nome)
                         .foregroundColor(.white)
                         .font(.headline)
-                    if let dateText = RelativeDateFormatter.formatRelativeDate(
+                    if let dateText = RelativeDateFormatter.shared.formatRelativeDate(
                         dateString: capa.lastUpdated,
                         todayString: Self.todayString(),
                         language: Self.currentLanguage(),

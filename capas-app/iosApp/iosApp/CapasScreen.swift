@@ -96,32 +96,40 @@ struct CapasScreen: View {
                     
                     // Minimalist Category Picker
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 32) {
-                            ForEach(CapasCategory.allCases, id: \.self) { category in
-                                Button(action: {
-                                    selectedCategory = category
-                                }) {
-                                    VStack(spacing: 8) {
-                                        Text(category.label)
-                                            .font(.system(size: 16, weight: .medium, design: .rounded))
-                                            .foregroundColor(selectedCategory == category ? .primary : .secondary)
-                                        
-                                        if selectedCategory == category {
-                                            Circle()
-                                                .fill(Color.primary)
-                                                .frame(width: 4, height: 4)
-                                                .matchedGeometryEffect(id: "indicator", in: animation)
-                                        } else {
-                                            Circle()
-                                                .fill(Color.clear)
-                                                .frame(width: 4, height: 4)
+                        ScrollViewReader { proxy in
+                            HStack(spacing: 32) {
+                                ForEach(CapasCategory.allCases, id: \.self) { category in
+                                    Button(action: {
+                                        selectedCategory = category
+                                    }) {
+                                        VStack(spacing: 8) {
+                                            Text(category.label)
+                                                .font(.system(size: 16, weight: .medium, design: .rounded))
+                                                .foregroundColor(selectedCategory == category ? .primary : .secondary)
+
+                                            if selectedCategory == category {
+                                                Circle()
+                                                    .fill(Color.primary)
+                                                    .frame(width: 4, height: 4)
+                                                    .matchedGeometryEffect(id: "indicator", in: animation)
+                                            } else {
+                                                Circle()
+                                                    .fill(Color.clear)
+                                                    .frame(width: 4, height: 4)
+                                            }
                                         }
                                     }
+                                    .id(category)
+                                }
+                            }
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 12)
+                            .onChange(of: selectedCategory) { newCategory in
+                                withAnimation {
+                                    proxy.scrollTo(newCategory, anchor: .center)
                                 }
                             }
                         }
-                        .padding(.horizontal, 24)
-                        .padding(.vertical, 12)
                     }
                     .background(Color(uiColor: .systemBackground))
                     .shadow(color: Color.black.opacity(0.03), radius: 10, x: 0, y: 5)
@@ -295,10 +303,11 @@ struct CapaItem: View {
                         .foregroundColor(.white)
                         .lineLimit(2)
 
-                    if let dateText = RelativeDateFormatter.formatRelativeDate(
+                    if let dateText = RelativeDateFormatter.shared.formatRelativeDate(
                         dateString: capa.lastUpdated,
                         todayString: Self.todayString(),
-                        language: Self.currentLanguage()
+                        language: Self.currentLanguage(),
+                        includeYear: false
                     ) {
                         Text(dateText)
                             .font(.system(.caption2))
