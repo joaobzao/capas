@@ -31,12 +31,6 @@
       "lastUpdated": "2025-07-29"
     },
     {
-      "id": "jornal-record",
-      "nome": "Jornal Record",
-      "url": "https://imgs.vercapas.com/covers/record/2026/record-2026-04-11-f7d60fe1.jpg",
-      "lastUpdated": "2026-04-11"
-    },
-    {
       "id": "sol",
       "nome": "SOL",
       "url": "https://imgs.vercapas.com/covers/sol/2026/sol-2026-04-10-396af604.jpg",
@@ -229,6 +223,12 @@
       "nome": "Biking Aventura",
       "url": "https://imgs.vercapas.com/covers/biking-aventura/biking-aventura-2013-03-07-2c4cf6.jpg",
       "lastUpdated": "2013-03-07"
+    },
+    {
+      "id": "jornal-record",
+      "nome": "Jornal Record",
+      "url": "https://imgs.vercapas.com/covers/record/2026/record-2026-04-11-f7d60fe1.jpg",
+      "lastUpdated": "2026-04-11"
     }
   ],
   "Economia e Gestão": [
