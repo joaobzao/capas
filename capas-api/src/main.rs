@@ -120,8 +120,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                                         };
 
                                         let last_updated = extract_date_from_url(&url);
+                                        let id_name = match nome.as_str() {
+                                            "Jornal Record" => "Record",
+                                            other => other,
+                                        };
                                         capas_secao.push(Capa {
-                                            id: slugify(&nome),
+                                            id: slugify(id_name),
                                             nome: nome.clone(),
                                             url,
                                             last_updated,
