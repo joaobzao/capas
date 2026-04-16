@@ -69,7 +69,7 @@
     {
       "id": "avante",
       "nome": "Avante!",
-      "url": "https://imgs.vercapas.com/covers/avante/2026/avante-2026-04-15-70e8d52a-x.jpg",
+      "url": "https://imgs.vercapas.com/covers/avante/2026/avante-2026-04-15-4bfc3d2c.jpg",
       "lastUpdated": "2026-04-15"
     },
     {
@@ -469,6 +469,12 @@
       "lastUpdated": "2026-04-15"
     },
     {
+      "id": "diario-de-noticias-da-madeira",
+      "nome": "Diário de Notícias da Madeira",
+      "url": "https://imgs.vercapas.com/covers/diario-de-noticias-da-madeira/2026/diario-de-noticias-da-madeira-2026-04-16-e3874456.jpg",
+      "lastUpdated": "2026-04-16"
+    },
+    {
       "id": "diario-de-viseu",
       "nome": "Diário de Viseu",
       "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2026/diario-de-viseu-2026-04-16-412f04f7.jpg",
@@ -555,8 +561,8 @@
     {
       "id": "jornal-da-beira",
       "nome": "Jornal da Beira",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-beira/2026/jornal-da-beira-2026-04-08-9ebb038c.jpg",
-      "lastUpdated": "2026-04-08"
+      "url": "https://imgs.vercapas.com/covers/jornal-da-beira/2026/jornal-da-beira-2026-04-16-35c43959.jpg",
+      "lastUpdated": "2026-04-16"
     },
     {
       "id": "jornal-da-madeira",
@@ -627,8 +633,8 @@
     {
       "id": "linhas-de-elvas",
       "nome": "Linhas de Elvas",
-      "url": "https://imgs.vercapas.com/covers/linhas-de-elvas/2026/linhas-de-elvas-2026-04-09-2a7f36c4.jpg",
-      "lastUpdated": "2026-04-09"
+      "url": "https://imgs.vercapas.com/covers/linhas-de-elvas/2026/linhas-de-elvas-2026-04-16-47d3b4ab.jpg",
+      "lastUpdated": "2026-04-16"
     },
     {
       "id": "moscavide-portela",
@@ -729,8 +735,8 @@
     {
       "id": "reconquista",
       "nome": "Reconquista",
-      "url": "https://imgs.vercapas.com/covers/reconquista/2026/reconquista-2026-04-09-35d0d979.jpg",
-      "lastUpdated": "2026-04-09"
+      "url": "https://imgs.vercapas.com/covers/reconquista/2026/reconquista-2026-04-16-027dd8f0.jpg",
+      "lastUpdated": "2026-04-16"
     },
     {
       "id": "reflexo",
