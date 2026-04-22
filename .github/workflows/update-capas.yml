@@ -2,8 +2,8 @@ name: Update capas
 
 on:
   schedule:
+    - cron: '0 6 * * *'
     - cron: '0 7 * * *'
-    - cron: '0 8 * * *'
   workflow_dispatch:
     inputs:
       send_notification:
@@ -46,7 +46,7 @@ jobs:
           credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}'
 
       - name: Send Push Notification
-        if: (github.event_name == 'workflow_dispatch' && inputs.send_notification) || github.event.schedule == '0 7 * * *'
+        if: (github.event_name == 'workflow_dispatch' && inputs.send_notification) || github.event.schedule == '0 6 * * *'
         run: |
           ACCESS_TOKEN=$(gcloud auth print-access-token)
           PROJECT_ID=$(jq -r .project_id <<< '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}')
