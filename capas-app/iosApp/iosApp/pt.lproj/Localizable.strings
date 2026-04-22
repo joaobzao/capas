@@ -24,6 +24,8 @@
 /* Messages */
 "msg_removed" = "removida";
 "msg_no_removed_capas" = "Nenhuma capa removida";
+"empty_category_title" = "Sem capas nesta categoria";
+"empty_category_subtitle" = "Pode ter removido todas as capas. Toque em restaurar para as recuperar.";
 "msg_updated_at" = "Atualizado: %@";
 "msg_update_failed" = "Falha na atualização";
 

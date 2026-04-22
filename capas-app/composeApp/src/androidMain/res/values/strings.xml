@@ -13,6 +13,8 @@
     <string name="title_recover_capas">Recuperar Capas</string>
     <string name="action_close">Fechar</string>
     <string name="msg_no_removed_capas">Nenhuma capa removida</string>
+    <string name="empty_category_title">Sem capas nesta categoria</string>
+    <string name="empty_category_subtitle">Pode ter removido todas as capas. Toque em restaurar para as recuperar.</string>
     <string name="action_restore">Restaurar</string>
     <string name="title_about">Sobre</string>
     <string name="version_label">Versão %1$s</string>

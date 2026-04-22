@@ -22,6 +22,8 @@ enum Strings {
     
     static var msgRemoved: String { NSLocalizedString("msg_removed", comment: "") }
     static var msgNoRemovedCapas: String { NSLocalizedString("msg_no_removed_capas", comment: "") }
+    static var emptyCategoryTitle: String { NSLocalizedString("empty_category_title", comment: "") }
+    static var emptyCategorySubtitle: String { NSLocalizedString("empty_category_subtitle", comment: "") }
     static var msgUpdateFailed: String { NSLocalizedString("msg_update_failed", comment: "") }
     
     static var labelSupportEmail: String { NSLocalizedString("label_support_email", comment: "") }
