@@ -2,8 +2,10 @@ name: Update capas
 
 on:
   schedule:
+    - cron: '0 5 * * *'
     - cron: '0 6 * * *'
     - cron: '0 7 * * *'
+    - cron: '0 8 * * *'
   workflow_dispatch:
     inputs:
       send_notification:
@@ -23,30 +25,59 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Gate by Lisbon local time
+        id: gate
+        run: |
+          HOUR=$(TZ=Europe/Lisbon date +%H)
+          echo "Lisbon hour: $HOUR"
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            echo "notify=${{ inputs.send_notification }}" >> "$GITHUB_OUTPUT"
+          elif [ "$HOUR" = "06" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            echo "notify=false" >> "$GITHUB_OUTPUT"
+          elif [ "$HOUR" = "07" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            echo "notify=true" >> "$GITHUB_OUTPUT"
+          elif [ "$HOUR" = "08" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            echo "notify=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            echo "notify=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping — Lisbon hour $HOUR not in target window (06, 07 or 08)."
+          fi
+
       - name: Instalar Rust
+        if: steps.gate.outputs.proceed == 'true'
         uses: dtolnay/rust-toolchain@stable
 
       - name: Compilar em modo release
+        if: steps.gate.outputs.proceed == 'true'
         run: cargo build --release
 
       - name: Executar scraper
+        if: steps.gate.outputs.proceed == 'true'
         run: ./target/release/capas-api
 
       - name: Deploy para gh-pages
+        if: steps.gate.outputs.proceed == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./capas-api/public   # 👈 ajustado para apontar à pasta certa
           publish_branch: gh-pages
           commit_message: "🔄 Update capas ($(date -u +'%Y-%m-%d %H:%M:%S UTC'))"
-          
+
       - name: Authenticate to Google Cloud
+        if: steps.gate.outputs.proceed == 'true'
         uses: google-github-actions/auth@v2
         with:
           credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}'
 
       - name: Send Push Notification
-        if: (github.event_name == 'workflow_dispatch' && inputs.send_notification) || github.event.schedule == '0 6 * * *'
+        if: steps.gate.outputs.proceed == 'true' && steps.gate.outputs.notify == 'true'
         run: |
           ACCESS_TOKEN=$(gcloud auth print-access-token)
           PROJECT_ID=$(jq -r .project_id <<< '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}')
