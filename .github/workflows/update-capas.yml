@@ -25,28 +25,32 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Gate by Lisbon local time
+      - name: Gate by cron schedule (DST-aware)
         id: gate
         run: |
-          HOUR=$(TZ=Europe/Lisbon date +%H)
-          echo "Lisbon hour: $HOUR"
+          OFFSET=$(TZ=Europe/Lisbon date +%z)
+          SCHEDULE='${{ github.event.schedule }}'
+          EVENT='${{ github.event_name }}'
+          echo "Event: $EVENT | schedule: '$SCHEDULE' | Lisbon offset: $OFFSET"
 
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          case "$OFFSET" in
+            +0100) NOTIFY_CRON='0 6 * * *' ;;
+            +0000) NOTIFY_CRON='0 7 * * *' ;;
+            *)     NOTIFY_CRON='' ;;
+          esac
+
+          if [ "$EVENT" = "workflow_dispatch" ]; then
             echo "proceed=true" >> "$GITHUB_OUTPUT"
             echo "notify=${{ inputs.send_notification }}" >> "$GITHUB_OUTPUT"
-          elif [ "$HOUR" = "06" ]; then
-            echo "proceed=true" >> "$GITHUB_OUTPUT"
-            echo "notify=false" >> "$GITHUB_OUTPUT"
-          elif [ "$HOUR" = "07" ]; then
-            echo "proceed=true" >> "$GITHUB_OUTPUT"
-            echo "notify=true" >> "$GITHUB_OUTPUT"
-          elif [ "$HOUR" = "08" ]; then
-            echo "proceed=true" >> "$GITHUB_OUTPUT"
-            echo "notify=false" >> "$GITHUB_OUTPUT"
           else
-            echo "proceed=false" >> "$GITHUB_OUTPUT"
-            echo "notify=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping — Lisbon hour $HOUR not in target window (06, 07 or 08)."
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            if [ "$SCHEDULE" = "$NOTIFY_CRON" ]; then
+              echo "notify=true" >> "$GITHUB_OUTPUT"
+              echo "Notify slot — push will be sent."
+            else
+              echo "notify=false" >> "$GITHUB_OUTPUT"
+              echo "Non-notify slot — scraping only."
+            fi
           fi
 
       - name: Instalar Rust
