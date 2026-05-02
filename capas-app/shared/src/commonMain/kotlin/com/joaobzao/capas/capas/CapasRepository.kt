@@ -1,5 +1,6 @@
 package com.joaobzao.capas.capas
 
+import com.joaobzao.capas.logBreadcrumb
 import com.joaobzao.capas.network.Api
 import com.joaobzao.capas.network.GitHubWorkflowResponse
 import com.joaobzao.capas.network.NetworkResult
@@ -43,6 +44,7 @@ class CapasRepositoryImpl(
     }
 
     override suspend fun getCapas(): Flow<NetworkResult<CapasResponse>> = flow {
+        logBreadcrumb("api: capas fetch start")
         api.fetchCapas().collect { result ->
             if (result is NetworkResult.Success && result.data != null) {
                 lastCapas = result.data
@@ -84,8 +86,14 @@ class CapasRepositoryImpl(
                     regionalNewspapers = sortCapas(capas.regionalNewspapers)
                 )
 
+                val total = filtered.mainNewspapers.size +
+                        filtered.sportNewspapers.size +
+                        filtered.economyNewspapers.size +
+                        filtered.regionalNewspapers.size
+                logBreadcrumb("api: capas fetch ok, count=$total")
                 emit(NetworkResult.Success(filtered))
             } else {
+                logBreadcrumb("api: capas fetch ${result::class.simpleName}")
                 emit(result)
             }
         }

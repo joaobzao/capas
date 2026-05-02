@@ -75,3 +75,10 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
 }
+
+// Firebase BoM cannot be applied inside KMP source-set dependency blocks
+// (KT-58759), so the Android-only Crashlytics dep is declared here instead.
+dependencies {
+    "androidMainImplementation"(platform(libs.firebase.bom))
+    "androidMainImplementation"(libs.firebase.crashlytics)
+}

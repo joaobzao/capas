@@ -53,6 +53,7 @@ class MainActivity : ComponentActivity() {
                     msg = "Subscribe failed"
                 }
                 Log.d("MainActivity", msg)
+                logBreadcrumb("fcm: $msg")
             }
     }
 
@@ -90,12 +91,14 @@ class MainActivity : ComponentActivity() {
         FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w("MainActivity", "Fetching FCM registration token failed", task.exception)
+                logBreadcrumb("fcm: token fetch failed")
                 return@addOnCompleteListener
             }
 
             // Get new FCM registration token
             val token = task.result
             Log.d("MainActivity", "FCM Token: $token")
+            logBreadcrumb("fcm: token fetched")
         }
     }
 }

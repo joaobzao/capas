@@ -10,6 +10,7 @@ import androidx.navigation.navArgument
 import com.joaobzao.capas.CapaDetailScreen
 import com.joaobzao.capas.WelcomeScreen
 import com.joaobzao.capas.capas.CapasViewModel
+import com.joaobzao.capas.logBreadcrumb
 import org.koin.androidx.compose.koinViewModel
 import androidx.compose.runtime.collectAsState
 import com.google.firebase.Firebase
@@ -31,6 +32,7 @@ fun CapasNavHost(
     ) {
         // Welcome
         composable("welcome") {
+            logBreadcrumb("nav: welcome")
             WelcomeScreen(
                 onFinish = {
                     viewModel.completeOnboarding()
@@ -43,6 +45,7 @@ fun CapasNavHost(
 
         // Lista de capas
         composable("capas") {
+            logBreadcrumb("nav: capas")
             CapasScreen(
                 viewModel = viewModel,
                 onCapaClick = { capa ->
@@ -64,6 +67,7 @@ fun CapasNavHost(
             )
         ) { backStackEntry ->
             val id = backStackEntry.arguments?.getString("id")!!
+            logBreadcrumb("nav: detail/$id")
 
             // Procurar a capa no estado do ViewModel
             val allCapas = viewModel.capasState.collectAsState().value.capas?.let { capas ->
