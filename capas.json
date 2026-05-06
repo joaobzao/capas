@@ -183,6 +183,12 @@
       "lastUpdated": "2016-11-03"
     },
     {
+      "id": "ciclismo-a-fundo",
+      "nome": "Ciclismo a Fundo",
+      "url": "https://imgs.vercapas.com/covers/ciclismo-a-fundo/ciclismo-a-fundo-2017-11-01-44cb73.jpg",
+      "lastUpdated": "2017-11-01"
+    },
+    {
       "id": "equitacao",
       "nome": "Equitação",
       "url": "https://imgs.vercapas.com/covers/equitacao/2026/equitacao-2026-04-14-535c3db6.jpg",
@@ -453,13 +459,13 @@
     {
       "id": "diario-de-coimbra",
       "nome": "Diário de Coimbra",
-      "url": "https://imgs.vercapas.com/covers/diario-de-coimbra/2026/diario-de-coimbra-2026-05-06-78e1fb2c.jpg",
+      "url": "https://imgs.vercapas.com/covers/diario-de-coimbra/2026/diario-de-coimbra-2026-05-06-78e1fb2c.jpg?2",
       "lastUpdated": "2026-05-06"
     },
     {
       "id": "diario-de-leiria",
       "nome": "Diário de Leiria",
-      "url": "https://imgs.vercapas.com/covers/diario-de-leiria/2026/diario-de-leiria-2026-05-06-4559108e.jpg",
+      "url": "https://imgs.vercapas.com/covers/diario-de-leiria/2026/diario-de-leiria-2026-05-06-4559108e.jpg?1",
       "lastUpdated": "2026-05-06"
     },
     {
@@ -471,7 +477,7 @@
     {
       "id": "diario-de-viseu",
       "nome": "Diário de Viseu",
-      "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2026/diario-de-viseu-2026-05-06-584c4242.jpg",
+      "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2026/diario-de-viseu-2026-05-06-1e9d4997.jpg",
       "lastUpdated": "2026-05-06"
     },
     {
@@ -489,8 +495,8 @@
     {
       "id": "diario-do-sul",
       "nome": "Diário do Sul",
-      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-05-05-62e82b55.jpg",
-      "lastUpdated": "2026-05-05"
+      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-05-06-0e0911cc.jpg",
+      "lastUpdated": "2026-05-06"
     },
     {
       "id": "diario-dos-acores",
@@ -711,7 +717,7 @@
     {
       "id": "o-setubalense",
       "nome": "O Setubalense",
-      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-05-06-45066375-x.jpg",
+      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-05-06-ebc3a4d6.jpg",
       "lastUpdated": "2026-05-06"
     },
     {
