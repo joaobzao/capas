@@ -1,11 +1,6 @@
 name: Update capas
 
 on:
-  schedule:
-    - cron: '0 5 * * *'
-    - cron: '0 6 * * *'
-    - cron: '0 7 * * *'
-    - cron: '0 8 * * *'
   workflow_dispatch:
     inputs:
       send_notification:
@@ -25,48 +20,16 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Gate by cron schedule (DST-aware)
-        id: gate
-        run: |
-          OFFSET=$(TZ=Europe/Lisbon date +%z)
-          SCHEDULE='${{ github.event.schedule }}'
-          EVENT='${{ github.event_name }}'
-          echo "Event: $EVENT | schedule: '$SCHEDULE' | Lisbon offset: $OFFSET"
-
-          case "$OFFSET" in
-            +0100) NOTIFY_CRON='0 6 * * *' ;;
-            +0000) NOTIFY_CRON='0 7 * * *' ;;
-            *)     NOTIFY_CRON='' ;;
-          esac
-
-          if [ "$EVENT" = "workflow_dispatch" ]; then
-            echo "proceed=true" >> "$GITHUB_OUTPUT"
-            echo "notify=${{ inputs.send_notification }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "proceed=true" >> "$GITHUB_OUTPUT"
-            if [ "$SCHEDULE" = "$NOTIFY_CRON" ]; then
-              echo "notify=true" >> "$GITHUB_OUTPUT"
-              echo "Notify slot — push will be sent."
-            else
-              echo "notify=false" >> "$GITHUB_OUTPUT"
-              echo "Non-notify slot — scraping only."
-            fi
-          fi
-
       - name: Instalar Rust
-        if: steps.gate.outputs.proceed == 'true'
         uses: dtolnay/rust-toolchain@stable
 
       - name: Compilar em modo release
-        if: steps.gate.outputs.proceed == 'true'
         run: cargo build --release
 
       - name: Executar scraper
-        if: steps.gate.outputs.proceed == 'true'
         run: ./target/release/capas-api
 
       - name: Deploy para gh-pages
-        if: steps.gate.outputs.proceed == 'true'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -75,13 +38,13 @@ jobs:
           commit_message: "🔄 Update capas ($(date -u +'%Y-%m-%d %H:%M:%S UTC'))"
 
       - name: Authenticate to Google Cloud
-        if: steps.gate.outputs.proceed == 'true'
+        if: inputs.send_notification
         uses: google-github-actions/auth@v2
         with:
           credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}'
 
       - name: Send Push Notification
-        if: steps.gate.outputs.proceed == 'true' && steps.gate.outputs.notify == 'true'
+        if: inputs.send_notification
         run: |
           ACCESS_TOKEN=$(gcloud auth print-access-token)
           PROJECT_ID=$(jq -r .project_id <<< '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}')
