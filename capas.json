@@ -99,22 +99,16 @@
       "lastUpdated": "2026-05-22"
     },
     {
-      "id": "o-benfica",
-      "nome": "O Benfica",
-      "url": "https://imgs.vercapas.com/covers/o-benfica/2026/o-benfica-2026-05-22-6b24a16b.jpg",
-      "lastUpdated": "2026-05-22"
+      "id": "jornal-1x2",
+      "nome": "Jornal 1X2",
+      "url": "https://imgs.vercapas.com/covers/jornal-1x2/2026/jornal-1x2-2026-05-19-19b2dfb6.jpg",
+      "lastUpdated": "2026-05-19"
     },
     {
-      "id": "l-equipe",
-      "nome": "L'Équipe",
-      "url": "https://imgs.vercapas.com/covers/lequipe/2026/lequipe-2026-05-22-198ce4fd.jpg",
-      "lastUpdated": "2026-05-22"
-    },
-    {
-      "id": "equitacao",
-      "nome": "Equitação",
-      "url": "https://imgs.vercapas.com/covers/equitacao/2026/equitacao-2026-04-14-535c3db6.jpg",
-      "lastUpdated": "2026-04-14"
+      "id": "mistica",
+      "nome": "Mística",
+      "url": "https://imgs.vercapas.com/covers/mistica/mistica-2017-07-12-0b9189.jpg",
+      "lastUpdated": "2017-07-12"
     },
     {
       "id": "record",
@@ -149,16 +143,10 @@
       "lastUpdated": "2025-04-01"
     },
     {
-      "id": "vida-economica",
-      "nome": "Vida Económica",
-      "url": "https://imgs.vercapas.com/covers/vida-economica/2026/vida-economica-2026-05-15-d0d54d0f-x.jpg",
-      "lastUpdated": "2026-05-15"
-    },
-    {
-      "id": "actualidade-economia-iberica",
-      "nome": "Actualidade Economia Ibérica",
-      "url": "https://imgs.vercapas.com/covers/actualidad-economiaiberica/2026/actualidad-economiaiberica-2026-05-01-e1f11f10.jpg",
-      "lastUpdated": "2026-05-01"
+      "id": "executive-digest",
+      "nome": "Executive Digest",
+      "url": "https://imgs.vercapas.com/covers/executive-digest/2026/executive-digest-2026-05-20-99c03a69-x.jpg",
+      "lastUpdated": "2026-05-20"
     },
     {
       "id": "construir",
@@ -169,46 +157,34 @@
   ],
   "Regionais": [
     {
-      "id": "diario-de-aveiro",
-      "nome": "Diário de Aveiro",
-      "url": "https://imgs.vercapas.com/covers/diario-de-aveiro/2026/diario-de-aveiro-2026-05-22-279b1106.jpg",
+      "id": "diario-de-leiria",
+      "nome": "Diário de Leiria",
+      "url": "https://imgs.vercapas.com/covers/diario-de-leiria/2026/diario-de-leiria-2026-05-22-1c10d21c.jpg",
       "lastUpdated": "2026-05-22"
     },
     {
-      "id": "diario-do-minho",
-      "nome": "Diário do Minho",
-      "url": "https://imgs.vercapas.com/covers/diario-do-minho/2026/diario-do-minho-2026-05-22-8518da59.jpg",
-      "lastUpdated": "2026-05-22"
-    },
-    {
-      "id": "jornal-o-alcoa",
-      "nome": "Jornal O Alcoa",
-      "url": "https://imgs.vercapas.com/covers/jornal-o-alcoa/2026/jornal-o-alcoa-2026-05-21-9b4bbdd6.jpg",
+      "id": "jornal-labor",
+      "nome": "Jornal Labor",
+      "url": "https://imgs.vercapas.com/covers/jornal-labor/2026/jornal-labor-2026-05-21-b37306ae.jpg",
       "lastUpdated": "2026-05-21"
     },
     {
-      "id": "jornal-de-sintra",
-      "nome": "Jornal de Sintra",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-sintra/2026/jornal-de-sintra-2026-05-21-a1995e74.jpg",
-      "lastUpdated": "2026-05-21"
+      "id": "jornal-do-pico",
+      "nome": "Jornal do Pico",
+      "url": "https://imgs.vercapas.com/covers/jornal-do-pico/2025/jornal-do-pico-2025-10-14-d3ceb674.jpg",
+      "lastUpdated": "2025-10-14"
     },
     {
-      "id": "jornal-do-algarve",
-      "nome": "Jornal do Algarve",
-      "url": "https://imgs.vercapas.com/covers/jornal-do-algarve/2026/jornal-do-algarve-2026-05-14-4ec136f3.jpg",
-      "lastUpdated": "2026-05-14"
+      "id": "noticias-da-covilha",
+      "nome": "Notícias da Covilhã",
+      "url": "https://imgs.vercapas.com/covers/noticias-da-covilha/2025/noticias-da-covilha-2025-12-17-fc315e4c.jpg",
+      "lastUpdated": "2025-12-17"
     },
     {
-      "id": "linhas-de-elvas",
-      "nome": "Linhas de Elvas",
-      "url": "https://imgs.vercapas.com/covers/linhas-de-elvas/2026/linhas-de-elvas-2026-05-21-92a63431.jpg",
-      "lastUpdated": "2026-05-21"
-    },
-    {
-      "id": "noticias-de-oeiras",
-      "nome": "Notícias de Oeiras",
-      "url": "https://imgs.vercapas.com/covers/correio-de-oeiras/2026/correio-de-oeiras-2026-04-30-fb9d327f.jpg",
-      "lastUpdated": "2026-04-30"
+      "id": "regiao-de-agueda",
+      "nome": "Região de Águeda",
+      "url": "https://imgs.vercapas.com/covers/regiao-de-agueda/regiao-de-agueda-2022-11-23-15a26c.jpg",
+      "lastUpdated": "2022-11-23"
     },
     {
       "id": "rostos",
@@ -217,10 +193,10 @@
       "lastUpdated": "2023-12-21"
     },
     {
-      "id": "tribuna-desportiva",
-      "nome": "Tribuna Desportiva",
-      "url": "https://imgs.vercapas.com/covers/tribuna-desportiva/2026/tribuna-desportiva-2026-05-18-f10ece45.jpg",
-      "lastUpdated": "2026-05-18"
+      "id": "tribuna-da-madeira",
+      "nome": "Tribuna da Madeira",
+      "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-05-22-b6217d40.jpg",
+      "lastUpdated": "2026-05-22"
     }
   ]
 }
