@@ -1,11 +1,9 @@
 use reqwest::blocking::Client;
-use scraper::{Html, Selector};
+use scraper::{ElementRef, Html, Selector};
 use serde::Serialize;
 use std::fs::{create_dir_all, File};
 use std::io::Write;
-use std::thread::sleep;
-use std::time::Duration;
-use indexmap::IndexMap; 
+use indexmap::IndexMap;
 use unicode_normalization::UnicodeNormalization;
 
 #[derive(Serialize, Clone)]
@@ -26,14 +24,45 @@ fn extract_date_from_url(url: &str) -> String {
 
 fn slugify(name: &str) -> String {
     name.nfkd()
-        .filter(|c| c.is_ascii()) 
+        .filter(|c| c.is_ascii())
         .collect::<String>()
         .to_lowercase()
-        .replace(|c: char| !c.is_alphanumeric(), "-") 
+        .replace(|c: char| !c.is_alphanumeric(), "-")
         .split('-')
         .filter(|s| !s.is_empty())
         .collect::<Vec<_>>()
         .join("-")
+}
+
+// Returns the full-size cover URL for a paper, extracted from its <a> on the homepage.
+// vercapas exposes the thumbnail URL via `<img data-src>`, the `<noscript>` fallback img,
+// or `<source data-srcset>` — at least one is always present. Stripping `/th/` from the
+// thumbnail path yields the full-size URL the app uses.
+fn extract_cover_url(link: &ElementRef) -> Option<String> {
+    let img_sel = Selector::parse("img").unwrap();
+    let source_sel = Selector::parse("source").unwrap();
+
+    let thumb = link
+        .select(&img_sel)
+        .find_map(|img| {
+            img.value()
+                .attr("data-src")
+                .or_else(|| img.value().attr("src"))
+                .filter(|v| v.contains("/covers/"))
+                .map(str::to_string)
+        })
+        .or_else(|| {
+            link.select(&source_sel).find_map(|s| {
+                s.value()
+                    .attr("data-srcset")
+                    .filter(|v| v.contains("/covers/") && v.contains(".jpg"))
+                    .and_then(|v| v.split(',').next())
+                    .and_then(|first| first.split_whitespace().next())
+                    .map(str::to_string)
+            })
+        })?;
+
+    Some(thumb.replace("/th/", "/"))
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -81,63 +110,30 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let mut capas_secao = Vec::new();
 
         for link in section.select(&link_selector) {
-            if let Some(href) = link.value().attr("href") {
-                if href.contains("/capa/") || href.contains("/covers/") {
-                    let capa_url = if href.starts_with("http") {
-                        href.to_string()
-                    } else {
-                        format!("{}{}", base, href)
-                    };
+            let Some(href) = link.value().attr("href") else { continue };
+            if !href.contains("/capa/") && !href.contains("/covers/") {
+                continue;
+            }
 
-                    let mut nome = String::from("desconhecido");
-                    for img in link.select(&img_selector) {
-                        if let Some(alt) = img.value().attr("alt") {
-                            nome = alt.to_string();
-                        }
-                    }
-
-                    // 💤 pequena pausa
-                    sleep(Duration::from_millis(200)); 
-
-                    let capa_body = client
-                        .get(&capa_url)
-                        .header("User-Agent", "Mozilla/5.0 (CapasBot/1.0)")
-                        .send();
-
-                    // Tratamento simples de erro na requisição individual
-                    if let Ok(resp) = capa_body {
-                        if let Ok(text) = resp.text() {
-                            let capa_doc = Html::parse_document(&text);
-                            let big_img_selector = Selector::parse("img").unwrap();
-                            
-                            for img in capa_doc.select(&big_img_selector) {
-                                if let Some(src) = img.value().attr("src") {
-                                    if src.contains("covers") {
-                                        let url = if src.starts_with("http") {
-                                            src.to_string()
-                                        } else {
-                                            format!("{}{}", base, src)
-                                        };
-
-                                        let last_updated = extract_date_from_url(&url);
-                                        let id_name = match nome.as_str() {
-                                            "Jornal Record" => "Record",
-                                            other => other,
-                                        };
-                                        capas_secao.push(Capa {
-                                            id: slugify(id_name),
-                                            nome: nome.clone(),
-                                            url,
-                                            last_updated,
-                                        });
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
+            let mut nome = String::from("desconhecido");
+            for img in link.select(&img_selector) {
+                if let Some(alt) = img.value().attr("alt") {
+                    nome = alt.to_string();
                 }
             }
+
+            let Some(url) = extract_cover_url(&link) else { continue };
+            let last_updated = extract_date_from_url(&url);
+            let id_name = match nome.as_str() {
+                "Jornal Record" => "Record",
+                other => other,
+            };
+            capas_secao.push(Capa {
+                id: slugify(id_name),
+                nome: nome.clone(),
+                url,
+                last_updated,
+            });
         }
 
         if !capas_secao.is_empty() {
