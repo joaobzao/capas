@@ -1,10 +1,16 @@
 use reqwest::blocking::Client;
-use scraper::{ElementRef, Html, Selector};
+use scraper::{Html, Selector};
 use serde::Serialize;
 use std::fs::{create_dir_all, File};
 use std::io::Write;
+use std::thread::sleep;
+use std::time::Duration;
 use indexmap::IndexMap;
 use unicode_normalization::UnicodeNormalization;
+
+// vercapas filters requests by User-Agent; bot-shaped UAs get blocked after
+// ~20 requests with TCP resets. A realistic browser UA passes cleanly.
+const USER_AGENT: &str = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
 #[derive(Serialize, Clone)]
 struct Capa {
@@ -34,37 +40,6 @@ fn slugify(name: &str) -> String {
         .join("-")
 }
 
-// Returns the full-size cover URL for a paper, extracted from its <a> on the homepage.
-// vercapas exposes the thumbnail URL via `<img data-src>`, the `<noscript>` fallback img,
-// or `<source data-srcset>` — at least one is always present. Stripping `/th/` from the
-// thumbnail path yields the full-size URL the app uses.
-fn extract_cover_url(link: &ElementRef) -> Option<String> {
-    let img_sel = Selector::parse("img").unwrap();
-    let source_sel = Selector::parse("source").unwrap();
-
-    let thumb = link
-        .select(&img_sel)
-        .find_map(|img| {
-            img.value()
-                .attr("data-src")
-                .or_else(|| img.value().attr("src"))
-                .filter(|v| v.contains("/covers/"))
-                .map(str::to_string)
-        })
-        .or_else(|| {
-            link.select(&source_sel).find_map(|s| {
-                s.value()
-                    .attr("data-srcset")
-                    .filter(|v| v.contains("/covers/") && v.contains(".jpg"))
-                    .and_then(|v| v.split(',').next())
-                    .and_then(|first| first.split_whitespace().next())
-                    .map(str::to_string)
-            })
-        })?;
-
-    Some(thumb.replace("/th/", "/"))
-}
-
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let base = "https://www.vercapas.com";
     let client = Client::new();
@@ -72,7 +47,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 1. Página principal
     let body = client
         .get(base)
-        .header("User-Agent", "Mozilla/5.0 (CapasBot/1.0)")
+        .header("User-Agent", USER_AGENT)
         .send()?
         .text()?;
     let document = Html::parse_document(&body);
@@ -114,6 +89,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             if !href.contains("/capa/") && !href.contains("/covers/") {
                 continue;
             }
+            let capa_url = if href.starts_with("http") {
+                href.to_string()
+            } else {
+                format!("{}{}", base, href)
+            };
 
             let mut nome = String::from("desconhecido");
             for img in link.select(&img_selector) {
@@ -122,18 +102,38 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
             }
 
-            let Some(url) = extract_cover_url(&link) else { continue };
-            let last_updated = extract_date_from_url(&url);
-            let id_name = match nome.as_str() {
-                "Jornal Record" => "Record",
-                other => other,
-            };
-            capas_secao.push(Capa {
-                id: slugify(id_name),
-                nome: nome.clone(),
-                url,
-                last_updated,
-            });
+            sleep(Duration::from_millis(200));
+
+            // The detail page is the only place the full-size cover URL lives —
+            // the homepage only carries the thumbnail (different hash for some papers).
+            let Ok(resp) = client.get(&capa_url).header("User-Agent", USER_AGENT).send() else { continue };
+            let Ok(text) = resp.text() else { continue };
+            let capa_doc = Html::parse_document(&text);
+            let big_img_selector = Selector::parse("img").unwrap();
+
+            for img in capa_doc.select(&big_img_selector) {
+                let Some(src) = img.value().attr("src") else { continue };
+                if !src.contains("covers") {
+                    continue;
+                }
+                let url = if src.starts_with("http") {
+                    src.to_string()
+                } else {
+                    format!("{}{}", base, src)
+                };
+                let last_updated = extract_date_from_url(&url);
+                let id_name = match nome.as_str() {
+                    "Jornal Record" => "Record",
+                    other => other,
+                };
+                capas_secao.push(Capa {
+                    id: slugify(id_name),
+                    nome: nome.clone(),
+                    url,
+                    last_updated,
+                });
+                break;
+            }
         }
 
         if !capas_secao.is_empty() {
