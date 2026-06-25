@@ -17,6 +17,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         // Handle FCM messages here.
         Log.d(TAG, "From: ${remoteMessage.from}")
+        logBreadcrumb("fcm: message received, hasNotification=${remoteMessage.notification != null}")
 
         // Check if message contains a notification payload.
         remoteMessage.notification?.let {
@@ -27,6 +28,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(token: String) {
         Log.d(TAG, "Refreshed token: $token")
+        logBreadcrumb("fcm: onNewToken")
         // If you want to send messages to this application instance or
         // manage this apps subscriptions on the server side, send the
         // FCM registration token to your app server.

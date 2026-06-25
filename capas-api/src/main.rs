@@ -5,8 +5,12 @@ use std::fs::{create_dir_all, File};
 use std::io::Write;
 use std::thread::sleep;
 use std::time::Duration;
-use indexmap::IndexMap; 
+use indexmap::IndexMap;
 use unicode_normalization::UnicodeNormalization;
+
+// vercapas filters requests by User-Agent; bot-shaped UAs get blocked after
+// ~20 requests with TCP resets. A realistic browser UA passes cleanly.
+const USER_AGENT: &str = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
 #[derive(Serialize, Clone)]
 struct Capa {
@@ -26,10 +30,10 @@ fn extract_date_from_url(url: &str) -> String {
 
 fn slugify(name: &str) -> String {
     name.nfkd()
-        .filter(|c| c.is_ascii()) 
+        .filter(|c| c.is_ascii())
         .collect::<String>()
         .to_lowercase()
-        .replace(|c: char| !c.is_alphanumeric(), "-") 
+        .replace(|c: char| !c.is_alphanumeric(), "-")
         .split('-')
         .filter(|s| !s.is_empty())
         .collect::<Vec<_>>()
@@ -43,7 +47,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 1. Página principal
     let body = client
         .get(base)
-        .header("User-Agent", "Mozilla/5.0 (CapasBot/1.0)")
+        .header("User-Agent", USER_AGENT)
         .send()?
         .text()?;
     let document = Html::parse_document(&body);
@@ -81,62 +85,54 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let mut capas_secao = Vec::new();
 
         for link in section.select(&link_selector) {
-            if let Some(href) = link.value().attr("href") {
-                if href.contains("/capa/") || href.contains("/covers/") {
-                    let capa_url = if href.starts_with("http") {
-                        href.to_string()
-                    } else {
-                        format!("{}{}", base, href)
-                    };
+            let Some(href) = link.value().attr("href") else { continue };
+            if !href.contains("/capa/") && !href.contains("/covers/") {
+                continue;
+            }
+            let capa_url = if href.starts_with("http") {
+                href.to_string()
+            } else {
+                format!("{}{}", base, href)
+            };
 
-                    let mut nome = String::from("desconhecido");
-                    for img in link.select(&img_selector) {
-                        if let Some(alt) = img.value().attr("alt") {
-                            nome = alt.to_string();
-                        }
-                    }
-
-                    // 💤 pequena pausa
-                    sleep(Duration::from_millis(200)); 
-
-                    let capa_body = client
-                        .get(&capa_url)
-                        .header("User-Agent", "Mozilla/5.0 (CapasBot/1.0)")
-                        .send();
-
-                    // Tratamento simples de erro na requisição individual
-                    if let Ok(resp) = capa_body {
-                        if let Ok(text) = resp.text() {
-                            let capa_doc = Html::parse_document(&text);
-                            let big_img_selector = Selector::parse("img").unwrap();
-                            
-                            for img in capa_doc.select(&big_img_selector) {
-                                if let Some(src) = img.value().attr("src") {
-                                    if src.contains("covers") {
-                                        let url = if src.starts_with("http") {
-                                            src.to_string()
-                                        } else {
-                                            format!("{}{}", base, src)
-                                        };
-
-                                        let last_updated = extract_date_from_url(&url);
-                                        let id_name = match nome.as_str() {
-                                            "Jornal Record" => "Record",
-                                            other => other,
-                                        };
-                                        capas_secao.push(Capa {
-                                            id: slugify(id_name),
-                                            nome: nome.clone(),
-                                            url,
-                                            last_updated,
-                                        });
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
+            let mut nome = String::from("desconhecido");
+            for img in link.select(&img_selector) {
+                if let Some(alt) = img.value().attr("alt") {
+                    nome = alt.to_string();
                 }
+            }
+
+            sleep(Duration::from_millis(200));
+
+            // The detail page is the only place the full-size cover URL lives —
+            // the homepage only carries the thumbnail (different hash for some papers).
+            let Ok(resp) = client.get(&capa_url).header("User-Agent", USER_AGENT).send() else { continue };
+            let Ok(text) = resp.text() else { continue };
+            let capa_doc = Html::parse_document(&text);
+            let big_img_selector = Selector::parse("img").unwrap();
+
+            for img in capa_doc.select(&big_img_selector) {
+                let Some(src) = img.value().attr("src") else { continue };
+                if !src.contains("covers") {
+                    continue;
+                }
+                let url = if src.starts_with("http") {
+                    src.to_string()
+                } else {
+                    format!("{}{}", base, src)
+                };
+                let last_updated = extract_date_from_url(&url);
+                let id_name = match nome.as_str() {
+                    "Jornal Record" => "Record",
+                    other => other,
+                };
+                capas_secao.push(Capa {
+                    id: slugify(id_name),
+                    nome: nome.clone(),
+                    url,
+                    last_updated,
+                });
+                break;
             }
         }
 

@@ -1,9 +1,6 @@
 name: Update capas
 
 on:
-  schedule:
-    - cron: '0 6 * * *'
-    - cron: '0 7 * * *'
   workflow_dispatch:
     inputs:
       send_notification:
@@ -39,14 +36,15 @@ jobs:
           publish_dir: ./capas-api/public   # 👈 ajustado para apontar à pasta certa
           publish_branch: gh-pages
           commit_message: "🔄 Update capas ($(date -u +'%Y-%m-%d %H:%M:%S UTC'))"
-          
+
       - name: Authenticate to Google Cloud
+        if: inputs.send_notification
         uses: google-github-actions/auth@v2
         with:
           credentials_json: '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}'
 
       - name: Send Push Notification
-        if: (github.event_name == 'workflow_dispatch' && inputs.send_notification) || github.event.schedule == '0 6 * * *'
+        if: inputs.send_notification
         run: |
           ACCESS_TOKEN=$(gcloud auth print-access-token)
           PROJECT_ID=$(jq -r .project_id <<< '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}')
