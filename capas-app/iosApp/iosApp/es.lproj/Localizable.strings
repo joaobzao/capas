@@ -24,6 +24,8 @@
 /* Messages */
 "msg_removed" = "eliminada";
 "msg_no_removed_capas" = "Ninguna portada eliminada";
+"empty_category_title" = "Sin portadas en esta categoría";
+"empty_category_subtitle" = "Puede que las hayas eliminado todas. Toca restaurar para recuperarlas.";
 "msg_updated_at" = "Actualizado: %@";
 "msg_update_failed" = "Error en la actualización";
 

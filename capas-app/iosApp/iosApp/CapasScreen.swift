@@ -138,24 +138,33 @@ struct CapasScreen: View {
                     // Grid
                     if let capasResponse = viewModelWrapper.state.capas {
                         // Sync logic handled in .onChange or initial load
-                        
-                        ScrollView {
-                            LazyVGrid(columns: columns, spacing: 24) {
-                                ForEach(localCapas, id: \.id) { capa in
-                                DraggableCapaGridItem(
-                                    capa: capa,
-                                    isDragging: $isDragging,
-                                    activeDropTargetCount: $activeDropTargetCount,
-                                    draggedCapaId: $draggedCapaId,
-                                    isOverTrash: $isOverTrash,
-                                    localCapas: $localCapas,
-                                    viewModelWrapper: viewModelWrapper,
-                                    animation: animation
+
+                        Group {
+                            if localCapas.isEmpty {
+                                EmptyCategoryStateView(
+                                    hasRemoved: !viewModelWrapper.state.removed.isEmpty,
+                                    onViewRemoved: { showRemoved = true }
                                 )
+                            } else {
+                                ScrollView {
+                                    LazyVGrid(columns: columns, spacing: 24) {
+                                        ForEach(localCapas, id: \.id) { capa in
+                                        DraggableCapaGridItem(
+                                            capa: capa,
+                                            isDragging: $isDragging,
+                                            activeDropTargetCount: $activeDropTargetCount,
+                                            draggedCapaId: $draggedCapaId,
+                                            isOverTrash: $isOverTrash,
+                                            localCapas: $localCapas,
+                                            viewModelWrapper: viewModelWrapper,
+                                            animation: animation
+                                        )
+                                        }
+                                    }
+                                    .padding(24)
+                                    .padding(.bottom, 100)
                                 }
                             }
-                            .padding(24)
-                            .padding(.bottom, 100)
                         }
                         .onChange(of: selectedCategory) { newCategory in
                             updateLocalCapas(from: capasResponse, category: newCategory)
@@ -500,6 +509,75 @@ struct DraggableCapaGridItem: View {
             }
         }
         
+    }
+}
+
+struct EmptyCategoryStateView: View {
+    let hasRemoved: Bool
+    let onViewRemoved: () -> Void
+
+    var body: some View {
+        VStack(spacing: 0) {
+            ZStack {
+                // Back card
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(Color(uiColor: .secondarySystemBackground))
+                    .frame(width: 84, height: 112)
+                    .rotationEffect(.degrees(-10))
+                    .offset(x: -18, y: 6)
+                    .shadow(color: Color.black.opacity(0.08), radius: 6, x: 0, y: 4)
+
+                // Front card
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(Color(uiColor: .systemBackground))
+                    .frame(width: 84, height: 112)
+                    .rotationEffect(.degrees(10))
+                    .offset(x: 18, y: -6)
+                    .shadow(color: Color.black.opacity(0.12), radius: 10, x: 0, y: 6)
+                    .overlay(
+                        Image(systemName: "arrow.clockwise")
+                            .font(.system(size: 26, weight: .medium))
+                            .foregroundColor(.accentColor.opacity(0.55))
+                            .rotationEffect(.degrees(10))
+                            .offset(x: 18, y: -6)
+                    )
+            }
+            .frame(width: 160, height: 140)
+
+            Spacer().frame(height: 32)
+
+            Text(Strings.emptyCategoryTitle)
+                .font(.system(.title3, design: .serif))
+                .fontWeight(.bold)
+                .foregroundColor(.primary)
+                .multilineTextAlignment(.center)
+
+            Spacer().frame(height: 8)
+
+            Text(Strings.emptyCategorySubtitle)
+                .font(.system(.subheadline))
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+
+            if hasRemoved {
+                Spacer().frame(height: 24)
+                Button(action: onViewRemoved) {
+                    HStack(spacing: 8) {
+                        Image(systemName: "clock.arrow.circlepath")
+                            .font(.system(size: 16, weight: .medium))
+                        Text(Strings.actionViewRemoved)
+                            .font(.system(size: 15, weight: .medium))
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 12)
+                    .background(Color.accentColor.opacity(0.12))
+                    .foregroundColor(.accentColor)
+                    .clipShape(Capsule())
+                }
+            }
+        }
+        .padding(.horizontal, 32)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

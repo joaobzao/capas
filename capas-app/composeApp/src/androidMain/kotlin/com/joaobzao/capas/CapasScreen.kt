@@ -31,6 +31,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
@@ -44,6 +45,7 @@ import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
@@ -279,6 +281,14 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
                     val itemInfos = remember { mutableStateMapOf<String, ItemInfo>() }
 
                     val gridState = androidx.compose.foundation.lazy.grid.rememberLazyGridState()
+
+                    if (localCapas.isEmpty()) {
+                        EmptyCategoryState(
+                                hasRemoved = state.removed.isNotEmpty(),
+                                onViewRemoved = { showRemoved = true }
+                        )
+                        return@HorizontalPager
+                    }
 
                     LazyVerticalGrid(
                             state = gridState,
@@ -648,5 +658,86 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
 
     if (showAbout) {
         AboutSheet(viewModel = viewModel, onDismiss = { showAbout = false })
+    }
+}
+
+@Composable
+private fun EmptyCategoryState(
+        hasRemoved: Boolean,
+        onViewRemoved: () -> Unit,
+        modifier: Modifier = Modifier
+) {
+    Column(
+            modifier = modifier.fillMaxSize().padding(horizontal = 32.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+    ) {
+        Box(modifier = Modifier.size(160.dp, 140.dp), contentAlignment = Alignment.Center) {
+            Box(
+                    modifier =
+                            Modifier.size(width = 84.dp, height = 112.dp)
+                                    .offset(x = (-18).dp, y = 6.dp)
+                                    .rotate(-10f)
+                                    .shadow(6.dp, RoundedCornerShape(14.dp))
+                                    .background(
+                                            MaterialTheme.colorScheme.surfaceContainerHigh,
+                                            RoundedCornerShape(14.dp)
+                                    )
+            )
+            Box(
+                    modifier =
+                            Modifier.size(width = 84.dp, height = 112.dp)
+                                    .offset(x = 18.dp, y = (-6).dp)
+                                    .rotate(10f)
+                                    .shadow(10.dp, RoundedCornerShape(14.dp))
+                                    .background(
+                                            MaterialTheme.colorScheme.surface,
+                                            RoundedCornerShape(14.dp)
+                                    ),
+                    contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                        Icons.Default.Refresh,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.55f),
+                        modifier = Modifier.size(28.dp)
+                )
+            }
+        }
+
+        Spacer(Modifier.height(32.dp))
+
+        Text(
+                text = stringResource(R.string.empty_category_title),
+                style =
+                        MaterialTheme.typography.titleLarge.copy(
+                                fontFamily = FontFamily.Serif,
+                                fontWeight = FontWeight.Bold
+                        ),
+                color = MaterialTheme.colorScheme.onSurface,
+                textAlign = TextAlign.Center
+        )
+
+        Spacer(Modifier.height(8.dp))
+
+        Text(
+                text = stringResource(R.string.empty_category_subtitle),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center
+        )
+
+        if (hasRemoved) {
+            Spacer(Modifier.height(24.dp))
+            FilledTonalButton(onClick = onViewRemoved) {
+                Icon(
+                        Icons.Default.Refresh,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp)
+                )
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(R.string.action_view_removed))
+            }
+        }
     }
 }

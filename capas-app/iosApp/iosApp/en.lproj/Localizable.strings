@@ -24,6 +24,8 @@
 /* Messages */
 "msg_removed" = "removed";
 "msg_no_removed_capas" = "No removed covers";
+"empty_category_title" = "No covers in this category";
+"empty_category_subtitle" = "You may have removed them all. Tap restore to bring them back.";
 "msg_updated_at" = "Updated: %@";
 "msg_update_failed" = "Update failed";
 
