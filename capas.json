@@ -247,7 +247,7 @@
     {
       "id": "dinheiro-vivo-dn-jn",
       "nome": "Dinheiro Vivo-DN/JN",
-      "url": "https://imgs.vercapas.com/covers/dinheiro-vivo-dn-jn/2026/dinheiro-vivo-dn-jn-2026-06-26-d982309a-x.jpg",
+      "url": "https://imgs.vercapas.com/covers/dinheiro-vivo-dn-jn/2026/dinheiro-vivo-dn-jn-2026-06-26-af9d0fb6.jpg",
       "lastUpdated": "2026-06-26"
     },
     {
@@ -495,13 +495,13 @@
     {
       "id": "diario-do-sul",
       "nome": "Diário do Sul",
-      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-06-25-ca0c70ab.jpg",
-      "lastUpdated": "2026-06-25"
+      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-06-26-e7bc2ea8.jpg",
+      "lastUpdated": "2026-06-26"
     },
     {
       "id": "diario-dos-acores",
       "nome": "Diário dos Açores",
-      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-06-26-06193674-x.jpg",
+      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-06-26-f9c30b86.jpg",
       "lastUpdated": "2026-06-26"
     },
     {
@@ -717,7 +717,7 @@
     {
       "id": "o-setubalense",
       "nome": "O Setubalense",
-      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-06-26-e93ea661-x.jpg",
+      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-06-26-57ada5b0.jpg",
       "lastUpdated": "2026-06-26"
     },
     {
@@ -778,6 +778,50 @@
       "id": "tribuna-da-madeira",
       "nome": "Tribuna da Madeira",
       "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-06-26-f4d69cfb.jpg",
+      "lastUpdated": "2026-06-26"
+    }
+  ],
+  "Internacional": [
+    {
+      "id": "el-pais",
+      "nome": "El País",
+      "url": "https://img.kiosko.net/2026/06/26/es/elpais.750.jpg",
+      "lastUpdated": "2026-06-26"
+    },
+    {
+      "id": "corriere-della-sera",
+      "nome": "Corriere della Sera",
+      "url": "https://img.kiosko.net/2026/06/26/it/corriere_della_sera.750.jpg",
+      "lastUpdated": "2026-06-26"
+    },
+    {
+      "id": "la-gazzetta-dello-sport",
+      "nome": "La Gazzetta dello Sport",
+      "url": "https://img.kiosko.net/2026/06/26/it/gazzetta_sport.750.jpg",
+      "lastUpdated": "2026-06-26"
+    },
+    {
+      "id": "the-new-york-times",
+      "nome": "The New York Times",
+      "url": "https://img.kiosko.net/2026/06/26/us/newyork_times.750.jpg",
+      "lastUpdated": "2026-06-26"
+    },
+    {
+      "id": "washington-post",
+      "nome": "Washington Post",
+      "url": "https://img.kiosko.net/2026/06/26/us/washington_post.750.jpg",
+      "lastUpdated": "2026-06-26"
+    },
+    {
+      "id": "the-wall-street-journal",
+      "nome": "The Wall Street Journal",
+      "url": "https://img.kiosko.net/2026/06/26/us/wsj.750.jpg",
+      "lastUpdated": "2026-06-26"
+    },
+    {
+      "id": "folha-de-s-paulo",
+      "nome": "Folha de S.Paulo",
+      "url": "https://img.kiosko.net/2026/06/26/br/br_folha_spaulo.750.jpg",
       "lastUpdated": "2026-06-26"
     }
   ]
