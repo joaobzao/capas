@@ -25,7 +25,9 @@ class CapasViewModel(
             capasRepository.getCapas().collect { result ->
                 mutableCapasViewState.value = CapasViewState(
                     capas = result.data,
-                    removed = capasRepository.getRemovedCapas()
+                    removed = capasRepository.getRemovedCapas(),
+                    favorites = capasRepository.getFavoriteCapas(),
+                    favoriteIds = capasRepository.getFavoriteIds().toSet()
                 ).also { log.v { "🤩 Updating capas: ${it.capas}" } }
             }
         }
@@ -59,6 +61,23 @@ class CapasViewModel(
         // Let's NOT trigger getCapas, just update persistence.
     }
 
+    fun toggleFavorite(capa: Capa) {
+        capasRepository.toggleFavorite(capa.id)
+        refreshFavorites()
+    }
+
+    fun updateFavoriteOrder(capas: List<Capa>) {
+        capasRepository.updateFavoriteOrder(capas.map { it.id })
+        refreshFavorites()
+    }
+
+    private fun refreshFavorites() {
+        mutableCapasViewState.value = mutableCapasViewState.value.copy(
+            favorites = capasRepository.getFavoriteCapas(),
+            favoriteIds = capasRepository.getFavoriteIds().toSet()
+        )
+    }
+
     fun isOnboardingCompleted(): Boolean {
         return capasRepository.isOnboardingCompleted()
     }
@@ -88,5 +107,7 @@ class CapasViewModel(
 data class CapasViewState(
     val capas: CapasResponse? = null,
     val removed: List<Capa> = emptyList(),
+    val favorites: List<Capa> = emptyList(),
+    val favoriteIds: Set<String> = emptySet(),
     val workflowStatus: GitHubWorkflowRun? = null
 )

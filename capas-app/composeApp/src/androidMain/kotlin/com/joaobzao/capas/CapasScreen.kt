@@ -21,9 +21,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -70,12 +69,23 @@ data class ItemInfo(val position: Offset, val size: DpSize)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
+fun CapasScreen(
+    viewModel: CapasViewModel,
+    onCapaClick: (Capa) -> Unit,
+    onDraggingChange: (Boolean) -> Unit = {}
+) {
     val state by viewModel.capasState.collectAsState()
     var selectedCategory by rememberSaveable { mutableStateOf(CapasCategory.NATIONAL) }
     var showRemoved by rememberSaveable { mutableStateOf(false) }
-    var showAbout by rememberSaveable { mutableStateOf(false) }
-    var showMenu by remember { mutableStateOf(false) }
+    var isSearchActive by rememberSaveable { mutableStateOf(false) }
+    var searchQuery by rememberSaveable { mutableStateOf("") }
+
+    val closeSearch = {
+        if (isSearchActive) {
+            isSearchActive = false
+            searchQuery = ""
+        }
+    }
 
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -99,6 +109,9 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
     val haptic = LocalHapticFeedback.current
 
     LaunchedEffect(Unit) { viewModel.getCapas() }
+
+    // Esconde a barra de navegação enquanto se arrasta (para dar lugar ao caixote do lixo)
+    LaunchedEffect(draggingCapa) { onDraggingChange(draggingCapa != null) }
 
     Box(
             modifier =
@@ -145,6 +158,22 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
                 // Header Actions
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     IconButton(
+                            onClick = { isSearchActive = true },
+                            modifier =
+                                    Modifier.background(
+                                                    MaterialTheme.colorScheme.surfaceContainerHigh,
+                                                    CircleShape
+                                            )
+                                            .size(40.dp)
+                    ) {
+                        Icon(
+                                Icons.Default.Search,
+                                contentDescription = stringResource(R.string.action_search),
+                                tint = MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+
+                    IconButton(
                             onClick = { showRemoved = true },
                             modifier =
                                     Modifier.background(
@@ -159,39 +188,22 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
                                 tint = MaterialTheme.colorScheme.onSurface
                         )
                     }
-
-                    Box {
-                        IconButton(
-                                onClick = { showMenu = true },
-                                modifier =
-                                        Modifier.background(
-                                                        MaterialTheme.colorScheme
-                                                                .surfaceContainerHigh,
-                                                        CircleShape
-                                                )
-                                                .size(40.dp)
-                        ) {
-                            Icon(
-                                    Icons.Default.MoreVert,
-                                    contentDescription = "Mais opções",
-                                    tint = MaterialTheme.colorScheme.onSurface
-                            )
-                        }
-
-                        DropdownMenu(expanded = showMenu, onDismissRequest = { showMenu = false }) {
-                            DropdownMenuItem(
-                                    text = { Text(stringResource(R.string.title_about)) },
-                                    onClick = {
-                                        showMenu = false
-                                        showAbout = true
-                                    },
-                                    leadingIcon = {
-                                        Icon(Icons.Default.Info, contentDescription = null)
-                                    }
-                            )
-                        }
-                    }
                 }
+            }
+
+            // Barra de pesquisa (escondida por omissão)
+            AnimatedVisibility(visible = isSearchActive) {
+                CoverSearchField(
+                        query = searchQuery,
+                        onQueryChange = { searchQuery = it },
+                        onClose = {
+                            isSearchActive = false
+                            searchQuery = ""
+                        },
+                        modifier =
+                                Modifier.background(MaterialTheme.colorScheme.surface)
+                                        .padding(horizontal = 24.dp, vertical = 8.dp)
+                )
             }
 
             // Sync Pager <-> Tabs
@@ -205,6 +217,7 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
 
             LaunchedEffect(pagerState.currentPage) {
                 selectedCategory = CapasCategory.entries[pagerState.currentPage]
+                closeSearch()
             }
 
             // Minimalist Category Picker
@@ -229,6 +242,7 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
                                                     remember { MutableInteractionSource() },
                                             indication = null
                                     ) {
+                                        closeSearch()
                                         selectedCategory = category
                                         scope.launch { pagerState.animateScrollToPage(index) }
                                     }
@@ -275,18 +289,29 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
                                 CapasCategory.INTERNATIONAL -> capasResponse.internationalNewspapers
                             }
 
+                    val filteredCapas = capasForCategory.matching(searchQuery)
+
                     // Local state for optimistic reordering (Scoped to Page)
                     var localCapas by
-                            remember(capasForCategory) { mutableStateOf(capasForCategory) }
+                            remember(filteredCapas) { mutableStateOf(filteredCapas) }
                     val itemInfos = remember { mutableStateMapOf<String, ItemInfo>() }
 
                     val gridState = androidx.compose.foundation.lazy.grid.rememberLazyGridState()
 
+                    // Scrolling counts as interacting with the content (dismiss search).
+                    LaunchedEffect(gridState.isScrollInProgress) {
+                        if (gridState.isScrollInProgress) closeSearch()
+                    }
+
                     if (localCapas.isEmpty()) {
-                        EmptyCategoryState(
-                                hasRemoved = state.removed.isNotEmpty(),
-                                onViewRemoved = { showRemoved = true }
-                        )
+                        if (searchQuery.isNotBlank()) {
+                            SearchNoResults(query = searchQuery)
+                        } else {
+                            EmptyCategoryState(
+                                    hasRemoved = state.removed.isNotEmpty(),
+                                    onViewRemoved = { showRemoved = true }
+                            )
+                        }
                         return@HorizontalPager
                     }
 
@@ -294,7 +319,7 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
                             state = gridState,
                             columns = GridCells.Adaptive(minSize = 140.dp),
                             modifier = Modifier.fillMaxSize(),
-                            contentPadding = PaddingValues(24.dp),
+                            contentPadding = PaddingValues(start = 24.dp, top = 24.dp, end = 24.dp, bottom = 120.dp),
                             verticalArrangement = Arrangement.spacedBy(24.dp),
                             horizontalArrangement = Arrangement.spacedBy(24.dp),
                             userScrollEnabled = draggingCapa == null
@@ -311,7 +336,10 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
                                             ),
                                     capa = capa,
                                     isDragging = draggingCapa?.id == capa.id,
-                                    onClick = onCapaClick,
+                                    isFavorite = capa.id in state.favoriteIds,
+                                    onToggleFavorite = { closeSearch(); viewModel.toggleFavorite(it) },
+                                    dragEnabled = searchQuery.isBlank(),
+                                    onClick = { closeSearch(); onCapaClick(it) },
                                     onDragStart = {
                                         draggingCapa = capa
                                         val info = itemInfos[capa.id]
@@ -656,9 +684,6 @@ fun CapasScreen(viewModel: CapasViewModel, onCapaClick: (Capa) -> Unit) {
         }
     }
 
-    if (showAbout) {
-        AboutSheet(viewModel = viewModel, onDismiss = { showAbout = false })
-    }
 }
 
 @Composable

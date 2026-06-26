@@ -25,4 +25,15 @@
     <string name="title_support">Apoiar</string>
     <string name="label_buy_coffee">Ofereça-me um café</string>
     <string name="subtitle_buy_coffee">A app é gratuita e sem publicidade. Apoie o seu desenvolvimento!</string>
+    <string name="nav_capas">Capas</string>
+    <string name="nav_my_covers">As Minhas</string>
+    <string name="nav_about">Sobre</string>
+    <string name="my_covers_title">As Minhas Capas</string>
+    <string name="my_covers_empty_title">Ainda sem favoritas</string>
+    <string name="my_covers_empty_subtitle">Toque na estrela numa capa para a guardar aqui.</string>
+    <string name="action_favorite">Adicionar aos favoritos</string>
+    <string name="action_unfavorite">Remover dos favoritos</string>
+    <string name="action_search">Pesquisar</string>
+    <string name="search_placeholder">Pesquisar capas</string>
+    <string name="search_no_results">Sem resultados para \"%1$s\"</string>
 </resources>

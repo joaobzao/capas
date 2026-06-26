@@ -54,6 +54,7 @@ koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 
 touchlab-kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatform-settings" }
+multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatform-settings" }
 
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 

@@ -39,6 +39,7 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation(libs.multiplatform.settings.test)
             }
         }
         val androidMain by getting {

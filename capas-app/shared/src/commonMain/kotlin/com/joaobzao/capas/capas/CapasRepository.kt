@@ -19,6 +19,11 @@ interface CapasRepository {
     fun setOnboardingCompleted()
     suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>>
     fun updateOrder(orderedIds: List<String>)
+    fun toggleFavorite(id: String)
+    fun isFavorite(id: String): Boolean
+    fun getFavoriteIds(): List<String>
+    fun getFavoriteCapas(): List<Capa>
+    fun updateFavoriteOrder(orderedIds: List<String>)
 }
 
 class CapasRepositoryImpl(
@@ -27,6 +32,7 @@ class CapasRepositoryImpl(
 ) : CapasRepository {
 
     private val KEY = "allowed_capas"
+    private val FAVORITES_KEY = "favorite_capas"
     private val ONBOARDING_KEY = "onboarding_completed"
     private val REGIONAIS_INIT_KEY = "regionais_initialized"
     private val INTERNACIONAL_INIT_KEY = "internacional_initialized"
@@ -189,5 +195,42 @@ class CapasRepositoryImpl(
 
     private fun setAllowedIds(ids: List<String>) {
         settings[KEY] = ids.joinToString(",")
+    }
+
+    override fun toggleFavorite(id: String) {
+        val current = getFavoriteIds()
+        if (id in current) {
+            setFavoriteIds(current - id)
+        } else {
+            setFavoriteIds(current + id)
+        }
+    }
+
+    override fun isFavorite(id: String): Boolean {
+        return id in getFavoriteIds()
+    }
+
+    override fun getFavoriteIds(): List<String> {
+        val stored = settings.getString(FAVORITES_KEY, "")
+        return if (stored.isNotEmpty()) stored.split(",") else emptyList()
+    }
+
+    override fun updateFavoriteOrder(orderedIds: List<String>) {
+        val current = getFavoriteIds()
+        val uniqueOrdered = orderedIds.distinct()
+        val remaining = current.filter { it !in uniqueOrdered }
+        setFavoriteIds(uniqueOrdered + remaining)
+    }
+
+    override fun getFavoriteCapas(): List<Capa> {
+        val favoriteIds = getFavoriteIds()
+        val capas = lastCapas ?: return emptyList()
+        return (capas.mainNewspapers + capas.sportNewspapers + capas.economyNewspapers + capas.regionalNewspapers + capas.internationalNewspapers)
+            .filter { it.id in favoriteIds }
+            .sortedBy { favoriteIds.indexOf(it.id) }
+    }
+
+    private fun setFavoriteIds(ids: List<String>) {
+        settings[FAVORITES_KEY] = ids.joinToString(",")
     }
 }
