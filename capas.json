@@ -3,7 +3,7 @@
     {
       "id": "correio-da-manha",
       "nome": "Correio da Manhã",
-      "url": "https://imgs.vercapas.com/covers/correio-da-manha/2026/correio-da-manha-2026-06-30-f91b164d.jpg?1",
+      "url": "https://imgs.vercapas.com/covers/correio-da-manha/2026/correio-da-manha-2026-06-30-f91b164d.jpg",
       "lastUpdated": "2026-06-30"
     },
     {
@@ -21,7 +21,7 @@
     {
       "id": "diario-de-noticias",
       "nome": "Diário de Notícias",
-      "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2026/diario-de-noticias-2026-06-30-5cf28fe4.jpg?1",
+      "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2026/diario-de-noticias-2026-06-30-e4be97ce.jpg",
       "lastUpdated": "2026-06-30"
     },
     {
@@ -125,8 +125,8 @@
     {
       "id": "marca",
       "nome": "Marca",
-      "url": "https://imgs.vercapas.com/covers/jornal-marca/2026/jornal-marca-2026-06-29-7199f787.jpg",
-      "lastUpdated": "2026-06-29"
+      "url": "https://imgs.vercapas.com/covers/jornal-marca/2026/jornal-marca-2026-06-30-ba63be79.jpg",
+      "lastUpdated": "2026-06-30"
     },
     {
       "id": "mundo-deportivo",
@@ -495,8 +495,8 @@
     {
       "id": "diario-do-sul",
       "nome": "Diário do Sul",
-      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-06-26-e7bc2ea8.jpg",
-      "lastUpdated": "2026-06-26"
+      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-06-30-55e3ed77.jpg",
+      "lastUpdated": "2026-06-30"
     },
     {
       "id": "diario-dos-acores",
@@ -681,8 +681,8 @@
     {
       "id": "o-comercio-de-baiao",
       "nome": "O Comércio de Baião",
-      "url": "https://imgs.vercapas.com/covers/o-comercio-de-baiao/2026/o-comercio-de-baiao-2026-06-16-efbc53d5.jpg",
-      "lastUpdated": "2026-06-16"
+      "url": "https://imgs.vercapas.com/covers/o-comercio-de-baiao/2026/o-comercio-de-baiao-2026-06-30-eb1250c9.jpg",
+      "lastUpdated": "2026-06-30"
     },
     {
       "id": "o-comercio-de-guimaraes",
@@ -717,7 +717,7 @@
     {
       "id": "o-setubalense",
       "nome": "O Setubalense",
-      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-06-30-ac3d4084-x.jpg",
+      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-06-30-7e080383.jpg",
       "lastUpdated": "2026-06-30"
     },
     {
@@ -779,6 +779,50 @@
       "nome": "Tribuna da Madeira",
       "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-06-27-1e5c8375.jpg",
       "lastUpdated": "2026-06-27"
+    }
+  ],
+  "Internacional": [
+    {
+      "id": "el-pais",
+      "nome": "El País",
+      "url": "https://img.kiosko.net/2026/06/30/es/elpais.750.jpg",
+      "lastUpdated": "2026-06-30"
+    },
+    {
+      "id": "corriere-della-sera",
+      "nome": "Corriere della Sera",
+      "url": "https://img.kiosko.net/2026/06/30/it/corriere_della_sera.750.jpg",
+      "lastUpdated": "2026-06-30"
+    },
+    {
+      "id": "la-gazzetta-dello-sport",
+      "nome": "La Gazzetta dello Sport",
+      "url": "https://img.kiosko.net/2026/06/30/it/gazzetta_sport.750.jpg",
+      "lastUpdated": "2026-06-30"
+    },
+    {
+      "id": "the-new-york-times",
+      "nome": "The New York Times",
+      "url": "https://img.kiosko.net/2026/06/30/us/newyork_times.750.jpg",
+      "lastUpdated": "2026-06-30"
+    },
+    {
+      "id": "washington-post",
+      "nome": "Washington Post",
+      "url": "https://img.kiosko.net/2026/06/30/us/washington_post.750.jpg",
+      "lastUpdated": "2026-06-30"
+    },
+    {
+      "id": "the-wall-street-journal",
+      "nome": "The Wall Street Journal",
+      "url": "https://img.kiosko.net/2026/06/30/us/wsj.750.jpg",
+      "lastUpdated": "2026-06-30"
+    },
+    {
+      "id": "folha-de-s-paulo",
+      "nome": "Folha de S.Paulo",
+      "url": "https://img.kiosko.net/2026/06/30/br/br_folha_spaulo.750.jpg",
+      "lastUpdated": "2026-06-30"
     }
   ]
 }
