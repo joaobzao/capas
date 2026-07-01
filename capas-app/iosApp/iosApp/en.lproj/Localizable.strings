@@ -8,6 +8,13 @@
 "category_regional" = "Regional";
 "category_international" = "International";
 
+/* International announcement */
+"announce_intl_badge" = "NEW";
+"announce_intl_title" = "International covers";
+"announce_intl_message" = "International newspaper covers are now available in the app. Browse front pages from the press around the world.";
+"announce_intl_primary" = "See covers";
+"announce_intl_dismiss" = "Not now";
+
 /* Titles */
 "title_about" = "About";
 "title_recover_capas" = "Recover Covers";

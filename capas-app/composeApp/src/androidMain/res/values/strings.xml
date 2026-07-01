@@ -36,4 +36,9 @@
     <string name="action_search">Pesquisar</string>
     <string name="search_placeholder">Pesquisar capas</string>
     <string name="search_no_results">Sem resultados para \"%1$s\"</string>
+    <string name="announce_intl_badge">NOVO</string>
+    <string name="announce_intl_title">Capas internacionais</string>
+    <string name="announce_intl_message">As capas de jornais internacionais já estão disponíveis na app. Veja as primeiras páginas da imprensa de todo o mundo.</string>
+    <string name="announce_intl_primary">Ver capas</string>
+    <string name="announce_intl_dismiss">Agora não</string>
 </resources>

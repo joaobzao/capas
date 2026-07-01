@@ -9,6 +9,12 @@ enum Strings {
     static var categoryRegional: String { NSLocalizedString("category_regional", comment: "") }
     static var categoryInternational: String { NSLocalizedString("category_international", comment: "") }
 
+    static var announceIntlBadge: String { NSLocalizedString("announce_intl_badge", comment: "") }
+    static var announceIntlTitle: String { NSLocalizedString("announce_intl_title", comment: "") }
+    static var announceIntlMessage: String { NSLocalizedString("announce_intl_message", comment: "") }
+    static var announceIntlPrimary: String { NSLocalizedString("announce_intl_primary", comment: "") }
+    static var announceIntlDismiss: String { NSLocalizedString("announce_intl_dismiss", comment: "") }
+
     static var titleAbout: String { NSLocalizedString("title_about", comment: "") }
     static var titleRecoverCapas: String { NSLocalizedString("title_recover_capas", comment: "") }
     static var titleContacts: String { NSLocalizedString("title_contacts", comment: "") }

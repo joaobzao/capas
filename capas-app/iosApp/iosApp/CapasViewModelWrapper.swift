@@ -5,7 +5,7 @@ import SwiftUI
 @MainActor
 class CapasViewModelWrapper: ObservableObject {
     private let viewModel: CapasViewModel
-    @Published var state: CapasViewState = CapasViewState(capas: nil, removed: [], workflowStatus: nil)
+    @Published var state: CapasViewState = CapasViewState(capas: nil, removed: [], favorites: [], favoriteIds: [], workflowStatus: nil, showInternationalAnnouncement: false)
     
     init() {
         self.viewModel = CapasViewModelHelper().viewModel
@@ -40,6 +40,10 @@ class CapasViewModelWrapper: ObservableObject {
     
     func updateCapaOrder(_ capas: [Capa]) {
         viewModel.updateCapaOrder(capas: capas)
+    }
+
+    func markInternationalAnnouncementSeen() {
+        viewModel.markInternationalAnnouncementSeen()
     }
 }
 

@@ -236,9 +236,25 @@ struct CapasScreen: View {
                 .offset(y: isDragging ? 0 : 100)
                 .animation(.spring(), value: isDragging)
 
-                
+
                 // Native Draggable Overlay is handled automatically by SwiftUI
+
+                // One-time "what's new" announcement for international covers
+                if viewModelWrapper.state.showInternationalAnnouncement {
+                    InternationalAnnouncementView(
+                        onSeeCovers: {
+                            selectedCategory = .international
+                            viewModelWrapper.markInternationalAnnouncementSeen()
+                        },
+                        onDismiss: {
+                            viewModelWrapper.markInternationalAnnouncementSeen()
+                        }
+                    )
+                    .transition(.opacity)
+                    .zIndex(2)
+                }
             }
+            .animation(.easeInOut, value: viewModelWrapper.state.showInternationalAnnouncement)
             .onChange(of: isDragging) { newValue in
                 if !newValue {
                     draggedCapaId = nil
@@ -600,6 +616,86 @@ struct DragEndDetector: DropDelegate {
     func dropExited(info: DropInfo) {
         withAnimation(.spring()) {
             isDragging = false
+        }
+    }
+}
+
+/// One-time, on-brand modal announcing that international covers are now available.
+struct InternationalAnnouncementView: View {
+    let onSeeCovers: () -> Void
+    let onDismiss: () -> Void
+
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.4)
+                .ignoresSafeArea()
+                .onTapGesture { onDismiss() }
+
+            VStack(spacing: 0) {
+                // Globe in a rounded container
+                ZStack {
+                    RoundedRectangle(cornerRadius: 24, style: .continuous)
+                        .fill(Color.accentColor.opacity(0.15))
+                        .frame(width: 88, height: 88)
+                    Image(systemName: "globe.europe.africa.fill")
+                        .font(.system(size: 44))
+                        .foregroundColor(.accentColor)
+                }
+
+                Spacer().frame(height: 20)
+
+                // "NEW" badge
+                Text(Strings.announceIntlBadge)
+                    .font(.system(size: 12, weight: .bold))
+                    .tracking(1)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 4)
+                    .background(Capsule().fill(Color.accentColor))
+
+                Spacer().frame(height: 16)
+
+                Text(Strings.announceIntlTitle)
+                    .font(.system(.title2, design: .serif))
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                    .multilineTextAlignment(.center)
+
+                Spacer().frame(height: 12)
+
+                Text(Strings.announceIntlMessage)
+                    .font(.system(.subheadline))
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+
+                Spacer().frame(height: 28)
+
+                Button(action: onSeeCovers) {
+                    Text(Strings.announceIntlPrimary)
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 52)
+                        .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Color.accentColor))
+                }
+
+                Spacer().frame(height: 8)
+
+                Button(action: onDismiss) {
+                    Text(Strings.announceIntlDismiss)
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundColor(.secondary)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 44)
+                }
+            }
+            .padding(28)
+            .background(
+                RoundedRectangle(cornerRadius: 28, style: .continuous)
+                    .fill(Color(uiColor: .systemBackground))
+            )
+            .shadow(color: Color.black.opacity(0.2), radius: 30, x: 0, y: 10)
+            .padding(.horizontal, 40)
         }
     }
 }

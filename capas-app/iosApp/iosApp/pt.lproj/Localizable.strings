@@ -8,6 +8,13 @@
 "category_regional" = "Regionais";
 "category_international" = "Internacional";
 
+/* International announcement */
+"announce_intl_badge" = "NOVO";
+"announce_intl_title" = "Capas internacionais";
+"announce_intl_message" = "As capas de jornais internacionais já estão disponíveis na app. Veja as primeiras páginas da imprensa de todo o mundo.";
+"announce_intl_primary" = "Ver capas";
+"announce_intl_dismiss" = "Agora não";
+
 /* Titles */
 "title_about" = "Sobre";
 "title_recover_capas" = "Recuperar Capas";

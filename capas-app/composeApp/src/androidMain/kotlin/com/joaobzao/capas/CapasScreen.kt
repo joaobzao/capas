@@ -108,6 +108,18 @@ fun CapasScreen(
 
     val haptic = LocalHapticFeedback.current
 
+    // Sync Pager <-> Tabs. The pager is the single source of truth: navigation
+    // intents animate the pager, and selectedCategory is derived from it. Hoisted
+    // here so the international announcement (rendered outside the Box) can drive it.
+    val pagerState = rememberPagerState(pageCount = { CapasCategory.entries.size })
+    val tabRowState = androidx.compose.foundation.lazy.rememberLazyListState()
+
+    LaunchedEffect(pagerState.currentPage) {
+        selectedCategory = CapasCategory.entries[pagerState.currentPage]
+        tabRowState.animateScrollToItem(pagerState.currentPage)
+        closeSearch()
+    }
+
     LaunchedEffect(Unit) { viewModel.getCapas() }
 
     // Esconde a barra de navegação enquanto se arrasta (para dar lugar ao caixote do lixo)
@@ -206,20 +218,6 @@ fun CapasScreen(
                 )
             }
 
-            // Sync Pager <-> Tabs
-            val pagerState = rememberPagerState(pageCount = { CapasCategory.entries.size })
-            val tabRowState = androidx.compose.foundation.lazy.rememberLazyListState()
-
-            LaunchedEffect(selectedCategory) {
-                pagerState.animateScrollToPage(selectedCategory.ordinal)
-                tabRowState.animateScrollToItem(selectedCategory.ordinal)
-            }
-
-            LaunchedEffect(pagerState.currentPage) {
-                selectedCategory = CapasCategory.entries[pagerState.currentPage]
-                closeSearch()
-            }
-
             // Minimalist Category Picker
             LazyRow(
                     state = tabRowState,
@@ -243,7 +241,6 @@ fun CapasScreen(
                                             indication = null
                                     ) {
                                         closeSearch()
-                                        selectedCategory = category
                                         scope.launch { pagerState.animateScrollToPage(index) }
                                     }
                     ) {
@@ -682,6 +679,18 @@ fun CapasScreen(
                 }
             }
         }
+    }
+
+    if (state.showInternationalAnnouncement) {
+        InternationalAnnouncementDialog(
+            onSeeCovers = {
+                scope.launch {
+                    pagerState.animateScrollToPage(CapasCategory.INTERNATIONAL.ordinal)
+                }
+                viewModel.markInternationalAnnouncementSeen()
+            },
+            onDismiss = { viewModel.markInternationalAnnouncementSeen() }
+        )
     }
 
 }

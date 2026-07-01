@@ -17,6 +17,8 @@ interface CapasRepository {
     fun getRemovedCapas(): List<Capa>
     fun isOnboardingCompleted(): Boolean
     fun setOnboardingCompleted()
+    fun isInternationalAnnouncementSeen(): Boolean
+    fun setInternationalAnnouncementSeen()
     suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>>
     fun updateOrder(orderedIds: List<String>)
     fun toggleFavorite(id: String)
@@ -36,6 +38,7 @@ class CapasRepositoryImpl(
     private val ONBOARDING_KEY = "onboarding_completed"
     private val REGIONAIS_INIT_KEY = "regionais_initialized"
     private val INTERNACIONAL_INIT_KEY = "internacional_initialized"
+    private val INTERNATIONAL_ANNOUNCEMENT_SEEN_KEY = "international_announcement_seen"
     private var lastCapas: CapasResponse? = null
 
     override fun isOnboardingCompleted(): Boolean {
@@ -44,6 +47,17 @@ class CapasRepositoryImpl(
 
     override fun setOnboardingCompleted() {
         settings.putBoolean(ONBOARDING_KEY, true)
+        // New users discover international covers as part of the app, so they
+        // should never see the "what's new" announcement aimed at existing users.
+        settings.putBoolean(INTERNATIONAL_ANNOUNCEMENT_SEEN_KEY, true)
+    }
+
+    override fun isInternationalAnnouncementSeen(): Boolean {
+        return settings.getBoolean(INTERNATIONAL_ANNOUNCEMENT_SEEN_KEY, false)
+    }
+
+    override fun setInternationalAnnouncementSeen() {
+        settings.putBoolean(INTERNATIONAL_ANNOUNCEMENT_SEEN_KEY, true)
     }
 
     override suspend fun getWorkflowStatus(): Flow<NetworkResult<GitHubWorkflowResponse>> {

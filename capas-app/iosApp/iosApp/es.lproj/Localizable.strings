@@ -8,6 +8,13 @@
 "category_regional" = "Regionales";
 "category_international" = "Internacional";
 
+/* International announcement */
+"announce_intl_badge" = "NUEVO";
+"announce_intl_title" = "Portadas internacionales";
+"announce_intl_message" = "Las portadas de periódicos internacionales ya están disponibles en la app. Explora las primeras páginas de la prensa de todo el mundo.";
+"announce_intl_primary" = "Ver portadas";
+"announce_intl_dismiss" = "Ahora no";
+
 /* Titles */
 "title_about" = "Acerca de";
 "title_recover_capas" = "Recuperar Portadas";

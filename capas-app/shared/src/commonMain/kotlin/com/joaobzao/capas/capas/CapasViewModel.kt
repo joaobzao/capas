@@ -23,11 +23,15 @@ class CapasViewModel(
     fun getCapas() {
         viewModelScope.launch {
             capasRepository.getCapas().collect { result ->
+                val showAnnouncement = capasRepository.isOnboardingCompleted() &&
+                        !capasRepository.isInternationalAnnouncementSeen() &&
+                        (result.data?.internationalNewspapers?.isNotEmpty() == true)
                 mutableCapasViewState.value = CapasViewState(
                     capas = result.data,
                     removed = capasRepository.getRemovedCapas(),
                     favorites = capasRepository.getFavoriteCapas(),
-                    favoriteIds = capasRepository.getFavoriteIds().toSet()
+                    favoriteIds = capasRepository.getFavoriteIds().toSet(),
+                    showInternationalAnnouncement = showAnnouncement
                 ).also { log.v { "🤩 Updating capas: ${it.capas}" } }
             }
         }
@@ -86,6 +90,12 @@ class CapasViewModel(
         capasRepository.setOnboardingCompleted()
     }
 
+    fun markInternationalAnnouncementSeen() {
+        capasRepository.setInternationalAnnouncementSeen()
+        mutableCapasViewState.value =
+            mutableCapasViewState.value.copy(showInternationalAnnouncement = false)
+    }
+
     fun getWorkflowStatus() {
         viewModelScope.launch {
             capasRepository.getWorkflowStatus().collect { result ->
@@ -109,5 +119,6 @@ data class CapasViewState(
     val removed: List<Capa> = emptyList(),
     val favorites: List<Capa> = emptyList(),
     val favoriteIds: Set<String> = emptySet(),
-    val workflowStatus: GitHubWorkflowRun? = null
+    val workflowStatus: GitHubWorkflowRun? = null,
+    val showInternationalAnnouncement: Boolean = false
 )

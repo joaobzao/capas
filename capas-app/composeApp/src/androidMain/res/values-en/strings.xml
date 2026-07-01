@@ -36,4 +36,9 @@
     <string name="action_search">Search</string>
     <string name="search_placeholder">Search covers</string>
     <string name="search_no_results">No results for \"%1$s\"</string>
+    <string name="announce_intl_badge">NEW</string>
+    <string name="announce_intl_title">International covers</string>
+    <string name="announce_intl_message">International newspaper covers are now available in the app. Browse front pages from the press around the world.</string>
+    <string name="announce_intl_primary">See covers</string>
+    <string name="announce_intl_dismiss">Not now</string>
 </resources>
