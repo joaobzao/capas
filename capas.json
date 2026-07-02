@@ -561,8 +561,8 @@
     {
       "id": "jornal-da-beira",
       "nome": "Jornal da Beira",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-beira/2026/jornal-da-beira-2026-06-25-916eba30.jpg",
-      "lastUpdated": "2026-06-25"
+      "url": "https://imgs.vercapas.com/covers/jornal-da-beira/2026/jornal-da-beira-2026-07-02-4c2eab1f.jpg",
+      "lastUpdated": "2026-07-02"
     },
     {
       "id": "jornal-da-madeira",
@@ -735,8 +735,8 @@
     {
       "id": "reconquista",
       "nome": "Reconquista",
-      "url": "https://imgs.vercapas.com/covers/reconquista/2026/reconquista-2026-06-25-fe4c46f3.jpg",
-      "lastUpdated": "2026-06-25"
+      "url": "https://imgs.vercapas.com/covers/reconquista/2026/reconquista-2026-07-02-bb6e8657.jpg",
+      "lastUpdated": "2026-07-02"
     },
     {
       "id": "reflexo",
@@ -785,44 +785,62 @@
     {
       "id": "el-pais",
       "nome": "El País",
-      "url": "https://img.kiosko.net/2026/07/02/es/elpais.750.jpg",
+      "url": "https://www.frontpages.com/g/2026/07/02/el-pais-002953poeeete.webp",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "id": "the-daily-telegraph",
+      "nome": "The Daily Telegraph",
+      "url": "https://img.kiosko.net/2026/07/02/uk/daily_telegraph.jpg",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "id": "daily-mail",
+      "nome": "Daily Mail",
+      "url": "https://img.kiosko.net/2026/07/02/uk/daily_mail.jpg",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "id": "financial-times",
+      "nome": "Financial Times",
+      "url": "https://www.frontpages.com/g/2026/07/02/financial-times-0001391oyc0la.webp",
       "lastUpdated": "2026-07-02"
     },
     {
       "id": "corriere-della-sera",
       "nome": "Corriere della Sera",
-      "url": "https://img.kiosko.net/2026/07/02/it/corriere_della_sera.750.jpg",
+      "url": "https://www.giornalone.it/g/2026/07/02/corriere-della-sera-050012p48cw1u.webp",
       "lastUpdated": "2026-07-02"
     },
     {
       "id": "la-gazzetta-dello-sport",
       "nome": "La Gazzetta dello Sport",
-      "url": "https://img.kiosko.net/2026/07/02/it/gazzetta_sport.750.jpg",
+      "url": "https://www.frontpages.com/g/2026/07/02/la-gazzetta-dello-sport-033432vm89cvc.webp",
       "lastUpdated": "2026-07-02"
     },
     {
       "id": "the-new-york-times",
       "nome": "The New York Times",
-      "url": "https://img.kiosko.net/2026/07/02/us/newyork_times.750.jpg",
+      "url": "https://www.frontpages.com/g/2026/07/02/the-new-york-times-071307td436sl.webp",
       "lastUpdated": "2026-07-02"
     },
     {
       "id": "washington-post",
       "nome": "Washington Post",
-      "url": "https://img.kiosko.net/2026/07/01/us/washington_post.750.jpg",
-      "lastUpdated": "2026-07-01"
+      "url": "https://www.frontpages.com/g/2026/07/02/the-washington-post-063638p219mo9.webp",
+      "lastUpdated": "2026-07-02"
     },
     {
       "id": "the-wall-street-journal",
       "nome": "The Wall Street Journal",
-      "url": "https://img.kiosko.net/2026/07/02/us/wsj.750.jpg",
+      "url": "https://img.kiosko.net/2026/07/02/us/wsj.jpg",
       "lastUpdated": "2026-07-02"
     },
     {
       "id": "folha-de-s-paulo",
       "nome": "Folha de S.Paulo",
-      "url": "https://img.kiosko.net/2026/07/01/br/br_folha_spaulo.750.jpg",
-      "lastUpdated": "2026-07-01"
+      "url": "https://www.frontpages.com/g/2026/07/02/folha-de-s-paulo-040036wsoelox.webp",
+      "lastUpdated": "2026-07-02"
     }
   ]
 }
