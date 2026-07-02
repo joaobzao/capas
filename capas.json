@@ -780,5 +780,49 @@
       "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-06-27-1e5c8375.jpg",
       "lastUpdated": "2026-06-27"
     }
+  ],
+  "Internacional": [
+    {
+      "id": "el-pais",
+      "nome": "El País",
+      "url": "https://img.kiosko.net/2026/07/02/es/elpais.750.jpg",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "id": "corriere-della-sera",
+      "nome": "Corriere della Sera",
+      "url": "https://img.kiosko.net/2026/07/02/it/corriere_della_sera.750.jpg",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "id": "la-gazzetta-dello-sport",
+      "nome": "La Gazzetta dello Sport",
+      "url": "https://img.kiosko.net/2026/07/02/it/gazzetta_sport.750.jpg",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "id": "the-new-york-times",
+      "nome": "The New York Times",
+      "url": "https://img.kiosko.net/2026/07/02/us/newyork_times.750.jpg",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "id": "washington-post",
+      "nome": "Washington Post",
+      "url": "https://img.kiosko.net/2026/07/01/us/washington_post.750.jpg",
+      "lastUpdated": "2026-07-01"
+    },
+    {
+      "id": "the-wall-street-journal",
+      "nome": "The Wall Street Journal",
+      "url": "https://img.kiosko.net/2026/07/02/us/wsj.750.jpg",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "id": "folha-de-s-paulo",
+      "nome": "Folha de S.Paulo",
+      "url": "https://img.kiosko.net/2026/07/01/br/br_folha_spaulo.750.jpg",
+      "lastUpdated": "2026-07-01"
+    }
   ]
 }
