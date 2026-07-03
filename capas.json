@@ -780,5 +780,67 @@
       "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-07-03-e4a8172a.jpg",
       "lastUpdated": "2026-07-03"
     }
+  ],
+  "Internacional": [
+    {
+      "id": "el-pais",
+      "nome": "El País",
+      "url": "https://www.frontpages.com/g/2026/07/03/el-pais-012626yd75rr0.webp",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "the-daily-telegraph",
+      "nome": "The Daily Telegraph",
+      "url": "https://img.kiosko.net/2026/07/03/uk/daily_telegraph.jpg",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "daily-mail",
+      "nome": "Daily Mail",
+      "url": "https://img.kiosko.net/2026/07/03/uk/daily_mail.jpg",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "financial-times",
+      "nome": "Financial Times",
+      "url": "https://www.frontpages.com/g/2026/07/03/financial-times-01393804gd3n6.webp",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "corriere-della-sera",
+      "nome": "Corriere della Sera",
+      "url": "https://www.giornalone.it/g/2026/07/03/corriere-della-sera-0500117xi9pfv.webp",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "la-gazzetta-dello-sport",
+      "nome": "La Gazzetta dello Sport",
+      "url": "https://www.frontpages.com/g/2026/07/03/la-gazzetta-dello-sport-033841cwv9lqq.webp",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "the-new-york-times",
+      "nome": "The New York Times",
+      "url": "https://www.frontpages.com/g/2026/07/03/the-new-york-times-070735v7yzmf7.webp",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "washington-post",
+      "nome": "Washington Post",
+      "url": "https://www.frontpages.com/g/2026/07/03/the-washington-post-072029hkfcvcb.webp",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "the-wall-street-journal",
+      "nome": "The Wall Street Journal",
+      "url": "https://img.kiosko.net/2026/07/03/us/wsj.jpg",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "folha-de-s-paulo",
+      "nome": "Folha de S.Paulo",
+      "url": "https://www.frontpages.com/g/2026/07/03/folha-de-s-paulo-0400480gwa8oo.webp",
+      "lastUpdated": "2026-07-03"
+    }
   ]
 }
