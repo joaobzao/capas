@@ -38,6 +38,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
+import com.joaobzao.capas.analytics.CapasAnalytics
 
 @Composable
 fun AboutScreen(
@@ -145,7 +146,10 @@ private fun AboutContent(
                     title = stringResource(R.string.label_buy_coffee),
                     subtitle = stringResource(R.string.subtitle_buy_coffee),
                     iconTint = androidx.compose.ui.graphics.Color(0xFFE91E63),
-                    onClick = { uriHandler.openUri("https://revolut.me/joaoqprk") }
+                    onClick = {
+                        CapasAnalytics.trackAboutLinkClicked("donate")
+                        uriHandler.openUri("https://revolut.me/joaoqprk")
+                    }
                 )
 
                 Text(
@@ -159,14 +163,20 @@ private fun AboutContent(
                     icon = Icons.Default.Email,
                     title = stringResource(R.string.label_support_email),
                     subtitle = "joaozao.dev@gmail.com",
-                    onClick = { uriHandler.openUri("mailto:joaozao.dev@gmail.com") }
+                    onClick = {
+                        CapasAnalytics.trackAboutLinkClicked("email")
+                        uriHandler.openUri("mailto:joaozao.dev@gmail.com")
+                    }
                 )
 
                 ContactItem(
                     icon = Icons.Default.Lock,
                     title = stringResource(R.string.label_privacy_policy),
                     subtitle = stringResource(R.string.subtitle_privacy_policy),
-                    onClick = { uriHandler.openUri("https://github.com/joaobzao/capas/blob/main/PRIVACY_POLICY.md") }
+                    onClick = {
+                        CapasAnalytics.trackAboutLinkClicked("privacy")
+                        uriHandler.openUri("https://github.com/joaobzao/capas/blob/main/PRIVACY_POLICY.md")
+                    }
                 )
             }
 }

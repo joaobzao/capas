@@ -37,11 +37,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -55,6 +57,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.foundation.layout.Column
 import coil.compose.AsyncImage
+import com.joaobzao.capas.analytics.CapasAnalytics
 import com.joaobzao.capas.capas.Capa
 import com.joaobzao.capas.capas.RelativeDateFormatter
 import java.util.Locale
@@ -70,6 +73,13 @@ fun CapaDetailScreen(
     var isZoomed by remember { mutableStateOf(false) }
 
     val coroutineScope = rememberCoroutineScope()
+
+    // Regista cada capa vista no pager (inclui a inicial, swipes e botões).
+    LaunchedEffect(Unit) {
+        snapshotFlow { pagerState.settledPage }.collect { page ->
+            capas.getOrNull(page)?.let { CapasAnalytics.trackCapaViewed(it.id, it.nome) }
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -132,6 +142,9 @@ fun CapaDetailScreen(
                     isPageVisible = page == pagerState.currentPage,
                     onZoomChange = { zoomed ->
                         if (page == pagerState.currentPage) {
+                            if (zoomed && !isZoomed) {
+                                CapasAnalytics.trackCapaZoomed(capa.id)
+                            }
                             isZoomed = zoomed
                         }
                     }

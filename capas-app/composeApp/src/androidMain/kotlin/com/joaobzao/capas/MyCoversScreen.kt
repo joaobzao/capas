@@ -23,12 +23,14 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -36,12 +38,15 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.joaobzao.capas.analytics.CapasAnalytics
 import com.joaobzao.capas.capas.Capa
 import com.joaobzao.capas.capas.CapasViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.Locale
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun MyCoversScreen(
@@ -57,6 +62,16 @@ fun MyCoversScreen(
         if (isSearchActive) {
             isSearchActive = false
             searchQuery = ""
+        }
+    }
+
+    // Regista pesquisas com debounce para não enviar cada tecla.
+    LaunchedEffect(Unit) {
+        snapshotFlow { searchQuery }.collectLatest { query ->
+            if (query.isNotBlank()) {
+                delay(1_000)
+                CapasAnalytics.trackSearch(query, "favorites")
+            }
         }
     }
 
@@ -137,9 +152,16 @@ fun MyCoversScreen(
                 DraggableCapaGrid(
                     capas = filtered,
                     favoriteIds = state.favoriteIds,
-                    onToggleFavorite = { viewModel.toggleFavorite(it) },
+                    onToggleFavorite = {
+                        // No ecrã de favoritos, alternar remove sempre dos favoritos.
+                        CapasAnalytics.trackFavoriteRemoved(it.id, it.nome, "favorites")
+                        viewModel.toggleFavorite(it)
+                    },
                     onCapaClick = onCapaClick,
-                    onReorder = { viewModel.updateFavoriteOrder(it) },
+                    onReorder = {
+                        CapasAnalytics.trackReorder("favorites", null)
+                        viewModel.updateFavoriteOrder(it)
+                    },
                     onDraggingChange = onDraggingChange,
                     onInteraction = closeSearch,
                     dragEnabled = searchQuery.isBlank()

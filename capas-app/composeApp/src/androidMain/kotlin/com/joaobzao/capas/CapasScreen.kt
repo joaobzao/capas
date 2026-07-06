@@ -49,12 +49,16 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import coil.compose.AsyncImage
+import com.joaobzao.capas.analytics.CapasAnalytics
 import com.joaobzao.capas.capas.Capa
 import com.joaobzao.capas.capas.CapasViewModel
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.Locale
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.launch
 
 enum class CapasCategory(val labelResId: Int) {
@@ -118,6 +122,25 @@ fun CapasScreen(
         selectedCategory = CapasCategory.entries[pagerState.currentPage]
         tabRowState.animateScrollToItem(pagerState.currentPage)
         closeSearch()
+    }
+
+    // Regista a mudança de categoria (tab ou swipe); ignora a página inicial.
+    LaunchedEffect(Unit) {
+        snapshotFlow { pagerState.settledPage }
+            .drop(1)
+            .collect { page ->
+                CapasAnalytics.trackCategorySelected(CapasCategory.entries[page].name.lowercase())
+            }
+    }
+
+    // Regista pesquisas com debounce para não enviar cada tecla.
+    LaunchedEffect(Unit) {
+        snapshotFlow { searchQuery }.collectLatest { query ->
+            if (query.isNotBlank()) {
+                delay(1_000)
+                CapasAnalytics.trackSearch(query, "capas")
+            }
+        }
     }
 
     LaunchedEffect(Unit) { viewModel.getCapas() }
@@ -334,7 +357,15 @@ fun CapasScreen(
                                     capa = capa,
                                     isDragging = draggingCapa?.id == capa.id,
                                     isFavorite = capa.id in state.favoriteIds,
-                                    onToggleFavorite = { closeSearch(); viewModel.toggleFavorite(it) },
+                                    onToggleFavorite = {
+                                        closeSearch()
+                                        if (it.id in state.favoriteIds) {
+                                            CapasAnalytics.trackFavoriteRemoved(it.id, it.nome, "capas")
+                                        } else {
+                                            CapasAnalytics.trackFavoriteAdded(it.id, it.nome, "capas")
+                                        }
+                                        viewModel.toggleFavorite(it)
+                                    },
                                     dragEnabled = searchQuery.isBlank(),
                                     onClick = { closeSearch(); onCapaClick(it) },
                                     onDragStart = {
@@ -411,10 +442,15 @@ fun CapasScreen(
                                         }
                                     },
                                     onDragEnd = {
-                                        if (isOverTrash && draggingCapa != null) {
+                                        // O componente invoca isto para end E cancel; enquanto a
+                                        // animação de remoção decorre, ignora a segunda chamada.
+                                        if (isShrinking) {
+                                            // remoção já em curso — nada a fazer
+                                        } else if (isOverTrash && draggingCapa != null) {
                                             val removed = draggingCapa!!
                                             isShrinking = true
                                             itemInfos.remove(removed.id)
+                                            CapasAnalytics.trackCapaRemoved(removed.id, removed.nome)
                                             viewModel.removeCapa(removed)
                                             scope.launch {
                                                 val result =
@@ -425,12 +461,16 @@ fun CapasScreen(
                                                                 duration = SnackbarDuration.Short
                                                         )
                                                 if (result == SnackbarResult.ActionPerformed) {
+                                                    CapasAnalytics.trackCapaRestored(removed.id, removed.nome)
                                                     viewModel.restoreCapa(removed)
                                                 }
                                             }
                                         } else {
                                             // Save new order
                                             if (draggingCapa != null) {
+                                                if (localCapas.map { it.id } != filteredCapas.map { it.id }) {
+                                                    CapasAnalytics.trackReorder("capas", selectedCategory.name.lowercase())
+                                                }
                                                 viewModel.updateCapaOrder(localCapas)
                                             }
 
@@ -620,7 +660,10 @@ fun CapasScreen(
                                             Modifier.fillMaxWidth()
                                                     .aspectRatio(0.75f)
                                                     .clip(RoundedCornerShape(20.dp))
-                                                    .clickable { viewModel.restoreCapa(capa) }
+                                                    .clickable {
+                                                        CapasAnalytics.trackCapaRestored(capa.id, capa.nome)
+                                                        viewModel.restoreCapa(capa)
+                                                    }
                             ) {
                                 AsyncImage(
                                         model = capa.url,
@@ -684,12 +727,16 @@ fun CapasScreen(
     if (state.showInternationalAnnouncement) {
         InternationalAnnouncementDialog(
             onSeeCovers = {
+                CapasAnalytics.trackInternationalAnnouncementSeen("see_covers")
                 scope.launch {
                     pagerState.animateScrollToPage(CapasCategory.INTERNATIONAL.ordinal)
                 }
                 viewModel.markInternationalAnnouncementSeen()
             },
-            onDismiss = { viewModel.markInternationalAnnouncementSeen() }
+            onDismiss = {
+                CapasAnalytics.trackInternationalAnnouncementSeen("dismiss")
+                viewModel.markInternationalAnnouncementSeen()
+            }
         )
     }
 

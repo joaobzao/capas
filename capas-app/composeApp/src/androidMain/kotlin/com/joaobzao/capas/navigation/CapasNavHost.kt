@@ -21,6 +21,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -50,11 +51,8 @@ import com.joaobzao.capas.capas.CapasViewModel
 import com.joaobzao.capas.logBreadcrumb
 import org.koin.androidx.compose.koinViewModel
 import androidx.compose.runtime.collectAsState
-import com.google.firebase.Firebase
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.analytics
-import com.google.firebase.analytics.logEvent
 import com.joaobzao.capas.CapasScreen
+import com.joaobzao.capas.analytics.CapasAnalytics
 
 private enum class BottomTab(
     val route: String,
@@ -78,6 +76,17 @@ fun CapasNavHost(
     var isDraggingCapa by remember { mutableStateOf(false) }
     val showBottomBar = BottomTab.entries.any { it.route == currentRoute } && !isDraggingCapa
 
+    // Um único observador de rota garante um screen_view por navegação
+    // (os blocos composable podem compor mais do que uma vez durante a transição).
+    LaunchedEffect(currentRoute) {
+        val screenName = when (currentRoute) {
+            "welcome", "capas", "favorites", "about" -> currentRoute
+            "detail/{id}?source={source}" -> "capa_detail"
+            else -> null
+        }
+        screenName?.let { CapasAnalytics.trackScreenView(it) }
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
         NavHost(
             navController = navController,
@@ -89,6 +98,7 @@ fun CapasNavHost(
                 logBreadcrumb("nav: welcome")
                 WelcomeScreen(
                     onFinish = {
+                        CapasAnalytics.trackOnboardingCompleted()
                         viewModel.completeOnboarding()
                         navController.navigate("capas") {
                             popUpTo("welcome") { inclusive = true }
@@ -256,10 +266,6 @@ private const val DETAIL_SOURCE_ALL = "all"
 private const val DETAIL_SOURCE_FAVORITES = "favorites"
 
 private fun logCapaSelection(id: String, nome: String, source: String, navController: NavHostController) {
-    Firebase.analytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT) {
-        param(FirebaseAnalytics.Param.ITEM_ID, id)
-        param(FirebaseAnalytics.Param.ITEM_NAME, nome)
-        param(FirebaseAnalytics.Param.CONTENT_TYPE, "capa")
-    }
+    CapasAnalytics.trackCapaOpened(id, nome, source)
     navController.navigate("detail/$id?source=$source")
 }
