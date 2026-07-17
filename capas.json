@@ -3,26 +3,26 @@
     {
       "id": "correio-da-manha",
       "nome": "Correio da Manhã",
-      "url": "https://imgs.vercapas.com/covers/correio-da-manha/2026/correio-da-manha-2026-07-16-ad386ea2.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/correio-da-manha/2026/correio-da-manha-2026-07-17-b86ef127.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "jornal-de-noticias",
       "nome": "Jornal de Notícias",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2026/jornal-de-noticias-2026-07-16-5ee80a8f.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2026/jornal-de-noticias-2026-07-17-69c7df8d.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "publico",
       "nome": "Público",
-      "url": "https://imgs.vercapas.com/covers/publico/2026/publico-2026-07-16-1e4679b2.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/publico/2026/publico-2026-07-17-0fb1edc7.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-de-noticias",
       "nome": "Diário de Notícias",
-      "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2026/diario-de-noticias-2026-07-16-d51dbe6e.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2026/diario-de-noticias-2026-07-17-b6cf8968.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "jornal-i",
@@ -33,8 +33,8 @@
     {
       "id": "sol",
       "nome": "SOL",
-      "url": "https://imgs.vercapas.com/covers/sol/2026/sol-2026-07-10-d7c48c58.jpg",
-      "lastUpdated": "2026-07-10"
+      "url": "https://imgs.vercapas.com/covers/sol/2026/sol-2026-07-17-e41c00da.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "destak",
@@ -45,20 +45,20 @@
     {
       "id": "expresso",
       "nome": "Expresso",
-      "url": "https://imgs.vercapas.com/covers/expresso/2026/expresso-2026-07-10-2d00d09b.jpg",
-      "lastUpdated": "2026-07-10"
+      "url": "https://imgs.vercapas.com/covers/expresso/2026/expresso-2026-07-17-b2341ec7.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "jornal-de-negocios",
       "nome": "Jornal de Negócios",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-negocios/2026/jornal-de-negocios-2026-07-16-de29980f.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/jornal-de-negocios/2026/jornal-de-negocios-2026-07-17-5436cb5f.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "jornal-economico",
       "nome": "Jornal Económico",
-      "url": "https://imgs.vercapas.com/covers/jornal-economico/2026/jornal-economico-2026-07-16-4415a623.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/jornal-economico/2026/jornal-economico-2026-07-17-b0cc2a7a.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "o-diabo",
@@ -69,34 +69,40 @@
     {
       "id": "avante",
       "nome": "Avante!",
-      "url": "https://imgs.vercapas.com/covers/avante/2026/avante-2026-07-10-72c74343.jpg",
-      "lastUpdated": "2026-07-10"
+      "url": "https://imgs.vercapas.com/covers/avante/2026/avante-2026-07-16-bdca8347.jpg",
+      "lastUpdated": "2026-07-16"
     },
     {
       "id": "novo-semanario",
       "nome": "NOVO Semanário",
       "url": "https://imgs.vercapas.com/covers/novo-semanario/novo-semanario-2024-03-30-1a5659.jpg",
       "lastUpdated": "2024-03-30"
+    },
+    {
+      "id": "tal-qual",
+      "nome": "Tal & Qual",
+      "url": "https://imgs.vercapas.com/covers/tal-e-qual/2026/tal-e-qual-2026-07-15-8d9bb935.jpg",
+      "lastUpdated": "2026-07-15"
     }
   ],
   "Desporto": [
     {
       "id": "a-bola",
       "nome": "A Bola",
-      "url": "https://imgs.vercapas.com/covers/a-bola/2026/a-bola-2026-07-16-edd48bf8.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/a-bola/2026/a-bola-2026-07-17-1ca8285f.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "o-jogo",
       "nome": "O Jogo",
-      "url": "https://imgs.vercapas.com/covers/o-jogo/2026/o-jogo-2026-07-16-3dc833c9.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/o-jogo/2026/o-jogo-2026-07-17-aa0054ff.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "o-benfica",
       "nome": "O Benfica",
-      "url": "https://imgs.vercapas.com/covers/o-benfica/2026/o-benfica-2026-07-10-31b1939c.jpg",
-      "lastUpdated": "2026-07-10"
+      "url": "https://imgs.vercapas.com/covers/o-benfica/2026/o-benfica-2026-07-17-fea49301.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "jornal-sporting",
@@ -113,32 +119,32 @@
     {
       "id": "jornal-as",
       "nome": "Jornal AS",
-      "url": "https://imgs.vercapas.com/covers/jornal-as/2026/jornal-as-2026-07-16-840399f4.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/jornal-as/2026/jornal-as-2026-07-17-cf9f1f84.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "marca",
       "nome": "Marca",
-      "url": "https://imgs.vercapas.com/covers/jornal-marca/2026/jornal-marca-2026-07-16-c342698f.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/jornal-marca/2026/jornal-marca-2026-07-17-e7c637c3.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "mundo-deportivo",
       "nome": "Mundo Deportivo",
-      "url": "https://imgs.vercapas.com/covers/mundo-deportivo/2026/mundo-deportivo-2026-07-16-eba4cc53.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/mundo-deportivo/2026/mundo-deportivo-2026-07-17-7fec68d6.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "tuttosport",
       "nome": "Tuttosport",
-      "url": "https://imgs.vercapas.com/covers/tuttosport/2026/tuttosport-2026-07-16-f36ddcba.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/tuttosport/2026/tuttosport-2026-07-17-84a5f13d.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "l-equipe",
       "nome": "L'Équipe",
-      "url": "https://imgs.vercapas.com/covers/lequipe/2026/lequipe-2026-07-16-fd33e761.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/lequipe/2026/lequipe-2026-07-17-34e2b816.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "desportivo-de-guimaraes",
@@ -221,16 +227,16 @@
     {
       "id": "record",
       "nome": "Jornal Record",
-      "url": "https://imgs.vercapas.com/covers/record/2026/record-2026-07-16-0d0c7942.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/record/2026/record-2026-07-17-c91691c5.jpg",
+      "lastUpdated": "2026-07-17"
     }
   ],
   "Economia e Gestão": [
     {
       "id": "expresso-economia",
       "nome": "Expresso-Economia",
-      "url": "https://imgs.vercapas.com/covers/expresso-economia/2026/expresso-economia-2026-07-10-2264a8e7.jpg",
-      "lastUpdated": "2026-07-10"
+      "url": "https://imgs.vercapas.com/covers/expresso-economia/2026/expresso-economia-2026-07-17-10fd3972.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "expresso-emprego",
@@ -241,8 +247,8 @@
     {
       "id": "dinheiro-vivo-dn-jn",
       "nome": "Dinheiro Vivo-DN/JN",
-      "url": "https://imgs.vercapas.com/covers/dinheiro-vivo-dn-jn/2026/dinheiro-vivo-dn-jn-2026-07-10-d290acdd.jpg",
-      "lastUpdated": "2026-07-10"
+      "url": "https://imgs.vercapas.com/covers/dinheiro-vivo-dn-jn/2026/dinheiro-vivo-dn-jn-2026-07-17-274dfec6-x.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "exame",
@@ -381,8 +387,8 @@
     {
       "id": "acoriano-oriental",
       "nome": "Açoriano Oriental",
-      "url": "https://imgs.vercapas.com/covers/acoriano-oriental/2026/acoriano-oriental-2026-07-16-668d91aa.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/acoriano-oriental/2026/acoriano-oriental-2026-07-17-09a79d9c.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "barlavento",
@@ -405,14 +411,14 @@
     {
       "id": "correio-do-minho",
       "nome": "Correio do Minho",
-      "url": "https://imgs.vercapas.com/covers/correio-do-minho/2026/correio-do-minho-2026-07-16-2e067eec.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/correio-do-minho/2026/correio-do-minho-2026-07-17-a43ed263.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "correio-dos-acores",
       "nome": "Correio dos Açores",
-      "url": "https://imgs.vercapas.com/covers/correio-dos-acores/2026/correio-dos-acores-2026-07-16-9d830aff-x.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/correio-dos-acores/2026/correio-dos-acores-2026-07-17-328345fe-x.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "desportivo-transmontano",
@@ -429,14 +435,14 @@
     {
       "id": "diario-as-beiras",
       "nome": "Diário As Beiras",
-      "url": "https://imgs.vercapas.com/covers/diario-as-beiras/2026/diario-as-beiras-2026-07-16-004c55ee.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/diario-as-beiras/2026/diario-as-beiras-2026-07-17-b2cc931b.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-insular",
       "nome": "Diário Insular",
-      "url": "https://imgs.vercapas.com/covers/diario-insular/2026/diario-insular-2026-07-16-97a04bee.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/diario-insular/2026/diario-insular-2026-07-17-60829901.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-da-regiao",
@@ -447,56 +453,56 @@
     {
       "id": "diario-de-aveiro",
       "nome": "Diário de Aveiro",
-      "url": "https://imgs.vercapas.com/covers/diario-de-aveiro/2026/diario-de-aveiro-2026-07-16-271f966a.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/diario-de-aveiro/2026/diario-de-aveiro-2026-07-17-094677d4.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-de-coimbra",
       "nome": "Diário de Coimbra",
-      "url": "https://imgs.vercapas.com/covers/diario-de-coimbra/2026/diario-de-coimbra-2026-07-16-f3379f85.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/diario-de-coimbra/2026/diario-de-coimbra-2026-07-17-5cff539d.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-de-leiria",
       "nome": "Diário de Leiria",
-      "url": "https://imgs.vercapas.com/covers/diario-de-leiria/2026/diario-de-leiria-2026-07-15-f87959e5.jpg",
-      "lastUpdated": "2026-07-15"
+      "url": "https://imgs.vercapas.com/covers/diario-de-leiria/2026/diario-de-leiria-2026-07-17-6a084ddb.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-de-noticias-da-madeira",
       "nome": "Diário de Notícias da Madeira",
-      "url": "https://imgs.vercapas.com/covers/diario-de-noticias-da-madeira/2026/diario-de-noticias-da-madeira-2026-07-16-57289ed2.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/diario-de-noticias-da-madeira/2026/diario-de-noticias-da-madeira-2026-07-17-ec20217f.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-de-viseu",
       "nome": "Diário de Viseu",
-      "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2026/diario-de-viseu-2026-07-16-7798c5df.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2026/diario-de-viseu-2026-07-17-a5262290.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-do-alentejo",
       "nome": "Diário do Alentejo",
-      "url": "https://imgs.vercapas.com/covers/diario-do-alentejo/2026/diario-do-alentejo-2026-07-10-3226fad5.jpg",
-      "lastUpdated": "2026-07-10"
+      "url": "https://imgs.vercapas.com/covers/diario-do-alentejo/2026/diario-do-alentejo-2026-07-17-d2e4075f.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-do-minho",
       "nome": "Diário do Minho",
-      "url": "https://imgs.vercapas.com/covers/diario-do-minho/2026/diario-do-minho-2026-07-16-85cef21c.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/diario-do-minho/2026/diario-do-minho-2026-07-17-d2354c9b.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-do-sul",
       "nome": "Diário do Sul",
-      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-07-15-e3524fca.jpg",
-      "lastUpdated": "2026-07-15"
+      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-07-17-0151b52e-x.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "diario-dos-acores",
       "nome": "Diário dos Açores",
-      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-07-16-209ac195.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-07-17-4850efbb.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "foz-do-lima",
@@ -537,8 +543,8 @@
     {
       "id": "jornal-o-alcoa",
       "nome": "Jornal O Alcoa",
-      "url": "https://imgs.vercapas.com/covers/jornal-o-alcoa/2026/jornal-o-alcoa-2026-07-02-72a990d0.jpg",
-      "lastUpdated": "2026-07-02"
+      "url": "https://imgs.vercapas.com/covers/jornal-o-alcoa/2026/jornal-o-alcoa-2026-07-16-1afdbed2.jpg",
+      "lastUpdated": "2026-07-16"
     },
     {
       "id": "jornal-o-carrilhao",
@@ -561,8 +567,8 @@
     {
       "id": "jornal-da-madeira",
       "nome": "Jornal da Madeira",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-madeira/2026/jornal-da-madeira-2026-07-16-e99cc957.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://imgs.vercapas.com/covers/jornal-da-madeira/2026/jornal-da-madeira-2026-07-17-1c54f599.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "jornal-das-caldas",
@@ -597,8 +603,8 @@
     {
       "id": "jornal-de-sintra",
       "nome": "Jornal de Sintra",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-sintra/2026/jornal-de-sintra-2026-07-09-e92c9ffb.jpg",
-      "lastUpdated": "2026-07-09"
+      "url": "https://imgs.vercapas.com/covers/jornal-de-sintra/2026/jornal-de-sintra-2026-07-16-24bdbdbe.jpg",
+      "lastUpdated": "2026-07-16"
     },
     {
       "id": "jornal-do-algarve",
@@ -627,8 +633,8 @@
     {
       "id": "linhas-de-elvas",
       "nome": "Linhas de Elvas",
-      "url": "https://imgs.vercapas.com/covers/linhas-de-elvas/2026/linhas-de-elvas-2026-07-09-e9f29b0e.jpg",
-      "lastUpdated": "2026-07-09"
+      "url": "https://imgs.vercapas.com/covers/linhas-de-elvas/2026/linhas-de-elvas-2026-07-16-43c2a696.jpg",
+      "lastUpdated": "2026-07-16"
     },
     {
       "id": "moscavide-portela",
@@ -711,8 +717,8 @@
     {
       "id": "o-setubalense",
       "nome": "O Setubalense",
-      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-07-15-de261484.jpg",
-      "lastUpdated": "2026-07-15"
+      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-07-17-7f84f4bb-x.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "povo-da-beira",
@@ -729,8 +735,8 @@
     {
       "id": "reconquista",
       "nome": "Reconquista",
-      "url": "https://imgs.vercapas.com/covers/reconquista/2026/reconquista-2026-07-09-bf93a131.jpg",
-      "lastUpdated": "2026-07-09"
+      "url": "https://imgs.vercapas.com/covers/reconquista/2026/reconquista-2026-07-16-eadabb42.jpg",
+      "lastUpdated": "2026-07-16"
     },
     {
       "id": "reflexo",
@@ -771,70 +777,70 @@
     {
       "id": "tribuna-da-madeira",
       "nome": "Tribuna da Madeira",
-      "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-07-10-1bb7af99.jpg",
-      "lastUpdated": "2026-07-10"
+      "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-07-17-d328c443.jpg",
+      "lastUpdated": "2026-07-17"
     }
   ],
   "Internacional": [
     {
       "id": "el-pais",
       "nome": "El País",
-      "url": "https://www.frontpages.com/g/2026/07/16/el-pais-003907q4j3c5x.webp",
-      "lastUpdated": "2026-07-16"
+      "url": "https://www.frontpages.com/g/2026/07/17/el-pais-00362136882bz.webp",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "the-daily-telegraph",
       "nome": "The Daily Telegraph",
-      "url": "https://img.kiosko.net/2026/07/16/uk/daily_telegraph.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://img.kiosko.net/2026/07/17/uk/daily_telegraph.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "daily-mail",
       "nome": "Daily Mail",
-      "url": "https://img.kiosko.net/2026/07/16/uk/daily_mail.jpg",
-      "lastUpdated": "2026-07-16"
+      "url": "https://img.kiosko.net/2026/07/17/uk/daily_mail.jpg",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "financial-times",
       "nome": "Financial Times",
-      "url": "https://www.frontpages.com/g/2026/07/15/financial-times-234701gn68jfc.webp",
-      "lastUpdated": "2026-07-15"
+      "url": "https://www.frontpages.com/g/2026/07/16/financial-times-2329275btc8ac.webp",
+      "lastUpdated": "2026-07-16"
     },
     {
       "id": "corriere-della-sera",
       "nome": "Corriere della Sera",
-      "url": "https://www.giornalone.it/g/2026/07/16/corriere-della-sera-050011wm45xj7.webp",
-      "lastUpdated": "2026-07-16"
+      "url": "https://www.giornalone.it/g/2026/07/17/corriere-della-sera-045604nwt8xc3.webp",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "la-gazzetta-dello-sport",
       "nome": "La Gazzetta dello Sport",
-      "url": "https://www.frontpages.com/g/2026/07/16/la-gazzetta-dello-sport-034334z0idats.webp",
-      "lastUpdated": "2026-07-16"
+      "url": "https://www.frontpages.com/g/2026/07/17/la-gazzetta-dello-sport-033302rm78vfm.webp",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "the-new-york-times",
       "nome": "The New York Times",
-      "url": "https://www.frontpages.com/g/2026/07/16/the-new-york-times-0712372dn2djj.webp",
-      "lastUpdated": "2026-07-16"
+      "url": "https://www.frontpages.com/g/2026/07/17/the-new-york-times-070248cvr7w9m.webp",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "washington-post",
       "nome": "Washington Post",
-      "url": "https://www.frontpages.com/g/2026/07/16/the-washington-post-07133649mbjmq.webp",
-      "lastUpdated": "2026-07-16"
+      "url": "https://www.frontpages.com/g/2026/07/17/the-washington-post-0704001fsd9ay.webp",
+      "lastUpdated": "2026-07-17"
     },
     {
       "id": "the-wall-street-journal",
       "nome": "The Wall Street Journal",
-      "url": "https://img.kiosko.net/2026/07/15/us/wsj.jpg",
-      "lastUpdated": "2026-07-15"
+      "url": "https://img.kiosko.net/2026/07/16/us/wsj.jpg",
+      "lastUpdated": "2026-07-16"
     },
     {
       "id": "folha-de-s-paulo",
       "nome": "Folha de S.Paulo",
-      "url": "https://www.frontpages.com/g/2026/07/16/folha-de-s-paulo-001746qyu3i62.webp",
-      "lastUpdated": "2026-07-16"
+      "url": "https://www.frontpages.com/g/2026/07/17/folha-de-s-paulo-001745fvzc42y.webp",
+      "lastUpdated": "2026-07-17"
     }
   ]
 }
