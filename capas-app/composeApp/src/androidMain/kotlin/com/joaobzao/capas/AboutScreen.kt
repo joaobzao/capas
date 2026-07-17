@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -33,7 +34,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -77,6 +82,7 @@ private fun AboutContent(
     viewModel: com.joaobzao.capas.capas.CapasViewModel
 ) {
     val uriHandler = LocalUriHandler.current
+    val context = LocalContext.current
     val state by viewModel.capasState.collectAsState()
 
     androidx.compose.runtime.LaunchedEffect(Unit) {
@@ -152,6 +158,17 @@ private fun AboutContent(
                     }
                 )
 
+                ContactItem(
+                    icon = Icons.Default.Star,
+                    title = stringResource(R.string.label_rate_app),
+                    subtitle = stringResource(R.string.subtitle_rate_app),
+                    iconTint = androidx.compose.ui.graphics.Color(0xFFFFC107),
+                    onClick = {
+                        CapasAnalytics.trackRateButtonClicked()
+                        openPlayStoreListing(context)
+                    }
+                )
+
                 Text(
                     stringResource(R.string.title_contacts),
                     style = MaterialTheme.typography.titleMedium,
@@ -179,6 +196,26 @@ private fun AboutContent(
                     }
                 )
             }
+}
+
+/**
+ * Opens the app's Play Store listing. Prefers the Play app via the `market://`
+ * scheme and falls back to the browser when Play isn't available.
+ */
+private fun openPlayStoreListing(context: android.content.Context) {
+    val packageName = context.packageName
+    try {
+        context.startActivity(
+            Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName"))
+        )
+    } catch (e: ActivityNotFoundException) {
+        context.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
+            )
+        )
+    }
 }
 
 private fun formatDate(dateString: String): String {

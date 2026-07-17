@@ -25,6 +25,8 @@
     <string name="title_support">Apoiar</string>
     <string name="label_buy_coffee">Ofereça-me um café</string>
     <string name="subtitle_buy_coffee">A app é gratuita e sem publicidade. Apoie o seu desenvolvimento!</string>
+    <string name="label_rate_app">Avaliar a app</string>
+    <string name="subtitle_rate_app">Gosta das Capas? Deixe uma avaliação na Play Store!</string>
     <string name="nav_capas">Capas</string>
     <string name="nav_my_covers">As Minhas</string>
     <string name="nav_about">Sobre</string>

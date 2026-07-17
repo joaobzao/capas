@@ -1,11 +1,19 @@
 import SwiftUI
+import StoreKit
 
 import Shared
+
+/// Numeric App Store ID for the deep link to the review page. The app isn't
+/// published yet, so this is a placeholder and the manual button falls back to
+/// the StoreKit review prompt. Once live, set this and enable the URL path in
+/// `rateApp()`.
+private let APP_STORE_ID = "TODO_APP_STORE_ID"
 
 struct AboutSheet: View {
     @ObservedObject var viewModel: CapasViewModelWrapper
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.openURL) var openURL
+    @Environment(\.requestReview) var requestReview
     
     var body: some View {
         NavigationView {
@@ -73,6 +81,16 @@ struct AboutSheet: View {
                                         openURL(url)
                                     }
                                 }
+                            )
+
+                            Divider()
+
+                            ContactItem(
+                                icon: "star.fill",
+                                title: Strings.labelRateApp,
+                                subtitle: Strings.subtitleRateApp,
+                                iconColor: Color(red: 1.0, green: 0.76, blue: 0.03),
+                                action: { rateApp() }
                             )
                         }
                         .padding(16)
@@ -142,6 +160,19 @@ struct AboutSheet: View {
                 }
             }
         }
+    }
+
+    /// Manual "Rate the app" action. Once published, open the App Store review
+    /// page directly (Apple's recommendation for a user-tapped rate button):
+    ///
+    ///     if let url = URL(string: "https://apps.apple.com/app/id\(APP_STORE_ID)?action=write-review") {
+    ///         openURL(url)
+    ///         return
+    ///     }
+    ///
+    /// Until then, fall back to the StoreKit review prompt.
+    private func rateApp() {
+        requestReview()
     }
 }
 

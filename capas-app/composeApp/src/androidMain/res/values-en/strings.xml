@@ -25,6 +25,8 @@
     <string name="title_support">Support</string>
     <string name="label_buy_coffee">Buy me a coffee</string>
     <string name="subtitle_buy_coffee">The app is free and ad-free. Support its development!</string>
+    <string name="label_rate_app">Rate the app</string>
+    <string name="subtitle_rate_app">Enjoying Capas? Leave a review on the Play Store!</string>
     <string name="nav_capas">Covers</string>
     <string name="nav_my_covers">My Covers</string>
     <string name="nav_about">About</string>

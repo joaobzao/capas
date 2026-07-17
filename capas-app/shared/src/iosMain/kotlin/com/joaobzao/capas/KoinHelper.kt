@@ -1,6 +1,7 @@
 package com.joaobzao.capas
 
 import com.joaobzao.capas.capas.CapasViewModel
+import com.joaobzao.capas.rating.RatingManager
 import com.russhwolf.settings.NSUserDefaultsSettings
 import com.russhwolf.settings.Settings
 import org.koin.core.component.KoinComponent
@@ -11,6 +12,10 @@ import platform.Foundation.NSUserDefaults
 
 class CapasViewModelHelper : KoinComponent {
     val viewModel: CapasViewModel by inject()
+}
+
+class RatingManagerHelper : KoinComponent {
+    val ratingManager: RatingManager by inject()
 }
 
 fun doInitKoin() {

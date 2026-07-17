@@ -46,3 +46,5 @@
 "title_support" = "Support";
 "label_buy_coffee" = "Buy me a coffee";
 "subtitle_buy_coffee" = "The app is free and ad-free. Support its development!";
+"label_rate_app" = "Rate the app";
+"subtitle_rate_app" = "Enjoying Capas? Leave a review on the App Store!";

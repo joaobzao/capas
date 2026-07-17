@@ -120,4 +120,14 @@ object CapasAnalytics {
             param(PARAM_ACTION, action)
         }
     }
+
+    /** O fluxo automático de avaliação in-app foi lançado após N aberturas. */
+    fun trackRatePromptShown() {
+        analytics.logEvent("rate_prompt_shown") {}
+    }
+
+    /** O utilizador tocou em "Avaliar a app" no ecrã Sobre. */
+    fun trackRateButtonClicked() {
+        analytics.logEvent("rate_button_clicked") {}
+    }
 }

@@ -19,15 +19,20 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import android.util.Log
 import com.joaobzao.capas.navigation.CapasNavHost
+import com.joaobzao.capas.analytics.CapasAnalytics
+import com.joaobzao.capas.rating.RatingManager
+import com.google.android.play.core.review.ReviewManagerFactory
+import org.koin.java.KoinJavaComponent.get
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        
+
         askNotificationPermission()
         logToken()
         subscribeToUpdates()
+        maybeRequestReview()
 
         setContent {
             val darkTheme = isSystemInDarkTheme()
@@ -41,6 +46,28 @@ class MainActivity : ComponentActivity() {
 
             MaterialTheme {
                 CapasNavHost()
+            }
+        }
+    }
+
+    /**
+     * On the launch that crosses the engagement threshold, ask Google Play to
+     * show the in-app review dialog. Play decides whether to actually display it
+     * (and throttles heavily), so this is fire-and-forget and never blocks the UI.
+     */
+    private fun maybeRequestReview() {
+        val ratingManager = get<RatingManager>(RatingManager::class.java)
+        if (!ratingManager.registerAppOpenAndCheck()) return
+
+        val reviewManager = ReviewManagerFactory.create(this)
+        reviewManager.requestReviewFlow().addOnCompleteListener { request ->
+            if (!request.isSuccessful) {
+                logBreadcrumb("review: requestReviewFlow failed")
+                return@addOnCompleteListener
+            }
+            reviewManager.launchReviewFlow(this, request.result).addOnCompleteListener {
+                CapasAnalytics.trackRatePromptShown()
+                logBreadcrumb("review: launchReviewFlow completed")
             }
         }
     }

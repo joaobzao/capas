@@ -100,6 +100,8 @@ dependencies {
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.crashlytics)
+    implementation(libs.play.review)
+    implementation(libs.play.review.ktx)
     debugImplementation(compose.uiTooling)
 }
 

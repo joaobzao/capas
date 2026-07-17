@@ -10,6 +10,8 @@ import com.joaobzao.capas.capas.CapasRepositoryImpl
 import com.joaobzao.capas.network.Api
 import com.joaobzao.capas.network.ApiImpl
 import com.joaobzao.capas.network.Environments
+import com.joaobzao.capas.rating.RatingManager
+import com.joaobzao.capas.rating.RatingManagerImpl
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -108,6 +110,10 @@ private val coreModule = module {
             get(),
             get()
         )
+    }
+
+    single<RatingManager> {
+        RatingManagerImpl(get())
     }
 
     // platformLogWriter() is a relatively simple config option, useful for local debugging. For production
