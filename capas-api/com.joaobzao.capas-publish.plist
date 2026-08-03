@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.joaobzao.capas-publish</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/sofia/Documents/projects/capas/capas-api/publish.sh</string>
+    </array>
+
+    <!-- Corre todos os dias as 08:00 (hora local). Se a Mac estiver a dormir
+         a essa hora, o launchd corre-o assim que ela acordar. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>8</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/sofia/Library/Logs/capas-publish.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/sofia/Library/Logs/capas-publish.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

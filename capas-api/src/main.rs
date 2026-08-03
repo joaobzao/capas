@@ -207,6 +207,24 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         resultado.insert("Internacional".to_string(), internacional);
     }
 
+    // 6b. Guarda de segurança: se o vercapas (atrás da Cloudflare) bloquear o
+    //     IP — o que acontece a partir de IPs de datacenter, como os runners do
+    //     CI — as secções nacionais vêm vazias e só sobra o Internacional.
+    //     Nesse caso NÃO gravamos: saímos com erro para o publish script abortar
+    //     e manter o último capas.json válido em vez de publicar lixo.
+    let nacionais_total: usize = resultado
+        .iter()
+        .filter(|(secao, _)| secao.as_str() != "Internacional")
+        .map(|(_, capas)| capas.len())
+        .sum();
+    if nacionais_total < 5 {
+        eprintln!(
+            "❌ Apenas {} capas nacionais encontradas — provável bloqueio do vercapas. A abortar sem gravar.",
+            nacionais_total
+        );
+        std::process::exit(1);
+    }
+
     // 7. Guardar JSON
     create_dir_all("public")?;
     let mut file = File::create("public/capas.json")?;
