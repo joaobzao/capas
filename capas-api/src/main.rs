@@ -9,8 +9,8 @@ use indexmap::IndexMap;
 use unicode_normalization::UnicodeNormalization;
 use base64::Engine;
 
-// vercapas filters requests by User-Agent; bot-shaped UAs get blocked after
-// ~20 requests with TCP resets. A realistic browser UA passes cleanly.
+// A realistic browser User-Agent. SAPO and the international sources serve
+// cleanly with it; kept to avoid any bot-shaped-UA filtering.
 const USER_AGENT: &str = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
 #[derive(Serialize, Clone)]
@@ -22,11 +22,85 @@ struct Capa {
     last_updated: String,
 }
 
-fn extract_date_from_url(url: &str) -> String {
-    let re = regex::Regex::new(r"(\d{4}-\d{2}-\d{2})").unwrap();
-    re.find(url)
-        .map(|m| m.as_str().to_string())
-        .unwrap_or_default()
+// Mapeia o slug do SAPO (aria-label) para o id canónico já usado pela app,
+// nos casos em que o SAPO usa um slug diferente para o mesmo jornal. Preserva
+// a ordem/favoritos dos utilizadores (a app indexa por id). Jornais que o SAPO
+// não tem simplesmente deixam de aparecer (sem fonte).
+fn canonical_id(aria_label: &str) -> String {
+    match aria_label {
+        "tal-e-qual" => "tal-qual",
+        "actualidad-economiaiberica" => "actualidade-economia-iberica",
+        "o-caminhense" => "caminhense",
+        "o-carrilhao" => "jornal-o-carrilhao",
+        "o-interior" => "jornal-o-interior",
+        "as" => "jornal-as",
+        other => other,
+    }
+    .to_string()
+}
+
+// SAPO envia a data como DD/MM/YYYY; a app espera YYYY-MM-DD.
+fn reformat_date(d: &str) -> String {
+    let p: Vec<&str> = d.split('/').collect();
+    if p.len() == 3 {
+        format!("{}-{}-{}", p[2], p[1], p[0])
+    } else {
+        String::new()
+    }
+}
+
+// Extrai as capas de uma secção do SAPO (uma única página HTML estática).
+fn fetch_sapo_section(client: &Client, slug: &str) -> Vec<Capa> {
+    let url = format!("https://sapo.pt/noticias/jornais/{}", slug);
+    let Ok(resp) = client.get(&url).header("User-Agent", USER_AGENT).send() else {
+        eprintln!("⚠️  Falha a obter secção SAPO '{}'", slug);
+        return Vec::new();
+    };
+    let Ok(body) = resp.text() else {
+        eprintln!("⚠️  Falha a ler secção SAPO '{}'", slug);
+        return Vec::new();
+    };
+
+    let doc = Html::parse_document(&body);
+    let trigger = Selector::parse("a.trigger").unwrap();
+    // Pedir a resolução nativa (data-pswp-*) em vez do W=1000/H=1500 por omissão.
+    let w_re = regex::Regex::new(r"([?&])W=\d+").unwrap();
+    let h_re = regex::Regex::new(r"([?&])H=\d+").unwrap();
+
+    let mut capas = Vec::new();
+    let mut seen = std::collections::HashSet::new();
+    for a in doc.select(&trigger) {
+        let el = a.value();
+        let (Some(href), Some(label), Some(title)) =
+            (el.attr("href"), el.attr("aria-label"), el.attr("data-title"))
+        else {
+            continue;
+        };
+
+        let id = canonical_id(label);
+        // Evita duplicados (layouts responsivos podem repetir a mesma capa).
+        if !seen.insert(id.clone()) {
+            continue;
+        }
+
+        let mut cover_url = href.to_string();
+        if let Some(w) = el.attr("data-pswp-width") {
+            cover_url = w_re.replace(&cover_url, format!("${{1}}W={}", w)).into_owned();
+        }
+        if let Some(h) = el.attr("data-pswp-height") {
+            cover_url = h_re.replace(&cover_url, format!("${{1}}H={}", h)).into_owned();
+        }
+
+        let last_updated = el.attr("data-date").map(reformat_date).unwrap_or_default();
+
+        capas.push(Capa {
+            id,
+            nome: title.to_string(),
+            url: cover_url,
+            last_updated,
+        });
+    }
+    capas
 }
 
 fn slugify(name: &str) -> String {
@@ -42,162 +116,34 @@ fn slugify(name: &str) -> String {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let base = "https://www.vercapas.com";
     let client = Client::new();
 
-    // 1. Página principal
-    let body = client
-        .get(base)
-        .header("User-Agent", USER_AGENT)
-        .send()?
-        .text()?;
-    let document = Html::parse_document(&body);
-
-    // Seletores
-    let section_selector = Selector::parse("section").unwrap();
-    let title_selector = Selector::parse("h2").unwrap();
-    let link_selector = Selector::parse("a").unwrap();
-    let img_selector = Selector::parse("img").unwrap();
-
-    let mut resultado_temp: IndexMap<String, Vec<Capa>> = IndexMap::new();
-
-    // Adicionado "Jornais Regionais" caso o site mude o título ligeiramente
-    let secoes_permitidas = vec![
-        "Jornais Nacionais", 
-        "Desporto", 
-        "Economia e Gestão", 
-        "Regionais", 
-        "Jornais Regionais"
+    // 1-5. Capas portuguesas a partir do SAPO (sapo.pt/noticias/jornais/*).
+    //   Substitui o vercapas, que passou a estar atrás da Cloudflare e bloqueia
+    //   os IPs de datacenter do CI. O SAPO serve tudo em HTML estático (sem
+    //   páginas de detalhe): cada capa é um <a class="trigger"> com href para a
+    //   imagem (thumbs.web.sapo.io), aria-label (slug), data-title (nome),
+    //   data-date (DD/MM/YYYY) e data-pswp-width/height (resolução nativa).
+    let seccoes = [
+        ("nacional", "Jornais Nacionais"),
+        ("desporto", "Desporto"),
+        ("economia", "Economia e Gestão"),
+        ("local", "Regionais"),
     ];
-    let mover_para_desporto = ["O Jogo", "A Bola", "Record", "Jornal Record"];
 
-    // 2. Iterar pelas secções da homepage
-    for section in document.select(&section_selector) {
-        let secao = section
-            .select(&title_selector)
-            .next()
-            .map(|el| el.text().collect::<String>().trim().to_string())
-            .unwrap_or_else(|| "Outros".to_string());
-
-        if !secoes_permitidas.contains(&secao.as_str()) {
-            continue;
-        }
-
-        let mut capas_secao = Vec::new();
-
-        for link in section.select(&link_selector) {
-            let Some(href) = link.value().attr("href") else { continue };
-            if !href.contains("/capa/") && !href.contains("/covers/") {
-                continue;
-            }
-            let capa_url = if href.starts_with("http") {
-                href.to_string()
-            } else {
-                format!("{}{}", base, href)
-            };
-
-            let mut nome = String::from("desconhecido");
-            for img in link.select(&img_selector) {
-                if let Some(alt) = img.value().attr("alt") {
-                    nome = alt.to_string();
-                }
-            }
-
-            sleep(Duration::from_millis(200));
-
-            // The detail page is the only place the full-size cover URL lives —
-            // the homepage only carries the thumbnail (different hash for some papers).
-            let Ok(resp) = client.get(&capa_url).header("User-Agent", USER_AGENT).send() else { continue };
-            let Ok(text) = resp.text() else { continue };
-            let capa_doc = Html::parse_document(&text);
-            let big_img_selector = Selector::parse("img").unwrap();
-
-            for img in capa_doc.select(&big_img_selector) {
-                let Some(src) = img.value().attr("src") else { continue };
-                if !src.contains("covers") {
-                    continue;
-                }
-                let url = if src.starts_with("http") {
-                    src.to_string()
-                } else {
-                    format!("{}{}", base, src)
-                };
-                let last_updated = extract_date_from_url(&url);
-                let id_name = match nome.as_str() {
-                    "Jornal Record" => "Record",
-                    other => other,
-                };
-                capas_secao.push(Capa {
-                    id: slugify(id_name),
-                    nome: nome.clone(),
-                    url,
-                    last_updated,
-                });
-                break;
-            }
-        }
-
-        if !capas_secao.is_empty() {
-            // Normaliza a chave para garantir que encontramos depois
-            let chave = if secao.contains("Regionais") { "Regionais".to_string() } else { secao };
-            resultado_temp.insert(chave, capas_secao);
-        }
-    }
-
-    // 3. Mover jornais de Nacionais → Desporto
-    let nacionais = resultado_temp
-        .shift_remove("Jornais Nacionais")
-        .unwrap_or_default();
-    let desporto = resultado_temp.shift_remove("Desporto").unwrap_or_default();
-
-    let mut restantes = Vec::new();
-    let mut desporto_full = desporto;
-
-    for capa in nacionais {
-        if mover_para_desporto.contains(&capa.nome.as_str()) {
-            desporto_full.push(capa);
-        } else {
-            restantes.push(capa);
-        }
-    }
-
-    // 4. Ordenar Desporto
-    let ordem_preferida = ["A Bola", "Record", "O Jogo"];
-    let mut prioridade = Vec::new();
-    let mut resto = Vec::new();
-
-    for capa in desporto_full {
-        if ordem_preferida.contains(&capa.nome.as_str()) {
-            prioridade.push(capa);
-        } else {
-            resto.push(capa);
-        }
-    }
-
-    prioridade.sort_by_key(|c| {
-        ordem_preferida
-            .iter()
-            .position(|&x| x == c.nome)
-            .unwrap_or(usize::MAX)
-    });
-
-    let mut final_desporto = prioridade;
-    final_desporto.extend(resto);
-
-    // 5. Construir resultado final em ordem fixa
     let mut resultado: IndexMap<String, Vec<Capa>> = IndexMap::new();
-    
-    resultado.insert("Jornais Nacionais".to_string(), restantes);
-    resultado.insert("Desporto".to_string(), final_desporto);
+    for (slug, chave) in seccoes {
+        let mut capas = fetch_sapo_section(&client, slug);
 
-    if let Some(economia) = resultado_temp.shift_remove("Economia e Gestão") {
-        resultado.insert("Economia e Gestão".to_string(), economia);
-    }
+        // No Desporto, manter A Bola / Record / O Jogo no topo (ordenação
+        // estável: os restantes preservam a ordem do SAPO).
+        if chave == "Desporto" {
+            let ordem = ["A Bola", "Record", "O Jogo"];
+            capas.sort_by_key(|c| ordem.iter().position(|&n| n == c.nome).unwrap_or(usize::MAX));
+        }
 
-    if let Some(mut regionais) = resultado_temp.shift_remove("Regionais") {
-        // Opcional: Ordenar regionais alfabeticamente pois costumam ser muitos
-        regionais.sort_by(|a, b| a.nome.cmp(&b.nome)); 
-        resultado.insert("Regionais".to_string(), regionais);
+        resultado.insert(chave.to_string(), capas);
+        sleep(Duration::from_millis(300));
     }
 
     // 6. Buscar capas internacionais (frontpages.com / giornalone.it em alta
@@ -207,9 +153,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         resultado.insert("Internacional".to_string(), internacional);
     }
 
-    // 6b. Guarda de segurança: se o vercapas (atrás da Cloudflare) bloquear o
-    //     IP — o que acontece a partir de IPs de datacenter, como os runners do
-    //     CI — as secções nacionais vêm vazias e só sobra o Internacional.
+    // 6b. Guarda de segurança: se a fonte das capas portuguesas (SAPO) falhar
+    //     ou bloquear, as secções nacionais vêm vazias e só sobra o Internacional.
     //     Nesse caso NÃO gravamos: saímos com erro para o publish script abortar
     //     e manter o último capas.json válido em vez de publicar lixo.
     let nacionais_total: usize = resultado
@@ -219,7 +164,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .sum();
     if nacionais_total < 5 {
         eprintln!(
-            "❌ Apenas {} capas nacionais encontradas — provável bloqueio do vercapas. A abortar sem gravar.",
+            "❌ Apenas {} capas nacionais encontradas — provável falha do SAPO. A abortar sem gravar.",
             nacionais_total
         );
         std::process::exit(1);

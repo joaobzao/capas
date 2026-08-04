@@ -38,6 +38,7 @@ class CapasRepositoryImpl(
     private val ONBOARDING_KEY = "onboarding_completed"
     private val REGIONAIS_INIT_KEY = "regionais_initialized"
     private val INTERNACIONAL_INIT_KEY = "internacional_initialized"
+    private val ALL_SECTIONS_RESYNC_KEY = "all_sections_resynced_sapo"
     private val INTERNATIONAL_ANNOUNCEMENT_SEEN_KEY = "international_announcement_seen"
     private var lastCapas: CapasResponse? = null
 
@@ -82,6 +83,9 @@ class CapasRepositoryImpl(
                     setAllowedIds(allIds)
                     settings.putBoolean(REGIONAIS_INIT_KEY, true)
                     settings.putBoolean(INTERNACIONAL_INIT_KEY, true)
+                    // Instalação nova: já inicializa com todas as capas do SAPO,
+                    // por isso a migração SAPO não tem nada a acrescentar.
+                    settings.putBoolean(ALL_SECTIONS_RESYNC_KEY, true)
                 } else {
                     // Migração: Se regionais ainda não foi inicializado, adicionar novos IDs
                     if (!settings.getBoolean(REGIONAIS_INIT_KEY, false)) {
@@ -100,6 +104,21 @@ class CapasRepositoryImpl(
                             setAllowedIds(currentAllowed + missingIds)
                         }
                         settings.putBoolean(INTERNACIONAL_INIT_KEY, true)
+                    }
+
+                    // Migração SAPO: a fonte das capas passou de vercapas para
+                    // SAPO, que traz muitos mais jornais. Uma única vez, acrescentar
+                    // ao fim os ids novos (preservando a ordem já guardada pelo
+                    // utilizador). Sem isto, sortCapas() filtra os ids desconhecidos
+                    // e as novas capas nunca apareceriam para quem já usa a app.
+                    if (!settings.getBoolean(ALL_SECTIONS_RESYNC_KEY, false)) {
+                        val fetchedIds = capas.mainNewspapers.map { it.id } +
+                                capas.sportNewspapers.map { it.id } +
+                                capas.economyNewspapers.map { it.id } +
+                                capas.regionalNewspapers.map { it.id } +
+                                capas.internationalNewspapers.map { it.id }
+                        setAllowedIds(mergeNewAllowedIds(getAllowedIds(), fetchedIds))
+                        settings.putBoolean(ALL_SECTIONS_RESYNC_KEY, true)
                     }
                 }
 
@@ -247,4 +266,14 @@ class CapasRepositoryImpl(
     private fun setFavoriteIds(ids: List<String>) {
         settings[FAVORITES_KEY] = ids.joinToString(",")
     }
+}
+
+/**
+ * Junta ao fim da lista de ids permitidos os ids ainda não conhecidos,
+ * preservando a ordem já guardada pelo utilizador e sem duplicar. É a base da
+ * migração SAPO; isolada como função pura para ser testável sem corrotinas.
+ */
+internal fun mergeNewAllowedIds(current: List<String>, fetched: List<String>): List<String> {
+    val newIds = fetched.filter { it !in current }.distinct()
+    return if (newIds.isEmpty()) current else current + newIds
 }
