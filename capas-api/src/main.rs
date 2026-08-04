@@ -63,7 +63,7 @@ fn fetch_sapo_section(client: &Client, slug: &str) -> Vec<Capa> {
 
     let doc = Html::parse_document(&body);
     let trigger = Selector::parse("a.trigger").unwrap();
-    // Pedir a resolução nativa (data-pswp-*) em vez do W=1000/H=1500 por omissão.
+    // Redimensionar o thumb do SAPO para ~800px de largura (ver COVER_W/H abaixo).
     let w_re = regex::Regex::new(r"([?&])W=\d+").unwrap();
     let h_re = regex::Regex::new(r"([?&])H=\d+").unwrap();
 
@@ -83,13 +83,17 @@ fn fetch_sapo_section(client: &Client, slug: &str) -> Vec<Capa> {
             continue;
         }
 
-        let mut cover_url = href.to_string();
-        if let Some(w) = el.attr("data-pswp-width") {
-            cover_url = w_re.replace(&cover_url, format!("${{1}}W={}", w)).into_owned();
-        }
-        if let Some(h) = el.attr("data-pswp-height") {
-            cover_url = h_re.replace(&cover_url, format!("${{1}}H={}", h)).into_owned();
-        }
+        // A app usa o mesmo url na grelha e no detalhe. ~800px (webp) é nítido
+        // no detalhe mas leve na grelha; a resolução nativa (~1600px, ~550KB)
+        // tornava o download demasiado lento, sobretudo com muitas capas.
+        const COVER_W: &str = "800";
+        const COVER_H: &str = "1200";
+        let cover_url = h_re
+            .replace(
+                &w_re.replace(href, format!("${{1}}W={}", COVER_W)),
+                format!("${{1}}H={}", COVER_H),
+            )
+            .into_owned();
 
         let last_updated = el.attr("data-date").map(reformat_date).unwrap_or_default();
 
