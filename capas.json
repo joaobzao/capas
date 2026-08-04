@@ -1,784 +1,1654 @@
 {
   "Jornais Nacionais": [
     {
-      "id": "correio-da-manha",
-      "nome": "Correio da Manhã",
-      "url": "https://imgs.vercapas.com/covers/correio-da-manha/2026/correio-da-manha-2026-08-04-2acd566c.jpg",
+      "id": "publico",
+      "nome": "Público",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f7a%2f4090_7ae73a4634bb97eee3ee19c6645cc912.png&W=1626&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "jornal-de-noticias",
       "nome": "Jornal de Notícias",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-noticias/2026/jornal-de-noticias-2026-08-04-fe007581.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fef%2f4085_ef7ed72f8107ce643eb8ed6c37bcbacd.png&W=1582&H=1918&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
-      "id": "publico",
-      "nome": "Público",
-      "url": "https://imgs.vercapas.com/covers/publico/2026/publico-2026-08-04-5868a92b.jpg",
+      "id": "correio-da-manha",
+      "nome": "Correio da Manhã",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f81%2f4063_81271d6cd15d88d6e0a702c541c07cd1.png&W=1536&H=1933&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "diario-de-noticias",
       "nome": "Diário de Notícias",
-      "url": "https://imgs.vercapas.com/covers/diario-de-noticias/2026/diario-de-noticias-2026-08-04-2a118266.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f61%2f4074_61f4450fc2838efd3b4f43439c9f6458.png&W=1504&H=1888&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
-    },
-    {
-      "id": "jornal-i",
-      "nome": "Jornal i",
-      "url": "https://imgs.vercapas.com/covers/i/2025/i-2025-07-29-20c8ca65.jpg",
-      "lastUpdated": "2025-07-29"
-    },
-    {
-      "id": "sol",
-      "nome": "SOL",
-      "url": "https://imgs.vercapas.com/covers/sol/2026/sol-2026-07-31-be6709b2.jpg",
-      "lastUpdated": "2026-07-31"
-    },
-    {
-      "id": "destak",
-      "nome": "Destak",
-      "url": "https://imgs.vercapas.com/covers/destak/2025/destak-2025-11-28-39f049fc.jpg",
-      "lastUpdated": "2025-11-28"
     },
     {
       "id": "expresso",
       "nome": "Expresso",
-      "url": "https://imgs.vercapas.com/covers/expresso/2026/expresso-2026-07-31-5d444bb5.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f82%2f4098_820b495c468d77a488a99a54d1b0dfe9.png&W=1310&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-31"
     },
     {
-      "id": "jornal-de-negocios",
-      "nome": "Jornal de Negócios",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-negocios/2026/jornal-de-negocios-2026-08-04-753946a7.jpg",
-      "lastUpdated": "2026-08-04"
+      "id": "sol",
+      "nome": "Nascer do SOL",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fbc%2f4097_bc0f9c40e032cf0441d7610f4b3f8a1e.png&W=1304&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
     },
     {
-      "id": "jornal-economico",
-      "nome": "Jornal Económico",
-      "url": "https://imgs.vercapas.com/covers/jornal-economico/2026/jornal-economico-2026-08-04-3076eead.jpg",
-      "lastUpdated": "2026-08-04"
+      "id": "visao",
+      "nome": "Visão",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fdd%2f4104_dd5ba0873a099eb9cf6510ed0c9f6c39.png&W=1181&H=1713&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
+    },
+    {
+      "id": "sabado",
+      "nome": "Sábado",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f06%2f4103_065a42c8bcacc36ad9bb3c16d1a5bc44.png&W=1211&H=1625&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
+    },
+    {
+      "id": "expresso-e",
+      "nome": "E/ Expresso",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f5b%2f10008_5b0a2d1d4055e0c361f760e69dc23a37.png&W=1592&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "ideias-expresso",
+      "nome": "Ideias/ Expresso",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ffa%2f10301_fa17cda603e2bff5560b0bc6ee14486f.png&W=1310&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "magazine-b-i",
+      "nome": "Versa",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f98%2f10017_983f1f29a62ec0e8274ead9f418da008.png&W=784&H=993&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "noticias-magazine-dn-jn",
+      "nome": "Notícias Magazine | JN",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f69%2f6242_69598b32a16d2427eea6cd21f224edd8.png&W=793&H=958&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-03"
+    },
+    {
+      "id": "p2-publico",
+      "nome": "P2 | Público",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f1f%2f6290_1f5b8554cd7ee15922205a201ad798f5.png&W=690&H=812&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-03"
+    },
+    {
+      "id": "domingo-cm",
+      "nome": "Domingo | CM",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f85%2f6261_85c3a53da2a7a3d0962dcd1c5d3010d9.png&W=971&H=1218&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-03"
+    },
+    {
+      "id": "tal-qual",
+      "nome": "Tal & Qual",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fd1%2f10256_d1ec09ec54564b85dda1ee05677653b8.png&W=983&H=1300&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
     },
     {
       "id": "o-diabo",
       "nome": "O Diabo",
-      "url": "https://imgs.vercapas.com/covers/o-diabo/2026/o-diabo-2026-08-01-0fe1e425.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4c%2f4101_4c58ad87ef4fb88b7e3204c1a65f710f.png&W=936&H=1214&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-01"
     },
     {
       "id": "avante",
       "nome": "Avante!",
-      "url": "https://imgs.vercapas.com/covers/avante/2026/avante-2026-07-29-6bf5de2b.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fea%2f5592_ea5bbaa3b1a3e84b4c607fa62f48d2ae.png&W=1024&H=1256&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-29"
     },
     {
-      "id": "novo-semanario",
-      "nome": "NOVO Semanário",
-      "url": "https://imgs.vercapas.com/covers/novo-semanario/novo-semanario-2024-03-30-1a5659.jpg",
-      "lastUpdated": "2024-03-30"
+      "id": "le-monde-diplomatique",
+      "nome": "Le Monde Diplomatique",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fd9%2f4106_d984749dccbed5115714490ae6fef1fb.png&W=626&H=965&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
     },
     {
-      "id": "tal-qual",
-      "nome": "Tal & Qual",
-      "url": "https://imgs.vercapas.com/covers/tal-e-qual/2026/tal-e-qual-2026-07-29-c03227d5.jpg",
-      "lastUpdated": "2026-07-29"
+      "id": "seleccoes-do-reader-s-digest",
+      "nome": "Selecções do Reader's Digest",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f7c%2f5599_7cb3d16ed4a7778a6119c04376528cbc.png&W=1422&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
+    },
+    {
+      "id": "descendencias-magazine",
+      "nome": "Descendências Magazine ",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f24%2f10239_24dbe68dcc21d60bb645bc4f677baaab.png&W=464&H=657&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-02"
+    },
+    {
+      "id": "wmagazine",
+      "nome": "WMagazine",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f88%2f4761_88a0a81113d03caec5b473f35e55b34c.png&W=1024&H=1536&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-03"
+    },
+    {
+      "id": "exklusiva",
+      "nome": "Exklusiva",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc7%2f10093_c723ef5f7384d744e5388e4b25788f0e.png&W=1241&H=1754&delay_optim=1&webp=1",
+      "lastUpdated": "2026-03-30"
+    },
+    {
+      "id": "revista-entrerios",
+      "nome": "Revista Entrerios",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fdd%2f10323_dd489a3b4c68a98a42db7c954ad2beba.png&W=1065&H=1479&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "electra",
+      "nome": "Electra",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ffa%2f10182_fa03909eb2612c0aebb989ecc631d368.png&W=994&H=1483&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-11"
     }
   ],
   "Desporto": [
     {
       "id": "a-bola",
       "nome": "A Bola",
-      "url": "https://imgs.vercapas.com/covers/a-bola/2026/a-bola-2026-08-04-2da2605d.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f6b%2f4137_6b901aeceaa49f48f9768a3a8443e096.png&W=1584&H=1928&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "record",
+      "nome": "Record",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb2%2f4139_b21393fa68288ddfc3c7ba88c48c5464.png&W=1606&H=1977&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "o-jogo",
       "nome": "O Jogo",
-      "url": "https://imgs.vercapas.com/covers/o-jogo/2026/o-jogo-2026-08-04-df289515.jpg",
-      "lastUpdated": "2026-08-04"
-    },
-    {
-      "id": "o-benfica",
-      "nome": "O Benfica",
-      "url": "https://imgs.vercapas.com/covers/o-benfica/2026/o-benfica-2026-07-31-31e839ee.jpg",
-      "lastUpdated": "2026-07-31"
-    },
-    {
-      "id": "jornal-sporting",
-      "nome": "Jornal Sporting",
-      "url": "https://imgs.vercapas.com/covers/jornal-sporting/2026/jornal-sporting-2026-05-28-79ce0690.jpg",
-      "lastUpdated": "2026-05-28"
-    },
-    {
-      "id": "jornal-1x2",
-      "nome": "Jornal 1X2",
-      "url": "https://imgs.vercapas.com/covers/jornal-1x2/2026/jornal-1x2-2026-05-26-b8e502fc.jpg",
-      "lastUpdated": "2026-05-26"
-    },
-    {
-      "id": "jornal-as",
-      "nome": "Jornal AS",
-      "url": "https://imgs.vercapas.com/covers/jornal-as/2026/jornal-as-2026-08-04-8485b2fa.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f72%2f4138_72ebb618c3407d150de07c1236be6b21.png&W=736&H=904&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "marca",
       "nome": "Marca",
-      "url": "https://imgs.vercapas.com/covers/jornal-marca/2026/jornal-marca-2026-08-04-44291693.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f59%2f1843_59a1ed197a3aa36fc66c65c579cd2ea3.png&W=1200&H=1545&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "jornal-as",
+      "nome": "AS",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fe6%2f1846_e6552a4992b92087576a640b40db3a80.png&W=1434&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "mundo-deportivo",
       "nome": "Mundo Deportivo",
-      "url": "https://imgs.vercapas.com/covers/mundo-deportivo/2026/mundo-deportivo-2026-08-04-e34f81cc.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f83%2f1890_83cc98540161b8d2255bdd4ba8729479.png&W=1200&H=1486&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "mundo-deportivo-gipuzkoa",
+      "nome": "Mundo Deportivo (Gipuzkoa)",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f7e%2f1894_7e1887125814909d4bfe0f14ecee2427.png&W=750&H=902&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "mundo-deportivo-athletic-club-bilbao",
+      "nome": "Mundo Deportivo (Bizkaia-Araba)",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f54%2f2891_54176c1fcd3d539f517bbdc86a6609bf.png&W=750&H=907&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "mundo-deportivo-atletico",
+      "nome": "Mundo Deportivo (Madrid)",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f3b%2f1892_3b842a962763bd70f9015598adfd1cc1.png&W=750&H=907&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "sport",
+      "nome": "Sport",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fbd%2f1852_bd6d40e64fd3743d4597d56389154860.png&W=1200&H=1515&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "l-esportiu",
+      "nome": "L'esportiu",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc7%2f1896_c74890ccdf972c6d82183768feee540c.png&W=750&H=977&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "superdeporte",
+      "nome": "Super Deporte",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f7f%2f1895_7ffa6aedece2cadfb5ffcdcb14f0b34a.png&W=1021&H=1293&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "gazzetta-dello-sport",
+      "nome": "La Gazzetta dello Sport",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f84%2f1471_848392c0f07156519b4bad2fbf0008e0.png&W=1200&H=1668&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "corriere-dello-sport",
+      "nome": "Corriere dello Sport",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f1d%2f1474_1df1170e60909f23e3e2ac9f6024abfb.png&W=1200&H=1744&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "tuttosport",
       "nome": "Tuttosport",
-      "url": "https://imgs.vercapas.com/covers/tuttosport/2026/tuttosport-2026-08-04-9d0dd65f.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fe1%2f1485_e14504f5fbd9268facf00484ba077bef.png&W=1200&H=1785&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "il-romanista",
+      "nome": "Il Romanista",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f52%2f1559_52aff0fdb8e72b43b7447eeba0a50078.png&W=1200&H=1762&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "l-equipe",
       "nome": "L'Équipe",
-      "url": "https://imgs.vercapas.com/covers/lequipe/2026/lequipe-2026-08-04-288b3a6c.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc8%2f4521_c83005ab43534ef27d859f8403d13c3e.png&W=816&H=1040&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "le-figaro-sport",
+      "nome": "Le Figaro Sport",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f71%2f10284_717575ae9ebc7dda2501ad1d46fc2b56.png&W=730&H=967&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "france-football",
+      "nome": "France Football",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa8%2f4522_a8a4f9add0a256283ea4861904f7a511.png&W=758&H=1024&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-11"
     },
     {
       "id": "desportivo-de-guimaraes",
       "nome": "Desportivo de Guimarães",
-      "url": "https://imgs.vercapas.com/covers/desportivo-de-guimaraes/2026/desportivo-de-guimaraes-2026-08-04-5dc519a0.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc5%2f4140_c549f8d6a4356a775ec62ea05345d852.png&W=605&H=732&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
-      "id": "jornal-do-golfe",
-      "nome": "Jornal do Golfe",
-      "url": "https://imgs.vercapas.com/covers/jornal-do-golfe/jornal-do-golfe-2013-07-12-25fc0e.jpg",
-      "lastUpdated": "2013-07-12"
+      "id": "jm-desporto",
+      "nome": "JM - Desporto",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f1d%2f10325_1d245dd5490f2a08faf5f741fc0618b5.png&W=674&H=870&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "sport-cm",
+      "nome": "Mais Sport | CM",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f5e%2f6921_5e4e8bbce3c30a31cb2a84c908d6453e.png&W=1004&H=1231&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-01"
+    },
+    {
+      "id": "ataque-jn",
+      "nome": "Ataque | JN",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa5%2f10317_a5dc7dadb9f3bca6b3cb399db17c1df6.png&W=782&H=892&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-01"
+    },
+    {
+      "id": "dn-sport",
+      "nome": "DN Sport",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fbf%2f10320_bf03d99317425988439691f1cf7171f7.png&W=1629&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "o-benfica",
+      "nome": "O Benfica",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc1%2f4695_c1bcbaaf38de9fb3eed5b591db8513f2.png&W=796&H=955&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "jornal-sporting",
+      "nome": "Jornal Sporting",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f63%2f4621_634ce9293b1ab59504473a1721c60667.png&W=646&H=803&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-28"
     },
     {
       "id": "dragoes",
       "nome": "Dragões",
-      "url": "https://imgs.vercapas.com/covers/dragoes/2026/dragoes-2026-07-13-7328f971-x.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f7e%2f6001_7e884a1a2f5bf6fcc47256b09161abbd.png&W=1459&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-13"
     },
     {
-      "id": "futebolista",
-      "nome": "Futebolista",
-      "url": "https://imgs.vercapas.com/covers/futebolista/futebolista-2015-03-27-aea921.jpg",
-      "lastUpdated": "2015-03-27"
+      "id": "revista-liga",
+      "nome": "Revista LIGA-TE",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f3f%2f10219_3fd85aaed4175c084a324473630de230.png&W=707&H=988&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-22"
     },
     {
-      "id": "mistica",
-      "nome": "Mística",
-      "url": "https://imgs.vercapas.com/covers/mistica/mistica-2017-07-12-0b9189.jpg",
-      "lastUpdated": "2017-07-12"
+      "id": "star-sport",
+      "nome": "Star Sport",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f67%2f7158_67d383d40ec406cdf1a22e0aaba3ef93.png&W=967&H=1249&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
     },
     {
-      "id": "revista-atletismo",
-      "nome": "Revista Atletismo",
-      "url": "https://imgs.vercapas.com/covers/revista-atletismo/revista-atletismo-2016-11-03-73475c.jpg",
-      "lastUpdated": "2016-11-03"
+      "id": "the-football-league-paper",
+      "nome": "The Football League Paper",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fcd%2f10312_cdb04e1a385beca499448eb38352e2df.png&W=585&H=721&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-11"
     },
     {
-      "id": "ciclismo-a-fundo",
-      "nome": "Ciclismo a Fundo",
-      "url": "https://imgs.vercapas.com/covers/ciclismo-a-fundo/ciclismo-a-fundo-2017-11-01-44cb73.jpg",
-      "lastUpdated": "2017-11-01"
+      "id": "nemzeti-sport",
+      "nome": "Nemzeti Sport",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f00%2f5193_0094763ef38f0da6e85f9d22f5efc281.png&W=498&H=783&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "ole-argentina",
+      "nome": "Olé",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4c%2f10282_4c2a543819034750e760e1bec3d02811.png&W=746&H=997&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "libero",
+      "nome": "Líbero",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fcb%2f1781_cb1cc2fde27a92760cc90ada4066f40f.png&W=750&H=750&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-03"
+    },
+    {
+      "id": "record-mexico",
+      "nome": "Récord",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fdf%2f1664_dfbac1ee6cdf4819353c66e477f11ac3.png&W=800&H=997&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "placar",
+      "nome": "Placar",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f52%2f5273_524424e27c7be0524151e1bc15992957.png&W=503&H=665&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "desafio",
+      "nome": "Desafio",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ff6%2f4041_f61b45dbf5f3563f94ab2c473ba8d035.png&W=944&H=1408&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-03"
+    },
+    {
+      "id": "soccer-laduma",
+      "nome": "Soccer Laduma",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc7%2f1834_c79d509ece8cec023014d782d1d109b2.png&W=665&H=990&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
+    },
+    {
+      "id": "kick-off",
+      "nome": "Kick Off",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fd5%2f4877_d542aadee1616fe2f802ec5a538cc87c.png&W=767&H=974&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
+    },
+    {
+      "id": "running",
+      "nome": "Pro Runners Magazine",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f1a%2f10215_1a7fc903616b81d54afb4d40117e1035.png&W=690&H=1000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
     },
     {
       "id": "equitacao",
       "nome": "Equitação",
-      "url": "https://imgs.vercapas.com/covers/equitacao/2026/equitacao-2026-07-24-999befbc.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2faa%2f4149_aae8f55e81cdf14b3bda65df2862e08b.png&W=707&H=1000&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-24"
-    },
-    {
-      "id": "o-praticante",
-      "nome": "O Praticante",
-      "url": "https://imgs.vercapas.com/covers/o-praticante/o-praticante-2014-06-20-811786.jpg",
-      "lastUpdated": "2014-06-20"
-    },
-    {
-      "id": "golfe-no-centro",
-      "nome": "Golfe no Centro",
-      "url": "https://imgs.vercapas.com/covers/golfe-no-centro/golfe-no-centro-2014-03-25-314890.jpg",
-      "lastUpdated": "2014-03-25"
-    },
-    {
-      "id": "bike-magazine",
-      "nome": "BIKE Magazine",
-      "url": "https://imgs.vercapas.com/covers/bike-magazine/bike-magazine-2024-12-01-8b496b-x.jpg",
-      "lastUpdated": "2024-12-01"
-    },
-    {
-      "id": "freebike",
-      "nome": "FREEBIKE",
-      "url": "https://imgs.vercapas.com/covers/freebike/freebike-2018-05-01-f74787-x.jpg",
-      "lastUpdated": "2018-05-01"
-    },
-    {
-      "id": "biking-aventura",
-      "nome": "Biking Aventura",
-      "url": "https://imgs.vercapas.com/covers/biking-aventura/biking-aventura-2013-03-07-2c4cf6.jpg",
-      "lastUpdated": "2013-03-07"
-    },
-    {
-      "id": "record",
-      "nome": "Jornal Record",
-      "url": "https://imgs.vercapas.com/covers/record/2026/record-2026-08-04-c52ac8a8.jpg",
-      "lastUpdated": "2026-08-04"
     }
   ],
   "Economia e Gestão": [
     {
-      "id": "expresso-economia",
-      "nome": "Expresso-Economia",
-      "url": "https://imgs.vercapas.com/covers/expresso-economia/2026/expresso-economia-2026-07-31-7425f669.jpg",
-      "lastUpdated": "2026-07-31"
+      "id": "jornal-de-negocios",
+      "nome": "Jornal de Negócios",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fe0%2f4108_e0ee25091d29427d94a26fc41df2a715.png&W=1529&H=1910&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
     },
     {
-      "id": "expresso-emprego",
-      "nome": "Expresso-Emprego",
-      "url": "https://imgs.vercapas.com/covers/expresso-emprego/expresso-emprego-2016-12-30-4ec959.jpg",
-      "lastUpdated": "2016-12-30"
+      "id": "jornal-economico",
+      "nome": "O Jornal Económico",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f53%2f10140_531d49f2f961c8992c85db3cf1ac8966.png&W=1530&H=1936&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
     },
     {
       "id": "dinheiro-vivo-dn-jn",
-      "nome": "Dinheiro Vivo-DN/JN",
-      "url": "https://imgs.vercapas.com/covers/dinheiro-vivo-dn-jn/2026/dinheiro-vivo-dn-jn-2026-07-31-93a871b7.jpg",
+      "nome": "Dinheiro Vivo/ DN",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fbc%2f5941_bc9b21236cae875441885be4037ab138.png&W=1636&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-31"
     },
     {
-      "id": "exame",
-      "nome": "Exame",
-      "url": "https://imgs.vercapas.com/covers/exame/exame-2025-04-01-1a6562.jpg",
-      "lastUpdated": "2025-04-01"
+      "id": "expresso-economia",
+      "nome": "Economia/ Expresso",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f01%2f6152_019f87cc2b9f07f5eca365af68c00b38.png&W=1310&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
     },
     {
       "id": "vida-economica",
       "nome": "Vida Económica",
-      "url": "https://imgs.vercapas.com/covers/vida-economica/2026/vida-economica-2026-07-24-bd118e7b-x.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f80%2f4110_8010f93b1ef29f82ca917fbe5b26f1ef.png&W=524&H=753&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-24"
     },
     {
-      "id": "meios-publicidade",
-      "nome": "Meios & Publicidade",
-      "url": "https://imgs.vercapas.com/covers/meios-e-publicidade/2026/meios-e-publicidade-2026-07-24-8fb46a24.jpg",
+      "id": "imobiliario-publico",
+      "nome": "Imobiliário-Público",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f7d%2f6285_7d7b8eaa1852900bf1afccd9c304fc6c.png&W=596&H=753&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
+    },
+    {
+      "id": "weekend-economico-inactivo",
+      "nome": "Weekend/ Negócios",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa0%2f4112_a0257a7ebff04a06d2cb62f87940979e.png&W=765&H=941&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-24"
     },
     {
-      "id": "marketeer",
-      "nome": "Marketeer",
-      "url": "https://imgs.vercapas.com/covers/marketeer/2026/marketeer-2026-07-20-bc1594a1.jpg",
-      "lastUpdated": "2026-07-20"
+      "id": "eco-a-economia-nas-suas-maos",
+      "nome": "ECO - A Economia Nas Suas Mãos",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ff9%2f10289_f97ab12317667a01aa3b850a0f477ed8.png&W=1299&H=1653&delay_optim=1&webp=1",
+      "lastUpdated": "2026-01-09"
     },
     {
       "id": "executive-digest",
       "nome": "Executive Digest",
-      "url": "https://imgs.vercapas.com/covers/executive-digest/2026/executive-digest-2026-07-20-5bd77e7a.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc4%2f4125_c431e128a8c1593c691c2fc455d3b3e1.png&W=1571&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-20"
-    },
-    {
-      "id": "actualidade-economia-iberica",
-      "nome": "Actualidade Economia Ibérica",
-      "url": "https://imgs.vercapas.com/covers/actualidad-economiaiberica/2026/actualidad-economiaiberica-2026-07-27-c09eac19.jpg",
-      "lastUpdated": "2026-07-27"
-    },
-    {
-      "id": "revista-invest",
-      "nome": "Revista Invest",
-      "url": "https://imgs.vercapas.com/covers/revista-invest/revista-invest-2014-07-31-2fca34.jpg",
-      "lastUpdated": "2014-07-31"
-    },
-    {
-      "id": "briefing",
-      "nome": "Briefing",
-      "url": "https://imgs.vercapas.com/covers/briefing/2026/briefing-2026-07-07-e46b24dc.jpg",
-      "lastUpdated": "2026-07-07"
-    },
-    {
-      "id": "fibra",
-      "nome": "FIBRA",
-      "url": "https://imgs.vercapas.com/covers/fibra/fibra-2013-12-10-7688b6.jpg",
-      "lastUpdated": "2013-12-10"
-    },
-    {
-      "id": "advocatus",
-      "nome": "Advocatus",
-      "url": "https://imgs.vercapas.com/covers/advocatus/2026/advocatus-2026-07-17-241a1f85.jpg",
-      "lastUpdated": "2026-07-17"
-    },
-    {
-      "id": "o-advogado",
-      "nome": "O Advogado",
-      "url": "https://imgs.vercapas.com/covers/o-advogado/o-advogado-2012-07-05-6208ef.jpg",
-      "lastUpdated": "2012-07-05"
-    },
-    {
-      "id": "diplomatica",
-      "nome": "Diplomática",
-      "url": "https://imgs.vercapas.com/covers/diplomatica/diplomatica-2021-09-13-3e1e96-x.jpg",
-      "lastUpdated": "2021-09-13"
-    },
-    {
-      "id": "negocios-franchising",
-      "nome": "Negócios & Franchising",
-      "url": "https://imgs.vercapas.com/covers/negocios-e-franchising/negocios-e-franchising-2018-03-05-39fa9e.jpg",
-      "lastUpdated": "2018-03-05"
-    },
-    {
-      "id": "construir",
-      "nome": "Construir",
-      "url": "https://imgs.vercapas.com/covers/construir/2026/construir-2026-07-24-f96f8a5a.jpg",
-      "lastUpdated": "2026-07-24"
-    },
-    {
-      "id": "casas-negocios",
-      "nome": "Casas & Negócios",
-      "url": "https://imgs.vercapas.com/covers/casas-e-negocios/casas-e-negocios-2012-07-27-c75cb6.jpg",
-      "lastUpdated": "2012-07-27"
-    },
-    {
-      "id": "publituris-hotelaria",
-      "nome": "Publituris Hotelaria",
-      "url": "https://imgs.vercapas.com/covers/publituris-hotelaria/2026/publituris-hotelaria-2026-07-20-48409385.jpg",
-      "lastUpdated": "2026-07-20"
-    },
-    {
-      "id": "publituris",
-      "nome": "Publituris",
-      "url": "https://imgs.vercapas.com/covers/publituris/2026/publituris-2026-07-20-815b06af.jpg",
-      "lastUpdated": "2026-07-20"
-    },
-    {
-      "id": "traco-arquitectura-e-design",
-      "nome": "TRAÇO - Arquitectura e Design",
-      "url": "https://imgs.vercapas.com/covers/traco-arquitectura-e-design/2026/traco-arquitectura-e-design-2026-03-25-9a7d8a9e.jpg",
-      "lastUpdated": "2026-03-25"
-    },
-    {
-      "id": "hipersuper",
-      "nome": "Hipersuper",
-      "url": "https://imgs.vercapas.com/covers/hipersuper/2026/hipersuper-2026-06-29-03290bd5.jpg",
-      "lastUpdated": "2026-06-29"
     },
     {
       "id": "forbes-portugal",
       "nome": "Forbes Portugal",
-      "url": "https://imgs.vercapas.com/covers/forbes-portugal/2026/forbes-portugal-2026-07-06-48c12775.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ff1%2f10106_f1ff8ef2059565242ff5d766311f369e.png&W=771&H=993&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-06"
+    },
+    {
+      "id": "advocatus",
+      "nome": "Advocatus | ECO",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc0%2f5429_c0ea3f408b1002305ef9775107abb6df.png&W=1024&H=1434&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-17"
+    },
+    {
+      "id": "scoring-magazine",
+      "nome": "SCORING Magazine",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fbc%2f10294_bc0b86930b1235fc0542ed1c31c01f81.png&W=719&H=979&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-27"
+    },
+    {
+      "id": "revista-business-portugal",
+      "nome": "Revista Business Portugal",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f84%2f6407_848ee40b72a08e38ec2b003ee1d613fb.png&W=1464&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
+    },
+    {
+      "id": "risco",
+      "nome": "Risco",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f92%2f10198_921863a569ad8bc55c3297eefcc0c8cb.png&W=748&H=940&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-17"
+    },
+    {
+      "id": "in-corporate-magazine",
+      "nome": "IN Corporate Magazine",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f2c%2f10216_2c32d303d6669d0c2b6cd57085e20f61.png&W=686&H=971&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-03"
+    },
+    {
+      "id": "pme-magazine",
+      "nome": "PME Magazine",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f2d%2f10178_2df941156878ecfc026c1f88040c25f5.png&W=1241&H=1754&delay_optim=1&webp=1",
+      "lastUpdated": "2025-11-14"
+    },
+    {
+      "id": "o-economista-anuario-da-economia-portuguesa",
+      "nome": "O Economista - Anuário da Economia Portuguesa",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f0e%2f10247_0eb40343b4ddbacb9f2b2f81fe0acb2f.png&W=1211&H=1713&delay_optim=1&webp=1",
+      "lastUpdated": "2025-09-13"
+    },
+    {
+      "id": "meios-publicidade",
+      "nome": "Meios & Publicidade",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa4%2f4130_a4958e8e526b353ce42e4131aad33f75.png&W=598&H=823&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
+    },
+    {
+      "id": "briefing",
+      "nome": "Briefing",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f90%2f4117_901e0dbfeed92f254156ec5c33a4e583.png&W=710&H=998&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-07"
+    },
+    {
+      "id": "marketeer",
+      "nome": "Marketeer",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f11%2f4129_1155964661ec38933f7e4a0575e2cecd.png&W=1572&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-20"
+    },
+    {
+      "id": "valor-magazine",
+      "nome": "Valor Magazine",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f73%2f10279_7321734dc19b6ce5366eff61bf356167.png&W=1241&H=1654&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-03"
+    },
+    {
+      "id": "actualidade-economia-iberica",
+      "nome": "Actualidad€ Economia Ibérica",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f92%2f4408_92d75d0f151acf32051f369e3eb5de17.png&W=740&H=992&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-27"
+    },
+    {
+      "id": "proteste",
+      "nome": "DECO PROteste",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f46%2f10211_46f7d9597af2d80e9170b859aea4ad14.png&W=723&H=996&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-28"
+    },
+    {
+      "id": "dinheiro-direitos",
+      "nome": "Contas E Direitos DECO PROteste",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fdf%2f10213_df2afcf5426a233f7446d62ea0d9cd67.png&W=626&H=872&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-11"
+    },
+    {
+      "id": "teste-saude",
+      "nome": "Saúde DECO PROteste",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f63%2f10212_63aaed6d26c90e7de628622e6e5513fa.png&W=624&H=872&delay_optim=1&webp=1",
+      "lastUpdated": "2026-04-01"
+    },
+    {
+      "id": "frontline-lifestyle-and-business",
+      "nome": "Frontline Lifestyle and Business ",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4a%2f4737_4a9d0100b8652557295ddbde076d8e28.png&W=698&H=961&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-24"
+    },
+    {
+      "id": "human",
+      "nome": "Human",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4f%2f4127_4f78ee6d69e9c62bf13d26c93875b97e.png&W=1000&H=1333&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-03"
+    },
+    {
+      "id": "human-resources",
+      "nome": "Human Resources Portugal",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f89%2f1758_8955d2156d3f519603cc4e8f03e1b74d.png&W=1571&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-20"
+    },
+    {
+      "id": "rh-magazine",
+      "nome": "RH Magazine",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f28%2f5733_288b94fd83229a915a0a417d31cbee61.png&W=750&H=986&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-01"
+    },
+    {
+      "id": "lider-magazine",
+      "nome": "Líder Magazine",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fe9%2f10185_e9f47645157e00842ee3713ca1f7aa8a.png&W=418&H=520&delay_optim=1&webp=1",
+      "lastUpdated": "2026-03-05"
+    },
+    {
+      "id": "construir",
+      "nome": "Construir",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f02%2f4683_02b44af05bb523d95174be08da313187.png&W=599&H=834&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
+    },
+    {
+      "id": "traco-arquitectura-e-design-inactive",
+      "nome": "TRAÇO - Arquitectura e Design",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f99%2f4684_9957f8248f972ff77b7612dbb1f255b9.png&W=1000&H=1366&delay_optim=1&webp=1",
+      "lastUpdated": "2025-10-02"
+    },
+    {
+      "id": "publituris",
+      "nome": "Publituris",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f42%2f4515_427d6514d0dd8bcfbf67b2bf5ec23585.png&W=1000&H=1280&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-20"
+    },
+    {
+      "id": "publituris-hotelaria",
+      "nome": " Hotelaria Publituris",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc2%2f4552_c2654179875f40fe3dcb15d6e2c00793.png&W=976&H=1384&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-20"
+    },
+    {
+      "id": "viajar",
+      "nome": "Viajar",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f33%2f5334_33d1f52eb2f71d67ea1b2104f040d14e.png&W=689&H=997&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-24"
+    },
+    {
+      "id": "revista-dirhotel",
+      "nome": "Revista Dirhotel",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4d%2f10028_4d3060a9668eccc15303ad7cc6c5871c.png&W=382&H=474&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-27"
+    },
+    {
+      "id": "turismo-2014",
+      "nome": "Turismo 26",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f3f%2f4135_3f5289cb28f4a61f3e0e3a95eae8107e.png&W=420&H=556&delay_optim=1&webp=1",
+      "lastUpdated": "2026-04-28"
+    },
+    {
+      "id": "hipersuper",
+      "nome": "Hipersuper",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f5b%2f4126_5bae799b5149d187a8e29a75e5137737.png&W=920&H=1320&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-29"
+    },
+    {
+      "id": "grande-consumo",
+      "nome": "Grande Consumo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fbe%2f10002_be76c26a675190190754532a4b85f6d1.png&W=702&H=960&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-23"
+    },
+    {
+      "id": "logistica-moderna",
+      "nome": "Logística Moderna",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f1f%2f6615_1ffe7c64af9303c9f2e76bf2905a3cc3.png&W=1548&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-06"
+    },
+    {
+      "id": "abolsamia",
+      "nome": "abolsamia",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ff1%2f10209_f17839710c7be2e839477a61dd239f95.png&W=632&H=814&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-23"
+    },
+    {
+      "id": "green-savers",
+      "nome": "Green Savers",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f60%2f10243_6028105b12e926b8b4363e92caaedbeb.png&W=712&H=983&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-06"
+    },
+    {
+      "id": "produtores-florestais",
+      "nome": "Produtores Florestais",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f59%2f10241_59697a6282ea2f5a678598144aa895d2.png&W=1112&H=1650&delay_optim=1&webp=1",
+      "lastUpdated": "2026-04-13"
+    },
+    {
+      "id": "voz-do-campo",
+      "nome": "Voz do Campo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f50%2f10220_50a0002523e908243fc0ebfa719eaa71.png&W=1414&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "expansao",
+      "nome": "Expansão",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f0f%2f4479_0f57a038a6ef0e31c86f7a2564502461.png&W=662&H=961&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "economia-financas",
+      "nome": "Economia & Finanças",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f3a%2f6858_3aa380021b215390aaac158d155462ae.png&W=686&H=962&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
+    },
+    {
+      "id": "economia-mercado",
+      "nome": "Economia & Mercado",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f21%2f4008_21669b6d748fd6316ee2f278902587e7.png&W=743&H=982&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-14"
+    },
+    {
+      "id": "forbes-africa-lusofona",
+      "nome": "Forbes África Lusófona",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fda%2f10319_daa71cee1d76ae3c9a3de8ab9567775f.png&W=752&H=954&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-29"
+    },
+    {
+      "id": "exame-angola",
+      "nome": "Negócios Em Exame",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f7c%2f6169_7ce6182a83ec9674cdd4737636c74872.png&W=758&H=922&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-10"
+    },
+    {
+      "id": "o-pais-economico",
+      "nome": "O País - Económico",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f00%2f10037_009cc25a73d56bc438e42d75db3c492e.png&W=760&H=1002&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "negocios",
+      "nome": "Negócios",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f3c%2f6475_3c50718f4da91a45ee08c694a5a61b1c.png&W=746&H=992&delay_optim=1&webp=1",
+      "lastUpdated": "2026-04-01"
+    },
+    {
+      "id": "el-economista-spain",
+      "nome": "El Economista",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f2f%2f10281_2faf844139b84e852a2cd10a727212d6.png&W=750&H=981&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "expansion",
+      "nome": "Expansión",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f68%2f1883_682ec32f6c6abd001075ed154011198c.png&W=750&H=972&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "cinco-dias",
+      "nome": "Cinco Días",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f68%2f10310_68abb3be8ea517d340a2762cacd35c35.png&W=750&H=958&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "emprendedores",
+      "nome": "Emprendedores",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f8d%2f4922_8dc1d9299500269611078b902523e582.png&W=600&H=800&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-07"
+    },
+    {
+      "id": "les-echos",
+      "nome": "Les Echos",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f93%2f4528_93bf2f4aa15e456accae1b81000daf1b.png&W=750&H=1095&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "la-tribune",
+      "nome": "La Tribune",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ffc%2f4527_fcb134cd4ff87273650b3e19d764a9e4.png&W=678&H=942&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-25"
+    },
+    {
+      "id": "le-nouvel-economiste",
+      "nome": "Le nouvel Économiste",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f09%2f10306_09216cf6537a9d970dd9c4120168ba2d.png&W=750&H=1057&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-06"
+    },
+    {
+      "id": "the-economist",
+      "nome": "The Economist",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f8f%2f3146_8f5909be192e4e47f9fe336eebbdfe66.png&W=737&H=989&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
+    },
+    {
+      "id": "valor-economico",
+      "nome": "Valor Econômico",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f95%2f1355_95451ac82aea0f132a4b0e834b019a05.png&W=565&H=1000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-03"
+    },
+    {
+      "id": "jornal-industria-comercio",
+      "nome": "Diário Indústria & Comércio",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f89%2f4385_8920d4be4def07c98fa4e7bf2e1d86cf.png&W=398&H=604&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "epoca-negocios",
+      "nome": "Época Negócios",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fd9%2f4383_d902ba8ba89b7e5a56dc2ba62744d055.png&W=760&H=945&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-07"
+    },
+    {
+      "id": "el-economista",
+      "nome": "El Economista",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f71%2f2699_711a557fd01455a65fe387fc44ce8c76.png&W=750&H=932&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "la-republica",
+      "nome": "La Republica",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4b%2f1131_4b1cfbb9956948bc3a088f5357eedff4.png&W=650&H=990&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "produccion-agroindustrial-del-noa",
+      "nome": "Producción Agroindustrial del NOA",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4e%2f5001_4e26079e8c73e6c89b562f0c732d9f11.png&W=665&H=931&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-07"
     }
   ],
   "Regionais": [
     {
-      "id": "a-verdade",
-      "nome": "A Verdade",
-      "url": "https://imgs.vercapas.com/covers/a-verdade/2026/a-verdade-2026-02-19-3bb0f07f.jpg",
-      "lastUpdated": "2026-02-19"
-    },
-    {
-      "id": "abarca",
-      "nome": "Abarca",
-      "url": "https://imgs.vercapas.com/covers/abarca/2026/abarca-2026-07-31-433fa290.jpg",
-      "lastUpdated": "2026-07-31"
-    },
-    {
       "id": "acoriano-oriental",
       "nome": "Açoriano Oriental",
-      "url": "https://imgs.vercapas.com/covers/acoriano-oriental/2026/acoriano-oriental-2026-08-04-fa90d549.jpg",
-      "lastUpdated": "2026-08-04"
-    },
-    {
-      "id": "barlavento",
-      "nome": "Barlavento",
-      "url": "https://imgs.vercapas.com/covers/barlavento/barlavento-2023-12-20-814fd2.jpg",
-      "lastUpdated": "2023-12-20"
-    },
-    {
-      "id": "caminhense",
-      "nome": "Caminhense",
-      "url": "https://imgs.vercapas.com/covers/caminhense/2026/caminhense-2026-04-29-2e567319.jpg",
-      "lastUpdated": "2026-04-29"
-    },
-    {
-      "id": "cidade-viva",
-      "nome": "Cidade Viva",
-      "url": "https://imgs.vercapas.com/covers/cidade-viva/cidade-viva-2014-07-18-0a1f12.jpg",
-      "lastUpdated": "2014-07-18"
-    },
-    {
-      "id": "correio-do-minho",
-      "nome": "Correio do Minho",
-      "url": "https://imgs.vercapas.com/covers/correio-do-minho/2026/correio-do-minho-2026-08-04-d00f1c46.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f73%2f3925_736d73a25728842d201b8b1be9386292.png&W=1478&H=1977&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "correio-dos-acores",
       "nome": "Correio dos Açores",
-      "url": "https://imgs.vercapas.com/covers/correio-dos-acores/2026/correio-dos-acores-2026-08-04-b7bfa9bf-x.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fcf%2f6766_cf9dbdd703722e6825cee59f6c1319c0.png&W=1181&H=1591&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
-      "id": "desportivo-transmontano",
-      "nome": "Desportivo Transmontano",
-      "url": "https://imgs.vercapas.com/covers/desportivo-transmontano/desportivo-transmontano-2013-05-07-76ebdb.jpg",
-      "lastUpdated": "2013-05-07"
-    },
-    {
-      "id": "dica-da-semana",
-      "nome": "Dica da Semana",
-      "url": "https://imgs.vercapas.com/covers/dica-da-semana/dica-da-semana-2017-11-20-f74efa.jpg",
-      "lastUpdated": "2017-11-20"
+      "id": "correio-do-minho",
+      "nome": "Correio do Minho",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f8e%2f3940_8ef85a81ecd54e6cbe13d5e40a273aab.png&W=1142&H=1466&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
     },
     {
       "id": "diario-as-beiras",
-      "nome": "Diário As Beiras",
-      "url": "https://imgs.vercapas.com/covers/diario-as-beiras/2026/diario-as-beiras-2026-08-04-cdb73506.jpg",
-      "lastUpdated": "2026-08-04"
-    },
-    {
-      "id": "diario-insular",
-      "nome": "Diário Insular",
-      "url": "https://imgs.vercapas.com/covers/diario-insular/2026/diario-insular-2026-08-04-63aaa187.jpg",
-      "lastUpdated": "2026-08-04"
-    },
-    {
-      "id": "diario-da-regiao",
-      "nome": "Diário da Região",
-      "url": "https://imgs.vercapas.com/covers/diario-da-regiao/diario-da-regiao-2022-01-14-1f0980.jpg",
-      "lastUpdated": "2022-01-14"
+      "nome": "Diário as Beiras",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa2%2f3944_a227cd794a842c3f6ad4e45942202d04.png&W=1589&H=1888&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
     },
     {
       "id": "diario-de-aveiro",
       "nome": "Diário de Aveiro",
-      "url": "https://imgs.vercapas.com/covers/diario-de-aveiro/2026/diario-de-aveiro-2026-08-04-de271c94.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fd0%2f3946_d00c4995f8610a70144a63114ffdca87.png&W=1514&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "diario-de-coimbra",
       "nome": "Diário de Coimbra",
-      "url": "https://imgs.vercapas.com/covers/diario-de-coimbra/2026/diario-de-coimbra-2026-08-04-bab5f95b.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f86%2f3947_86c612ffeaf0bd9f608e77ac1fdc4921.png&W=1515&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "diario-de-leiria",
       "nome": "Diário de Leiria",
-      "url": "https://imgs.vercapas.com/covers/diario-de-leiria/2026/diario-de-leiria-2026-08-03-46224287.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f12%2f3948_124b4d28cae9d21ac5dfa5ecc08c457f.png&W=1510&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-03"
     },
     {
       "id": "diario-de-noticias-da-madeira",
       "nome": "Diário de Notícias da Madeira",
-      "url": "https://imgs.vercapas.com/covers/diario-de-noticias-da-madeira/2026/diario-de-noticias-da-madeira-2026-08-04-1af1704a.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f77%2f3955_77915470a48fef4b1bb67ab03f7ee292.png&W=1550&H=1891&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
       "id": "diario-de-viseu",
       "nome": "Diário de Viseu",
-      "url": "https://imgs.vercapas.com/covers/diario-de-viseu/2026/diario-de-viseu-2026-08-04-aa79e4de.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fca%2f3953_cac1c230a75e92e7ac6a1197ab19525b.png&W=1515&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
-    },
-    {
-      "id": "diario-do-alentejo",
-      "nome": "Diário do Alentejo",
-      "url": "https://imgs.vercapas.com/covers/diario-do-alentejo/2026/diario-do-alentejo-2026-07-31-128ba0d8.jpg",
-      "lastUpdated": "2026-07-31"
     },
     {
       "id": "diario-do-minho",
       "nome": "Diário do Minho",
-      "url": "https://imgs.vercapas.com/covers/diario-do-minho/2026/diario-do-minho-2026-08-04-ceae1534.jpg",
-      "lastUpdated": "2026-08-04"
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f00%2f3950_0028ad7496c1fce6abacb99153af0b95.png&W=1593&H=1936&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-28"
     },
     {
       "id": "diario-do-sul",
       "nome": "Diário do Sul",
-      "url": "https://imgs.vercapas.com/covers/diario-do-sul/2026/diario-do-sul-2026-07-31-8c998efc.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f50%2f3956_50f2a8801b4fa7f64572efab0b0e8beb.png&W=480&H=656&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-31"
     },
     {
       "id": "diario-dos-acores",
       "nome": "Diário dos Açores",
-      "url": "https://imgs.vercapas.com/covers/diario-dos-acores/2026/diario-dos-acores-2026-08-04-0ae5646e.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f37%2f3952_374b745d146ec94675ebb892e1b6edb5.png&W=1119&H=1589&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
     },
     {
-      "id": "foz-do-lima",
-      "nome": "Foz do Lima",
-      "url": "https://imgs.vercapas.com/covers/foz-do-lima/foz-do-lima-2016-05-05-7cb676-x.jpg",
-      "lastUpdated": "2016-05-05"
-    },
-    {
-      "id": "gazeta-das-caldas",
-      "nome": "Gazeta das Caldas",
-      "url": "https://imgs.vercapas.com/covers/gazeta-das-caldas/2026/gazeta-das-caldas-2026-07-30-f5d6ee7d.jpg",
-      "lastUpdated": "2026-07-30"
-    },
-    {
-      "id": "gazeta-do-interior",
-      "nome": "Gazeta do Interior",
-      "url": "https://imgs.vercapas.com/covers/gazeta-do-interior/2026/gazeta-do-interior-2026-07-29-0db5bd00.jpg",
-      "lastUpdated": "2026-07-29"
-    },
-    {
-      "id": "grande-porto",
-      "nome": "Grande Porto",
-      "url": "https://imgs.vercapas.com/covers/grande-porto/grande-porto-2013-10-25-964429.jpg",
-      "lastUpdated": "2013-10-25"
-    },
-    {
-      "id": "jornal-e-de-estremoz",
-      "nome": "Jornal E de Estremoz",
-      "url": "https://imgs.vercapas.com/covers/jornal-e-de-estremoz/2026/jornal-e-de-estremoz-2026-05-22-e2bf8de3.jpg",
-      "lastUpdated": "2026-05-22"
-    },
-    {
-      "id": "jornal-labor",
-      "nome": "Jornal Labor",
-      "url": "https://imgs.vercapas.com/covers/jornal-labor/2026/jornal-labor-2026-07-30-d366a4ef.jpg",
-      "lastUpdated": "2026-07-30"
-    },
-    {
-      "id": "jornal-o-alcoa",
-      "nome": "Jornal O Alcoa",
-      "url": "https://imgs.vercapas.com/covers/jornal-o-alcoa/2026/jornal-o-alcoa-2026-07-30-520e4bd8.jpg",
-      "lastUpdated": "2026-07-30"
-    },
-    {
-      "id": "jornal-o-carrilhao",
-      "nome": "Jornal O Carrilhão",
-      "url": "https://imgs.vercapas.com/covers/jornal-o-carrilhao/2026/jornal-o-carrilhao-2026-08-01-48ddead4.jpg",
-      "lastUpdated": "2026-08-01"
-    },
-    {
-      "id": "jornal-da-bairrada",
-      "nome": "Jornal da Bairrada",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-bairrada/2026/jornal-da-bairrada-2026-07-29-aa403ce8.jpg",
-      "lastUpdated": "2026-07-29"
-    },
-    {
-      "id": "jornal-da-beira",
-      "nome": "Jornal da Beira",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-beira/2026/jornal-da-beira-2026-07-30-88f995c6.jpg",
-      "lastUpdated": "2026-07-30"
+      "id": "diario-insular",
+      "nome": "Diário Insular",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb0%2f3951_b03539ba83a3e02bb31bf2a7a2c74299.png&W=1338&H=1852&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
     },
     {
       "id": "jornal-da-madeira",
       "nome": "Jornal da Madeira",
-      "url": "https://imgs.vercapas.com/covers/jornal-da-madeira/2026/jornal-da-madeira-2026-08-04-a9c10930.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb9%2f3978_b9773f8001a7943754ac19fda7219d90.png&W=1549&H=1890&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "o-setubalense",
+      "nome": "O Setubalense",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f2e%2f5893_2ed42ade4f4dfc1a3b94ee42b25087ef.png&W=1546&H=1941&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "jornal-alto-minho",
+      "nome": "Jornal Alto Minho",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f71%2f3973_71dd96977b7405ef4f53dd9e3b56e67a.png&W=696&H=957&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-23"
+    },
+    {
+      "id": "a-comarca-de-arganil",
+      "nome": "A Comarca de Arganil",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f62%2f3917_62aa5bbc221bd7734c64eb1dc1369f7c.png&W=1504&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
+    },
+    {
+      "id": "a-guarda",
+      "nome": "A Guarda",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ff7%2f3918_f762b1a69877658981932fb78a5f05d6.png&W=1376&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
+    },
+    {
+      "id": "a-voz-da-povoa",
+      "nome": "A Voz da Póvoa",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb5%2f3921_b5cd0601849e27cd25986470d824da33.png&W=1240&H=1683&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-21"
+    },
+    {
+      "id": "alto-alentejo",
+      "nome": "Alto Alentejo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f18%2f3926_18a7df72758f1bb4bf7336746cd6d4fa.png&W=1400&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-28"
+    },
+    {
+      "id": "aurora-do-lima",
+      "nome": "Aurora do Lima",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fd7%2f7328_d7d375bfa21ceb303ada68c0267b9c56.png&W=1533&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-15"
+    },
+    {
+      "id": "badaladas",
+      "nome": "Badaladas",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f39%2f4196_39f0bca9e66de2f085ccb44ff24602f8.png&W=594&H=778&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-21"
+    },
+    {
+      "id": "campeao-das-provincias",
+      "nome": "Campeão das Províncias",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f99%2f3931_99c9b468170c94c0a51b8903dc809ff4.png&W=656&H=945&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
+    },
+    {
+      "id": "cardeal-saraiva",
+      "nome": "Cardeal Saraiva",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f6a%2f6328_6a372af37d3ac055bf7b8dd62cf15a8f.png&W=503&H=628&delay_optim=1&webp=1",
+      "lastUpdated": "2026-02-27"
+    },
+    {
+      "id": "cidade-de-tomar",
+      "nome": "Cidade de Tomar",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fdc%2f3934_dc4dd4b096de643a8359ce9f99461e22.png&W=816&H=1045&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
+    },
+    {
+      "id": "comercio-do-seixal-e-sesimbra",
+      "nome": "Comércio do Seixal e Sesimbra",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fda%2f3942_da67cb45de35665adda548da42067a19.png&W=636&H=905&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
+    },
+    {
+      "id": "correio-do-ribatejo",
+      "nome": "Correio do Ribatejo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb9%2f3941_b92d15cd5727a598ff40e959250a2a1f.png&W=703&H=961&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-18"
+    },
+    {
+      "id": "diario-do-alentejo",
+      "nome": "Diário do Alentejo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f49%2f3949_490b8af296bda5d903e3f446f33e5014.png&W=675&H=940&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-17"
+    },
+    {
+      "id": "correio-de-azemeis",
+      "nome": "Correio de Azeméis",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f44%2f4569_44c5259c2b96d0d4da9f40c4f67ff574.png&W=714&H=993&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-21"
+    },
+    {
+      "id": "defesa-de-espinho",
+      "nome": "Defesa de Espinho",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f9a%2f10238_9a211f02cf36157dfee9979ebf68bfa0.png&W=1232&H=1504&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "douro-hoje",
+      "nome": "Douro Hoje",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f17%2f3957_171ab275b8c52b1596f692374f4790ed.png&W=1525&H=1890&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-17"
+    },
+    {
+      "id": "gazeta-das-caldas",
+      "nome": "Gazeta das Caldas",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f94%2f3967_94a8282919abfaa831aea4dc4d478ab5.png&W=717&H=950&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-06"
+    },
+    {
+      "id": "gazeta-do-interior",
+      "nome": "Gazeta do Interior",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f46%2f3969_46c99b2a4116f5b9edcd8e7144cbf2e4.png&W=392&H=500&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
+    },
+    {
+      "id": "a-voz-de-tras-os-montes",
+      "nome": "A Voz de Trás-os-Montes",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f8a%2f3922_8a94a2ce263d61b50faa6ecdea4a515d.png&W=1549&H=1888&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-22"
+    },
+    {
+      "id": "jornal-concelho-de-palmela",
+      "nome": "Jornal Concelho de Palmela",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fcc%2f10297_ccad405a94e786db464bc5d60b9c6aa2.png&W=968&H=1248&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-29"
+    },
+    {
+      "id": "jornal-da-bairrada",
+      "nome": "Jornal da Bairrada",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f80%2f3975_807446bca9234d3ee1ebc6a1956e1e6d.png&W=754&H=926&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-13"
+    },
+    {
+      "id": "jornal-da-beira",
+      "nome": "Jornal da Beira",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fbc%2f6155_bcbed606b985e43c1d08393d180f9c30.png&W=1530&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
+    },
+    {
+      "id": "jornal-ilha-maior",
+      "nome": "Jornal Ilha Maior",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4c%2f10237_4c434cc32f1ed70a4be19f9eab693207.png&W=1193&H=1536&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
+    },
+    {
+      "id": "jornal-da-marinha-grande",
+      "nome": "Jornal da Marinha Grande",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f5d%2f3979_5db663223078b3c60d42a08604c5a161.png&W=748&H=937&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-11"
     },
     {
       "id": "jornal-das-caldas",
       "nome": "Jornal das Caldas",
-      "url": "https://imgs.vercapas.com/covers/jornal-das-caldas/2026/jornal-das-caldas-2026-07-30-6435f659.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4e%2f6026_4e31abada716935d4bc2af89214d4989.png&W=1411&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-30"
-    },
-    {
-      "id": "jornal-de-abrantes",
-      "nome": "Jornal de Abrantes",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-abrantes/2026/jornal-de-abrantes-2026-07-13-b189c8dd.jpg",
-      "lastUpdated": "2026-07-13"
-    },
-    {
-      "id": "jornal-de-barcelos",
-      "nome": "Jornal de Barcelos",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-barcelos/jornal-de-barcelos-2022-07-06-335120.jpg",
-      "lastUpdated": "2022-07-06"
     },
     {
       "id": "jornal-de-leiria",
       "nome": "Jornal de Leiria",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-leiria/2026/jornal-de-leiria-2026-07-30-f20604ee.jpg",
-      "lastUpdated": "2026-07-30"
-    },
-    {
-      "id": "jornal-de-proenca",
-      "nome": "Jornal de Proença",
-      "url": "https://imgs.vercapas.com/covers/jornal-proenca/2026/jornal-proenca-2026-07-22-87fab697.jpg",
-      "lastUpdated": "2026-07-22"
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f9c%2f3990_9c2d7b198f14bcaed8b6640a081507e4.png&W=788&H=994&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-23"
     },
     {
       "id": "jornal-de-sintra",
       "nome": "Jornal de Sintra",
-      "url": "https://imgs.vercapas.com/covers/jornal-de-sintra/2026/jornal-de-sintra-2026-07-23-99022b46.jpg",
-      "lastUpdated": "2026-07-23"
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa3%2f3991_a33c770156073de79325ef4db79f53da.png&W=784&H=1088&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
     },
     {
       "id": "jornal-do-algarve",
       "nome": "Jornal do Algarve",
-      "url": "https://imgs.vercapas.com/covers/jornal-do-algarve/2026/jornal-do-algarve-2026-07-13-350baf58.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f84%2f3994_84f6cb81dc8d86d863a2f9458aad0fe0.png&W=719&H=921&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-13"
     },
     {
       "id": "jornal-do-fundao",
       "nome": "Jornal do Fundão",
-      "url": "https://imgs.vercapas.com/covers/jornal-do-fundao/2026/jornal-do-fundao-2026-07-30-b4a5eb92.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb8%2f3996_b8e5ea47e6af4d1eb93d96577c293b6b.png&W=813&H=996&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-27"
+    },
+    {
+      "id": "jornal-ecos-do-sor",
+      "nome": "Jornal Ecos do Sôr",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fdd%2f4000_dd7c90cf8630ccf29cf40e7b5781fef0.png&W=1446&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-21"
+    },
+    {
+      "id": "jornal-labor",
+      "nome": "Jornal Labor",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa8%2f5022_a807cf42d28370525e31f3a49d383d41.png&W=1533&H=1846&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-30"
     },
     {
-      "id": "jornal-do-pico",
-      "nome": "Jornal do Pico",
-      "url": "https://imgs.vercapas.com/covers/jornal-do-pico/2025/jornal-do-pico-2025-10-14-d3ceb674.jpg",
-      "lastUpdated": "2025-10-14"
+      "id": "jornal-nordeste",
+      "nome": "Jornal Nordeste",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f2d%2f4001_2d0ec14b52716e23b8ea0936c20d7c52.png&W=1144&H=1419&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
     },
     {
-      "id": "jornal-o-interior",
-      "nome": "Jornal o Interior",
-      "url": "https://imgs.vercapas.com/covers/jornal-o-interior/2026/jornal-o-interior-2026-07-29-3386019d.jpg",
-      "lastUpdated": "2026-07-29"
+      "id": "jornal-torrejano",
+      "nome": "Jornal Torrejano",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f2e%2f4002_2e515cd648a3f91a9f80b70d4e612894.png&W=1457&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-16"
     },
     {
       "id": "linhas-de-elvas",
       "nome": "Linhas de Elvas",
-      "url": "https://imgs.vercapas.com/covers/linhas-de-elvas/2026/linhas-de-elvas-2026-07-23-4f1f0128-x.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f39%2f4003_399ef31094ddcb528f183d1939d5d82a.png&W=1556&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-23"
     },
     {
-      "id": "moscavide-portela",
-      "nome": "Moscavide Portela ",
-      "url": "https://imgs.vercapas.com/covers/moscavide-portela/moscavide-portela-2019-12-21-1bde41.jpg",
-      "lastUpdated": "2019-12-21"
+      "id": "mais-guimaraes",
+      "nome": "Mais Guimarães",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb7%2f10094_b7376c2a4818f338761d63e1ff347c15.png&W=814&H=990&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-22"
     },
     {
-      "id": "noticias-da-covilha",
-      "nome": "Notícias da Covilhã",
-      "url": "https://imgs.vercapas.com/covers/noticias-da-covilha/2025/noticias-da-covilha-2025-12-17-fc315e4c.jpg",
-      "lastUpdated": "2025-12-17"
+      "id": "maissemanario",
+      "nome": "Mais/ Semanário",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f92%2f4064_9207ff9f46fe6bc038063e63855ccdcc.png&W=1464&H=1824&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
     },
     {
-      "id": "noticias-de-fatima",
-      "nome": "Notícias de Fátima",
-      "url": "https://imgs.vercapas.com/covers/noticias-de-fatima/2026/noticias-de-fatima-2026-07-13-1e92595b.jpg",
-      "lastUpdated": "2026-07-13"
+      "id": "mare-viva",
+      "nome": "Maré Viva",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f72%2f6354_720cd909c6f56e00098daf294162d495.png&W=586&H=848&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-11"
     },
     {
-      "id": "noticias-de-loures",
-      "nome": "Notícias de Loures",
-      "url": "https://imgs.vercapas.com/covers/noticias-de-loures/noticias-de-loures-2025-07-06-eaa193.jpg",
-      "lastUpdated": "2025-07-06"
+      "id": "mensageiro-de-braganca",
+      "nome": "Mensageiro de Bragança",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4e%2f4011_4ed6d236ee0c3bb54c22677c0d837754.png&W=1544&H=1899&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-16"
     },
     {
-      "id": "noticias-de-oeiras",
-      "nome": "Notícias de Oeiras",
-      "url": "https://imgs.vercapas.com/covers/correio-de-oeiras/2026/correio-de-oeiras-2026-07-13-c417c708.jpg",
-      "lastUpdated": "2026-07-13"
+      "id": "noticias-de-aguiar",
+      "nome": "Notícias de Aguiar",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f12%2f7324_12f16c82c0f0ea0ae461995f7e2e1548.png&W=953&H=1363&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
     },
     {
-      "id": "o-almeirinense",
-      "nome": "O Almeirinense",
-      "url": "https://imgs.vercapas.com/covers/o-almeirinense/2026/o-almeirinense-2026-07-21-9bd1bed8.jpg",
-      "lastUpdated": "2026-07-21"
+      "id": "noticias-de-ourem",
+      "nome": "Notícias de Ourém",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f33%2f6748_33c800224eff951f16ebbbb3a38ed79d.png&W=1540&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
     },
     {
-      "id": "o-basto",
-      "nome": "O Basto",
-      "url": "https://imgs.vercapas.com/covers/o-basto/2025/o-basto-2025-12-23-a25aa118.jpg",
-      "lastUpdated": "2025-12-23"
-    },
-    {
-      "id": "o-comercio-de-baiao",
-      "nome": "O Comércio de Baião",
-      "url": "https://imgs.vercapas.com/covers/o-comercio-de-baiao/2026/o-comercio-de-baiao-2026-07-28-b6cd3e64.jpg",
-      "lastUpdated": "2026-07-28"
+      "id": "noticias-de-vouzela",
+      "nome": "Notícias de Vouzela",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4e%2f5575_4ed7db993c3379eb7d1b0ef53839e28b.png&W=672&H=928&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
     },
     {
       "id": "o-comercio-de-guimaraes",
       "nome": "O Comércio de Guimarães",
-      "url": "https://imgs.vercapas.com/covers/o-comercio-de-guimaraes/2026/o-comercio-de-guimaraes-2026-07-29-13a6d5cc.jpg",
-      "lastUpdated": "2026-07-29"
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f01%2f4036_0146a711374d9d329bd4c613103d93e3.png&W=840&H=993&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-23"
     },
     {
       "id": "o-gaiense",
       "nome": "O Gaiense",
-      "url": "https://imgs.vercapas.com/covers/o-gaiense/2026/o-gaiense-2026-08-01-0dc9a707.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f51%2f4045_51f23330e7f271491e8497975f099f15.png&W=1583&H=1893&delay_optim=1&webp=1",
       "lastUpdated": "2026-08-01"
     },
     {
-      "id": "o-jornal-de-estarreja",
-      "nome": "O Jornal de Estarreja",
-      "url": "https://imgs.vercapas.com/covers/o-jornal-de-estarreja/o-jornal-de-estarreja-2021-01-22-03a3d9.jpg",
-      "lastUpdated": "2021-01-22"
+      "id": "jornal-o-interior",
+      "nome": "O Interior",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f0a%2f4046_0a5f45b9b75036f28989b661e509bb4d.png&W=647&H=936&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-24"
+    },
+    {
+      "id": "o-mirante-leziria-medio-tejo",
+      "nome": "O Mirante/ Lezíria",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ffb%2f4050_fbae29fa2e141dba90f2563096bf986b.png&W=1200&H=1592&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
+    },
+    {
+      "id": "o-mirante-vale-do-tejo",
+      "nome": "O Mirante/ Vale do Tejo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fef%2f7321_ef91d0320c59c37eab244a7122ab067d.png&W=1200&H=1592&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
+    },
+    {
+      "id": "o-mirante-medio-tejo",
+      "nome": " O Mirante/ Médio Tejo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f5a%2f10302_5a9caa78a763369d8ea18e41a18b4e64.png&W=192&H=248&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-19"
+    },
+    {
+      "id": "o-noticias-da-trofa",
+      "nome": "Jornal do Ave",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f26%2f4051_266d5ed7129f6c634e12b8cd3b8f3367.png&W=672&H=792&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-16"
     },
     {
       "id": "o-povo-famalicense",
       "nome": "O Povo Famalicense",
-      "url": "https://imgs.vercapas.com/covers/o-povo-famalicense/2026/o-povo-famalicense-2026-07-29-1d8793df.jpg",
-      "lastUpdated": "2026-07-29"
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ffa%2f6025_fa2f87b59fca6c7d802e30792d8d78a7.png&W=1622&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-22"
     },
     {
-      "id": "o-ribatejo",
-      "nome": "O Ribatejo",
-      "url": "https://imgs.vercapas.com/covers/o-ribatejo/o-ribatejo-2018-07-13-06b2d8.jpg",
-      "lastUpdated": "2018-07-13"
-    },
-    {
-      "id": "o-setubalense",
-      "nome": "O Setubalense",
-      "url": "https://imgs.vercapas.com/covers/o-setubalense/2026/o-setubalense-2026-07-31-2d116a69.jpg",
-      "lastUpdated": "2026-07-31"
-    },
-    {
-      "id": "povo-da-beira",
-      "nome": "Povo da Beira",
-      "url": "https://imgs.vercapas.com/covers/povo-da-beira/povo-da-beira-2020-03-25-c4ed8e.jpg",
-      "lastUpdated": "2020-03-25"
-    },
-    {
-      "id": "praca-publica",
-      "nome": "Praça Pública",
-      "url": "https://imgs.vercapas.com/covers/praca-publica/praca-publica-2013-11-14-a4e987.jpg",
-      "lastUpdated": "2013-11-14"
+      "id": "o-regional",
+      "nome": "O Regional",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f12%2f4055_12d0f93c6134ac20f499f87412f59fa7.png&W=1493&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
     },
     {
       "id": "reconquista",
       "nome": "Reconquista",
-      "url": "https://imgs.vercapas.com/covers/reconquista/2026/reconquista-2026-07-30-e3cd681e.jpg",
-      "lastUpdated": "2026-07-30"
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4d%2f4067_4dd1337bd413f0ec496b2f4bf67fdbfd.png&W=744&H=976&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-28"
     },
     {
-      "id": "reflexo",
-      "nome": "Reflexo",
-      "url": "https://imgs.vercapas.com/covers/reflexo/2026/reflexo-2026-04-28-1767d8b5.jpg",
-      "lastUpdated": "2026-04-28"
+      "id": "regiao-de-cister",
+      "nome": "Região de Cister",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f8d%2f10127_8d06a5d5e14170b81fdfd3f4c7cee3be.png&W=639&H=928&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-13"
     },
     {
       "id": "regiao-de-leiria",
       "nome": "Região de Leiria",
-      "url": "https://imgs.vercapas.com/covers/regiao-de-leiria/2026/regiao-de-leiria-2026-07-30-96c35b65.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f02%2f4071_02f581391354494bb05c3d479073f771.png&W=960&H=1144&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-30"
     },
     {
-      "id": "regiao-de-agueda",
-      "nome": "Região de Águeda",
-      "url": "https://imgs.vercapas.com/covers/regiao-de-agueda/regiao-de-agueda-2022-11-23-15a26c.jpg",
-      "lastUpdated": "2022-11-23"
+      "id": "rvjornal",
+      "nome": "RV Jornal",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f31%2f4682_315732c28759d9625fd255e1faf4b674.png&W=716&H=923&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-11"
     },
     {
-      "id": "rostos",
-      "nome": "Rostos",
-      "url": "https://imgs.vercapas.com/covers/rostos/rostos-2023-12-21-2ab0ce-x.jpg",
-      "lastUpdated": "2023-12-21"
+      "id": "semanario-felgueiras-inactive",
+      "nome": "Semanário Felgueiras",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f00%2f4077_00721b2bf8dbb50133ba9a6dff539bb1.png&W=955&H=1168&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-21"
     },
     {
-      "id": "sem-mais-jornal",
-      "nome": "Sem Mais Jornal",
-      "url": "https://imgs.vercapas.com/covers/sem-mais-jornal/sem-mais-jornal-2024-09-13-9197e4.jpg",
-      "lastUpdated": "2024-09-13"
-    },
-    {
-      "id": "tribuna-desportiva",
-      "nome": "Tribuna Desportiva",
-      "url": "https://imgs.vercapas.com/covers/tribuna-desportiva/2026/tribuna-desportiva-2026-08-03-b3ee1b6b.jpg",
-      "lastUpdated": "2026-08-03"
+      "id": "soberania-do-povo",
+      "nome": "Soberania do Povo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f2e%2f4079_2e5d0d49ce50e524d16507a8f03a960b.png&W=1537&H=1878&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
     },
     {
       "id": "tribuna-da-madeira",
       "nome": "Tribuna da Madeira",
-      "url": "https://imgs.vercapas.com/covers/tribuna-da-madeira/2026/tribuna-da-madeira-2026-07-31-3bcd7a94.jpg",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa2%2f4083_a2d6ace64a7afc5620e525ebeeb0196d.png&W=1516&H=2000&delay_optim=1&webp=1",
       "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "tribuna-das-ilhas",
+      "nome": "Tribuna das Ilhas",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fe3%2f5430_e372a1d22fd46a130e3e0864adc487a3.png&W=1364&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "a-planicie",
+      "nome": "A Planície",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fe2%2f3919_e2968bd265adaf587af47c804f405621.png&W=794&H=994&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-01"
+    },
+    {
+      "id": "a-terra-minhota",
+      "nome": "A Terra Minhota",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f6f%2f10108_6fc159cb1c058b4b8121941773262b3b.png&W=1077&H=1318&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-19"
+    },
+    {
+      "id": "a-verdade",
+      "nome": "A Verdade",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f0f%2f3920_0f1730b31379584b5467731dc7801204.png&W=1408&H=1944&delay_optim=1&webp=1",
+      "lastUpdated": "2026-02-19"
+    },
+    {
+      "id": "a-voz-de-ermesinde",
+      "nome": "A Voz de Ermesinde",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fe1%2f4198_e14fac49d9cf937a58b231bc165f8d9f.png&W=1344&H=1912&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-30"
+    },
+    {
+      "id": "a-voz-de-loule",
+      "nome": "A voz de Loulé",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f28%2f10132_28fd7f06591a5e61c0ec54850c48df47.png&W=483&H=661&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-23"
+    },
+    {
+      "id": "abarca",
+      "nome": "Abarca",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fab%2f2890_ab9956d6ea1d48e28a16764f26eefa9c.png&W=576&H=792&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "alvorada",
+      "nome": "Alvorada",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f1f%2f4195_1fb20d5eb8e9bae21d0b0f3876f370d0.png&W=1367&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-17"
+    },
+    {
+      "id": "beira-vouga-albergaria-a-velha",
+      "nome": "Beira Vouga-Albergaria-a-Velha",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f61%2f6709_614dc5bf6ddc6b5a502f9902968bd7d7.png&W=340&H=451&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-25"
+    },
+    {
+      "id": "beira-vouga-sever-do-vouga",
+      "nome": "Beira Vouga-Sever do Vouga",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f27%2f6710_2754edc4b890c6b6460bd8fdf1b6f297.png&W=568&H=728&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-06"
+    },
+    {
+      "id": "brados-do-alentejo",
+      "nome": "Brados do Alentejo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb6%2f3929_b6fcfae1d45f2563dc3c83c4481c01f3.png&W=1430&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-24"
+    },
+    {
+      "id": "caminhense",
+      "nome": "O Caminhense",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb4%2f4889_b46d655bd429272507c468855983b2e2.png&W=1408&H=1696&delay_optim=1&webp=1",
+      "lastUpdated": "2026-04-29"
+    },
+    {
+      "id": "cerveira-nova",
+      "nome": "Cerveira Nova",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc5%2f3932_c5966bb580b24c3c7de70fef2676a8fe.png&W=1644&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-20"
+    },
+    {
+      "id": "cidade-hoje",
+      "nome": "Cidade Hoje",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc3%2f10264_c300de1fa7986a5ffc755bbebee9eba5.png&W=1527&H=1890&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
+    },
+    {
+      "id": "correio-da-beira-serra",
+      "nome": "Correio da Beira Serra",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f97%2f3935_97e032f0cc2a4036366827490ef8adf0.png&W=625&H=846&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-25"
+    },
+    {
+      "id": "correio-do-alentejo",
+      "nome": "Correio do Alentejo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fce%2f3938_ce1181bb14842ba6fdd7d26a23d5bb11.png&W=1552&H=1976&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "diario-do-distrito",
+      "nome": "Diário do Distrito",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f64%2f10328_64cc22a5443f8c98b69cb09f62103d5c.png&W=952&H=1248&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-01"
+    },
+    {
+      "id": "entre-margens",
+      "nome": "Entre Margens",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f0f%2f5685_0f4e659fa4bbd704625bbaf9cc5d61fa.png&W=960&H=1189&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-23"
+    },
+    {
+      "id": "gazeta-rural",
+      "nome": "Gazeta Rural",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f55%2f10231_556fcb8c4103ca0c5635e0e3060d9941.png&W=750&H=992&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-06"
+    },
+    {
+      "id": "jornal-de-albergaria",
+      "nome": "Jornal de Albergaria",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fbc%2f10272_bc3c111921b3f005210ab1775bceb4c7.png&W=1382&H=1868&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-15"
+    },
+    {
+      "id": "jornal-da-mealhada",
+      "nome": "Jornal da Mealhada",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa6%2f3980_a6004a09a7b78d641ed34c72e1b58f74.png&W=1510&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-22"
+    },
+    {
+      "id": "jornal-sudoeste",
+      "nome": "Jornal Sudoeste",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb1%2f10222_b1e1762f69ad5a2cdaf7ef1ae04a975b.png&W=720&H=926&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-10"
+    },
+    {
+      "id": "jornal-de-vieira-do-minho",
+      "nome": "Jornal de Vieira do Minho",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f74%2f3993_747ba1f59347efc1fdcb402fb707ab6e.png&W=392&H=554&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-15"
+    },
+    {
+      "id": "jornal-e-de-estremoz",
+      "nome": "Jornal E de Estremoz",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fcf%2f5115_cfead9042136dd13345927379b4953a0.png&W=1137&H=1560&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-22"
+    },
+    {
+      "id": "jornal-de-proenca",
+      "nome": "Jornal de Proença",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc0%2f10283_c05d539664f50ef49d7535557088676f.png&W=703&H=888&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-22"
+    },
+    {
+      "id": "maia-hoje",
+      "nome": "Maia Hoje",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f24%2f4199_24ade31980354b6547e43c57758a4b14.png&W=1719&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-15"
+    },
+    {
+      "id": "noticias-de-arronches",
+      "nome": "Notícias de Arronches",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ff1%2f10273_f15a1a9aa3eb442197721a158291db1b.png&W=720&H=1024&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
+    },
+    {
+      "id": "noticias-de-vila-real",
+      "nome": "Notícias de Vila Real",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f34%2f4024_34844ef4b20c7c7265976233d58d0ca4.png&W=639&H=824&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-22"
+    },
+    {
+      "id": "pombal-jornal",
+      "nome": "Pombal Jornal",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f02%2f10119_025b1a9fc5de9ca4f988869a3f04824b.png&W=1248&H=1600&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-19"
+    },
+    {
+      "id": "o-almeirinense",
+      "nome": "O Almeirinense",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f7e%2f4031_7eacecbb35fcc47eb78abc1a14bf463b.png&W=1058&H=1380&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-04"
+    },
+    {
+      "id": "jornal-o-carrilhao",
+      "nome": "O Carrilhão",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f39%2f5630_394f464955091eb1afe9d87e4ea1aeb8.png&W=1375&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-15"
+    },
+    {
+      "id": "noticias-de-fatima",
+      "nome": "Notícias de Fátima",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fed%2f4018_ed5d5aeec77d99c66772b20bf3c22bc0.png&W=797&H=1053&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-13"
+    },
+    {
+      "id": "o-diario-da-lagoa",
+      "nome": "Diário da Lagoa",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc8%2f10232_c82c712400bee23f117bf87fbb3e4e4c.png&W=673&H=882&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-06"
+    },
+    {
+      "id": "jornal-daqui",
+      "nome": "Jornal Daqui",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f5d%2f10023_5d5c88151c5baebb04e3efdb9e3e9111.png&W=713&H=1054&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-22"
+    },
+    {
+      "id": "o-comercio-de-baiao",
+      "nome": "O Comércio de Baião",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f51%2f4035_51db7bb22c071f7e63f0763634448e24.png&W=1492&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-28"
+    },
+    {
+      "id": "o-conquistador",
+      "nome": "O Conquistador",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc8%2f4037_c8c1875807ff0f54f3a582a81a0879a5.png&W=576&H=704&delay_optim=1&webp=1",
+      "lastUpdated": "2026-04-24"
+    },
+    {
+      "id": "o-despertar",
+      "nome": "O Despertar",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f5b%2f4039_5b493514f66b303d421832cca5786faa.png&W=656&H=944&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-22"
+    },
+    {
+      "id": "o-ponto",
+      "nome": "O Ponto",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc3%2f4635_c3caf8b50aacd41551e9895f23f4a7ef.png&W=1516&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "o-portomosense",
+      "nome": "O Portomosense",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa9%2f4053_a9e5abe73d8809cb4ac03641f393a375.png&W=858&H=1072&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
+    },
+    {
+      "id": "o-paredense",
+      "nome": "O Paredense",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f5%2f5a%2f10026_5a141270ae07e453aa241db878467374.png&W=1475&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
+    },
+    {
+      "id": "o-progresso-de-paredes",
+      "nome": "O Progresso de Paredes",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fc%2fc1%2f4054_c1a4e719a9e1589ae55fede3f5eec0f8.png&W=768&H=972&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-15"
+    },
+    {
+      "id": "noticias-de-tabua",
+      "nome": "Notícias de Tábua",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f74%2f10321_7475b883ddc58fe4799bab45930dd010.png&W=733&H=958&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-23"
+    },
+    {
+      "id": "tabuense",
+      "nome": "O Tabuense",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fab%2f10189_ab8c8ec1b8f42d0336641fd7b8ca5ae3.png&W=867&H=1202&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-21"
+    },
+    {
+      "id": "o-riachense",
+      "nome": "O Riachense",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f1%2f15%2f4056_15144a610d90aa47cca704bbab448922.png&W=1397&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-16"
+    },
+    {
+      "id": "regiao-da-nazare",
+      "nome": "Região da Nazaré",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fda%2f6027_dac81955dbcfdce20436560e1a219a30.png&W=526&H=681&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-13"
+    },
+    {
+      "id": "trevim",
+      "nome": "Trevim",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f24%2f4082_248789b6285d92d6fc3a763b56125cb6.png&W=1525&H=1972&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-23"
+    },
+    {
+      "id": "voz-ribatejana",
+      "nome": "Voz Ribatejana",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f48%2f5503_48b91b619d5acd96fc92c8c940060cf1.png&W=1402&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-06-04"
+    },
+    {
+      "id": "correio-de-azambuja",
+      "nome": "Correio de Azambuja",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fd1%2f5504_d1baedd44ab1828d0c3910eadb4160b9.png&W=1240&H=1704&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-29"
+    },
+    {
+      "id": "noticias-de-cascais",
+      "nome": "Notícias de Cascais",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2feb%2f1149_ebb828d311946d0685cceb64f430ad40.png&W=1480&H=1904&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-12"
+    },
+    {
+      "id": "correio-de-lagos",
+      "nome": "Correio de Lagos",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f93%2f3937_930561cb74c26383f7a19c0260b59c93.png&W=736&H=1096&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-22"
+    },
+    {
+      "id": "correio-de-oeiras",
+      "nome": "Notícias de Oeiras",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ffa%2f3213_fac65ed25382247f5e1acdd6da6f57bd.png&W=538&H=707&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-13"
+    },
+    {
+      "id": "expresso-do-oriente",
+      "nome": "Expresso do Oriente",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4d%2f3962_4ded21121d9eb46b0ba093d2e8c07615.png&W=1069&H=1581&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-30"
+    },
+    {
+      "id": "festa",
+      "nome": "Festa",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fdb%2f5589_db254f3c58fb07e7086d8ff93a74e233.png&W=1363&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-01"
+    },
+    {
+      "id": "folha-de-montemor",
+      "nome": "Folha de Montemor",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f9a%2f4687_9a5463271d11f6194672e27ab55625ed.png&W=1415&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-16"
+    },
+    {
+      "id": "jornal-da-batalha",
+      "nome": "Jornal da Batalha",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f03%2f3976_03ce9bc717e0e58d068a33820b558201.png&W=1524&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-27"
+    },
+    {
+      "id": "jornal-da-golpilheira",
+      "nome": "Jornal da Golpilheira",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb0%2f3977_b0d9139b05e85e554581011f413157c3.png&W=930&H=1281&delay_optim=1&webp=1",
+      "lastUpdated": "2026-08-01"
+    },
+    {
+      "id": "jornal-das-cortes",
+      "nome": "Jornal das Cortes",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f49%2f5849_49d378ec9897ea5fc013a07d93c2b649.png&W=1425&H=1897&delay_optim=1&webp=1",
+      "lastUpdated": "2026-02-15"
+    },
+    {
+      "id": "jornal-horizonte",
+      "nome": "Jornal Horizonte",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2fff%2f10042_ff07b0d9c76185f8bb620d429f5aa1ef.png&W=1370&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-01"
+    },
+    {
+      "id": "jornal-de-abrantes",
+      "nome": "Jornal de Abrantes",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ff7%2f4893_f786cf4f5ac775a8a5fc96d4c88050a4.png&W=661&H=821&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-13"
+    },
+    {
+      "id": "magazine-serrano",
+      "nome": "Magazine Serrano",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f66%2f10259_66320e7013d58c138f63ee5f4c943981.png&W=671&H=992&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-16"
+    },
+    {
+      "id": "noticias-matosinhos",
+      "nome": "NM Matosinhos",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f93%2f5227_930b7444e609a042d259c69028aac1fe.png&W=1551&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-09"
+    },
+    {
+      "id": "o-alvaiazerense",
+      "nome": "O Alvaiazerense",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f0%2f0b%2f4033_0b8ffd41e4cf6e3224d1637d22baa4a0.png&W=536&H=720&delay_optim=1&webp=1",
+      "lastUpdated": "2026-03-31"
+    },
+    {
+      "id": "o-ericeira",
+      "nome": "O Ericeira",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f79%2f4043_79742b3aabe00994f6316e84048544b8.png&W=1430&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-25"
+    },
+    {
+      "id": "o-concelho-de-estarreja",
+      "nome": "O Concelho de Estarreja",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f33%2f10137_334d63755003234e652e5a3e9a98812d.png&W=1470&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "id": "o-concelho-de-vila-velha-de-rodao",
+      "nome": "O Concelho de Vila Velha de Rodão",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f6%2f6a%2f10049_6a6c1b6ef139376e074f28cbc0a208c6.png&W=1530&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-31"
+    },
+    {
+      "id": "reflexo",
+      "nome": "Reflexo",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f9%2f9b%2f4068_9b2a5a6df38fa4ebc4d717efef0da4c1.png&W=674&H=695&delay_optim=1&webp=1",
+      "lastUpdated": "2026-04-28"
+    },
+    {
+      "id": "serras-de-ansiao",
+      "nome": "Serras de Ansião",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f4c%2f7326_4c026a838b9f4bfa6fa4c61003aa0662.png&W=502&H=640&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-20"
+    },
+    {
+      "id": "valor-local",
+      "nome": "Valor Local",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fe%2fe5%2f6785_e5d3563a9154afdacff9ba4969c83a95.png&W=1629&H=2000&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-11"
+    },
+    {
+      "id": "vivacidade",
+      "nome": "Vivacidade",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2faf%2f6157_af7f3606b9b26ad6cc6072b478048f4c.png&W=448&H=592&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-27"
+    },
+    {
+      "id": "mais-beiras-informacao",
+      "nome": "Mais Beiras Informação",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f4%2f45%2f10327_455f0afc45629b3842d27aeb680dee19.png&W=454&H=592&delay_optim=1&webp=1",
+      "lastUpdated": "2026-05-01"
+    },
+    {
+      "id": "oleiros-magazine",
+      "nome": "Oleiros Magazine",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f21%2f4029_2102aa178eb1fe41e450fb4593133ac0.png&W=629&H=970&delay_optim=1&webp=1",
+      "lastUpdated": "2026-04-29"
+    },
+    {
+      "id": "lpp",
+      "nome": "LPP I Lisboa para Pessoas",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f3%2f3d%2f10296_3d7590cbae950dff0a52fc8aecf5e1bf.png&W=1256&H=1870&delay_optim=1&webp=1",
+      "lastUpdated": "2026-02-11"
+    },
+    {
+      "id": "noticias-de-gouveia",
+      "nome": "Notícias de Gouveia",
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f7e%2f5084_7e5cadfde12dafd9afaa128e9195b1d0.png&W=656&H=940&delay_optim=1&webp=1",
+      "lastUpdated": "2026-07-10"
     }
   ],
   "Internacional": [
