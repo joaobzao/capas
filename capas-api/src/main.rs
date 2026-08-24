@@ -49,19 +49,43 @@ fn reformat_date(d: &str) -> String {
     }
 }
 
-// Extrai as capas de uma secção do SAPO (uma única página HTML estática).
-fn fetch_sapo_section(client: &Client, slug: &str) -> Vec<Capa> {
-    let url = format!("https://sapo.pt/noticias/jornais/{}", slug);
-    let Ok(resp) = client.get(&url).header("User-Agent", USER_AGENT).send() else {
-        eprintln!("⚠️  Falha a obter secção SAPO '{}'", slug);
-        return Vec::new();
-    };
-    let Ok(body) = resp.text() else {
-        eprintln!("⚠️  Falha a ler secção SAPO '{}'", slug);
-        return Vec::new();
-    };
+// O edge do SAPO rejeita pedidos de forma intermitente: ora corta a ligação
+// (erro de transporte), ora devolve 404 com uma página de erro que é HTML
+// perfeitamente válido. Sem verificar o status essa página era parseada como
+// "secção sem capas" — falha silenciosa em vez de erro. Daí: status verificado
+// e três tentativas com backoff antes de desistir.
+fn get_html(client: &Client, url: &str) -> Result<String, String> {
+    const TENTATIVAS: u32 = 3;
+    let mut ultimo_erro = String::new();
 
-    let doc = Html::parse_document(&body);
+    for tentativa in 1..=TENTATIVAS {
+        match client.get(url).header("User-Agent", USER_AGENT).send() {
+            Ok(resp) if resp.status().is_success() => match resp.text() {
+                Ok(body) => return Ok(body),
+                Err(e) => ultimo_erro = format!("falha a ler o corpo: {}", e),
+            },
+            Ok(resp) => ultimo_erro = format!("HTTP {}", resp.status()),
+            Err(e) => ultimo_erro = e.to_string(),
+        }
+
+        if tentativa < TENTATIVAS {
+            eprintln!("⚠️  {} — tentativa {}/{}: {}", url, tentativa, TENTATIVAS, ultimo_erro);
+            sleep(Duration::from_millis(500 * u64::from(tentativa)));
+        }
+    }
+
+    Err(ultimo_erro)
+}
+
+// Extrai as capas de uma secção do SAPO (uma única página HTML estática).
+fn fetch_sapo_section(client: &Client, slug: &str) -> Result<Vec<Capa>, String> {
+    let url = format!("https://sapo.pt/noticias/jornais/{}", slug);
+    let body = get_html(client, &url).map_err(|e| format!("secção SAPO '{}': {}", slug, e))?;
+    Ok(parse_sapo_section(&body))
+}
+
+fn parse_sapo_section(body: &str) -> Vec<Capa> {
+    let doc = Html::parse_document(body);
     let trigger = Selector::parse("a.trigger").unwrap();
     // Redimensionar o thumb do SAPO para ~800px de largura (ver COVER_W/H abaixo).
     let w_re = regex::Regex::new(r"([?&])W=\d+").unwrap();
@@ -107,6 +131,16 @@ fn fetch_sapo_section(client: &Client, slug: &str) -> Vec<Capa> {
     capas
 }
 
+// Secções portuguesas sem uma única capa. O Internacional fica de fora: vem de
+// fontes de terceiros e é best-effort, não deve bloquear a publicação.
+fn seccoes_vazias(resultado: &IndexMap<String, Vec<Capa>>) -> Vec<&str> {
+    resultado
+        .iter()
+        .filter(|(secao, capas)| secao.as_str() != "Internacional" && capas.is_empty())
+        .map(|(secao, _)| secao.as_str())
+        .collect()
+}
+
 fn slugify(name: &str) -> String {
     name.nfkd()
         .filter(|c| c.is_ascii())
@@ -137,7 +171,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut resultado: IndexMap<String, Vec<Capa>> = IndexMap::new();
     for (slug, chave) in seccoes {
-        let mut capas = fetch_sapo_section(&client, slug);
+        let mut capas = fetch_sapo_section(&client, slug)?;
 
         // No Desporto, manter A Bola / Record / O Jogo no topo (ordenação
         // estável: os restantes preservam a ordem do SAPO).
@@ -157,19 +191,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         resultado.insert("Internacional".to_string(), internacional);
     }
 
-    // 6b. Guarda de segurança: se a fonte das capas portuguesas (SAPO) falhar
-    //     ou bloquear, as secções nacionais vêm vazias e só sobra o Internacional.
-    //     Nesse caso NÃO gravamos: saímos com erro para o publish script abortar
-    //     e manter o último capas.json válido em vez de publicar lixo.
-    let nacionais_total: usize = resultado
-        .iter()
-        .filter(|(secao, _)| secao.as_str() != "Internacional")
-        .map(|(_, capas)| capas.len())
-        .sum();
-    if nacionais_total < 5 {
+    // 6b. Guarda de segurança, por secção. O total somado não servia: com os
+    //     Regionais cheios (~145) e os Jornais Nacionais a zero o total passava
+    //     à vontade e publicávamos um capas.json com a secção principal vazia.
+    //     Se o SAPO mudar o HTML e uma secção deixar de dar capas, NÃO gravamos:
+    //     saímos com erro para o deploy abortar e manter o último capas.json bom.
+    let vazias = seccoes_vazias(&resultado);
+    if !vazias.is_empty() {
         eprintln!(
-            "❌ Apenas {} capas nacionais encontradas — provável falha do SAPO. A abortar sem gravar.",
-            nacionais_total
+            "❌ Secções sem capas: {} — provável mudança no HTML do SAPO. A abortar sem gravar.",
+            vazias.join(", ")
         );
         std::process::exit(1);
     }
@@ -244,12 +275,10 @@ fn fetch_frontpages_cover(client: &Client, domain: &str, path: &str) -> Option<(
     let page_url = format!("{}{}", domain, path);
     sleep(Duration::from_millis(300));
 
-    let html = client
-        .get(&page_url)
-        .header("User-Agent", USER_AGENT)
-        .send()
-        .ok()?
-        .text()
+    // Mesma razão do SAPO: status verificado e com tentativas. Aqui a falha não
+    // é fatal — o Internacional é best-effort e só perde este jornal.
+    let html = get_html(client, &page_url)
+        .map_err(|e| eprintln!("⚠️  {}: {}", page_url, e))
         .ok()?;
 
     // Full-res /g/ path, base64-encoded.
@@ -328,4 +357,94 @@ fn date_from_slash_path(path: &str) -> String {
         .captures(path)
         .map(|c| format!("{}-{}-{}", &c[1], &c[2], &c[3]))
         .unwrap_or_default()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn capa_exemplo() -> Capa {
+        Capa {
+            id: "publico".to_string(),
+            nome: "Público".to_string(),
+            url: "https://thumbs.web.sapo.io/?W=800".to_string(),
+            last_updated: "2026-08-24".to_string(),
+        }
+    }
+
+    // Uma âncora igual às que o SAPO serve, com o thumb em resolução nativa.
+    fn ancora(label: &str, title: &str) -> String {
+        format!(
+            r#"<a class="trigger" href="https://thumbs.web.sapo.io/?W=1600&H=2400&epic=abc"
+               aria-label="{label}" data-title="{title}" data-date="24/08/2026"></a>"#
+        )
+    }
+
+    #[test]
+    fn parse_extrai_capa_e_redimensiona_para_800px() {
+        let capas = parse_sapo_section(&ancora("publico", "Público"));
+
+        assert_eq!(capas.len(), 1);
+        assert_eq!(capas[0].id, "publico");
+        assert_eq!(capas[0].nome, "Público");
+        assert_eq!(capas[0].last_updated, "2026-08-24");
+        assert_eq!(capas[0].url, "https://thumbs.web.sapo.io/?W=800&H=1200&epic=abc");
+    }
+
+    // Quando o SAPO rejeita o pedido devolve uma página de erro: HTML válido,
+    // sem um único <a class="trigger">. É indistinguível de "secção sem capas",
+    // e é por isso que a guarda por secção existe.
+    #[test]
+    fn pagina_de_rejeicao_do_sapo_nao_produz_capas() {
+        let capas = parse_sapo_section("<html><body><h1>SAPO</h1></body></html>");
+
+        assert!(capas.is_empty());
+    }
+
+    // Servidor de teste: responde `respostas` em sequência, uma por ligação.
+    fn servidor(respostas: Vec<&'static str>) -> String {
+        let listener = std::net::TcpListener::bind("127.0.0.1:0").unwrap();
+        let addr = listener.local_addr().unwrap();
+        std::thread::spawn(move || {
+            for (stream, resposta) in listener.incoming().zip(respostas) {
+                let mut stream = stream.unwrap();
+                let mut buf = [0u8; 1024];
+                let _ = std::io::Read::read(&mut stream, &mut buf);
+                let _ = stream.write_all(resposta.as_bytes());
+            }
+        });
+        format!("http://{}/", addr)
+    }
+
+    // Uma falha transitória do SAPO (ligação cortada, 5xx) chegou a esvaziar
+    // uma secção inteira num run real. Tem de voltar a tentar.
+    #[test]
+    fn get_html_volta_a_tentar_apos_falha_transitoria() {
+        let url = servidor(vec![
+            "HTTP/1.1 503 Service Unavailable\r\nContent-Length: 0\r\n\r\n",
+            "HTTP/1.1 200 OK\r\nContent-Length: 2\r\n\r\nok",
+        ]);
+
+        assert_eq!(get_html(&Client::new(), &url), Ok("ok".to_string()));
+    }
+
+    #[test]
+    fn guarda_deteta_seccao_portuguesa_vazia() {
+        let mut resultado: IndexMap<String, Vec<Capa>> = IndexMap::new();
+        resultado.insert("Jornais Nacionais".to_string(), Vec::new());
+        resultado.insert("Desporto".to_string(), vec![capa_exemplo()]);
+
+        assert_eq!(seccoes_vazias(&resultado), vec!["Jornais Nacionais"]);
+    }
+
+    // O Internacional é best-effort (fontes de terceiros, sem contrato); ficar
+    // vazio não deve impedir a publicação das capas portuguesas.
+    #[test]
+    fn guarda_ignora_internacional_vazio() {
+        let mut resultado: IndexMap<String, Vec<Capa>> = IndexMap::new();
+        resultado.insert("Jornais Nacionais".to_string(), vec![capa_exemplo()]);
+        resultado.insert("Internacional".to_string(), Vec::new());
+
+        assert!(seccoes_vazias(&resultado).is_empty());
+    }
 }
