@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, macOS, ARM64, mac-mini-m1]
     defaults:
       run:
         working-directory: capas-api  # 👈 muda o diretório base
