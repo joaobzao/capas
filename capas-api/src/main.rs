@@ -184,6 +184,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         sleep(Duration::from_millis(300));
     }
 
+    // 5b. O SAPO guarda alguns jornais estrangeiros em resolução muito baixa.
+    //     Onde existir a mesma capa em alta resolução nas fontes do Internacional,
+    //     trocar. Best-effort: nunca falha o run nem esvazia uma secção.
+    upgrade_capas_de_baixa_resolucao(&client, &mut resultado);
+
     // 6. Buscar capas internacionais (frontpages.com / giornalone.it em alta
     //    resolução, kiosko.net como fallback para os jornais não disponíveis)
     let internacional = fetch_international_covers(&client);
@@ -215,10 +220,88 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+// Jornais estrangeiros cujo original no SAPO é de baixa resolução: o
+// thumbs.web.sapo.io nunca amplia, devolve no máximo o tamanho guardado, e para
+// estes o SAPO só tem 200-750px de largura (o L'Équipe e o Tuttosport chegam a
+// 200px, ilegíveis no detalhe). As mesmas capas existem a 1200px+ nas fontes
+// que já usamos no Internacional. Chave: id canónico (ver canonical_id).
+//
+// Só entram aqui jornais verificados um a um como sendo a MESMA publicação —
+// p.ex. o frontpages tem "Le Figaro" mas não o suplemento "Le Figaro Sport", e
+// das quatro edições do Mundo Deportivo só a principal tem equivalente.
+fn fonte_alternativa(id: &str) -> Option<Source> {
+    let source = match id {
+        // Desporto
+        "l-equipe" => Source::Kiosko { country: "fr", paper: "l_equip" },
+        "tuttosport" => Source::FrontPages { domain: GN, path: "/prima-pagina-tuttosport/" },
+        "superdeporte" => Source::FrontPages { domain: FP, path: "/superdeporte/" },
+        "il-romanista" => Source::FrontPages { domain: GN, path: "/prima-pagina-il-romanista/" },
+        "ole-argentina" => Source::Kiosko { country: "ar", paper: "ole" },
+        "gazzetta-dello-sport" => Source::Kiosko { country: "it", paper: "gazzetta_sport" },
+        "mundo-deportivo" => Source::FrontPages { domain: FP, path: "/mundo-deportivo/" },
+        "corriere-dello-sport" => {
+            Source::FrontPages { domain: GN, path: "/prima-pagina-corriere-dello-sport/" }
+        }
+        // Economia e Gestão
+        "la-tribune" => Source::FrontPages { domain: FP, path: "/la-tribune/" },
+        // Atenção: o SAPO tem dois "El Economista" — o espanhol (este) e o
+        // mexicano (id "el-economista"), que não tem fonte alternativa.
+        "el-economista-spain" => Source::FrontPages { domain: FP, path: "/el-economista/" },
+        "expansion" => Source::FrontPages { domain: FP, path: "/expansion/" },
+        "cinco-dias" => Source::Kiosko { country: "es", paper: "5dias" },
+        "valor-economico" => Source::FrontPages { domain: FP, path: "/valor-economico/" },
+        _ => return None,
+    };
+    Some(source)
+}
+
+// Troca a capa do SAPO pela versão em alta resolução, quando existe. Best-effort:
+// qualquer falha deixa ficar a do SAPO, que é de baixa qualidade mas é válida.
+fn upgrade_capas_de_baixa_resolucao(client: &Client, resultado: &mut IndexMap<String, Vec<Capa>>) {
+    let mut trocadas = 0;
+    let mut tentadas = 0;
+
+    for capa in resultado.values_mut().flatten() {
+        let Some(source) = fonte_alternativa(&capa.id) else {
+            continue;
+        };
+        tentadas += 1;
+
+        let Some((url, data)) = resolve_source(client, &source) else {
+            eprintln!("⚠️  {}: fonte alternativa indisponível, fica a do SAPO", capa.id);
+            continue;
+        };
+
+        // Nunca trocar atualidade por nitidez: se a fonte alternativa ainda não
+        // publicou a capa de hoje, a do SAPO (mais recente) é a melhor escolha.
+        if !melhor_data(&data, &capa.last_updated) {
+            eprintln!(
+                "ℹ️  {}: alternativa é de {} e o SAPO tem {}, fica a do SAPO",
+                capa.id, data, capa.last_updated
+            );
+            continue;
+        }
+
+        capa.url = url;
+        capa.last_updated = data;
+        trocadas += 1;
+    }
+
+    println!("🔍 Alta resolução: {} de {} capas substituídas", trocadas, tentadas);
+}
+
+// Datas em YYYY-MM-DD comparam-se lexicograficamente.
+fn melhor_data(alternativa: &str, sapo: &str) -> bool {
+    alternativa >= sapo
+}
+
 // Where a given international cover is sourced from. frontpages.com and its
 // Italian sibling giornalone.it serve 1200px WebP covers behind the same
 // base64-obfuscated `/g/` URL scheme; kiosko.net is the fallback for papers
 // frontpages.com doesn't carry (The Daily Telegraph, Daily Mail, WSJ).
+const FP: &str = "https://www.frontpages.com";
+const GN: &str = "https://www.giornalone.it";
+
 enum Source {
     // `domain` e.g. "https://www.frontpages.com", `path` e.g. "/el-pais/"
     FrontPages { domain: &'static str, path: &'static str },
@@ -227,9 +310,6 @@ enum Source {
 }
 
 fn fetch_international_covers(client: &Client) -> Vec<Capa> {
-    const FP: &str = "https://www.frontpages.com";
-    const GN: &str = "https://www.giornalone.it";
-
     // Display names are kept byte-for-byte identical to preserve each cover's
     // `id = slugify(nome)`, which the app persists for ordering/favorites.
     let papers = vec![
@@ -248,10 +328,7 @@ fn fetch_international_covers(client: &Client) -> Vec<Capa> {
     let mut covers = Vec::new();
 
     for (display_name, source) in &papers {
-        let resolved = match source {
-            Source::FrontPages { domain, path } => fetch_frontpages_cover(client, domain, path),
-            Source::Kiosko { country, paper } => fetch_kiosko_cover(client, country, paper),
-        };
+        let resolved = resolve_source(client, source);
 
         if let Some((url, last_updated)) = resolved {
             covers.push(Capa {
@@ -265,6 +342,13 @@ fn fetch_international_covers(client: &Client) -> Vec<Capa> {
 
     println!("🌍 Internacional: {} de {} capas encontradas", covers.len(), papers.len());
     covers
+}
+
+fn resolve_source(client: &Client, source: &Source) -> Option<(String, String)> {
+    match source {
+        Source::FrontPages { domain, path } => fetch_frontpages_cover(client, domain, path),
+        Source::Kiosko { country, paper } => fetch_kiosko_cover(client, country, paper),
+    }
 }
 
 // Resolve a cover from a frontpages.com-family page. The full-res `/g/` image
@@ -446,5 +530,38 @@ mod tests {
         resultado.insert("Internacional".to_string(), Vec::new());
 
         assert!(seccoes_vazias(&resultado).is_empty());
+    }
+
+    // O SAPO guarda estes dois a 200px de largura; sem fonte alternativa a capa
+    // fica ilegível no detalhe.
+    #[test]
+    fn jornais_de_baixa_resolucao_tem_fonte_alternativa() {
+        for id in ["l-equipe", "tuttosport", "superdeporte", "mundo-deportivo"] {
+            assert!(fonte_alternativa(id).is_some(), "{} sem fonte alternativa", id);
+        }
+    }
+
+    // Só a edição principal do Mundo Deportivo tem equivalente no frontpages; as
+    // regionais são outras capas e não podem ser substituídas pela principal.
+    #[test]
+    fn edicoes_sem_equivalente_ficam_no_sapo() {
+        for id in [
+            "mundo-deportivo-gipuzkoa",
+            "mundo-deportivo-atletico",
+            "le-figaro-sport",
+            "el-economista",
+            "publico",
+        ] {
+            assert!(fonte_alternativa(id).is_none(), "{} não devia ser substituído", id);
+        }
+    }
+
+    // Uma capa mais nítida mas de ontem é pior do que a de hoje: a fonte
+    // alternativa só ganha se estiver tão atualizada como o SAPO.
+    #[test]
+    fn alternativa_desatualizada_nao_substitui_o_sapo() {
+        assert!(melhor_data("2026-08-28", "2026-08-28"));
+        assert!(melhor_data("2026-08-29", "2026-08-28"));
+        assert!(!melhor_data("2026-08-27", "2026-08-28"));
     }
 }
