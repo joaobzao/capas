@@ -81,8 +81,8 @@
     {
       "id": "domingo-cm",
       "nome": "Domingo | CM",
-      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fa%2fa2%2f6261_a2154012d9153e1ef3b01ab7a66688d0.png&W=800&H=1200&delay_optim=1&webp=1",
-      "lastUpdated": "2026-10-05"
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2f8%2f82%2f6261_82141c9177e91a507b7104426d3633e3.png&W=800&H=1200&delay_optim=1&webp=1",
+      "lastUpdated": "2026-10-11"
     },
     {
       "id": "tal-qual",
@@ -167,14 +167,14 @@
     {
       "id": "jm-desporto",
       "nome": "JM - Desporto",
-      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fbe%2f10325_be25d3dc94055a96607df7926350cb72.png&W=800&H=1200&delay_optim=1&webp=1",
-      "lastUpdated": "2026-10-09"
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f7%2f73%2f10325_7301b104165072c752905530c683a2fb.png&W=800&H=1200&delay_optim=1&webp=1",
+      "lastUpdated": "2026-10-12"
     },
     {
       "id": "marca",
       "nome": "Marca",
-      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f01%2fimages%2f2%2f2a%2f1843_2a481256a93ba2b821dc054e98ba138f.png&W=800&H=1200&delay_optim=1&webp=1",
-      "lastUpdated": "2026-10-09"
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2ff%2ffc%2f1843_fc94ac22b1e83788ea7075bccbf59166.png&W=800&H=1200&delay_optim=1&webp=1",
+      "lastUpdated": "2026-10-12"
     },
     {
       "id": "jornal-as",
@@ -185,8 +185,8 @@
     {
       "id": "sport",
       "nome": "Sport",
-      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fb%2fb5%2f1852_b51e03500081c087723c30d684a5f896.png&W=800&H=1200&delay_optim=1&webp=1",
-      "lastUpdated": "2026-10-09"
+      "url": "https://thumbs.web.sapo.io/?pic=http%3a%2f%2fia.imgs.sapo.pt%2f02%2fimages%2fd%2fd7%2f1852_d7470cfd7729240fe50bf36a3dad81f3.png&W=800&H=1200&delay_optim=1&webp=1",
+      "lastUpdated": "2026-10-12"
     },
     {
       "id": "mundo-deportivo",
@@ -1698,6 +1698,12 @@
       "id": "washington-post",
       "nome": "Washington Post",
       "url": "https://www.frontpages.com/g/2026/10/12/the-washington-post-064634rrf8kwg.webp",
+      "lastUpdated": "2026-10-12"
+    },
+    {
+      "id": "the-wall-street-journal",
+      "nome": "The Wall Street Journal",
+      "url": "https://img.kiosko.net/2026/10/12/us/wsj.jpg",
       "lastUpdated": "2026-10-12"
     },
     {
